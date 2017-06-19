@@ -20,34 +20,34 @@ import javax.persistence.Id;
 public class Stagiaire {
 	
 	@Id
-	@Column(name="stag_login", length=3, nullable=false)
+	@Column(name="stag_login", length=8, nullable=false)
 	private String login;
 	
-	@Column(name="stag_mdp", length=3, nullable=false)
+	@Column(name="stag_mdp", length=30, nullable=false)
 	private String motDePasse;
 	
-	@Column(name="stag_nom", length=3, nullable=false)
+	@Column(name="stag_nom", length=60, nullable=false)
 	private String nom;
 	
-	@Column(name="stag_prenom", length=3, nullable=false)
+	@Column(name="stag_prenom", length=60, nullable=false)
 	private String prenom;
 	
-	@Column(name="stag_num_tel_admi", length=3, nullable=false)
+	@Column(name="stag_num_tel_admi", length=10, nullable=true)
 	private String numeroTelephoneAdministration;
 	
-	@Column(name="stag_num_tel_forma", length=3, nullable=false)
+	@Column(name="stag_num_tel_forma", length=10, nullable=true)
 	private String numeroTelephoneFormation;
 	
-	@Column(name="stag_adresse", length=3, nullable=false)
+	@Column(name="stag_adresse", length=200, nullable=true)
 	private String adresse;
 	
-	@Column(name="stag_mail", length=3, nullable=false)
+	@Column(name="stag_mail", length=50, nullable=true)
 	private String mail;
 	
-	@Column(name="stag_mail_forma", length=3, nullable=false)
+	@Column(name="stag_mail_forma", length=50, nullable=true)
 	private String mailFormation;
 	
-	@Column(name="stag_humeur", length=3, nullable=false)
+	@Column(name="stag_humeur", length=20, nullable=true)
 	private String humeur;
 
 	/**
