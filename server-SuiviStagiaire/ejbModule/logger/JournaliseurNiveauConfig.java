@@ -6,26 +6,26 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.SimpleFormatter;
 
-public class JournaliseurNiveauInfo extends java.util.logging.Logger {
+public class JournaliseurNiveauConfig extends java.util.logging.Logger {
 
 	private FileHandler handler;
 	private SimpleFormatter formatter;
-	private static final JournaliseurNiveauInfo INSTANCE = new JournaliseurNiveauInfo();
+	private static final JournaliseurNiveauConfig INSTANCE = new JournaliseurNiveauConfig();
 	
 	/**
 	 * Never use it for Singleton pattern
 	 * 
 	 * @param name
 	 * @param resourceBundleName
-	 * @see JournaliseurNiveauInfo
+	 * @see JournaliseurNiveauConfig
 	 */
 	@Deprecated
-	protected JournaliseurNiveauInfo(String name, String resourceBundleName) {
+	protected JournaliseurNiveauConfig(String name, String resourceBundleName) {
 		super(name, resourceBundleName);
 	}
 
 
-	private JournaliseurNiveauInfo() {
+	private JournaliseurNiveauConfig() {
 		super("Log", null);
 		init();
 		
@@ -45,13 +45,14 @@ public class JournaliseurNiveauInfo extends java.util.logging.Logger {
 		
 	}
 	
-	public static JournaliseurNiveauInfo getINSTANCE() {
+	public static JournaliseurNiveauConfig getINSTANCE() {
 		return INSTANCE;
 	}
 
 
 	public void log(String string) {
-		this.log(Level.INFO, string);
+		this.log(Level.CONFIG, string);
+		
 	}
 	
 }

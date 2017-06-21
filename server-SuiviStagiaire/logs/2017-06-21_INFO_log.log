@@ -1,24 +1,24 @@
-juin 21, 2017 12:34:20 PM logger.JournaliseurNiveauInfo log
+juin 21, 2017 12:34:20 PM logger.JournaliseurNiveauConfig log
 INFOS: [Debut methode] : insertAutoEvaluation| [autoEvaluation IN] : AutoEvaluation [identifiant=0, competence=Competences [identifiant=C1, nomLong=Test, nomCourt=Test, sequence=Sequence [identifiant=S1, module=Module [identifiant=M1, nomLong=Test, nomCourt=Test], nomLong=Test, nomCourt=Test], module=Module [identifiant=M1, nomLong=Test, nomCourt=Test]], sequence=Sequence [identifiant=S1, module=Module [identifiant=M1, nomLong=Test, nomCourt=Test], nomLong=Test, nomCourt=Test], module=Module [identifiant=M1, nomLong=Test, nomCourt=Test], niveauAcquisition=NiveauAcquisition [getIndentifiant()=1, getNiveau()=A], stagiaire=Stagiaire [getLogin()=login, getMotDePasse()=motdepasse, getNom()=nom, getPrenom()=prenom, ], dateAutoEvaluation=2017-06-21, ressenti=null]
-juin 21, 2017 12:34:20 PM logger.JournaliseurNiveauInfo log
+juin 21, 2017 12:34:20 PM logger.JournaliseurNiveauConfig log
 INFOS: Avant Persit : AutoEvaluation [identifiant=0, competence=Competences [identifiant=C1, nomLong=Test, nomCourt=Test, sequence=Sequence [identifiant=S1, module=Module [identifiant=M1, nomLong=Test, nomCourt=Test], nomLong=Test, nomCourt=Test], module=Module [identifiant=M1, nomLong=Test, nomCourt=Test]], sequence=Sequence [identifiant=S1, module=Module [identifiant=M1, nomLong=Test, nomCourt=Test], nomLong=Test, nomCourt=Test], module=Module [identifiant=M1, nomLong=Test, nomCourt=Test], niveauAcquisition=NiveauAcquisition [getIndentifiant()=1, getNiveau()=A], stagiaire=Stagiaire [getLogin()=login, getMotDePasse()=motdepasse, getNom()=nom, getPrenom()=prenom, ], dateAutoEvaluation=2017-06-21, ressenti=null]
-juin 21, 2017 12:34:20 PM logger.JournaliseurNiveauInfo log
+juin 21, 2017 12:34:20 PM logger.JournaliseurNiveauConfig log
 INFOS: après Persit : AutoEvaluation [identifiant=1, competence=Competences [identifiant=C1, nomLong=Test, nomCourt=Test, sequence=Sequence [identifiant=S1, module=Module [identifiant=M1, nomLong=Test, nomCourt=Test], nomLong=Test, nomCourt=Test], module=Module [identifiant=M1, nomLong=Test, nomCourt=Test]], sequence=Sequence [identifiant=S1, module=Module [identifiant=M1, nomLong=Test, nomCourt=Test], nomLong=Test, nomCourt=Test], module=Module [identifiant=M1, nomLong=Test, nomCourt=Test], niveauAcquisition=NiveauAcquisition [getIndentifiant()=1, getNiveau()=A], stagiaire=Stagiaire [getLogin()=login, getMotDePasse()=motdepasse, getNom()=nom, getPrenom()=prenom, ], dateAutoEvaluation=2017-06-21, ressenti=null]
-juin 21, 2017 12:34:20 PM logger.JournaliseurNiveauInfo log
+juin 21, 2017 12:34:20 PM logger.JournaliseurNiveauConfig log
 INFOS: [Fin methode] : insertAutoEvaluation
-juin 21, 2017 12:34:20 PM logger.JournaliseurNiveauInfo log
+juin 21, 2017 12:34:20 PM logger.JournaliseurNiveauConfig log
 INFOS: [Debut methode] : selectAutoEvaluationByStagCompDate 
-juin 21, 2017 12:34:20 PM logger.JournaliseurNiveauInfo log
+juin 21, 2017 12:34:20 PM logger.JournaliseurNiveauConfig log
 INFOS: [AutoEvaluation IN] : AutoEvaluation [identifiant=0, competence=Competences [identifiant=C1, nomLong=Test, nomCourt=Test, sequence=Sequence [identifiant=S1, module=Module [identifiant=M1, nomLong=Test, nomCourt=Test], nomLong=Test, nomCourt=Test], module=Module [identifiant=M1, nomLong=Test, nomCourt=Test]], sequence=Sequence [identifiant=S1, module=Module [identifiant=M1, nomLong=Test, nomCourt=Test], nomLong=Test, nomCourt=Test], module=Module [identifiant=M1, nomLong=Test, nomCourt=Test], niveauAcquisition=NiveauAcquisition [getIndentifiant()=1, getNiveau()=A], stagiaire=Stagiaire [getLogin()=login, getMotDePasse()=motdepasse, getNom()=nom, getPrenom()=prenom, ], dateAutoEvaluation=2017-06-21, ressenti=null]
-juin 21, 2017 12:34:21 PM logger.JournaliseurNiveauInfo log
+juin 21, 2017 12:34:21 PM logger.JournaliseurNiveauConfig log
 INFOS: AutoEvaluation OUT : AutoEvaluation [identifiant=1, competence=Competences [identifiant=C1, nomLong=Test, nomCourt=Test, sequence=Sequence [identifiant=S1, module=Module [identifiant=M1, nomLong=Test, nomCourt=Test], nomLong=Test, nomCourt=Test], module=Module [identifiant=M1, nomLong=Test, nomCourt=Test]], sequence=Sequence [identifiant=S1, module=Module [identifiant=M1, nomLong=Test, nomCourt=Test], nomLong=Test, nomCourt=Test], module=Module [identifiant=M1, nomLong=Test, nomCourt=Test], niveauAcquisition=NiveauAcquisition [getIndentifiant()=1, getNiveau()=A], stagiaire=Stagiaire [getLogin()=login, getMotDePasse()=motdepasse, getNom()=nom, getPrenom()=prenom, ], dateAutoEvaluation=2017-06-21, ressenti=null]
-juin 21, 2017 12:34:21 PM logger.JournaliseurNiveauInfo log
+juin 21, 2017 12:34:21 PM logger.JournaliseurNiveauConfig log
 INFOS: [Fin methode] : selectAutoEvaluationByStagCompDate 
-juin 21, 2017 12:34:21 PM logger.JournaliseurNiveauInfo log
+juin 21, 2017 12:34:21 PM logger.JournaliseurNiveauConfig log
 INFOS: [Debut methode] : selectAutoEvaluationByStagCompDate 
-juin 21, 2017 12:34:21 PM logger.JournaliseurNiveauInfo log
+juin 21, 2017 12:34:21 PM logger.JournaliseurNiveauConfig log
 INFOS: [AutoEvaluation IN] : AutoEvaluation [identifiant=1, competence=Competences [identifiant=C1, nomLong=Test, nomCourt=Test, sequence=Sequence [identifiant=S1, module=Module [identifiant=M1, nomLong=Test, nomCourt=Test], nomLong=Test, nomCourt=Test], module=Module [identifiant=M1, nomLong=Test, nomCourt=Test]], sequence=Sequence [identifiant=S1, module=Module [identifiant=M1, nomLong=Test, nomCourt=Test], nomLong=Test, nomCourt=Test], module=Module [identifiant=M1, nomLong=Test, nomCourt=Test], niveauAcquisition=NiveauAcquisition [getIndentifiant()=1, getNiveau()=A], stagiaire=Stagiaire [getLogin()=login, getMotDePasse()=motdepasse, getNom()=nom, getPrenom()=prenom, ], dateAutoEvaluation=2017-06-21, ressenti=null]
-juin 21, 2017 12:34:21 PM logger.JournaliseurNiveauInfo log
+juin 21, 2017 12:34:21 PM logger.JournaliseurNiveauConfig log
 INFOS: AutoEvaluation OUT : AutoEvaluation [identifiant=1, competence=Competences [identifiant=C1, nomLong=Test, nomCourt=Test, sequence=Sequence [identifiant=S1, module=Module [identifiant=M1, nomLong=Test, nomCourt=Test], nomLong=Test, nomCourt=Test], module=Module [identifiant=M1, nomLong=Test, nomCourt=Test]], sequence=Sequence [identifiant=S1, module=Module [identifiant=M1, nomLong=Test, nomCourt=Test], nomLong=Test, nomCourt=Test], module=Module [identifiant=M1, nomLong=Test, nomCourt=Test], niveauAcquisition=NiveauAcquisition [getIndentifiant()=1, getNiveau()=A], stagiaire=Stagiaire [getLogin()=login, getMotDePasse()=motdepasse, getNom()=nom, getPrenom()=prenom, ], dateAutoEvaluation=2017-06-21, ressenti=null]
-juin 21, 2017 12:34:21 PM logger.JournaliseurNiveauInfo log
+juin 21, 2017 12:34:21 PM logger.JournaliseurNiveauConfig log
 INFOS: [Fin methode] : selectAutoEvaluationByStagCompDate 
