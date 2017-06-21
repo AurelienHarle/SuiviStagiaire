@@ -1,8 +1,6 @@
 package autoEvaluation.dao;
 
 import java.sql.SQLIntegrityConstraintViolationException;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
 import javax.ejb.LocalBean;
@@ -54,67 +52,73 @@ public class Dao implements DaoLocal {
 
 	@Override
 	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException {
+		
+		boolean resultat = true;
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : insertAutoEvaluation");
+		journaliseurNiveauConfig.log("[METHOD IN] AutoEvaluation : " + autoEvaluation);
 
-		journaliseurNiveauConfig.log("[Debut methode] : insertAutoEvaluation| [autoEvaluation IN] : " + autoEvaluation);
-		
-		//AutoEvaluation autoEvaluationVerifDate = selectAutoEvaluationByStagCompDate(autoEvaluation);
-		
-		//journaliseurNiveauConfig.log("autoEvaluationVerifDate : " + autoEvaluationVerifDate);
-		
-		//if(autoEvaluationVerifDate == null){
+		AutoEvaluation autoEvaluationVerifDate = selectAutoEvaluationByStagCompDate(autoEvaluation);
+		if(autoEvaluationVerifDate != null){
 			
+			updateAutoEvaluation(autoEvaluation);
+			
+		}else{
 			try{
 				
-				journaliseurNiveauConfig.log("Avant Persit : " + autoEvaluation);
 				em.persist(autoEvaluation);
 				em.flush();
-				journaliseurNiveauConfig.log("après Persit : " + autoEvaluation);
+				journaliseurNiveauInfo.log("[INSERT]  AutoEvaluation : " + autoEvaluation );
 				
-			}catch (PersistenceException | NullPointerException e ) {
-				journaliseurNiveauConfig.log("EXCEPTION : " + e);
-				e.printStackTrace();
+			}catch (Exception e ) {
 				
 				if(e instanceof PersistenceException){
 					
 					Throwable t = e.getCause();
 				
 					while ((t != null) && !(t instanceof SQLIntegrityConstraintViolationException)) {
+						
 						t = t.getCause();
+						
 					}
 					
 					if(t instanceof SQLIntegrityConstraintViolationException){
 		
-						throw new DoublonException("insertAutoEval");
+						throw new DoublonException("insertAutoEvaluation");
 						
 					}
 					
+				}else if(e instanceof NullPointerException){
+					
+					throw new NullException("insertAutoEvaluation");
+					
 				}else{
 					
-					throw new NullException("insertAutoEval");
+					e.printStackTrace();
+					resultat = false;
+					journaliseurNiveauError.log("[METHOD] insertAutoEvaluation [Entity] " + autoEvaluation + " [StackTrace] " + e.getMessage());
 					
 				}
 			}
-//		}else{
-//		
-//			updateAutoEvaluation(autoEvaluation);
-//			
-//		}
-		journaliseurNiveauConfig.log("[Fin methode] : insertAutoEvaluation");
+		}
+			journaliseurNiveauConfig.log("[RESULTAT METHOD] : insertAutoEvaluation " + resultat);
+			journaliseurNiveauConfig.log("[FIN METHOD] : insertAutoEvaluation");
 	}
 
 
 	@Override
 	public void insertModule(Module module) throws DoublonException, NullException {
 		
+		boolean resultat = true;
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : insertModule");
+		journaliseurNiveauConfig.log("[METHOD IN] Module : " + module);
+		
 		try{
 			
-			System.out.println(module);
 			em.persist(module);
 			em.flush();
+			journaliseurNiveauInfo.log("[INSERT]  Module : " + module );
 			
-		}catch (PersistenceException | NullPointerException e ) {
-			
-			e.printStackTrace();
+		}catch (Exception e ) {
 			
 			if(e instanceof PersistenceException){
 				
@@ -130,12 +134,19 @@ public class Dao implements DaoLocal {
 					
 				}
 				
-			}else{
+			}else if(e instanceof NullPointerException){
 				
 				throw new NullException("insertModule");
 				
+			}else{
+				e.printStackTrace();
+				resultat = false;
+				journaliseurNiveauError.log("[METHOD] insertModule [Entity] " + module + " [StackTrace] " + e.getMessage());
 			}
 		}
+		
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : insertModule " + resultat);
+		journaliseurNiveauConfig.log("[FIN METHOD] : insertModule");
 		
 	}
 
@@ -143,15 +154,17 @@ public class Dao implements DaoLocal {
 	@Override
 	public void insertSequence(Sequence sequence) throws DoublonException, NullException {
 		
+		boolean resultat = true;
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : insertSequence");
+		journaliseurNiveauConfig.log("[METHOD IN] Sequence : " + sequence);
+		
 		try{
-			
-			System.out.println(sequence);
+
 			em.persist(sequence);
 			em.flush();
+			journaliseurNiveauInfo.log("[INSERT]  Sequence : " + sequence );
 			
-		}catch (PersistenceException | NullPointerException e ) {
-			
-			e.printStackTrace();
+		}catch (Exception e ) {
 			
 			if(e instanceof PersistenceException){
 				
@@ -167,27 +180,37 @@ public class Dao implements DaoLocal {
 					
 				}
 				
-			}else{
+			}else if(e instanceof NullPointerException){
 				
 				throw new NullException("insertSequence");
 				
+			}else{
+				e.printStackTrace();
+				resultat = false;
+				journaliseurNiveauError.log("[METHOD] insertSequence [Entity] " + sequence + " [StackTrace] " + e.getMessage());
 			}
 		}
 		
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : insertSequence " + resultat);
+		journaliseurNiveauConfig.log("[FIN METHOD] : insertSequence");
+		
 	}
-
 
 	@Override
 	public void insertCompetence(Competence competence) throws DoublonException, NullException {
 		
+		boolean resultat = true;
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : insertCompetence");
+		journaliseurNiveauConfig.log("[METHOD IN] Competence : " + competence);
+		
 		try{
-			
-			System.out.println(competence);
+
 			em.persist(competence);
 			em.flush();
+			journaliseurNiveauInfo.log("[INSERT]  Competence : " + competence );
 			
-		}catch (PersistenceException | NullPointerException e ) {
-						
+		}catch (Exception e ) {
+			
 			if(e instanceof PersistenceException){
 				
 				Throwable t = e.getCause();
@@ -206,26 +229,32 @@ public class Dao implements DaoLocal {
 				
 				throw new NullException("insertCompetence");
 				
+			}else{
+				e.printStackTrace();
+				resultat = false;
+				journaliseurNiveauError.log("[METHOD] insertCompetence [Entity] " + competence + " [StackTrace] " + e.getMessage());
 			}
-
-			e.printStackTrace();
-			
 		}
+		
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : insertCompetence " + resultat);
+		journaliseurNiveauConfig.log("[FIN METHOD] : insertCompetence");
 		
 	}
 	
 	@Override
 	public void insertNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws DoublonException, NullException {
 		
+		boolean resultat = true;
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : insertNiveauAcquisition");
+		journaliseurNiveauConfig.log("[METHOD IN] NiveauAcquisition : " + niveauAcquisition);
+		
 		try{
-			
-			System.out.println(niveauAcquisition);
+
 			em.persist(niveauAcquisition);
 			em.flush();
+			journaliseurNiveauInfo.log("[INSERT]  NiveauAcquisition : " + niveauAcquisition );
 			
-		}catch (PersistenceException | NullPointerException e ) {
-			
-			e.printStackTrace();
+		}catch (Exception e ) {
 			
 			if(e instanceof PersistenceException){
 				
@@ -237,31 +266,39 @@ public class Dao implements DaoLocal {
 				
 				if(t instanceof SQLIntegrityConstraintViolationException){
 	
-					throw new DoublonException("insertCompetence");
+					throw new DoublonException("insertNiveauAcquisition");
 					
 				}
 				
+			}else if(e instanceof NullPointerException){
+				
+				throw new NullException("insertNiveauAcquisition");
+				
 			}else{
-				
-				throw new NullException("insertCompetence");
-				
+				e.printStackTrace();
+				resultat = false;
+				journaliseurNiveauError.log("[METHOD] insertNiveauAcquisition [Entity] " + niveauAcquisition + " [StackTrace] " + e.getMessage());
 			}
 		}
 		
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : insertNiveauAcquisition " + resultat);
+		journaliseurNiveauConfig.log("[FIN METHOD] : insertNiveauAcquisition");
 	}
 	
 	@Override
 	public void insertStagiaire(Stagiaire stagiaire) throws DoublonException, NullException {
 		
+		boolean resultat = true;
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : insertStagiaire");
+		journaliseurNiveauConfig.log("[METHOD IN] Stagiaire : " + stagiaire);
+		
 		try{
-			
-			System.out.println(stagiaire);
+
 			em.persist(stagiaire);
 			em.flush();
+			journaliseurNiveauInfo.log("[INSERT]  Stagiaire : " + stagiaire );
 			
-		}catch (PersistenceException | NullPointerException e ) {
-			
-			e.printStackTrace();
+		}catch (Exception e ) {
 			
 			if(e instanceof PersistenceException){
 				
@@ -273,16 +310,23 @@ public class Dao implements DaoLocal {
 				
 				if(t instanceof SQLIntegrityConstraintViolationException){
 	
-					throw new DoublonException("insertCompetence");
+					throw new DoublonException("insertStagiaire");
 					
 				}
 				
+			}else if(e instanceof NullPointerException){
+				
+				throw new NullException("insertStagiaire");
+				
 			}else{
-				
-				throw new NullException("insertCompetence");
-				
+				e.printStackTrace();
+				resultat = false;
+				journaliseurNiveauError.log("[METHOD] insertStagiaire [Entity] " + stagiaire + " [StackTrace] " + e.getMessage());
 			}
 		}
+		
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : insertStagiaire " + resultat);
+		journaliseurNiveauConfig.log("[FIN METHOD] : insertStagiaire");
 		
 	}
 
@@ -291,20 +335,21 @@ public class Dao implements DaoLocal {
 		
 		boolean resultat = true;
 		journaliseurNiveauConfig.log("[DEBUT METHOD] : updateAutoEvaluation");
-		journaliseurNiveauConfig.log("[METHOD IN] autoEvaluation : " + autoEvaluation);
+		journaliseurNiveauConfig.log("[METHOD IN] AutoEvaluation : " + autoEvaluation);
 		
 		autoEvaluation = selectAutoEvaluationByStagCompDate(autoEvaluation);
 		
 		try {
 			
 			em.merge(autoEvaluation);
+			em.flush();
 			journaliseurNiveauInfo.log("[UPDATE]  AutoEvaluation : " + autoEvaluation );
 			
 		} catch (Exception e) {
 			
 			e.printStackTrace();
 			resultat = false;
-			journaliseurNiveauError.log("[METHOD] updateModule [Module] " + autoEvaluation + " [StackTrace] " + e.getMessage());
+			journaliseurNiveauError.log("[METHOD] updateAutoEvaluation [Entity] " + autoEvaluation + " [StackTrace] " + e.getMessage());
 		
 		}	
 		
@@ -318,17 +363,19 @@ public class Dao implements DaoLocal {
 		
 		boolean resultat = true;
 		journaliseurNiveauConfig.log("[DEBUT METHOD] : updateModule");
-		journaliseurNiveauConfig.log("[METHOD IN] module : " + module);
+		journaliseurNiveauConfig.log("[METHOD IN] Module : " + module);
 		
 		try {
 			
 			em.merge(module);
+			em.flush();
+			journaliseurNiveauInfo.log("[UPDATE]  Module : " + module );
 			
 		} catch (Exception e) {
 			
 			e.printStackTrace();
 			resultat = false;
-			journaliseurNiveauError.log("[METHOD] updateModule [Module] " + module + " [StackTrace] " + e.getMessage());
+			journaliseurNiveauError.log("[METHOD] updateModule [Entity] " + module + " [StackTrace] " + e.getMessage());
 			
 		}
 		
@@ -342,17 +389,19 @@ public class Dao implements DaoLocal {
 	public void updateSequence(Sequence sequence) {
 		boolean resultat = true;
 		journaliseurNiveauConfig.log("[DEBUT METHOD] : updateSequence");
-		journaliseurNiveauConfig.log("[METHOD IN] sequence : " + sequence);
+		journaliseurNiveauConfig.log("[METHOD IN] Sequence : " + sequence);
 		
 		try {
 			
 			em.merge(sequence);
+			em.flush();
+			journaliseurNiveauInfo.log("[UPDATE]  Sequence : " + sequence);
 			
 		} catch (Exception e) {
 			
 			e.printStackTrace();
 			resultat = false;
-			journaliseurNiveauError.log("[METHOD] updateModule [Module] " + sequence + " [StackTrace] " + e.getMessage());
+			journaliseurNiveauError.log("[METHOD] updateSequence [Entity] " + sequence + " [StackTrace] " + e.getMessage());
 			
 		}
 		
@@ -366,17 +415,19 @@ public class Dao implements DaoLocal {
 	public void updateCompetence(Competence competence) {
 		boolean resultat = true;
 		journaliseurNiveauConfig.log("[DEBUT METHOD] : updateCompetence");
-		journaliseurNiveauConfig.log("[METHOD IN] autoEvaluation : " + competence);
+		journaliseurNiveauConfig.log("[METHOD IN] Competence : " + competence);
 		
 		try {
 			
 			em.merge(competence);
+			em.flush();
+			journaliseurNiveauInfo.log("[UPDATE]  Competence : " + competence);
 			
 		} catch (Exception e) {
 			
 			e.printStackTrace();
 			resultat = false;
-			journaliseurNiveauError.log("[METHOD] updateModule [Module] " + competence + " [StackTrace] " + e.getMessage());
+			journaliseurNiveauError.log("[METHOD] updateCompetence [Entity] " + competence + " [StackTrace] " + e.getMessage());
 			
 		}
 		
@@ -389,17 +440,19 @@ public class Dao implements DaoLocal {
 	public void updateNiveauAcquisition(NiveauAcquisition niveauAcquisition) {
 		boolean resultat = true;
 		journaliseurNiveauConfig.log("[DEBUT METHOD] : updateNiveauAcquisition");
-		journaliseurNiveauConfig.log("[METHOD IN] autoEvaluation : " + niveauAcquisition);
+		journaliseurNiveauConfig.log("[METHOD IN] NiveauAcquisition : " + niveauAcquisition);
 		
 		try {
 			
 			em.merge(niveauAcquisition);
+			em.flush();
+			journaliseurNiveauInfo.log("[UPDATE]  NiveauAcquisition : " + niveauAcquisition);
 			
 		} catch (Exception e) {
 			
 			e.printStackTrace();
 			resultat = false;
-			journaliseurNiveauError.log("[METHOD] updateModule [Module] " + niveauAcquisition + " [StackTrace] " + e.getMessage());
+			journaliseurNiveauError.log("[METHOD] updateNiveauAcquisition [Entity] " + niveauAcquisition + " [StackTrace] " + e.getMessage());
 			
 		}
 		
@@ -412,214 +465,379 @@ public class Dao implements DaoLocal {
 	@Override
 	public void updateStagiaire(Stagiaire stagiaire) {
 		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : updateAutoEvaluation");
-		journaliseurNiveauConfig.log("[METHOD IN] autoEvaluation : " + stagiaire);
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : updateStagiaire");
+		journaliseurNiveauConfig.log("[METHOD IN] Stagiaire : " + stagiaire);
 		
 		try {
 			
 			em.merge(stagiaire);
+			em.flush();
+			journaliseurNiveauInfo.log("[UPDATE]  Stagiaire : " + stagiaire);
 			
 		} catch (Exception e) {
 			
 			e.printStackTrace();
 			resultat = false;
-			journaliseurNiveauError.log("[METHOD] updateModule [Module] " + stagiaire + " [StackTrace] " + e.getMessage());
+			journaliseurNiveauError.log("[METHOD] updateStagiaire [Entity] " + stagiaire + " [StackTrace] " + e.getMessage());
 			
 		}
 		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : updateAutoEvaluation" + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : updateAutoEvaluation");
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : updateStagiaire" + resultat);
+		journaliseurNiveauConfig.log("[FIN METHOD] : updateStagiaire");
 		
 	}
 
 
 	@Override
 	public void deleteAutoEvaluation(AutoEvaluation autoEvaluation) {
-		em.remove(autoEvaluation);
-		em.flush();
+		boolean resultat = true;
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : deleteAutoEvaluation");
+		journaliseurNiveauConfig.log("[METHOD IN] AutoEvaluation : " + autoEvaluation);
+		
+		try {
+			
+			em.remove(autoEvaluation);
+			em.flush();
+			journaliseurNiveauInfo.log("[UPDATE]  AutoEvaluation : " + autoEvaluation);
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			resultat = false;
+			journaliseurNiveauError.log("[METHOD] deleteAutoEvaluation [Entity] " + autoEvaluation + " [StackTrace] " + e.getMessage());
+			
+		}
+		
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : deleteAutoEvaluation" + resultat);
+		journaliseurNiveauConfig.log("[FIN METHOD] : deleteAutoEvaluation");
 	}
 
 	@Override
 	public void deleteModule(Module module) {
-		em.remove(module);
-		em.flush();
+		boolean resultat = true;
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : deleteModule ");
+		journaliseurNiveauConfig.log("[METHOD IN] Module : " + module);
+		
+		try {
+			
+			em.remove(module);
+			em.flush();
+			journaliseurNiveauInfo.log("[UPDATE]  Module : " + module);
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			resultat = false;
+			journaliseurNiveauError.log("[METHOD] deleteModule [Entity] " + module + " [StackTrace] " + e.getMessage());
+			
+		}
+		
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : deleteModule" + resultat);
+		journaliseurNiveauConfig.log("[FIN METHOD] : deleteModule");
 	}
 
 
 	@Override
 	public void deleteSequence(Sequence sequence) {
-		em.remove(sequence);
-		em.flush();
+		boolean resultat = true;
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : deleteSequence ");
+		journaliseurNiveauConfig.log("[METHOD IN] Sequence : " + sequence);
+		
+		try {
+			
+			em.remove(sequence);
+			em.flush();
+			journaliseurNiveauInfo.log("[UPDATE]  Sequence : " + sequence);
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			resultat = false;
+			journaliseurNiveauError.log("[METHOD] deleteSequence [Entity] " + sequence + " [StackTrace] " + e.getMessage());
+			
+		}
+		
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : deleteSequence" + resultat);
+		journaliseurNiveauConfig.log("[FIN METHOD] : deleteSequence");
 	}
 
 
 	@Override
 	public void deleteCompetence(Competence competence) {
-		em.remove(competence);
-		em.flush();
+		boolean resultat = true;
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : deleteCompetence ");
+		journaliseurNiveauConfig.log("[METHOD IN] Competence : " + competence);
+		
+		try {
+			
+			em.remove(competence);
+			em.flush();
+			journaliseurNiveauInfo.log("[UPDATE]  Competence : " + competence);
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			resultat = false;
+			journaliseurNiveauError.log("[METHOD] deleteCompetence [Entity] " + competence + " [StackTrace] " + e.getMessage());
+			
+		}
+		
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : deleteCompetence" + resultat);
+		journaliseurNiveauConfig.log("[FIN METHOD] : deleteCompetence");
 	}
 
 
 	@Override
 	public void deleteNiveauAcquisition(NiveauAcquisition niveauAcquisition) {
-		em.remove(niveauAcquisition);
-		em.flush();
+		boolean resultat = true;
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : deleteNiveauAcquisition ");
+		journaliseurNiveauConfig.log("[METHOD IN] NiveauAcquisition : " + niveauAcquisition);
+		
+		try {
+			
+			em.remove(niveauAcquisition);
+			em.flush();
+			journaliseurNiveauInfo.log("[UPDATE]  NiveauAcquisition : " + niveauAcquisition);
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			resultat = false;
+			journaliseurNiveauError.log("[METHOD] deleteNiveauAcquisition [Entity] " + niveauAcquisition + " [StackTrace] " + e.getMessage());
+			
+		}
+		
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : deleteNiveauAcquisition" + resultat);
+		journaliseurNiveauConfig.log("[FIN METHOD] : deleteNiveauAcquisition");
 	}
 
 
 	@Override
 	public void deleteStagiaire(Stagiaire stagiaire) {
-		em.remove(stagiaire);
-		em.flush();
+		boolean resultat = true;
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : deleteStagiaire ");
+		journaliseurNiveauConfig.log("[METHOD IN] Stagiaire : " + stagiaire);
+		
+		try {
+			
+			em.remove(stagiaire);
+			em.flush();
+			journaliseurNiveauInfo.log("[UPDATE]  Stagiaire : " + stagiaire);
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			resultat = false;
+			journaliseurNiveauError.log("[METHOD] deleteStagiaire [Entity] " + stagiaire + " [StackTrace] " + e.getMessage());
+			
+		}
+		
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : deleteStagiaire" + resultat);
+		journaliseurNiveauConfig.log("[FIN METHOD] : deleteStagiaire");
 	}
 
 
 	@Override
 	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation) {
-		return em.find(AutoEvaluation.class, autoEvaluation.getIdentifiant());
-	}
-
-
-	@Override
-	public AutoEvaluation selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(
-			AutoEvaluation autoEvaluation) {
-
-		String sqlString = "select ae from AutoEvaluation ae where ae_date = ?1 and ae_ressenti = ?2 and comp_id = ?3 and mod_id = ?4 and na_id = ?5 and seq_id = ?6 and stag_id = ?7";
-
 		
-		AutoEvaluation autoEvaluation2 = (AutoEvaluation) em.createQuery(sqlString).setParameter(1, autoEvaluation.getDateAutoEvaluation())
-		.setParameter(2, autoEvaluation.getRessenti())
-		.setParameter(3, autoEvaluation.getCompetence().getIdentifiant())
-		.setParameter(4, autoEvaluation.getModule().getIdentifiant())
-		.setParameter(5, autoEvaluation.getNiveauAcquisition().getIdentifiant())
-		.setParameter(6, autoEvaluation.getSequence().getIdentifiant())
-		.setParameter(7, autoEvaluation.getStagiaire().getLogin()).getSingleResult();
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : selectAutoEvaluation ");
+		journaliseurNiveauConfig.log("[METHOD IN] AutoEvaluation : " + autoEvaluation);
+		AutoEvaluation autoEvaluation2 = null;
+		
+		try{
+			
+			autoEvaluation2 = em.find(AutoEvaluation.class, autoEvaluation.getIdentifiant());
+			journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " AutoEvaluation [OUT] : " + autoEvaluation2);
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			journaliseurNiveauError.log("[METHOD] selectAutoEvaluation [Entity] " + autoEvaluation + " [StackTrace] " + e.getMessage());
+		}
+			
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : selectAutoEvaluation" + autoEvaluation2);
+		journaliseurNiveauConfig.log("[FIN METHOD] : selectAutoEvaluation");
 		
 		return autoEvaluation2;
 	}
-
 
 	@Override
 	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) {
 		
-		journaliseurNiveauConfig.log("[Debut methode] : selectAutoEvaluationByStagCompDate ");
-		journaliseurNiveauConfig.log("[AutoEvaluation IN] : " + autoEvaluation);
-		
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : selectAutoEvaluationByStagCompDate ");
+		journaliseurNiveauConfig.log("[METHOD IN] AutoEvaluation : " + autoEvaluation);
 		AutoEvaluation autoEvaluation2 = null;
 		
-//		String sqlString = "select identifiant,dateAutoEvaluation,ressenti,competence,module,niveauAcquisition,sequence,stagiaire"
-//							+ " from AutoEvaluation"
-//								+ " where stag_id = ?"
-//								+ " and comp_id = ?"
-//								+ " and ae_date = ?";
+		try {
+			
+			String sqlString = "select ae from AutoEvaluation ae where stag_id = ?1 and comp_id = ?2 and ae_date = ?3";
+			
+			autoEvaluation2 = (AutoEvaluation) em.createQuery(sqlString)
+				.setParameter(1, autoEvaluation.getStagiaire().getLogin())
+				.setParameter(2, autoEvaluation.getCompetence().getIdentifiant())
+				.setParameter(3, autoEvaluation.getDateAutoEvaluation()).getSingleResult();
+			journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " AutoEvaluation [OUT] : " + autoEvaluation2);
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			journaliseurNiveauError.log("[METHOD] selectAutoEvaluationByStagCompDate [Entity] " + autoEvaluation + " [StackTrace] " + e.getMessage());
+		}
 		
-		String sqlString = "select ae"
-						+ " from AutoEvaluation ae"
-							+ " where stag_id = ?1"
-							+ " and comp_id = ?2"
-							+ " and ae_date = ?3";
-
-		autoEvaluation2 = (AutoEvaluation) em.createQuery(sqlString)
-			.setParameter(1, autoEvaluation.getStagiaire().getLogin())
-			.setParameter(2, autoEvaluation.getCompetence().getIdentifiant())
-			.setParameter(3, autoEvaluation.getDateAutoEvaluation()).getSingleResult();
-
-		journaliseurNiveauConfig.log("AutoEvaluation OUT : " + autoEvaluation2);
-		journaliseurNiveauConfig.log("[Fin methode] : selectAutoEvaluationByStagCompDate ");
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : selectAutoEvaluationByStagCompDate" + autoEvaluation2);
+		journaliseurNiveauConfig.log("[FIN METHOD] : selectAutoEvaluationByStagCompDate");
 		return autoEvaluation2;
-		
+
+	}
+
+
+	@Override
+	public AutoEvaluation selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(AutoEvaluation autoEvaluation) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
 	@Override
 	public AutoEvaluations selectAutoEvaluationByStagComp(AutoEvaluation autoEvaluation) {
-		
-		AutoEvaluations autoEvaluations = new AutoEvaluations();
-		
-		String sqlString = "select ae_id,ae_date,ae_ressenti,comp_id,mod_id,na_id,seq_id,stag_id from " + autoEvaluation.getClass().getName() + " where stag_id = ? and comp_id = ?";
-		
-		@SuppressWarnings("rawtypes")
-		List result = em.createQuery(sqlString)
-			.setParameter(1, autoEvaluation.getStagiaire().getLogin())
-			.setParameter(2, autoEvaluation.getCompetence().getIdentifiant()).getResultList();
-		
-		for (Object object : result) {
-			autoEvaluations.add((AutoEvaluation) object);
-		}
-		
-		return autoEvaluations;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
 	@Override
 	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation) {
-		
-		AutoEvaluations autoEvaluations = new AutoEvaluations();
-		//TODO (persist/delete/find) generalisé grace class name
-		String sqlString = "select ae_id,ae_date,ae_ressenti,comp_id,mod_id,na_id,seq_id,stag_id from " + autoEvaluation.getClass().getName() + " where stag_id = ?";
-		
-		@SuppressWarnings("rawtypes")
-		List result = em.createQuery(sqlString)
-			.setParameter(1, autoEvaluation.getStagiaire().getLogin()).getResultList();
-		
-		for (Object object : result) {
-			autoEvaluations.add((AutoEvaluation) object);
-		}
-		
-		return autoEvaluations;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
 	@Override
 	public AutoEvaluations selectAutoEvaluationByComp(AutoEvaluation autoEvaluation) {
-		
-		AutoEvaluations autoEvaluations = new AutoEvaluations();
-		
-		String sqlString = "select ae_id,ae_date,ae_ressenti,comp_id,mod_id,na_id,seq_id,stag_id from " + autoEvaluation.getClass().getName() + " where stag_id = ?";
-		
-		@SuppressWarnings("rawtypes")
-		List result = em.createQuery(sqlString)
-			.setParameter(1, autoEvaluation.getStagiaire().getLogin()).getResultList();
-		
-		for (Object object : result) {
-			autoEvaluations.add((AutoEvaluation) object);
-		}
-		
-		return autoEvaluations;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
 	@Override
 	public Module selectModule(Module module) {
-		return em.find(Module.class, module.getIdentifiant());
+		
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : selectModule ");
+		journaliseurNiveauConfig.log("[METHOD IN] Module : " + module);
+		Module module2 = null;
+		
+		try{
+			
+			module2 = em.find(Module.class, module.getIdentifiant());
+			journaliseurNiveauInfo.log("[Select]  Module [IN] : " + module + " Module [OUT] : " + module2);
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			journaliseurNiveauError.log("[METHOD] selectModule [Entity] " + module + " [StackTrace] " + e.getMessage());
+		}
+			
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : selectModule" + module2);
+		journaliseurNiveauConfig.log("[FIN METHOD] : selectModule");
+		
+		return module2; 
 		
 	}
 
 
 	@Override
 	public Sequence selectSequence(Sequence sequence) {
-		return em.find(Sequence.class, sequence.getIdentifiant());
 		
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : selectSequence ");
+		journaliseurNiveauConfig.log("[METHOD IN] Sequence : " + sequence);
+		Sequence sequence2 = null;
+		
+		try{
+			
+			sequence2 = em.find(Sequence.class, sequence.getIdentifiant());
+			journaliseurNiveauInfo.log("[Select]  Sequence [IN] : " + sequence + " Sequence [OUT] : " + sequence2);
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			journaliseurNiveauError.log("[METHOD] selectSequence [Entity] " + sequence + " [StackTrace] " + e.getMessage());
+		}
+			
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : selectSequence" + sequence2);
+		journaliseurNiveauConfig.log("[FIN METHOD] : selectSequence");
+		
+		return sequence2; 
+	
 	}
 
 
 	@Override
-	public Competence selectCompetence(Competence competence) {
-		return em.find(Competence.class, competence.getIdentifiant());
+	public Competence selectCompetence(Competence competence){
 		
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : selectCompetence ");
+		journaliseurNiveauConfig.log("[METHOD IN] Competence : " + competence);
+		Competence competence2 = null;
+		
+		try{
+			
+			competence2 = em.find(Competence.class, competence.getIdentifiant());
+			journaliseurNiveauInfo.log("[Select]  Competence [IN] : " + competence + " Competence [OUT] : " + competence2);
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			journaliseurNiveauError.log("[METHOD] selectCompetence [Entity] " + competence + " [StackTrace] " + e.getMessage());
+		}
+			
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : selectCompetence" + competence2);
+		journaliseurNiveauConfig.log("[FIN METHOD] : selectCompetence");
+		
+		return competence2; 
+		 	
 	}
 
 
 	@Override
 	public NiveauAcquisition selectNiveauAcquisition(NiveauAcquisition niveauAcquisition) {
-		return em.find(NiveauAcquisition.class, niveauAcquisition.getIdentifiant());
+		
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : selectNiveauAcquisition ");
+		journaliseurNiveauConfig.log("[METHOD IN] NiveauAcquisition : " + niveauAcquisition);
+		NiveauAcquisition niveauAcquisition2 = null;
+		
+		try{
+			
+			niveauAcquisition2 = em.find(NiveauAcquisition.class, niveauAcquisition.getIdentifiant());
+			journaliseurNiveauInfo.log("[Select]  NiveauAcquisition [IN] : " + niveauAcquisition + " NiveauAcquisition [OUT] : " + niveauAcquisition2);
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			journaliseurNiveauError.log("[METHOD] selectNiveauAcquisition [Entity] " + niveauAcquisition + " [StackTrace] " + e.getMessage());
+		}
+			
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : selectNiveauAcquisition" + niveauAcquisition2);
+		journaliseurNiveauConfig.log("[FIN METHOD] : selectNiveauAcquisition");
+		
+		return niveauAcquisition2; 
 		
 	}
 
 
 	@Override
 	public Stagiaire selectStagiaire(Stagiaire stagiaire) {
-		return em.find(Stagiaire.class, stagiaire.getLogin());
+		
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : selectStagiaire ");
+		journaliseurNiveauConfig.log("[METHOD IN] Stagiaire : " + stagiaire);
+		Stagiaire stagiaire2 = null;
+		
+		try{
+			
+			stagiaire2 = em.find(Stagiaire.class, stagiaire.getLogin());
+			journaliseurNiveauInfo.log("[Select]  Stagiaire [IN] : " + stagiaire + " Stagiaire [OUT] : " + stagiaire2);
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			journaliseurNiveauError.log("[METHOD] selectStagiaire [Entity] " + stagiaire + " [StackTrace] " + e.getMessage());
+		}
+			
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : selectStagiaire" + stagiaire2);
+		journaliseurNiveauConfig.log("[FIN METHOD] : selectStagiaire");
+		
+		return stagiaire2;  
 		
 	}
 
