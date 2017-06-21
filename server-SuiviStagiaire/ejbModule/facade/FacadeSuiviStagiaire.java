@@ -14,7 +14,7 @@ import autoEvaluation.technique.AutoEvaluations;
 import compteUtilisateur.entity.Stagiaire;
 import exception.DoublonException;
 import exception.NullException;
-import logger.Journaliseur;
+import logger.JournaliseurNiveauInfo;
 
 /**
  * Session Bean implementation class FacadeSuiviStagiaire
@@ -32,7 +32,7 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
     @EJB
     FacadeServiceAutoEvaluation facadeServiceAutoEvaluation;
     
-    Journaliseur journaliseur = Journaliseur.getINSTANCE();
+    JournaliseurNiveauInfo journaliseurNiveauInfo = JournaliseurNiveauInfo.getINSTANCE();
 
 	@Override
 	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException {

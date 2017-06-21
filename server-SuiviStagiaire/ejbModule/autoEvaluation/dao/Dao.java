@@ -18,7 +18,7 @@ import autoEvaluation.technique.AutoEvaluations;
 import compteUtilisateur.entity.Stagiaire;
 import exception.DoublonException;
 import exception.NullException;
-import logger.Journaliseur;
+import logger.JournaliseurNiveauInfo;
 import parametre.Parametre;
 
 /**
@@ -35,7 +35,7 @@ public class Dao implements DaoLocal {
 	
 	@PersistenceContext(unitName=Parametre.PERSISTENCE_UNIT_NAME)
 	EntityManager em;
-	Journaliseur journaliseur = Journaliseur.getINSTANCE();
+	JournaliseurNiveauInfo journaliseurNiveauInfo = JournaliseurNiveauInfo.getINSTANCE();
 	
 	
 	
@@ -50,23 +50,23 @@ public class Dao implements DaoLocal {
 	@Override
 	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException {
 
-		journaliseur.log("[Debut methode] : insertAutoEvaluation| [autoEvaluation IN] : " + autoEvaluation);
+		journaliseurNiveauInfo.log("[Debut methode] : insertAutoEvaluation| [autoEvaluation IN] : " + autoEvaluation);
 		
 		//AutoEvaluation autoEvaluationVerifDate = selectAutoEvaluationByStagCompDate(autoEvaluation);
 		
-		//journaliseur.log("autoEvaluationVerifDate : " + autoEvaluationVerifDate);
+		//journaliseurNiveauInfo.log("autoEvaluationVerifDate : " + autoEvaluationVerifDate);
 		
 		//if(autoEvaluationVerifDate == null){
 			
 			try{
 				
-				journaliseur.log("Avant Persit : " + autoEvaluation);
+				journaliseurNiveauInfo.log("Avant Persit : " + autoEvaluation);
 				em.persist(autoEvaluation);
 				em.flush();
-				journaliseur.log("après Persit : " + autoEvaluation);
+				journaliseurNiveauInfo.log("après Persit : " + autoEvaluation);
 				
 			}catch (PersistenceException | NullPointerException e ) {
-				journaliseur.log("EXCEPTION : " + e);
+				journaliseurNiveauInfo.log("EXCEPTION : " + e);
 				e.printStackTrace();
 				
 				if(e instanceof PersistenceException){
@@ -94,7 +94,7 @@ public class Dao implements DaoLocal {
 //			updateAutoEvaluation(autoEvaluation);
 //			
 //		}
-		journaliseur.log("[Fin methode] : insertAutoEvaluation");
+		journaliseurNiveauInfo.log("[Fin methode] : insertAutoEvaluation");
 	}
 
 
@@ -283,7 +283,14 @@ public class Dao implements DaoLocal {
 
 	@Override
 	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) {
-		System.out.println("J'ai rien fait ici");
+		
+		journaliseurNiveauInfo.log("[DEBUT METHOD] : updateAutoEvaluation");
+		journaliseurNiveauInfo.log("[METHOD IN] autoEvaluation : " + autoEvaluation);
+		
+		em.merge(autoEvaluation);
+		
+		
+		journaliseurNiveauInfo.log("[FIN METHOD] : updateAutoEvaluation");
 	}
 
 	@Override
@@ -389,8 +396,8 @@ public class Dao implements DaoLocal {
 	@Override
 	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) {
 		
-		journaliseur.log("[Debut methode] : selectAutoEvaluationByStagCompDate ");
-		journaliseur.log("[AutoEvaluation IN] : " + autoEvaluation);
+		journaliseurNiveauInfo.log("[Debut methode] : selectAutoEvaluationByStagCompDate ");
+		journaliseurNiveauInfo.log("[AutoEvaluation IN] : " + autoEvaluation);
 		
 		AutoEvaluation autoEvaluation2 = null;
 		
@@ -411,8 +418,8 @@ public class Dao implements DaoLocal {
 			.setParameter(2, autoEvaluation.getCompetence().getIdentifiant())
 			.setParameter(3, autoEvaluation.getDateAutoEvaluation()).getSingleResult();
 
-		journaliseur.log("AutoEvaluation OUT : " + autoEvaluation2);
-		journaliseur.log("[Fin methode] : selectAutoEvaluationByStagCompDate ");
+		journaliseurNiveauInfo.log("AutoEvaluation OUT : " + autoEvaluation2);
+		journaliseurNiveauInfo.log("[Fin methode] : selectAutoEvaluationByStagCompDate ");
 		return autoEvaluation2;
 		
 	}
