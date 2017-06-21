@@ -51,7 +51,7 @@ public class JournaliseurNiveauError extends java.util.logging.Logger {
 
 
 	public void log(String string) {
-		this.log(Level.INFO, string);
+		this.log(Level.SEVERE, string);
 		
 	}
 	
