@@ -1,48 +1,59 @@
-package AutoEval.entity;
+package autoEvaluation.entity;
+
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
- * {@link Class} {@link Entity}, {@link Competence} elle représente une compétence de la formation.
+ * {@link Class} {@link Entity}, {@link Sequence} elle représente une sequence de la formation.
  * 
- * elle est composé obligatoirement :
- * d'un identifiant auto-généré fournis par la BDD, d'un nom long, d'un nom court,
- * d'une {@link Sequence},et d'un {@link Module}.
+ * elle est composé obligatoirement d'un identifiant auto-généré, d'un nom long, d'un nom court,
+ * d'un {@link Module}
  * 
  * @author Aurélien Harlé
  * @Version 1
  * @Since 15/06/2017
- * 
  */
-@Entity(name="comp")
-public class Competence {
-	
+@Entity(name="seq")
+public class Sequence implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@Column(name="comp_id", length=3, nullable=false)
+	@Column(name="seq_id", length=3, nullable=false)
 	private String identifiant;
 	
-	@ManyToOne
-	@JoinColumn( name="seq_id", nullable=false)
-	private Sequence sequence;
-	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn( name="mod_id", nullable=false)
 	private Module module;
 	
-	@Column(name="comp_nom_long", length=200, nullable=false)
+	@Column(name="seq_nom_long", length=200, nullable=false)
 	private String nomLong;
 	
-	@Column(name="comp_nom_court", length=200, nullable=false)
+	@Column(name="seq_nom_court", length=200, nullable=false)
 	private String nomCourt;
 
+	public Sequence() {
+		
+	}
+	
 	/**
-	 * Default constructor
+	 * @param identifiant
+	 * @param module
+	 * @param nomLong
+	 * @param nomCourt
 	 */
-	public Competence() {
+	public Sequence(String identifiant, Module module, String nomLong, String nomCourt) {
+		super();
+		this.identifiant = identifiant;
+		this.module = module;
+		this.nomLong = nomLong;
+		this.nomCourt = nomCourt;
 	}
 
 	/**
@@ -88,20 +99,6 @@ public class Competence {
 	}
 
 	/**
-	 * @return the sequence
-	 */
-	public Sequence getSequence() {
-		return sequence;
-	}
-
-	/**
-	 * @param sequence the sequence to set
-	 */
-	public void setSequence(Sequence sequence) {
-		this.sequence = sequence;
-	}
-
-	/**
 	 * @return the module
 	 */
 	public Module getModule() {
@@ -120,10 +117,8 @@ public class Competence {
 	 */
 	@Override
 	public String toString() {
-		return "Competence [" + (getIdentifiant() != null ? "getIdentifiant()=" + getIdentifiant() + ", " : "")
-				+ (getNomLong() != null ? "getNomLong()=" + getNomLong() + ", " : "")
-				+ (getNomCourt() != null ? "getNomCourt()=" + getNomCourt() + ", " : "")
-				+ (getSequence() != null ? "getSequence()=" + getSequence() + ", " : "")
-				+ (getModule() != null ? "getModule()=" + getModule() : "") + "]";
+		return "Sequence [identifiant=" + identifiant + ", module=" + module + ", nomLong=" + nomLong + ", nomCourt="
+				+ nomCourt + "]";
 	}
+
 }

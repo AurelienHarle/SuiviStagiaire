@@ -1,4 +1,6 @@
-package AutoEval.entity;
+package autoEvaluation.entity;
+
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +17,12 @@ import javax.persistence.Id;
  *
  */
 @Entity(name="niv_acqui")
-public class NiveauAcquisition {
+public class NiveauAcquisition implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name="na_id", length=2, nullable=false)
@@ -24,23 +31,32 @@ public class NiveauAcquisition {
 	@Column(name="na_niv", length=2, nullable=false)
 	private String niveau;
 	
-	/**
-	 * Default Constructor
-	 */
 	public NiveauAcquisition() {
+		
+	}
+	
+
+	/**
+	 * @param identifiant
+	 * @param niveau
+	 */
+	public NiveauAcquisition(String identifiant, String niveau) {
+		super();
+		this.identifiant = identifiant;
+		this.niveau = niveau;
 	}
 
 	/**
 	 * @return the Identifiant
 	 */
-	public String getIndentifiant() {
+	public String getIdentifiant() {
 		return identifiant;
 	}
 
 	/**
 	 * @param Identifiant the Identifiant to set
 	 */
-	public void setIndentifiant(String Identifiant) {
+	public void setIdentifiant(String Identifiant) {
 		this.identifiant = Identifiant;
 	}
 
@@ -64,7 +80,7 @@ public class NiveauAcquisition {
 	@Override
 	public String toString() {
 		return "NiveauAcquisition ["
-				+ (getIndentifiant() != null ? "getIndentifiant()=" + getIndentifiant() + ", " : "")
+				+ (getIdentifiant() != null ? "getIndentifiant()=" + getIdentifiant() + ", " : "")
 				+ (getNiveau() != null ? "getNiveau()=" + getNiveau() : "") + "]";
 	}
 

@@ -1,4 +1,6 @@
-package AutoEval.entity;
+package autoEvaluation.entity;
+
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +16,12 @@ import javax.persistence.Id;
  * @Since 15/06/2017
  */
 @Entity
-public class Module {
+public class Module implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name="mod_id", length=3, nullable=false)	
@@ -25,11 +32,21 @@ public class Module {
 	
 	@Column(name="mod_nom_court", length=200, nullable=false)
 	private String nomCourt;
+
+	public Module() {
+		
+	}
 	
 	/**
-	 * Default Constructor
+	 * @param identifiant
+	 * @param nomLong
+	 * @param nomCourt
 	 */
-	public Module() {
+	public Module(String identifiant, String nomLong, String nomCourt) {
+		super();
+		this.identifiant = identifiant;
+		this.nomLong = nomLong;
+		this.nomCourt = nomCourt;
 	}
 
 	/**
@@ -79,9 +96,8 @@ public class Module {
 	 */
 	@Override
 	public String toString() {
-		return "Module [" + (getIdentifiant() != null ? "getIdentifiant()=" + getIdentifiant() + ", " : "")
-				+ (getNomLong() != null ? "getNomLong()=" + getNomLong() + ", " : "")
-				+ (getNomCourt() != null ? "getNomCourt()=" + getNomCourt() : "") + "]";
+		return "Module [identifiant=" + identifiant + ", nomLong=" + nomLong + ", nomCourt=" + nomCourt + "]";
 	}
+
 
 }

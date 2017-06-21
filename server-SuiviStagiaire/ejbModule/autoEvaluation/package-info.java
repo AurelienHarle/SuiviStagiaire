@@ -7,4 +7,4 @@
  * @Since 15/06/2017
  *
  */
-package AutoEval;
+package autoEvaluation;

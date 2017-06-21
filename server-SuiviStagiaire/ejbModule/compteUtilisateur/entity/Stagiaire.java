@@ -1,5 +1,7 @@
 package compteUtilisateur.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -17,8 +19,13 @@ import javax.persistence.Id;
  *
  */
 @Entity(name="stag")
-public class Stagiaire {
+public class Stagiaire implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(name="stag_login", length=8, nullable=false)
 	private String login;
@@ -50,10 +57,35 @@ public class Stagiaire {
 	@Column(name="stag_humeur", length=20, nullable=true)
 	private String humeur;
 
-	/**
-	 * Default construtor
-	 */
 	public Stagiaire() {
+		
+	}
+
+	/**
+	 * @param login
+	 * @param motDePasse
+	 * @param nom
+	 * @param prenom
+	 * @param numeroTelephoneAdministration
+	 * @param numeroTelephoneFormation
+	 * @param adresse
+	 * @param mail
+	 * @param mailFormation
+	 * @param humeur
+	 */
+	public Stagiaire(String login, String motDePasse, String nom, String prenom, String numeroTelephoneAdministration,
+			String numeroTelephoneFormation, String adresse, String mail, String mailFormation, String humeur) {
+		super();
+		this.login = login;
+		this.motDePasse = motDePasse;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.numeroTelephoneAdministration = numeroTelephoneAdministration;
+		this.numeroTelephoneFormation = numeroTelephoneFormation;
+		this.adresse = adresse;
+		this.mail = mail;
+		this.mailFormation = mailFormation;
+		this.humeur = humeur;
 	}
 
 	/**
