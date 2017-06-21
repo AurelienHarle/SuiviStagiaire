@@ -1,6 +1,8 @@
 package autoEvaluation.dao;
 
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.ejb.LocalBean;
@@ -19,6 +21,8 @@ import compteUtilisateur.entity.Stagiaire;
 import exception.DoublonException;
 import exception.NullException;
 import logger.JournaliseurNiveauConfig;
+import logger.JournaliseurNiveauError;
+import logger.JournaliseurNiveauInfo;
 import parametre.Parametre;
 
 /**
@@ -35,9 +39,10 @@ public class Dao implements DaoLocal {
 	
 	@PersistenceContext(unitName=Parametre.PERSISTENCE_UNIT_NAME)
 	EntityManager em;
+	
 	JournaliseurNiveauConfig journaliseurNiveauConfig = JournaliseurNiveauConfig.getINSTANCE();
-	
-	
+	JournaliseurNiveauError journaliseurNiveauError = JournaliseurNiveauError.getINSTANCE();
+	JournaliseurNiveauInfo journaliseurNiveauInfo = JournaliseurNiveauInfo.getINSTANCE();
 	
     /**
      * Default constructor. 
@@ -284,45 +289,146 @@ public class Dao implements DaoLocal {
 	@Override
 	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) {
 		
+		boolean resultat = true;
 		journaliseurNiveauConfig.log("[DEBUT METHOD] : updateAutoEvaluation");
 		journaliseurNiveauConfig.log("[METHOD IN] autoEvaluation : " + autoEvaluation);
 		
-		em.merge(autoEvaluation);
+		autoEvaluation = selectAutoEvaluationByStagCompDate(autoEvaluation);
 		
+		try {
+			
+			em.merge(autoEvaluation);
+			journaliseurNiveauInfo.log("[UPDATE]  AutoEvaluation : " + autoEvaluation );
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			resultat = false;
+			journaliseurNiveauError.log("[METHOD] updateModule [Module] " + autoEvaluation + " [StackTrace] " + e.getMessage());
 		
+		}	
+		
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : updateAutoEvaluation" + resultat);
 		journaliseurNiveauConfig.log("[FIN METHOD] : updateAutoEvaluation");
+		
 	}
 
 	@Override
 	public void updateModule(Module module) {
-		System.out.println("J'ai rien fait ici");
+		
+		boolean resultat = true;
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : updateModule");
+		journaliseurNiveauConfig.log("[METHOD IN] module : " + module);
+		
+		try {
+			
+			em.merge(module);
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			resultat = false;
+			journaliseurNiveauError.log("[METHOD] updateModule [Module] " + module + " [StackTrace] " + e.getMessage());
+			
+		}
+		
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : updateModule :" + resultat);
+		journaliseurNiveauConfig.log("[FIN METHOD] : updateModule");
 		
 	}
 
 
 	@Override
 	public void updateSequence(Sequence sequence) {
-		System.out.println("J'ai rien fait ici");
+		boolean resultat = true;
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : updateSequence");
+		journaliseurNiveauConfig.log("[METHOD IN] sequence : " + sequence);
+		
+		try {
+			
+			em.merge(sequence);
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			resultat = false;
+			journaliseurNiveauError.log("[METHOD] updateModule [Module] " + sequence + " [StackTrace] " + e.getMessage());
+			
+		}
+		
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : updateSequence" + resultat);
+		journaliseurNiveauConfig.log("[FIN METHOD] : updateSequence");
 		
 	}
 
 
 	@Override
 	public void updateCompetence(Competence competence) {
-		System.out.println("J'ai rien fait ici");
+		boolean resultat = true;
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : updateCompetence");
+		journaliseurNiveauConfig.log("[METHOD IN] autoEvaluation : " + competence);
+		
+		try {
+			
+			em.merge(competence);
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			resultat = false;
+			journaliseurNiveauError.log("[METHOD] updateModule [Module] " + competence + " [StackTrace] " + e.getMessage());
+			
+		}
+		
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : updateCompetence" + resultat);
+		journaliseurNiveauConfig.log("[FIN METHOD] : updateCompetence");
 		
 	}
 
 	@Override
 	public void updateNiveauAcquisition(NiveauAcquisition niveauAcquisition) {
-		System.out.println("J'ai rien fait ici");
+		boolean resultat = true;
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : updateNiveauAcquisition");
+		journaliseurNiveauConfig.log("[METHOD IN] autoEvaluation : " + niveauAcquisition);
+		
+		try {
+			
+			em.merge(niveauAcquisition);
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			resultat = false;
+			journaliseurNiveauError.log("[METHOD] updateModule [Module] " + niveauAcquisition + " [StackTrace] " + e.getMessage());
+			
+		}
+		
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : updateNiveauAcquisition" + resultat);
+		journaliseurNiveauConfig.log("[FIN METHOD] : updateNiveauAcquisition");
 		
 	}
 
 
 	@Override
 	public void updateStagiaire(Stagiaire stagiaire) {
-		System.out.println("J'ai rien fait ici");
+		boolean resultat = true;
+		journaliseurNiveauConfig.log("[DEBUT METHOD] : updateAutoEvaluation");
+		journaliseurNiveauConfig.log("[METHOD IN] autoEvaluation : " + stagiaire);
+		
+		try {
+			
+			em.merge(stagiaire);
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			resultat = false;
+			journaliseurNiveauError.log("[METHOD] updateModule [Module] " + stagiaire + " [StackTrace] " + e.getMessage());
+			
+		}
+		
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : updateAutoEvaluation" + resultat);
+		journaliseurNiveauConfig.log("[FIN METHOD] : updateAutoEvaluation");
 		
 	}
 
