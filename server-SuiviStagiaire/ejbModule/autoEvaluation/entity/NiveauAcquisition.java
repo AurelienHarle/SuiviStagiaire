@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * {@link Class} {@link Entity}, {@link NiveauAcquisition} elle représente l'éstimation du niveau d'acquisition d'un stagiaire sur une competence.
@@ -16,7 +17,8 @@ import javax.persistence.Id;
  * @Since 15/06/2017
  *
  */
-@Entity(name="niv_acqui")
+@Entity
+@Table(name="niv_acqui")
 public class NiveauAcquisition implements Serializable {
 
 	/**

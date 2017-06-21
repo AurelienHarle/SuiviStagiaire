@@ -9,6 +9,7 @@ import autoEvaluation.entity.Competence;
 import autoEvaluation.entity.Module;
 import autoEvaluation.entity.NiveauAcquisition;
 import autoEvaluation.entity.Sequence;
+import autoEvaluation.technique.AutoEvaluations;
 import compteUtilisateur.entity.Stagiaire;
 import exception.DoublonException;
 import exception.NullException;
@@ -140,6 +141,28 @@ public class FacadeDaoAutoEvaluation implements FacadeDaoAutoEvaluationLocal {
 	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation) {
 		return dao.selectAutoEvaluation(autoEvaluation);
 		
+	}
+	
+	@Override
+	public AutoEvaluation selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(
+			AutoEvaluation autoEvaluation) {
+		return dao.selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(autoEvaluation);
+	}
+
+	@Override
+	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) {
+		return dao.selectAutoEvaluationByStagCompDate(autoEvaluation);
+		
+	}
+
+	@Override
+	public AutoEvaluations selectAutoEvaluationByStagComp(AutoEvaluation autoEvaluation) {
+		return dao.selectAutoEvaluationByStagComp(autoEvaluation);
+	}
+
+	@Override
+	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation) {
+		return dao.selectAutoEvaluationByStag(autoEvaluation);
 	}
 
 	@Override

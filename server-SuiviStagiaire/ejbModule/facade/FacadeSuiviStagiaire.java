@@ -10,9 +10,11 @@ import autoEvaluation.entity.Module;
 import autoEvaluation.entity.NiveauAcquisition;
 import autoEvaluation.entity.Sequence;
 import autoEvaluation.facade.FacadeServiceAutoEvaluation;
+import autoEvaluation.technique.AutoEvaluations;
 import compteUtilisateur.entity.Stagiaire;
 import exception.DoublonException;
 import exception.NullException;
+import logger.Journaliseur;
 
 /**
  * Session Bean implementation class FacadeSuiviStagiaire
@@ -29,6 +31,8 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
     
     @EJB
     FacadeServiceAutoEvaluation facadeServiceAutoEvaluation;
+    
+    Journaliseur journaliseur = Journaliseur.getINSTANCE();
 
 	@Override
 	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException {
@@ -141,6 +145,28 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
 	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation) {
 		return facadeServiceAutoEvaluation.selectAutoEvaluation(autoEvaluation);
 		
+	}
+
+	@Override
+	public AutoEvaluation selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(
+			AutoEvaluation autoEvaluation) {
+		return facadeServiceAutoEvaluation.selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(autoEvaluation);
+	}
+
+	@Override
+	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) {
+		return facadeServiceAutoEvaluation.selectAutoEvaluationByStagCompDate(autoEvaluation);
+		
+	}
+
+	@Override
+	public AutoEvaluations selectAutoEvaluationByStagComp(AutoEvaluation autoEvaluation) {
+		return facadeServiceAutoEvaluation.selectAutoEvaluationByStagComp(autoEvaluation);
+	}
+
+	@Override
+	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation) {
+		return facadeServiceAutoEvaluation.selectAutoEvaluationByStag(autoEvaluation);
 	}
 
 	@Override

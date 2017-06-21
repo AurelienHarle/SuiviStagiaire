@@ -7,6 +7,7 @@ import autoEvaluation.entity.Competence;
 import autoEvaluation.entity.Module;
 import autoEvaluation.entity.NiveauAcquisition;
 import autoEvaluation.entity.Sequence;
+import autoEvaluation.technique.AutoEvaluations;
 import compteUtilisateur.entity.Stagiaire;
 import exception.DoublonException;
 import exception.NullException;
@@ -122,6 +123,26 @@ public interface FacadeSuiviStagiaireRemote {
 	 * Select d'une auto evaluation dans la base
 	 */
 	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation);
+	
+	/**
+	 * Select d'une auto evaluation par tout ses attribue
+	 */
+	public AutoEvaluation selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(AutoEvaluation autoEvaluation);
+	
+	/**
+	 * Select d'une auto evaluation par son Stagiaire / Comp / Date
+	 */
+	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation);
+	
+	/**
+	 * Select d'une auto evaluation par son Stagiaire / Comp
+	 */
+	public AutoEvaluations selectAutoEvaluationByStagComp(AutoEvaluation autoEvaluation);
+	
+	/**
+	 * Select d'une auto evaluation par son Stagiaire
+	 */
+	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation);
 
 	/**
 	 * Select d'un Module

@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import compteUtilisateur.entity.Stagiaire;
 
@@ -27,7 +28,8 @@ import compteUtilisateur.entity.Stagiaire;
  * @Since 15/06/2017
  * 
  */
-@Entity(name="auto_eval")
+@Entity
+@Table(name="auto_eval")
 public class AutoEvaluation implements Serializable {
 
 	private static final long serialVersionUID = 4240756771457540324L;

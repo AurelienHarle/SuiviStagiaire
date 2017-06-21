@@ -76,7 +76,7 @@ public class TestSelectDao {
 		//AutoEvaluation pour testSelectAutoEvaluation()
 		autoEvaluationInsert = new AutoEvaluation(competenceInsert,sequenceInsert,moduleInsert,niveauAcquisitionInsert,stagiaireInsert,date,null);
 		facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluationInsert);
-		
+		autoEvaluationInsert = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluationInsert);
 	}
 	
 
@@ -132,6 +132,7 @@ public class TestSelectDao {
 		
 		Module moduleSelect = facadeSuiviStagiaireRemote.selectModule(moduleInsert);
 		
+		assertNotNull(moduleSelect);
 		assertEquals(moduleInsert.getIdentifiant(), moduleSelect.getIdentifiant());
 		assertEquals(moduleInsert.getNomCourt(), moduleSelect.getNomCourt());
 		assertEquals(moduleInsert.getNomLong(), moduleSelect.getNomLong());
@@ -146,6 +147,7 @@ public class TestSelectDao {
 		
 		Sequence sequenceSelect = facadeSuiviStagiaireRemote.selectSequence(sequenceInsert);
 		
+		assertNotNull(sequenceSelect);
 		assertEquals(sequenceInsert.getIdentifiant(), sequenceSelect.getIdentifiant());		
 		assertEquals(sequenceInsert.getNomCourt(), sequenceSelect.getNomCourt());
 		assertEquals(sequenceInsert.getNomLong(), sequenceSelect.getNomLong());
@@ -159,6 +161,7 @@ public class TestSelectDao {
 		
 		Competence competenceSelect = facadeSuiviStagiaireRemote.selectCompetence(competenceInsert);
 		
+		assertNotNull(competenceSelect);
 		assertEquals(competenceInsert.getIdentifiant(), competenceSelect.getIdentifiant());
 		assertEquals(competenceInsert.getNomCourt(), competenceSelect.getNomCourt());
 		assertEquals(competenceInsert.getNomLong(), competenceSelect.getNomLong());
@@ -173,6 +176,7 @@ public class TestSelectDao {
 		
 		Stagiaire stagiaireSelect = facadeSuiviStagiaireRemote.selectStagiaire(stagiaireInsert);
 		
+		assertNotNull(stagiaireSelect);
 		assertEquals(stagiaireInsert.getLogin(), stagiaireSelect.getLogin());
 		assertEquals(stagiaireInsert.getMotDePasse(), stagiaireSelect.getMotDePasse());
 		assertEquals(stagiaireInsert.getNom(), stagiaireSelect.getNom());
@@ -188,6 +192,7 @@ public class TestSelectDao {
 		
 		NiveauAcquisition niveauAcquisitionSelect = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisitionInsert);
 		
+		assertNotNull(niveauAcquisitionSelect);
 		assertEquals(niveauAcquisitionInsert.getIdentifiant(), niveauAcquisitionSelect.getIdentifiant());
 		assertEquals(niveauAcquisitionInsert.getNiveau(), niveauAcquisitionSelect.getNiveau());
 		
@@ -200,10 +205,12 @@ public class TestSelectDao {
 	@Test
 	public void testSelectAutoEvaluation(){
 		
-		AutoEvaluation autoEvaluationSelect = facadeSuiviStagiaireRemote.selectAutoEvaluation(autoEvaluationInsert);
-		
+		AutoEvaluation autoEvaluationSelect = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluationInsert);		
+				
+		assertNotNull(autoEvaluationSelect);
 		assertEquals(autoEvaluationInsert.getIdentifiant(), autoEvaluationSelect.getIdentifiant());
 		assertEquals(autoEvaluationInsert.getDateAutoEvaluation(), autoEvaluationSelect.getDateAutoEvaluation());
+		assertEquals(autoEvaluationInsert.getRessenti(), autoEvaluationSelect.getRessenti());
 
 	}
 

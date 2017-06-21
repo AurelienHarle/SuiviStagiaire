@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * {@link Class} {@link Entity}, {@link Sequence} elle représente une sequence de la formation.
@@ -19,7 +20,8 @@ import javax.persistence.ManyToOne;
  * @Version 1
  * @Since 15/06/2017
  */
-@Entity(name="seq")
+@Entity
+@Table(name="seq")
 public class Sequence implements Serializable {
 
 	private static final long serialVersionUID = 1L;

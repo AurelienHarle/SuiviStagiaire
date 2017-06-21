@@ -18,6 +18,7 @@ import autoEvaluation.technique.AutoEvaluations;
 import compteUtilisateur.entity.Stagiaire;
 import exception.DoublonException;
 import exception.NullException;
+import logger.Journaliseur;
 import parametre.Parametre;
 
 /**
@@ -34,48 +35,66 @@ public class Dao implements DaoLocal {
 	
 	@PersistenceContext(unitName=Parametre.PERSISTENCE_UNIT_NAME)
 	EntityManager em;
+	Journaliseur journaliseur = Journaliseur.getINSTANCE();
+	
+	
 	
     /**
      * Default constructor. 
      */
     public Dao() {
-        // TODO Auto-generated constructor stub
+        
     }
 
 
 	@Override
 	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException {
+
+		journaliseur.log("[Debut methode] : insertAutoEvaluation| [autoEvaluation IN] : " + autoEvaluation);
 		
-		try{
+		//AutoEvaluation autoEvaluationVerifDate = selectAutoEvaluationByStagCompDate(autoEvaluation);
+		
+		//journaliseur.log("autoEvaluationVerifDate : " + autoEvaluationVerifDate);
+		
+		//if(autoEvaluationVerifDate == null){
 			
-			System.out.println(autoEvaluation);
-			em.persist(autoEvaluation);
-			em.flush();
-			
-		}catch (PersistenceException | NullPointerException e ) {
-			
-			e.printStackTrace();
-			
-			if(e instanceof PersistenceException){
+			try{
 				
-				Throwable t = e.getCause();
-			
-				while ((t != null) && !(t instanceof SQLIntegrityConstraintViolationException)) {
-					t = t.getCause();
-				}
+				journaliseur.log("Avant Persit : " + autoEvaluation);
+				em.persist(autoEvaluation);
+				em.flush();
+				journaliseur.log("après Persit : " + autoEvaluation);
 				
-				if(t instanceof SQLIntegrityConstraintViolationException){
-	
-					throw new DoublonException("insertAutoEval");
+			}catch (PersistenceException | NullPointerException e ) {
+				journaliseur.log("EXCEPTION : " + e);
+				e.printStackTrace();
+				
+				if(e instanceof PersistenceException){
+					
+					Throwable t = e.getCause();
+				
+					while ((t != null) && !(t instanceof SQLIntegrityConstraintViolationException)) {
+						t = t.getCause();
+					}
+					
+					if(t instanceof SQLIntegrityConstraintViolationException){
+		
+						throw new DoublonException("insertAutoEval");
+						
+					}
+					
+				}else{
+					
+					throw new NullException("insertAutoEval");
 					
 				}
-				
-			}else{
-				
-				throw new NullException("insertAutoEval");
-				
 			}
-		}
+//		}else{
+//		
+//			updateAutoEvaluation(autoEvaluation);
+//			
+//		}
+		journaliseur.log("[Fin methode] : insertAutoEvaluation");
 	}
 
 
@@ -349,6 +368,115 @@ public class Dao implements DaoLocal {
 
 
 	@Override
+	public AutoEvaluation selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(
+			AutoEvaluation autoEvaluation) {
+
+		String sqlString = "select ae from AutoEvaluation ae where ae_date = ?1 and ae_ressenti = ?2 and comp_id = ?3 and mod_id = ?4 and na_id = ?5 and seq_id = ?6 and stag_id = ?7";
+
+		
+		AutoEvaluation autoEvaluation2 = (AutoEvaluation) em.createQuery(sqlString).setParameter(1, autoEvaluation.getDateAutoEvaluation())
+		.setParameter(2, autoEvaluation.getRessenti())
+		.setParameter(3, autoEvaluation.getCompetence().getIdentifiant())
+		.setParameter(4, autoEvaluation.getModule().getIdentifiant())
+		.setParameter(5, autoEvaluation.getNiveauAcquisition().getIdentifiant())
+		.setParameter(6, autoEvaluation.getSequence().getIdentifiant())
+		.setParameter(7, autoEvaluation.getStagiaire().getLogin()).getSingleResult();
+		
+		return autoEvaluation2;
+	}
+
+
+	@Override
+	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) {
+		
+		journaliseur.log("[Debut methode] : selectAutoEvaluationByStagCompDate ");
+		journaliseur.log("[AutoEvaluation IN] : " + autoEvaluation);
+		
+		AutoEvaluation autoEvaluation2 = null;
+		
+//		String sqlString = "select identifiant,dateAutoEvaluation,ressenti,competence,module,niveauAcquisition,sequence,stagiaire"
+//							+ " from AutoEvaluation"
+//								+ " where stag_id = ?"
+//								+ " and comp_id = ?"
+//								+ " and ae_date = ?";
+		
+		String sqlString = "select ae"
+						+ " from AutoEvaluation ae"
+							+ " where stag_id = ?1"
+							+ " and comp_id = ?2"
+							+ " and ae_date = ?3";
+
+		autoEvaluation2 = (AutoEvaluation) em.createQuery(sqlString)
+			.setParameter(1, autoEvaluation.getStagiaire().getLogin())
+			.setParameter(2, autoEvaluation.getCompetence().getIdentifiant())
+			.setParameter(3, autoEvaluation.getDateAutoEvaluation()).getSingleResult();
+
+		journaliseur.log("AutoEvaluation OUT : " + autoEvaluation2);
+		journaliseur.log("[Fin methode] : selectAutoEvaluationByStagCompDate ");
+		return autoEvaluation2;
+		
+	}
+
+
+	@Override
+	public AutoEvaluations selectAutoEvaluationByStagComp(AutoEvaluation autoEvaluation) {
+		
+		AutoEvaluations autoEvaluations = new AutoEvaluations();
+		
+		String sqlString = "select ae_id,ae_date,ae_ressenti,comp_id,mod_id,na_id,seq_id,stag_id from " + autoEvaluation.getClass().getName() + " where stag_id = ? and comp_id = ?";
+		
+		@SuppressWarnings("rawtypes")
+		List result = em.createQuery(sqlString)
+			.setParameter(1, autoEvaluation.getStagiaire().getLogin())
+			.setParameter(2, autoEvaluation.getCompetence().getIdentifiant()).getResultList();
+		
+		for (Object object : result) {
+			autoEvaluations.add((AutoEvaluation) object);
+		}
+		
+		return autoEvaluations;
+	}
+
+
+	@Override
+	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation) {
+		
+		AutoEvaluations autoEvaluations = new AutoEvaluations();
+		//TODO (persist/delete/find) generalisé grace class name
+		String sqlString = "select ae_id,ae_date,ae_ressenti,comp_id,mod_id,na_id,seq_id,stag_id from " + autoEvaluation.getClass().getName() + " where stag_id = ?";
+		
+		@SuppressWarnings("rawtypes")
+		List result = em.createQuery(sqlString)
+			.setParameter(1, autoEvaluation.getStagiaire().getLogin()).getResultList();
+		
+		for (Object object : result) {
+			autoEvaluations.add((AutoEvaluation) object);
+		}
+		
+		return autoEvaluations;
+	}
+
+
+	@Override
+	public AutoEvaluations selectAutoEvaluationByComp(AutoEvaluation autoEvaluation) {
+		
+		AutoEvaluations autoEvaluations = new AutoEvaluations();
+		
+		String sqlString = "select ae_id,ae_date,ae_ressenti,comp_id,mod_id,na_id,seq_id,stag_id from " + autoEvaluation.getClass().getName() + " where stag_id = ?";
+		
+		@SuppressWarnings("rawtypes")
+		List result = em.createQuery(sqlString)
+			.setParameter(1, autoEvaluation.getStagiaire().getLogin()).getResultList();
+		
+		for (Object object : result) {
+			autoEvaluations.add((AutoEvaluation) object);
+		}
+		
+		return autoEvaluations;
+	}
+
+
+	@Override
 	public Module selectModule(Module module) {
 		return em.find(Module.class, module.getIdentifiant());
 		
@@ -380,85 +508,6 @@ public class Dao implements DaoLocal {
 	public Stagiaire selectStagiaire(Stagiaire stagiaire) {
 		return em.find(Stagiaire.class, stagiaire.getLogin());
 		
-	}
-
-
-	@Override
-	public AutoEvaluations selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) {
-		
-		AutoEvaluations autoEvaluations = new AutoEvaluations();
-		
-		String sqlString = "select ae_id,ae_date,ae_ressenti,comp_id,mod_id,na_id,seq_id,stag_id from AutoEvaluation where stag_id = ? and comp_id = ? and ae_date = ?";
-		
-		@SuppressWarnings("rawtypes")
-		List result = em.createQuery(sqlString)
-			.setParameter(1, autoEvaluation.getStagiaire().getLogin())
-			.setParameter(2, autoEvaluation.getCompetence().getIdentifiant())
-			.setParameter(3, autoEvaluation.getDateAutoEvaluation()).getResultList();
-		
-		for (Object object : result) {
-			autoEvaluations.add((AutoEvaluation) object);
-		}
-		
-		return autoEvaluations;
-	}
-
-
-	@Override
-	public AutoEvaluations selectAutoEvaluationByStagComp(AutoEvaluation autoEvaluation) {
-		
-		AutoEvaluations autoEvaluations = new AutoEvaluations();
-		
-		String sqlString = "select ae_id,ae_date,ae_ressenti,comp_id,mod_id,na_id,seq_id,stag_id from AutoEvaluation where stag_id = ? and comp_id = ?";
-		
-		@SuppressWarnings("rawtypes")
-		List result = em.createQuery(sqlString)
-			.setParameter(1, autoEvaluation.getStagiaire().getLogin())
-			.setParameter(2, autoEvaluation.getCompetence().getIdentifiant()).getResultList();
-		
-		for (Object object : result) {
-			autoEvaluations.add((AutoEvaluation) object);
-		}
-		
-		return autoEvaluations;
-	}
-
-
-	@Override
-	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation) {
-		
-		AutoEvaluations autoEvaluations = new AutoEvaluations();
-		
-		String sqlString = "select ae_id,ae_date,ae_ressenti,comp_id,mod_id,na_id,seq_id,stag_id from AutoEvaluation where stag_id = ?";
-		
-		@SuppressWarnings("rawtypes")
-		List result = em.createQuery(sqlString)
-			.setParameter(1, autoEvaluation.getStagiaire().getLogin()).getResultList();
-		
-		for (Object object : result) {
-			autoEvaluations.add((AutoEvaluation) object);
-		}
-		
-		return autoEvaluations;
-	}
-
-
-	@Override
-	public AutoEvaluations selectAutoEvaluationByComp(AutoEvaluation autoEvaluation) {
-		
-		AutoEvaluations autoEvaluations = new AutoEvaluations();
-		
-		String sqlString = "select ae_id,ae_date,ae_ressenti,comp_id,mod_id,na_id,seq_id,stag_id from AutoEvaluation where stag_id = ?";
-		
-		@SuppressWarnings("rawtypes")
-		List result = em.createQuery(sqlString)
-			.setParameter(1, autoEvaluation.getStagiaire().getLogin()).getResultList();
-		
-		for (Object object : result) {
-			autoEvaluations.add((AutoEvaluation) object);
-		}
-		
-		return autoEvaluations;
 	}
 
 }

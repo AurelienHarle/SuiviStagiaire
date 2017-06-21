@@ -133,9 +133,14 @@ public interface DaoLocal {
 	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation);
 	
 	/**
+	 * Select d'une auto evaluation par tout ses attribue
+	 */
+	public AutoEvaluation selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(AutoEvaluation autoEvaluation);
+	
+	/**
 	 * Select d'une auto evaluation par son Stagiaire / Comp / Date
 	 */
-	public AutoEvaluations selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation);
+	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation);
 	
 	/**
 	 * Select d'une auto evaluation par son Stagiaire / Comp

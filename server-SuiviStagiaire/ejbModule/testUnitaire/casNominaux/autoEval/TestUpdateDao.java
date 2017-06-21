@@ -1,5 +1,6 @@
 package testUnitaire.casNominaux.autoEval;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDate;
@@ -35,16 +36,14 @@ public class TestUpdateDao {
 	
 	private static Context context;
 	private static FacadeSuiviStagiaireRemote facadeSuiviStagiaireRemote;
-	
-	private static AutoEvaluation autoEvaluationInsert;
+
 	private static Module moduleInsert;
 	private static Sequence sequenceInsert;
 	private static Competence competenceInsert;
 	private static Stagiaire stagiaireInsert;
 	private static NiveauAcquisition niveauAcquisitionInsert;
-	private static Module moduleSequenceInsert;
-	private static Module moduleCompetenceInsert;
-	private static Sequence sequenceCompetenceInsert;
+	private static AutoEvaluation autoEvaluationInsert;
+	
 	
 	@BeforeClass
 	public static void init() throws NamingException, DoublonException, NullException{
@@ -53,123 +52,63 @@ public class TestUpdateDao {
 		context = new InitialContext();
 		facadeSuiviStagiaireRemote = (FacadeSuiviStagiaireRemote) context.lookup("ejb:/server-SuiviStagiaire/FacadeSuiviStagiaire!facade.FacadeSuiviStagiaireRemote");
 		
-		//Creation et insertion du module pour testInsertAutoEvaluation()
-		Module module = new Module("M5","Développer une application en couches","Dév une app N-tiers");
-		facadeSuiviStagiaireRemote.insertModule(module);
-		module = facadeSuiviStagiaireRemote.selectModule(module);
+		//Module pour testSelectModule()
+		moduleInsert = new Module("M1","Test","Test");
+		facadeSuiviStagiaireRemote.insertModule(moduleInsert);
+		moduleInsert = facadeSuiviStagiaireRemote.selectModule(moduleInsert);
 		
-		//Creation et insertion du sequence pour testInsertAutoEvaluation()
-		Sequence sequence = new Sequence("S4",module,"Préparer et exécuter les plans de tests d’une application et préparer et exécuter le déploiement d’une application",
-				"Prépa & exec plans de tests d'une app et du deploie d'une app");
-		facadeSuiviStagiaireRemote.insertSequence(sequence);
-		sequence = facadeSuiviStagiaireRemote.selectSequence(sequence);
+		//Creation et insertion du module pour testSelectSequence()
+		sequenceInsert = new Sequence("S1",moduleInsert,"Test","Test");
+		facadeSuiviStagiaireRemote.insertSequence(sequenceInsert);
+		sequenceInsert = facadeSuiviStagiaireRemote.selectSequence(sequenceInsert);
 		
-		//Creation et insertion du competence pour testInsertAutoEvaluation()
-		Competence competence = new Competence("C2",sequence,module,"Préparer et exécuter les plans de tests","Prépa & exec plan de tests");
-		facadeSuiviStagiaireRemote.insertCompetence(competence);
-		competence = facadeSuiviStagiaireRemote.selectCompetence(competence);
+		//Competences pour testSelectCompetence()
+		competenceInsert = new Competence("C1",sequenceInsert,moduleInsert,"Test","Test");
+		facadeSuiviStagiaireRemote.insertCompetence(competenceInsert);
+		competenceInsert = facadeSuiviStagiaireRemote.selectCompetence(competenceInsert);
 		
-		//Creation et insertion du niveauAcquisition pour testInsertAutoEvaluation()
-		NiveauAcquisition niveauAcquisition = new NiveauAcquisition("2","AC");
-		facadeSuiviStagiaireRemote.insertNiveauAcquisition(niveauAcquisition);
-		niveauAcquisition = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisition);
+		//Stagiaire pour testSelectStagiaire()
+		stagiaireInsert = new Stagiaire("login","motdepasse","nom","prenom",null,null,null,null,null,null);
+		facadeSuiviStagiaireRemote.insertStagiaire(stagiaireInsert);
+		stagiaireInsert = facadeSuiviStagiaireRemote.selectStagiaire(stagiaireInsert);
 		
-		//Creation et insertion du stagiaire pour testInsertAutoEvaluation()
-		Stagiaire stagiaire = new Stagiaire("13111384","Password","Harlé","Aurélien",null,null,null,null,null,null);
-		facadeSuiviStagiaireRemote.insertStagiaire(stagiaire);
-		stagiaire = facadeSuiviStagiaireRemote.selectStagiaire(stagiaire);
+		//NiveauAcquisition pour testSelectNiveauAcquisition()
+		niveauAcquisitionInsert = new NiveauAcquisition("1","A");
+		facadeSuiviStagiaireRemote.insertNiveauAcquisition(niveauAcquisitionInsert);
+		niveauAcquisitionInsert = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisitionInsert);
 		
-		//Creation date pour testInsertAutoEvaluation()
+		//Creation date pour testSelectAutoEvaluation()
 		LocalDate date = LocalDate.now();
 		
-		//Module pour testInsertModule()
-		moduleInsert = new Module("M1","Test","Test");
+		//AutoEvaluation pour testSelectAutoEvaluation()
+		autoEvaluationInsert = new AutoEvaluation(competenceInsert,sequenceInsert,moduleInsert,niveauAcquisitionInsert,stagiaireInsert,date,null);
+		facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluationInsert);
+		autoEvaluationInsert = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluationInsert);
 		
-		//Creation et insertion du module pour testInsertSequence()
-		moduleSequenceInsert = new Module("M2","Test","Test");
-		facadeSuiviStagiaireRemote.insertModule(moduleSequenceInsert);
-		sequenceInsert = new Sequence("S1",moduleSequenceInsert,"Test","Test");
 		
-		//Creation et insertion du Module pour testInsertCompetence()
-		moduleCompetenceInsert = new Module("M3","Test","Test");
-		facadeSuiviStagiaireRemote.insertModule(moduleCompetenceInsert);
-		
-		//Creation et insertion de la sequence pour testInsertCompetence()
-		sequenceCompetenceInsert = new Sequence("S2",moduleCompetenceInsert,"Test","Test");
-		facadeSuiviStagiaireRemote.insertSequence(sequenceCompetenceInsert);
-		
-		//Competences pour testInsertCompetence()
-		competenceInsert = new Competence("C1",sequenceCompetenceInsert,moduleCompetenceInsert,"Test","Test");
-		
-		//Stagiaire pour testInsertStagiaire()
-		stagiaireInsert = new Stagiaire("login","motdepasse","nom","prenom",null,null,null,null,null,null);
-		
-		//NiveauAcquisition pour testInsertNiveauAcquisition()
-		niveauAcquisitionInsert = new NiveauAcquisition("1","A");
-		
-		//AutoEvaluation pour testInsertAutoEvaluation()
-		autoEvaluationInsert = new AutoEvaluation(competence,sequence,module,niveauAcquisition,stagiaire,date,null);
-
 	}
 	
 
 	@AfterClass
 	public static void finalizeur(){
 		
-		//TODO FIX IT
-		
-//		autoEvaluationInsert = facadeSuiviStagiaireRemote.selectAutoEvaluation(autoEvaluationInsert);
-//		System.out.println(autoEvaluationInsert);
-//		facadeSuiviStagiaireRemote.deleteAutoEvaluation(autoEvaluationInsert);
-//		
-//		moduleInsert = facadeSuiviStagiaireRemote.selectModule(moduleInsert);
-//		System.out.println(moduleInsert);
-//		facadeSuiviStagiaireRemote.deleteModule(moduleInsert);
-//		
-//		sequenceInsert = facadeSuiviStagiaireRemote.selectSequence(sequenceInsert);
-//		System.out.println(sequenceInsert);
-//		facadeSuiviStagiaireRemote.deleteSequence(sequenceInsert);
-//		
-//		competenceInsert = facadeSuiviStagiaireRemote.selectCompetence(competenceInsert);
-//		System.out.println(competenceInsert);
-//		facadeSuiviStagiaireRemote.deleteCompetence(competenceInsert);
-//		
-//		stagiaireInsert = facadeSuiviStagiaireRemote.selectStagiaire(stagiaireInsert);
-//		System.out.println(stagiaireInsert);
-//		facadeSuiviStagiaireRemote.deleteStagiaire(stagiaireInsert);
-//		
-//		niveauAcquisitionInsert = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisitionInsert);
-//		System.out.println(niveauAcquisitionInsert);
-//		facadeSuiviStagiaireRemote.deleteNiveauAcquisition(niveauAcquisitionInsert);
-//		
-//		moduleSequenceInsert = facadeSuiviStagiaireRemote.selectModule(moduleSequenceInsert);
-//		System.out.println(moduleSequenceInsert);
-//		facadeSuiviStagiaireRemote.deleteModule(moduleSequenceInsert);
-//		
-//		moduleCompetenceInsert = facadeSuiviStagiaireRemote.selectModule(moduleCompetenceInsert);
-//		System.out.println(moduleCompetenceInsert);
-//		facadeSuiviStagiaireRemote.deleteModule(moduleCompetenceInsert);
-//		
-//		sequenceCompetenceInsert = facadeSuiviStagiaireRemote.selectSequence(sequenceCompetenceInsert);
-//		System.out.println(sequenceCompetenceInsert);
-//		facadeSuiviStagiaireRemote.deleteSequence(sequenceCompetenceInsert);
-		
 	}
 	
 	
 	/**
-	 * Test d'insertion d'un Module
+	 * Test d'update d'un Module
 	 */
 	@Test
-	public void testInsertModule(){
+	public void testUpdateModule(){
 		
 		boolean condition = true;
+		Module module = new Module("M1","Update","Update");
 		
-		try {
+		try{
 			
-			facadeSuiviStagiaireRemote.insertModule(moduleInsert);
+			facadeSuiviStagiaireRemote.updateModule(module);
 			
-		} catch (DoublonException | NullException e) {
+		}catch (Exception e) {
 			
 			condition = false;
 			e.printStackTrace();
@@ -178,21 +117,28 @@ public class TestUpdateDao {
 		
 		assertTrue(condition);
 		
+		Module moduleBDD = facadeSuiviStagiaireRemote.selectModule(module);
+		
+		assertEquals(module.getIdentifiant(),moduleBDD.getIdentifiant());
+		assertEquals(module.getNomCourt(), moduleBDD.getNomCourt());
+		assertEquals(module.getNomLong(), moduleBDD.getNomLong());
+		
 	}
 	
 	/**
-	 * Test d'insertion d'une Sequence
+	 * Test d'update d'une Sequence
 	 */
 	@Test
-	public void testInsertSequence(){
+	public void testUpdateSequence(){
 		
 		boolean condition = true;
+		Sequence sequence = new Sequence("S1",moduleInsert,"update","update");
 		
-		try {
+		try{
 			
-			facadeSuiviStagiaireRemote.insertSequence(sequenceInsert);
+			facadeSuiviStagiaireRemote.updateSequence(sequence);
 			
-		} catch (DoublonException | NullException e) {
+		}catch (Exception e) {
 			
 			condition = false;
 			e.printStackTrace();
@@ -200,21 +146,28 @@ public class TestUpdateDao {
 		}
 		
 		assertTrue(condition);
+		
+		Sequence sequenceBDD = facadeSuiviStagiaireRemote.selectSequence(sequence);
+		
+		assertEquals(sequence.getIdentifiant(),sequenceBDD.getIdentifiant());
+		assertEquals(sequence.getNomCourt(), sequenceBDD.getNomCourt());
+		assertEquals(sequence.getNomLong(), sequenceBDD.getNomLong());
 	}
 	
 	/**
-	 * Test d'insertion d'une Competences
+	 * Test d'update d'une Competences
 	 */
 	@Test
-	public void testInsertCompetence(){
+	public void testUpdateCompetence(){
 		
 		boolean condition = true;
+		Competence competence = new Competence("C1",sequenceInsert,moduleInsert,"Update","Update");
 		
-		try {
+		try{
 			
-			facadeSuiviStagiaireRemote.insertCompetence(competenceInsert);
+			facadeSuiviStagiaireRemote.updateCompetence(competence);
 			
-		} catch (DoublonException | NullException e) {
+		}catch (Exception e) {
 			
 			condition = false;
 			e.printStackTrace();
@@ -222,21 +175,28 @@ public class TestUpdateDao {
 		}
 		
 		assertTrue(condition);
+		
+		Competence competenceBDD = facadeSuiviStagiaireRemote.selectCompetence(competence);
+		
+		assertEquals(competence.getIdentifiant(),competenceBDD.getIdentifiant());
+		assertEquals(competence.getNomCourt(), competenceBDD.getNomCourt());
+		assertEquals(competence.getNomLong(), competenceBDD.getNomLong());
 	}
 	
 	/**
-	 * Test d'insertion d'un Stagiaire
+	 * Test d'update d'un Stagiaire
 	 */
 	@Test
-	public void testInsertStagiaire(){
+	public void testUpdateStagiaire(){
 		
 		boolean condition = true;
+		Stagiaire stagiaire = new Stagiaire("login","Update","Update","Update",null,null,null,null,null,null);
 		
-		try {
+		try{
 			
-			facadeSuiviStagiaireRemote.insertStagiaire(stagiaireInsert);
+			facadeSuiviStagiaireRemote.updateStagiaire(stagiaire);
 			
-		} catch (DoublonException | NullException e) {
+		}catch (Exception e) {
 			
 			condition = false;
 			e.printStackTrace();
@@ -244,21 +204,29 @@ public class TestUpdateDao {
 		}
 		
 		assertTrue(condition);
+		
+		Stagiaire stagiaireBDD = facadeSuiviStagiaireRemote.selectStagiaire(stagiaire);
+		
+		assertEquals(stagiaire.getLogin(), stagiaireBDD.getLogin());
+		assertEquals(stagiaire.getMotDePasse(), stagiaireBDD.getMotDePasse());
+		assertEquals(stagiaire.getNom(), stagiaireBDD.getNom());
+		assertEquals(stagiaire.getPrenom(), stagiaireBDD.getPrenom());
 	}
 	
 	/**
-	 * Test d'insertion d'un NiveauAcquisition
+	 * Test d'update d'un NiveauAcquisition
 	 */
 	@Test
-	public void testInsertNiveauAcquisition(){
+	public void testUpdateNiveauAcquisition(){
 		
 		boolean condition = true;
+		NiveauAcquisition niveauAcquisition = new NiveauAcquisition("1","UP");
 		
-		try {
+		try{
 			
-			facadeSuiviStagiaireRemote.insertNiveauAcquisition(niveauAcquisitionInsert);
+			facadeSuiviStagiaireRemote.updateNiveauAcquisition(niveauAcquisition);
 			
-		} catch (DoublonException | NullException e) {
+		}catch (Exception e) {
 			
 			condition = false;
 			e.printStackTrace();
@@ -266,21 +234,32 @@ public class TestUpdateDao {
 		}
 		
 		assertTrue(condition);
+		
+		NiveauAcquisition niveauAcquisitionBDD = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisition);
+		
+		assertEquals(niveauAcquisition.getIdentifiant(),niveauAcquisitionBDD.getIdentifiant());
+		assertEquals(niveauAcquisition.getIdentifiant(), niveauAcquisitionBDD.getIdentifiant());
+		assertEquals(niveauAcquisition.getNiveau(), niveauAcquisitionBDD.getNiveau());
+		
 	}
 	
 	/**
-	 * Test d'une insertion d'une {@link AutoEvaluation}
+	 * Test d'une update d'une {@link AutoEvaluation}
 	 */
 	@Test
-	public void testInsertAutoEvaluation(){
+	public void testUpdateAutoEvaluation(){
 		
+		//Creation date pour test
+		LocalDate date = LocalDate.now();
+				
 		boolean condition = true;
+		AutoEvaluation autoEvaluation = new AutoEvaluation(competenceInsert,sequenceInsert,moduleInsert,niveauAcquisitionInsert,stagiaireInsert,date,"Update from the hell");
 		
-		try {
+		try{
 			
-			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluationInsert);
+			facadeSuiviStagiaireRemote.updateAutoEvaluation(autoEvaluation);
 			
-		} catch (DoublonException | NullException e) {
+		}catch (Exception e) {
 			
 			condition = false;
 			e.printStackTrace();
@@ -288,6 +267,13 @@ public class TestUpdateDao {
 		}
 		
 		assertTrue(condition);
+		
+		AutoEvaluation autoEvaluationBDD = facadeSuiviStagiaireRemote.selectAutoEvaluation(autoEvaluation);
+		
+		assertEquals(autoEvaluation.getIdentifiant(),autoEvaluationBDD.getIdentifiant());
+		assertEquals(autoEvaluation.getIdentifiant(), autoEvaluationBDD.getIdentifiant());
+		assertEquals(autoEvaluation.getDateAutoEvaluation(), autoEvaluationBDD.getDateAutoEvaluation());
+		assertEquals(autoEvaluation.getRessenti(), autoEvaluationBDD.getRessenti());
 		
 	}
 

@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * 
@@ -18,7 +19,8 @@ import javax.persistence.Id;
  * @Since 15/06/2017
  *
  */
-@Entity(name="stag")
+@Entity
+@Table(name="stag")
 public class Stagiaire implements Serializable{
 	
 	/**

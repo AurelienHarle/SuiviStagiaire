@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * {@link Class} {@link Entity}, {@link Competences} elle représente une compétence de la formation.
@@ -22,7 +23,8 @@ import javax.persistence.ManyToOne;
  * @Since 15/06/2017
  * 
  */
-@Entity(name="comp")
+@Entity
+@Table(name="comp")
 public class Competence implements Serializable {
 
 	private static final long serialVersionUID = 1L;
