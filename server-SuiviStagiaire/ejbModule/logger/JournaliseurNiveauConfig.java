@@ -2,6 +2,7 @@ package logger;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.SimpleFormatter;
@@ -51,6 +52,10 @@ public class JournaliseurNiveauConfig extends java.util.logging.Logger {
 
 
 	public void log(String string) {
+		
+		String heure = LocalTime.now() + " ";
+		string = heure + string;
+		
 		this.log(Level.CONFIG, string);
 		
 	}
