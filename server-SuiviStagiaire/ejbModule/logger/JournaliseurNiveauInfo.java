@@ -6,26 +6,26 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.SimpleFormatter;
 
-public class JournaliseurNiveauConfig extends java.util.logging.Logger {
+public class JournaliseurNiveauInfo extends java.util.logging.Logger {
 
 	private FileHandler handler;
 	private SimpleFormatter formatter;
-	private static final JournaliseurNiveauConfig INSTANCE = new JournaliseurNiveauConfig();
+	private static final JournaliseurNiveauInfo INSTANCE = new JournaliseurNiveauInfo();
 	
 	/**
 	 * Never use it for Singleton pattern
 	 * 
 	 * @param name
 	 * @param resourceBundleName
-	 * @see JournaliseurNiveauConfig
+	 * @see JournaliseurNiveauInfo
 	 */
 	@Deprecated
-	protected JournaliseurNiveauConfig(String name, String resourceBundleName) {
+	protected JournaliseurNiveauInfo(String name, String resourceBundleName) {
 		super(name, resourceBundleName);
 	}
 
 
-	private JournaliseurNiveauConfig() {
+	private JournaliseurNiveauInfo() {
 		super("Log", null);
 		init();
 		
@@ -35,7 +35,7 @@ public class JournaliseurNiveauConfig extends java.util.logging.Logger {
 
 		formatter = new SimpleFormatter(); 
 		try {
-			handler = new FileHandler("D:\\Projet\\Suivi stagiaire\\Git\\SuiviStagiaire\\server-SuiviStagiaire\\logs\\"+ LocalDate.now() + "_CONFIG_" + "log.log");
+			handler = new FileHandler("D:\\Projet\\Suivi stagiaire\\Git\\SuiviStagiaire\\server-SuiviStagiaire\\logs\\"+ LocalDate.now() + "_INFO_" + "log.log");
 			handler.setFormatter(formatter); 
 			addHandler(handler);
 		} catch (SecurityException | IOException e) {
@@ -45,13 +45,13 @@ public class JournaliseurNiveauConfig extends java.util.logging.Logger {
 		
 	}
 	
-	public static JournaliseurNiveauConfig getINSTANCE() {
+	public static JournaliseurNiveauInfo getINSTANCE() {
 		return INSTANCE;
 	}
 
 
 	public void log(String string) {
-		this.log(Level.CONFIG, string);
+		this.log(Level.INFO, string);
 		
 	}
 	
