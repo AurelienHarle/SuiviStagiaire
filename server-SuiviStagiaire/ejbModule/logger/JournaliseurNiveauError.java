@@ -5,9 +5,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-public class JournaliseurNiveauError extends java.util.logging.Logger {
+public class JournaliseurNiveauError extends Logger {
 
 	private FileHandler handler;
 	private SimpleFormatter formatter;
@@ -27,7 +28,7 @@ public class JournaliseurNiveauError extends java.util.logging.Logger {
 
 
 	private JournaliseurNiveauError() {
-		super("Log", null);
+		super("LogError", null);
 		init();
 		
 	}
@@ -36,8 +37,10 @@ public class JournaliseurNiveauError extends java.util.logging.Logger {
 
 		formatter = new SimpleFormatter(); 
 		try {
-			handler = new FileHandler("D:\\Projet\\Suivi stagiaire\\Git\\SuiviStagiaire\\server-SuiviStagiaire\\logs\\"+ LocalDate.now() + "_ERROR_" + "log.log");
+			handler = new FileHandler("D:\\Projet\\Suivi stagiaire\\Git\\SuiviStagiaire\\server-SuiviStagiaire\\logs\\"+ LocalDate.now() + "_ERROR_" + ".log");
 			handler.setFormatter(formatter); 
+			handler.setLevel(Level.SEVERE);
+			this.setLevel(Level.SEVERE);
 			addHandler(handler);
 		} catch (SecurityException | IOException e) {
 			// TODO Auto-generated catch block

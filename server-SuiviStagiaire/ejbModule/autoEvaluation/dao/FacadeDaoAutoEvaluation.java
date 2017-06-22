@@ -13,6 +13,8 @@ import autoEvaluation.technique.AutoEvaluations;
 import compteUtilisateur.entity.Stagiaire;
 import exception.DoublonException;
 import exception.NullException;
+import exception.UnfoundException;
+import exception.UpdateException;
 
 /**
  * Session Bean implementation class FacadeDaoAutoEvaluation
@@ -66,7 +68,7 @@ public class FacadeDaoAutoEvaluation implements FacadeDaoAutoEvaluationLocal {
 	}
 
 	@Override
-	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) {
+	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) throws UpdateException {
 		dao.updateAutoEvaluation(autoEvaluation);
 		
 	}
@@ -138,7 +140,7 @@ public class FacadeDaoAutoEvaluation implements FacadeDaoAutoEvaluationLocal {
 	}
 
 	@Override
-	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation) {
+	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation) throws UnfoundException {
 		return dao.selectAutoEvaluation(autoEvaluation);
 		
 	}
@@ -150,7 +152,7 @@ public class FacadeDaoAutoEvaluation implements FacadeDaoAutoEvaluationLocal {
 	}
 
 	@Override
-	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) {
+	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException {
 		return dao.selectAutoEvaluationByStagCompDate(autoEvaluation);
 		
 	}
@@ -166,31 +168,31 @@ public class FacadeDaoAutoEvaluation implements FacadeDaoAutoEvaluationLocal {
 	}
 
 	@Override
-	public Module selectModule(Module module) {
+	public Module selectModule(Module module) throws UnfoundException {
 		return dao.selectModule(module);
 		
 	}
 
 	@Override
-	public Sequence selectSequence(Sequence sequence) {
+	public Sequence selectSequence(Sequence sequence) throws UnfoundException {
 		return dao.selectSequence(sequence);
 		
 	}
 
 	@Override
-	public Competence selectCompetence(Competence competence) {
+	public Competence selectCompetence(Competence competence) throws UnfoundException {
 		return dao.selectCompetence(competence);
 		
 	}
 
 	@Override
-	public NiveauAcquisition selectNiveauAcquisition(NiveauAcquisition niveauAcquisition) {
+	public NiveauAcquisition selectNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws UnfoundException {
 		return dao.selectNiveauAcquisition(niveauAcquisition);
 		
 	}
 
 	@Override
-	public Stagiaire selectStagiaire(Stagiaire stagiaire) {
+	public Stagiaire selectStagiaire(Stagiaire stagiaire) throws UnfoundException {
 		return dao.selectStagiaire(stagiaire);
 		
 	} 

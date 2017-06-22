@@ -11,6 +11,8 @@ import autoEvaluation.technique.AutoEvaluations;
 import compteUtilisateur.entity.Stagiaire;
 import exception.DoublonException;
 import exception.NullException;
+import exception.UnfoundException;
+import exception.UpdateException;
 
 @Remote
 public interface FacadeSuiviStagiaireRemote {
@@ -60,8 +62,9 @@ public interface FacadeSuiviStagiaireRemote {
 	
 	/**
 	 * Update d'une auto evaluation dans la base
+	 * @throws UpdateException 
 	 */
-	public void updateAutoEvaluation(AutoEvaluation autoEvaluation);
+	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) throws UpdateException;
 	
 	/**
 	 * Update d'un Module
@@ -121,8 +124,9 @@ public interface FacadeSuiviStagiaireRemote {
 	
 	/**
 	 * Select d'une auto evaluation dans la base
+	 * @throws UnfoundException 
 	 */
-	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation);
+	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation) throws UnfoundException;
 	
 	/**
 	 * Select d'une auto evaluation par tout ses attribue
@@ -131,8 +135,9 @@ public interface FacadeSuiviStagiaireRemote {
 	
 	/**
 	 * Select d'une auto evaluation par son Stagiaire / Comp / Date
+	 * @throws UnfoundException 
 	 */
-	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation);
+	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException;
 	
 	/**
 	 * Select d'une auto evaluation par son Stagiaire / Comp
@@ -147,26 +152,31 @@ public interface FacadeSuiviStagiaireRemote {
 	/**
 	 * Select d'un Module
 	 * @return 
+	 * @throws UnfoundException 
 	 */
-	public Module selectModule(Module module);
+	public Module selectModule(Module module) throws UnfoundException;
 	
 	/**
 	 * Select d'une Sequence
+	 * @throws UnfoundException 
 	 */
-	public Sequence selectSequence(Sequence sequence);
+	public Sequence selectSequence(Sequence sequence) throws UnfoundException;
 	
 	/**
 	 * Select d'une Competences
+	 * @throws UnfoundException 
 	 */
-	public Competence selectCompetence(Competence competence);
+	public Competence selectCompetence(Competence competence) throws UnfoundException;
 	
 	/**
 	 * Select NiveauAcquisition
+	 * @throws UnfoundException 
 	 */
-	public NiveauAcquisition selectNiveauAcquisition(NiveauAcquisition niveauAcquisition);
+	public NiveauAcquisition selectNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws UnfoundException;
 	
 	/**
 	 * Select Stagiaire
+	 * @throws UnfoundException 
 	 */
-	public Stagiaire selectStagiaire(Stagiaire stagiaire);
+	public Stagiaire selectStagiaire(Stagiaire stagiaire) throws UnfoundException;
 }

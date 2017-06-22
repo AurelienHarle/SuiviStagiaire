@@ -1,7 +1,6 @@
 package testUnitaire.casNominaux.autoEval;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.time.LocalDate;
 
@@ -21,6 +20,7 @@ import autoEvaluation.entity.Sequence;
 import compteUtilisateur.entity.Stagiaire;
 import exception.DoublonException;
 import exception.NullException;
+import exception.UnfoundException;
 import facade.FacadeSuiviStagiaireRemote;
 
 /**
@@ -46,7 +46,7 @@ public class TestUpdateDao {
 	
 	
 	@BeforeClass
-	public static void init() throws NamingException, DoublonException, NullException{
+	public static void init() throws NamingException, DoublonException, NullException, UnfoundException{
 		
 		//Initialisation du context
 		context = new InitialContext();
@@ -97,9 +97,10 @@ public class TestUpdateDao {
 	
 	/**
 	 * Test d'update d'un Module
+	 * @throws UnfoundException 
 	 */
 	@Test
-	public void testUpdateModule(){
+	public void testUpdateModule() throws UnfoundException{
 		
 		boolean condition = true;
 		Module module = new Module("M1","Update","Update");
@@ -127,9 +128,10 @@ public class TestUpdateDao {
 	
 	/**
 	 * Test d'update d'une Sequence
+	 * @throws UnfoundException 
 	 */
 	@Test
-	public void testUpdateSequence(){
+	public void testUpdateSequence() throws UnfoundException{
 		
 		boolean condition = true;
 		Sequence sequence = new Sequence("S1",moduleInsert,"update","update");
@@ -156,9 +158,10 @@ public class TestUpdateDao {
 	
 	/**
 	 * Test d'update d'une Competences
+	 * @throws UnfoundException 
 	 */
 	@Test
-	public void testUpdateCompetence(){
+	public void testUpdateCompetence() throws UnfoundException{
 		
 		boolean condition = true;
 		Competence competence = new Competence("C1",sequenceInsert,moduleInsert,"Update","Update");
@@ -185,9 +188,10 @@ public class TestUpdateDao {
 	
 	/**
 	 * Test d'update d'un Stagiaire
+	 * @throws UnfoundException 
 	 */
 	@Test
-	public void testUpdateStagiaire(){
+	public void testUpdateStagiaire() throws UnfoundException{
 		
 		boolean condition = true;
 		Stagiaire stagiaire = new Stagiaire("login","Update","Update","Update",null,null,null,null,null,null);
@@ -215,9 +219,10 @@ public class TestUpdateDao {
 	
 	/**
 	 * Test d'update d'un NiveauAcquisition
+	 * @throws UnfoundException 
 	 */
 	@Test
-	public void testUpdateNiveauAcquisition(){
+	public void testUpdateNiveauAcquisition() throws UnfoundException{
 		
 		boolean condition = true;
 		NiveauAcquisition niveauAcquisition = new NiveauAcquisition("1","UP");
@@ -245,9 +250,10 @@ public class TestUpdateDao {
 	
 	/**
 	 * Test d'une update d'une {@link AutoEvaluation}
+	 * @throws UnfoundException 
 	 */
 	@Test
-	public void testUpdateAutoEvaluation(){
+	public void testUpdateAutoEvaluation() throws UnfoundException{
 		
 		//Creation date pour test
 		LocalDate date = LocalDate.now();
@@ -268,9 +274,9 @@ public class TestUpdateDao {
 		
 		assertTrue(condition);
 		
-		AutoEvaluation autoEvaluationBDD = facadeSuiviStagiaireRemote.selectAutoEvaluation(autoEvaluation);
+		AutoEvaluation autoEvaluationBDD = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluation);
 		
-		assertEquals(autoEvaluation.getIdentifiant(),autoEvaluationBDD.getIdentifiant());
+		//assertEquals(autoEvaluation.getIdentifiant(),autoEvaluationBDD.getIdentifiant());
 		assertEquals(autoEvaluation.getIdentifiant(), autoEvaluationBDD.getIdentifiant());
 		assertEquals(autoEvaluation.getDateAutoEvaluation(), autoEvaluationBDD.getDateAutoEvaluation());
 		assertEquals(autoEvaluation.getRessenti(), autoEvaluationBDD.getRessenti());

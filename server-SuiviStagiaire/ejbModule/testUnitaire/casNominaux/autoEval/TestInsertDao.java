@@ -20,6 +20,7 @@ import autoEvaluation.entity.Sequence;
 import compteUtilisateur.entity.Stagiaire;
 import exception.DoublonException;
 import exception.NullException;
+import exception.UnfoundException;
 import facade.FacadeSuiviStagiaireRemote;
 
 /**
@@ -47,7 +48,7 @@ public class TestInsertDao {
 	private static Sequence sequenceCompetenceInsert;
 	
 	@BeforeClass
-	public static void init() throws NamingException, DoublonException, NullException{
+	public static void init() throws NamingException, DoublonException, NullException, UnfoundException{
 		
 		//Initialisation du context
 		context = new InitialContext();

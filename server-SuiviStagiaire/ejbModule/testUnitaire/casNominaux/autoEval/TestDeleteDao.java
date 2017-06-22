@@ -1,6 +1,6 @@
 package testUnitaire.casNominaux.autoEval;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.time.LocalDate;
 
@@ -20,6 +20,7 @@ import autoEvaluation.entity.Sequence;
 import compteUtilisateur.entity.Stagiaire;
 import exception.DoublonException;
 import exception.NullException;
+import exception.UnfoundException;
 import facade.FacadeSuiviStagiaireRemote;
 
 /**
@@ -36,79 +37,54 @@ public class TestDeleteDao {
 	private static Context context;
 	private static FacadeSuiviStagiaireRemote facadeSuiviStagiaireRemote;
 	
-	private static AutoEvaluation autoEvaluationInsert;
 	private static Module moduleInsert;
 	private static Sequence sequenceInsert;
 	private static Competence competenceInsert;
 	private static Stagiaire stagiaireInsert;
 	private static NiveauAcquisition niveauAcquisitionInsert;
-	private static Module moduleSequenceInsert;
-	private static Module moduleCompetenceInsert;
-	private static Sequence sequenceCompetenceInsert;
+	private static AutoEvaluation autoEvaluationInsert;
+
 	
 	@BeforeClass
-	public static void init() throws NamingException, DoublonException, NullException{
+	public static void init() throws NamingException, DoublonException, NullException, UnfoundException{
 		
 		//Initialisation du context
 		context = new InitialContext();
 		facadeSuiviStagiaireRemote = (FacadeSuiviStagiaireRemote) context.lookup("ejb:/server-SuiviStagiaire/FacadeSuiviStagiaire!facade.FacadeSuiviStagiaireRemote");
 		
-		//Creation et insertion du module pour testInsertAutoEvaluation()
-		Module module = new Module("M5","Développer une application en couches","Dév une app N-tiers");
-		facadeSuiviStagiaireRemote.insertModule(module);
-		module = facadeSuiviStagiaireRemote.selectModule(module);
+		//Module pour testSelectModule()
+		moduleInsert = new Module("M1","Test","Test");
+		facadeSuiviStagiaireRemote.insertModule(moduleInsert);
+		moduleInsert = facadeSuiviStagiaireRemote.selectModule(moduleInsert);
 		
-		//Creation et insertion du sequence pour testInsertAutoEvaluation()
-		Sequence sequence = new Sequence("S4",module,"Préparer et exécuter les plans de tests d’une application et préparer et exécuter le déploiement d’une application",
-				"Prépa & exec plans de tests d'une app et du deploie d'une app");
-		facadeSuiviStagiaireRemote.insertSequence(sequence);
-		sequence = facadeSuiviStagiaireRemote.selectSequence(sequence);
+		//Creation et insertion du module pour testSelectSequence()
+		sequenceInsert = new Sequence("S1",moduleInsert,"Test","Test");
+		facadeSuiviStagiaireRemote.insertSequence(sequenceInsert);
+		sequenceInsert = facadeSuiviStagiaireRemote.selectSequence(sequenceInsert);
 		
-		//Creation et insertion du competence pour testInsertAutoEvaluation()
-		Competence competence = new Competence("C2",sequence,module,"Préparer et exécuter les plans de tests","Prépa & exec plan de tests");
-		facadeSuiviStagiaireRemote.insertCompetence(competence);
-		competence = facadeSuiviStagiaireRemote.selectCompetence(competence);
+		//Competences pour testSelectCompetence()
+		competenceInsert = new Competence("C1",sequenceInsert,moduleInsert,"Test","Test");
+		facadeSuiviStagiaireRemote.insertCompetence(competenceInsert);
+		competenceInsert = facadeSuiviStagiaireRemote.selectCompetence(competenceInsert);
 		
-		//Creation et insertion du niveauAcquisition pour testInsertAutoEvaluation()
-		NiveauAcquisition niveauAcquisition = new NiveauAcquisition("2","AC");
-		facadeSuiviStagiaireRemote.insertNiveauAcquisition(niveauAcquisition);
-		niveauAcquisition = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisition);
+		//Stagiaire pour testSelectStagiaire()
+		stagiaireInsert = new Stagiaire("login","motdepasse","nom","prenom",null,null,null,null,null,null);
+		facadeSuiviStagiaireRemote.insertStagiaire(stagiaireInsert);
+		stagiaireInsert = facadeSuiviStagiaireRemote.selectStagiaire(stagiaireInsert);
 		
-		//Creation et insertion du stagiaire pour testInsertAutoEvaluation()
-		Stagiaire stagiaire = new Stagiaire("13111384","Password","Harlé","Aurélien",null,null,null,null,null,null);
-		facadeSuiviStagiaireRemote.insertStagiaire(stagiaire);
-		stagiaire = facadeSuiviStagiaireRemote.selectStagiaire(stagiaire);
+		//NiveauAcquisition pour testSelectNiveauAcquisition()
+		niveauAcquisitionInsert = new NiveauAcquisition("1","A");
+		facadeSuiviStagiaireRemote.insertNiveauAcquisition(niveauAcquisitionInsert);
+		niveauAcquisitionInsert = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisitionInsert);
 		
-		//Creation date pour testInsertAutoEvaluation()
+		//Creation date pour testSelectAutoEvaluation()
 		LocalDate date = LocalDate.now();
 		
-		//Module pour testInsertModule()
-		moduleInsert = new Module("M1","Test","Test");
-		
-		//Creation et insertion du module pour testInsertSequence()
-		moduleSequenceInsert = new Module("M2","Test","Test");
-		facadeSuiviStagiaireRemote.insertModule(moduleSequenceInsert);
-		sequenceInsert = new Sequence("S1",moduleSequenceInsert,"Test","Test");
-		
-		//Creation et insertion du Module pour testInsertCompetence()
-		moduleCompetenceInsert = new Module("M3","Test","Test");
-		facadeSuiviStagiaireRemote.insertModule(moduleCompetenceInsert);
-		
-		//Creation et insertion de la sequence pour testInsertCompetence()
-		sequenceCompetenceInsert = new Sequence("S2",moduleCompetenceInsert,"Test","Test");
-		facadeSuiviStagiaireRemote.insertSequence(sequenceCompetenceInsert);
-		
-		//Competences pour testInsertCompetence()
-		competenceInsert = new Competence("C1",sequenceCompetenceInsert,moduleCompetenceInsert,"Test","Test");
-		
-		//Stagiaire pour testInsertStagiaire()
-		stagiaireInsert = new Stagiaire("login","motdepasse","nom","prenom",null,null,null,null,null,null);
-		
-		//NiveauAcquisition pour testInsertNiveauAcquisition()
-		niveauAcquisitionInsert = new NiveauAcquisition("1","A");
-		
-		//AutoEvaluation pour testInsertAutoEvaluation()
-		autoEvaluationInsert = new AutoEvaluation(competence,sequence,module,niveauAcquisition,stagiaire,date,null);
+		//AutoEvaluation pour testSelectAutoEvaluation()
+		autoEvaluationInsert = new AutoEvaluation(competenceInsert,sequenceInsert,moduleInsert,niveauAcquisitionInsert,stagiaireInsert,date,null);
+		facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluationInsert);
+		autoEvaluationInsert = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluationInsert);
+
 
 	}
 	
@@ -116,178 +92,43 @@ public class TestDeleteDao {
 	@AfterClass
 	public static void finalizeur(){
 		
-		//TODO FIX IT
-		
-//		autoEvaluationInsert = facadeSuiviStagiaireRemote.selectAutoEvaluation(autoEvaluationInsert);
-//		System.out.println(autoEvaluationInsert);
-//		facadeSuiviStagiaireRemote.deleteAutoEvaluation(autoEvaluationInsert);
-//		
-//		moduleInsert = facadeSuiviStagiaireRemote.selectModule(moduleInsert);
-//		System.out.println(moduleInsert);
-//		facadeSuiviStagiaireRemote.deleteModule(moduleInsert);
-//		
-//		sequenceInsert = facadeSuiviStagiaireRemote.selectSequence(sequenceInsert);
-//		System.out.println(sequenceInsert);
-//		facadeSuiviStagiaireRemote.deleteSequence(sequenceInsert);
-//		
-//		competenceInsert = facadeSuiviStagiaireRemote.selectCompetence(competenceInsert);
-//		System.out.println(competenceInsert);
-//		facadeSuiviStagiaireRemote.deleteCompetence(competenceInsert);
-//		
-//		stagiaireInsert = facadeSuiviStagiaireRemote.selectStagiaire(stagiaireInsert);
-//		System.out.println(stagiaireInsert);
-//		facadeSuiviStagiaireRemote.deleteStagiaire(stagiaireInsert);
-//		
-//		niveauAcquisitionInsert = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisitionInsert);
-//		System.out.println(niveauAcquisitionInsert);
-//		facadeSuiviStagiaireRemote.deleteNiveauAcquisition(niveauAcquisitionInsert);
-//		
-//		moduleSequenceInsert = facadeSuiviStagiaireRemote.selectModule(moduleSequenceInsert);
-//		System.out.println(moduleSequenceInsert);
-//		facadeSuiviStagiaireRemote.deleteModule(moduleSequenceInsert);
-//		
-//		moduleCompetenceInsert = facadeSuiviStagiaireRemote.selectModule(moduleCompetenceInsert);
-//		System.out.println(moduleCompetenceInsert);
-//		facadeSuiviStagiaireRemote.deleteModule(moduleCompetenceInsert);
-//		
-//		sequenceCompetenceInsert = facadeSuiviStagiaireRemote.selectSequence(sequenceCompetenceInsert);
-//		System.out.println(sequenceCompetenceInsert);
-//		facadeSuiviStagiaireRemote.deleteSequence(sequenceCompetenceInsert);
-		
-	}
-	
-	
-	/**
-	 * Test d'insertion d'un Module
-	 */
-	@Test
-	public void testInsertModule(){
-		
-		boolean condition = true;
-		
-		try {
-			
-			facadeSuiviStagiaireRemote.insertModule(moduleInsert);
-			
-		} catch (DoublonException | NullException e) {
-			
-			condition = false;
-			e.printStackTrace();
-			
-		}
-		
-		assertTrue(condition);
-		
+
 	}
 	
 	/**
-	 * Test d'insertion d'une Sequence
+	 * Test delete
+	 * @throws UnfoundException 
 	 */
 	@Test
-	public void testInsertSequence(){
+	public void testDelete() throws UnfoundException{
+
+		AutoEvaluation autoEvaluation = null;
+		Competence competence = null;
+		Sequence sequence = null;
+		Module module = null;
+		Stagiaire stagiaire = null;
+		NiveauAcquisition niveauAcquisition = null;
 		
-		boolean condition = true;
-		
-		try {
-			
-			facadeSuiviStagiaireRemote.insertSequence(sequenceInsert);
-			
-		} catch (DoublonException | NullException e) {
-			
-			condition = false;
-			e.printStackTrace();
-			
-		}
-		
-		assertTrue(condition);
-	}
-	
-	/**
-	 * Test d'insertion d'une Competences
-	 */
-	@Test
-	public void testInsertCompetence(){
-		
-		boolean condition = true;
-		
-		try {
-			
-			facadeSuiviStagiaireRemote.insertCompetence(competenceInsert);
-			
-		} catch (DoublonException | NullException e) {
-			
-			condition = false;
-			e.printStackTrace();
-			
-		}
-		
-		assertTrue(condition);
-	}
-	
-	/**
-	 * Test d'insertion d'un Stagiaire
-	 */
-	@Test
-	public void testInsertStagiaire(){
-		
-		boolean condition = true;
-		
-		try {
-			
-			facadeSuiviStagiaireRemote.insertStagiaire(stagiaireInsert);
-			
-		} catch (DoublonException | NullException e) {
-			
-			condition = false;
-			e.printStackTrace();
-			
-		}
-		
-		assertTrue(condition);
-	}
-	
-	/**
-	 * Test d'insertion d'un NiveauAcquisition
-	 */
-	@Test
-	public void testInsertNiveauAcquisition(){
-		
-		boolean condition = true;
-		
-		try {
-			
-			facadeSuiviStagiaireRemote.insertNiveauAcquisition(niveauAcquisitionInsert);
-			
-		} catch (DoublonException | NullException e) {
-			
-			condition = false;
-			e.printStackTrace();
-			
-		}
-		
-		assertTrue(condition);
-	}
-	
-	/**
-	 * Test d'une insertion d'une {@link AutoEvaluation}
-	 */
-	@Test
-	public void testInsertAutoEvaluation(){
-		
-		boolean condition = true;
-		
-		try {
-			
-			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluationInsert);
-			
-		} catch (DoublonException | NullException e) {
-			
-			condition = false;
-			e.printStackTrace();
-			
-		}
-		
-		assertTrue(condition);
+		facadeSuiviStagiaireRemote.deleteAutoEvaluation(autoEvaluationInsert);
+		facadeSuiviStagiaireRemote.deleteCompetence(competenceInsert);		
+		facadeSuiviStagiaireRemote.deleteSequence(sequenceInsert);
+		facadeSuiviStagiaireRemote.deleteModule(moduleInsert);
+		facadeSuiviStagiaireRemote.deleteStagiaire(stagiaireInsert);
+		facadeSuiviStagiaireRemote.deleteNiveauAcquisition(niveauAcquisitionInsert);
+
+		autoEvaluation = facadeSuiviStagiaireRemote.selectAutoEvaluation(autoEvaluationInsert);
+		competence = facadeSuiviStagiaireRemote.selectCompetence(competenceInsert);
+		sequence = facadeSuiviStagiaireRemote.selectSequence(sequenceInsert);
+		module = facadeSuiviStagiaireRemote.selectModule(moduleInsert);
+		stagiaire = facadeSuiviStagiaireRemote.selectStagiaire(stagiaireInsert);
+		niveauAcquisition = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisitionInsert);
+
+		assertNull(autoEvaluation);
+		assertNull(niveauAcquisition);
+		assertNull(stagiaire);
+		assertNull(competence);
+		assertNull(sequence);
+		assertNull(module);
 		
 	}
 

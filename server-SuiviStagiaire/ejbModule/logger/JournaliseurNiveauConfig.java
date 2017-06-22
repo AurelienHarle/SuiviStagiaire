@@ -3,14 +3,17 @@ package logger;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
-
-public class JournaliseurNiveauConfig extends java.util.logging.Logger {
+ 
+public class JournaliseurNiveauConfig extends Logger {
 
 	private FileHandler handler;
 	private SimpleFormatter formatter;
+	private ConsoleHandler consoleHandler;
 	private static final JournaliseurNiveauConfig INSTANCE = new JournaliseurNiveauConfig();
 	
 	/**
@@ -27,18 +30,22 @@ public class JournaliseurNiveauConfig extends java.util.logging.Logger {
 
 
 	private JournaliseurNiveauConfig() {
-		super("Log", null);
+		super("LogConfig", null);
 		init();
 		
 	}
 
 	private void init() {
-
+		
 		formatter = new SimpleFormatter(); 
 		try {
-			handler = new FileHandler("D:\\Projet\\Suivi stagiaire\\Git\\SuiviStagiaire\\server-SuiviStagiaire\\logs\\"+ LocalDate.now() + "_CONFIG_" + "log.log");
+			handler = new FileHandler("D:\\Projet\\Suivi stagiaire\\Git\\SuiviStagiaire\\server-SuiviStagiaire\\logs\\"+ LocalDate.now() + "_CONFIG_" + ".log");
 			handler.setFormatter(formatter); 
+			handler.setLevel(Level.CONFIG);
+			this.setLevel(Level.CONFIG);
 			addHandler(handler);
+			consoleHandler = new ConsoleHandler();
+			addHandler(consoleHandler);
 		} catch (SecurityException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

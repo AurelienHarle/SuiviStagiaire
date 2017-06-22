@@ -20,6 +20,7 @@ import autoEvaluation.entity.Sequence;
 import compteUtilisateur.entity.Stagiaire;
 import exception.DoublonException;
 import exception.NullException;
+import exception.UnfoundException;
 import facade.FacadeSuiviStagiaireRemote;
 
 /**
@@ -44,7 +45,7 @@ public class TestSelectDao {
 	private static AutoEvaluation autoEvaluationInsert;
 	
 	@BeforeClass
-	public static void init() throws NamingException, DoublonException, NullException{
+	public static void init() throws NamingException, DoublonException, NullException, UnfoundException{
 		
 		//Initialisation du context
 		context = new InitialContext();
@@ -130,8 +131,16 @@ public class TestSelectDao {
 	@Test
 	public void testSelectModule(){
 		
-		Module moduleSelect = facadeSuiviStagiaireRemote.selectModule(moduleInsert);
+		Module moduleSelect = null;
+		boolean condition = true;
+		try {
+			moduleSelect = facadeSuiviStagiaireRemote.selectModule(moduleInsert);
+		} catch (UnfoundException e) {
+			condition = false;
+			
+		}
 		
+		assertTrue(condition);
 		assertNotNull(moduleSelect);
 		assertEquals(moduleInsert.getIdentifiant(), moduleSelect.getIdentifiant());
 		assertEquals(moduleInsert.getNomCourt(), moduleSelect.getNomCourt());
@@ -145,8 +154,16 @@ public class TestSelectDao {
 	@Test
 	public void testSelectSequence(){
 		
-		Sequence sequenceSelect = facadeSuiviStagiaireRemote.selectSequence(sequenceInsert);
+		Sequence sequenceSelect = null;
+		boolean condition = true;
+		try {
+			sequenceSelect = facadeSuiviStagiaireRemote.selectSequence(sequenceInsert);
+		} catch (UnfoundException e) {
+			condition = false;
+			
+		}
 		
+		assertTrue(condition);
 		assertNotNull(sequenceSelect);
 		assertEquals(sequenceInsert.getIdentifiant(), sequenceSelect.getIdentifiant());		
 		assertEquals(sequenceInsert.getNomCourt(), sequenceSelect.getNomCourt());
@@ -159,8 +176,16 @@ public class TestSelectDao {
 	@Test
 	public void testSelectCompetence(){
 		
-		Competence competenceSelect = facadeSuiviStagiaireRemote.selectCompetence(competenceInsert);
+		Competence competenceSelect = null;
+		boolean condition = true;
+		try {
+			competenceSelect = facadeSuiviStagiaireRemote.selectCompetence(competenceInsert);
+		} catch (UnfoundException e) {
+			condition = false;
+			
+		}
 		
+		assertTrue(condition);
 		assertNotNull(competenceSelect);
 		assertEquals(competenceInsert.getIdentifiant(), competenceSelect.getIdentifiant());
 		assertEquals(competenceInsert.getNomCourt(), competenceSelect.getNomCourt());
@@ -174,8 +199,16 @@ public class TestSelectDao {
 	@Test
 	public void testSelectStagiaire(){
 		
-		Stagiaire stagiaireSelect = facadeSuiviStagiaireRemote.selectStagiaire(stagiaireInsert);
+		Stagiaire stagiaireSelect = null;
+		boolean condition = true;
+		try {
+			stagiaireSelect = facadeSuiviStagiaireRemote.selectStagiaire(stagiaireInsert);
+		} catch (UnfoundException e) {
+			condition = false;
+			
+		}
 		
+		assertTrue(condition);
 		assertNotNull(stagiaireSelect);
 		assertEquals(stagiaireInsert.getLogin(), stagiaireSelect.getLogin());
 		assertEquals(stagiaireInsert.getMotDePasse(), stagiaireSelect.getMotDePasse());
@@ -190,8 +223,16 @@ public class TestSelectDao {
 	@Test
 	public void testSelectNiveauAcquisition(){
 		
-		NiveauAcquisition niveauAcquisitionSelect = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisitionInsert);
+		NiveauAcquisition niveauAcquisitionSelect = null;
+		boolean condition = true;
+		try {
+			niveauAcquisitionSelect = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisitionInsert);
+		} catch (UnfoundException e) {
+			condition = false;
+			
+		}
 		
+		assertTrue(condition);
 		assertNotNull(niveauAcquisitionSelect);
 		assertEquals(niveauAcquisitionInsert.getIdentifiant(), niveauAcquisitionSelect.getIdentifiant());
 		assertEquals(niveauAcquisitionInsert.getNiveau(), niveauAcquisitionSelect.getNiveau());
@@ -205,8 +246,16 @@ public class TestSelectDao {
 	@Test
 	public void testSelectAutoEvaluation(){
 		
-		AutoEvaluation autoEvaluationSelect = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluationInsert);		
-				
+		AutoEvaluation autoEvaluationSelect = null;
+		boolean condition = true;
+		try {
+			autoEvaluationSelect = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluationInsert);
+		} catch (UnfoundException e) {
+			condition = false;
+			
+		}		
+		
+		assertTrue(condition);
 		assertNotNull(autoEvaluationSelect);
 		assertEquals(autoEvaluationInsert.getIdentifiant(), autoEvaluationSelect.getIdentifiant());
 		assertEquals(autoEvaluationInsert.getDateAutoEvaluation(), autoEvaluationSelect.getDateAutoEvaluation());
