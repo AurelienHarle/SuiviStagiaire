@@ -1,5 +1,7 @@
 package exception;
 
+import logger.JournaliseurNiveauWarning;
+
 /**
  * {@link Exception} qui est throw si on essaye d'entrer un null en base de données
  * 
@@ -19,7 +21,7 @@ public class NullException extends Exception{
 
 	public NullException(String string) {
 		super(message + string);
-		
+		JournaliseurNiveauWarning.getINSTANCE().log(message + string);
 	}
 
 }
