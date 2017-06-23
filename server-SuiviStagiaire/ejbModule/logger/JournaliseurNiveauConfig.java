@@ -3,7 +3,6 @@ package logger;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,7 +12,6 @@ public class JournaliseurNiveauConfig extends Logger {
 
 	private FileHandler handler;
 	private SimpleFormatter formatter;
-	private ConsoleHandler consoleHandler;
 	private static final JournaliseurNiveauConfig INSTANCE = new JournaliseurNiveauConfig();
 	
 	/**
@@ -46,8 +44,6 @@ public class JournaliseurNiveauConfig extends Logger {
 			handler.setLevel(Level.CONFIG);
 			this.setLevel(Level.CONFIG);
 			addHandler(handler);
-			consoleHandler = new ConsoleHandler();
-			addHandler(consoleHandler);
 			
 		} catch (SecurityException | IOException e) {
 			
