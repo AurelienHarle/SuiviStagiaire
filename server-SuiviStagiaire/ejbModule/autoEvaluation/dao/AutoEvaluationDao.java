@@ -8,6 +8,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
+import javax.persistence.TransactionRequiredException;
+
+import org.hibernate.exception.SQLGrammarException;
 
 import autoEvaluation.entity.AutoEvaluation;
 import autoEvaluation.technique.AutoEvaluations;
@@ -26,6 +29,7 @@ import parametre.Parametre;
 @LocalBean
 public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 
+	//TODO CHECK LOGGER 
     /**
      * Default constructor. 
      */
@@ -48,13 +52,12 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 		journaliseurNiveauConfig.log("[METHOD IN] AutoEvaluation : " + autoEvaluation);
 		AutoEvaluation autoEvaluation2 = null;
 		
-		try{
-			
-			autoEvaluation2 = selectAutoEvaluationByStagCompDate(autoEvaluation);
-			
-		}catch (UnfoundException uf) {
-			// ? que faire ? :3
-		}
+			try {
+				autoEvaluation2 = selectAutoEvaluationByStagCompDate(autoEvaluation);
+			} catch (UnfoundException e1) {
+				
+				e1.printStackTrace();
+			}
 		
 		
 		if(autoEvaluation2 != null){
@@ -75,18 +78,24 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 					
 					Throwable t = e.getCause();
 				
-					while ((t != null) && !(t instanceof SQLIntegrityConstraintViolationException)) {
+					while (t != null) {
 						
 						t = t.getCause();
 						
+						if(t instanceof SQLIntegrityConstraintViolationException){
+							
+							throw new DoublonException("insertAutoEvaluation [Entity] AutoEvaluation  " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage() + " [Cause] " + t.getCause());
+							
+						}else if(t instanceof SQLGrammarException){
+							
+							throw new NullException("insertAutoEvaluation [Entity] AutoEvaluation : " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage() + " [Cause] " + t.getCause());
+						
+						}
+						
 					}
 					
-					if(t instanceof SQLIntegrityConstraintViolationException){
-						
-						throw new DoublonException("insertAutoEvaluation [Entity] AutoEvaluation  " + autoEvaluation.toString());
-						
-					}
-					
+					e.printStackTrace();
+					journaliseurNiveauError.log("[METHOD] insertAutoEvaluation [Entity] " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 				}else if(e instanceof NullPointerException){
 					
 					throw new NullException("insertAutoEvaluation [Entity] AutoEvaluation : " + autoEvaluation.toString());
@@ -95,10 +104,14 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 					
 					throw new NullException("insertAutoEvaluation [Entity] AutoEvaluation : Null ");
 					
+				}else if(e instanceof TransactionRequiredException){
+					
+					throw new NullException("insertAutoEvaluation [Entity] AutoEvaluation : " + autoEvaluation.toString());
+				
 				}else{
 					
 					e.printStackTrace();
-					journaliseurNiveauError.log("[METHOD] insertAutoEvaluation [Entity] " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
+					journaliseurNiveauError.log("[METHOD] insertAutoEvaluation [Entity] " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 					
 				}
 			}
@@ -121,7 +134,7 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 			
 			autoEvaluation2 = selectAutoEvaluationByStagCompDate(autoEvaluation);
 			
-		} catch (UnfoundException e1) {
+		} catch (UnfoundException | NullException e1) {
 			
 			e1.printStackTrace();
 			
@@ -221,7 +234,7 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 	}
 
 	@Override
-	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException {
+	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException, NullException {
 		
 		journaliseurNiveauConfig.log("[DEBUT METHOD] : selectAutoEvaluationByStagCompDate ");
 		journaliseurNiveauConfig.log("[METHOD IN] AutoEvaluation : " + autoEvaluation);
@@ -247,12 +260,12 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 			
 			if(e instanceof NullPointerException){
 				
-				journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " [MESSAGE] : NotFound");
+				journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " [MESSAGE] : NotFound Enity null");
 				throw new UnfoundException("selectAutoEvaluation");
 				
 			}else if(e instanceof IllegalArgumentException){
 			
-				journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " [MESSAGE] : NotFound");
+				journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " [MESSAGE] : NotFound Enity null");
 				throw new UnfoundException("selectAutoEvaluation");
 				
 			}else if(e instanceof NoResultException){
@@ -260,6 +273,24 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 				journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " [MESSAGE] : NotFound");
 				throw new UnfoundException("selectAutoEvaluation");
 				
+			}else if(e instanceof PersistenceException){
+				
+				Throwable t = e.getCause();
+			
+				while (t != null) {
+					
+					t = t.getCause();
+					
+					if(t instanceof SQLGrammarException){
+						
+						throw new NullException("insertAutoEvaluation [Entity] AutoEvaluation : " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage() + " [Cause] " + t.getCause());
+					
+					}
+					
+				}
+				
+				e.printStackTrace();
+				journaliseurNiveauError.log("[METHOD] insertAutoEvaluation [Entity] " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			}else{
 				
 				e.printStackTrace();

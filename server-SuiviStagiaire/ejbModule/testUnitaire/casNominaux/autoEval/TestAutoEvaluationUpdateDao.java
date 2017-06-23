@@ -279,7 +279,13 @@ public class TestAutoEvaluationUpdateDao {
 			
 		}
 		
-		AutoEvaluation autoEvaluationBDD = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluation);
+		AutoEvaluation autoEvaluationBDD = null;
+		try {
+			autoEvaluationBDD = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluation);
+		} catch (NullException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		assertTrue("Aucune lever d'exception : ",condition);
 		

@@ -43,6 +43,7 @@ public class TestAutoEvaluationDeleteDao {
 	private static Stagiaire stagiaireInsert;
 	private static NiveauAcquisition niveauAcquisitionInsert;
 	private static AutoEvaluation autoEvaluationInsert;
+	private static boolean conditionSelectAutoEvaluation;
 
 	
 	@BeforeClass
@@ -84,7 +85,8 @@ public class TestAutoEvaluationDeleteDao {
 		autoEvaluationInsert = new AutoEvaluation(competenceInsert,sequenceInsert,moduleInsert,niveauAcquisitionInsert,stagiaireInsert,date,null);
 		facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluationInsert);
 		autoEvaluationInsert = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluationInsert);
-
+		
+		conditionSelectAutoEvaluation = true;
 
 	}
 	
@@ -100,6 +102,8 @@ public class TestAutoEvaluationDeleteDao {
 		facadeSuiviStagiaireRemote.deleteStagiaire(stagiaireInsert);
 		
 	}
+
+
 	
 	/**
 	 * Test delete
@@ -122,7 +126,11 @@ public class TestAutoEvaluationDeleteDao {
 //		facadeSuiviStagiaireRemote.deleteStagiaire(stagiaireInsert);
 //		facadeSuiviStagiaireRemote.deleteNiveauAcquisition(niveauAcquisitionInsert);
 
-		autoEvaluation = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluationInsert);
+		try {
+			autoEvaluation = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluationInsert);
+		} catch (NullException e) {
+			conditionSelectAutoEvaluation = true;
+		}
 //		competence = facadeSuiviStagiaireRemote.selectCompetence(competenceInsert);
 //		sequence = facadeSuiviStagiaireRemote.selectSequence(sequenceInsert);
 //		module = facadeSuiviStagiaireRemote.selectModule(moduleInsert);
@@ -130,6 +138,7 @@ public class TestAutoEvaluationDeleteDao {
 //		niveauAcquisition = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisitionInsert);
 
 		assertNull(autoEvaluation);
+		assertTrue(conditionSelectAutoEvaluation);
 //		assertNull(niveauAcquisition);
 //		assertNull(stagiaire);
 //		assertNull(competence);

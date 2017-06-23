@@ -219,7 +219,7 @@ public class TestAutoEvaluationSelectDao {
 		boolean condition = true;
 		try {
 			autoEvaluationSelect = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluationInsert);
-		} catch (UnfoundException e) {
+		} catch (UnfoundException | NullException e) {
 			condition = false;
 			
 		}		

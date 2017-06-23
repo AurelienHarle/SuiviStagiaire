@@ -60,7 +60,7 @@ public class FacadeDaoAutoEvaluation implements FacadeDaoAutoEvaluationLocal {
 	}
 
 	@Override
-	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException {
+	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException, NullException {
 		return autoEvaluationDao.selectAutoEvaluationByStagCompDate(autoEvaluation);
 		
 	}

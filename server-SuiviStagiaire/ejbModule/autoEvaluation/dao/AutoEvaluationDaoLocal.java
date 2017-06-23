@@ -48,9 +48,10 @@ public interface AutoEvaluationDaoLocal {
 	/**
 	 * Select d'une auto evaluation par son Stagiaire / Comp / Date
 	 * @throws UnfoundException 
+	 * @throws NullException 
 	 * @throws SelectAutoEvaluationNoResultException 
 	 */
-	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException;
+	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException, NullException;
 	
 	/**
 	 * Select d'une auto evaluation par son Stagiaire / Comp

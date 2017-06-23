@@ -159,7 +159,7 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
 	}
 
 	@Override
-	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException {
+	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException, NullException {
 		return facadeServiceAutoEvaluation.selectAutoEvaluationByStagCompDate(autoEvaluation);
 		
 	}

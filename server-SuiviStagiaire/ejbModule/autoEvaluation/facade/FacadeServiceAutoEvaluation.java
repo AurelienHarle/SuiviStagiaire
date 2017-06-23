@@ -68,7 +68,7 @@ public class FacadeServiceAutoEvaluation implements FacadeServiceAutoEvaluationL
 	}
 
 	@Override
-	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException {
+	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException, NullException {
 		return facadeDaoAutoEvaluation.selectAutoEvaluationByStagCompDate(autoEvaluation);
 		
 	}
