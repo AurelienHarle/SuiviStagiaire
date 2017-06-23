@@ -1,4 +1,4 @@
-package autoEvaluation.dao;
+package autoEvaluation.facade;
 
 import javax.ejb.Local;
 
@@ -11,18 +11,9 @@ import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
 
-/**
- * Local Bean de {@link Dao} qui permet l'insertion l'update et le delete dans la base de données
- * 
- * @author Aurélien Harlé
- * @Version 1
- * @Since 19/06/2017
- *
- */
 @Local
-public interface DaoLocal {
+public interface FacadeServiceOtherLocal {
 	
-		
 	/**
 	 * Insertion d'un Module
 	 * @throws DoublonException 
@@ -57,9 +48,7 @@ public interface DaoLocal {
 	 * 
 	 */
 	public void insertStagiaire(Stagiaire stagiaire) throws DoublonException, NullException;
-	
-	
-	
+
 	/**
 	 * Update d'un Module
 	 */
@@ -85,7 +74,7 @@ public interface DaoLocal {
 	 * Update d'un Stagiaire
 	 */
 	public void updateStagiaire(Stagiaire stagiaire);
-
+	
 	/**
 	 * Delete d'un Module
 	 */
@@ -111,9 +100,6 @@ public interface DaoLocal {
 	 */
 	public void deleteStagiaire(Stagiaire stagiaire);
 	
-
-	
-
 	/**
 	 * Select d'un Module
 	 * @throws UnfoundException 
@@ -143,8 +129,4 @@ public interface DaoLocal {
 	 * @throws UnfoundException 
 	 */
 	public Stagiaire selectStagiaire(Stagiaire stagiaire) throws UnfoundException;
-	
-
-
-	
 }

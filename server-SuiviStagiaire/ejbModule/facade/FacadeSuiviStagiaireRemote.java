@@ -56,7 +56,7 @@ public interface FacadeSuiviStagiaireRemote {
 	
 	/**
 	 * Insertion d'un Stagiaire
-	 * TODO MOVE TO COMPTE UTILISATEUR
+	 * 
 	 */
 	public void insertStagiaire(Stagiaire stagiaire) throws DoublonException, NullException;
 	

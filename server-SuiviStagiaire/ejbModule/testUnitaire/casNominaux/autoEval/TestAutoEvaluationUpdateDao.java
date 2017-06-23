@@ -31,7 +31,7 @@ import facade.FacadeSuiviStagiaireRemote;
  * @Since 19/06/2017
  *
  */
-public class TestUpdateDao {
+public class TestAutoEvaluationUpdateDao {
 	
 	
 	private static Context context;
@@ -92,161 +92,168 @@ public class TestUpdateDao {
 	@AfterClass
 	public static void finalizeur(){
 		
-	}
-	
-	
-	/**
-	 * Test d'update d'un Module
-	 * @throws UnfoundException 
-	 */
-	@Test
-	public void testUpdateModule() throws UnfoundException{
-		
-		boolean condition = true;
-		Module module = new Module("M1","Update","Update");
-		
-		try{
-			
-			facadeSuiviStagiaireRemote.updateModule(module);
-			
-		}catch (Exception e) {
-			
-			condition = false;
-			e.printStackTrace();
-			
-		}
-		
-		assertTrue(condition);
-		
-		Module moduleBDD = facadeSuiviStagiaireRemote.selectModule(module);
-		
-		assertEquals(module.getIdentifiant(),moduleBDD.getIdentifiant());
-		assertEquals(module.getNomCourt(), moduleBDD.getNomCourt());
-		assertEquals(module.getNomLong(), moduleBDD.getNomLong());
+		facadeSuiviStagiaireRemote.deleteAutoEvaluation(autoEvaluationInsert);
+		facadeSuiviStagiaireRemote.deleteCompetence(competenceInsert);
+		facadeSuiviStagiaireRemote.deleteSequence(sequenceInsert);
+		facadeSuiviStagiaireRemote.deleteModule(moduleInsert);
+		facadeSuiviStagiaireRemote.deleteNiveauAcquisition(niveauAcquisitionInsert);
+		facadeSuiviStagiaireRemote.deleteStagiaire(stagiaireInsert);
 		
 	}
 	
-	/**
-	 * Test d'update d'une Sequence
-	 * @throws UnfoundException 
-	 */
-	@Test
-	public void testUpdateSequence() throws UnfoundException{
-		
-		boolean condition = true;
-		Sequence sequence = new Sequence("S1",moduleInsert,"update","update");
-		
-		try{
-			
-			facadeSuiviStagiaireRemote.updateSequence(sequence);
-			
-		}catch (Exception e) {
-			
-			condition = false;
-			e.printStackTrace();
-			
-		}
-		
-		assertTrue(condition);
-		
-		Sequence sequenceBDD = facadeSuiviStagiaireRemote.selectSequence(sequence);
-		
-		assertEquals(sequence.getIdentifiant(),sequenceBDD.getIdentifiant());
-		assertEquals(sequence.getNomCourt(), sequenceBDD.getNomCourt());
-		assertEquals(sequence.getNomLong(), sequenceBDD.getNomLong());
-	}
 	
-	/**
-	 * Test d'update d'une Competences
-	 * @throws UnfoundException 
-	 */
-	@Test
-	public void testUpdateCompetence() throws UnfoundException{
-		
-		boolean condition = true;
-		Competence competence = new Competence("C1",sequenceInsert,moduleInsert,"Update","Update");
-		
-		try{
-			
-			facadeSuiviStagiaireRemote.updateCompetence(competence);
-			
-		}catch (Exception e) {
-			
-			condition = false;
-			e.printStackTrace();
-			
-		}
-		
-		assertTrue(condition);
-		
-		Competence competenceBDD = facadeSuiviStagiaireRemote.selectCompetence(competence);
-		
-		assertEquals(competence.getIdentifiant(),competenceBDD.getIdentifiant());
-		assertEquals(competence.getNomCourt(), competenceBDD.getNomCourt());
-		assertEquals(competence.getNomLong(), competenceBDD.getNomLong());
-	}
-	
-	/**
-	 * Test d'update d'un Stagiaire
-	 * @throws UnfoundException 
-	 */
-	@Test
-	public void testUpdateStagiaire() throws UnfoundException{
-		
-		boolean condition = true;
-		Stagiaire stagiaire = new Stagiaire("login","Update","Update","Update",null,null,null,null,null,null);
-		
-		try{
-			
-			facadeSuiviStagiaireRemote.updateStagiaire(stagiaire);
-			
-		}catch (Exception e) {
-			
-			condition = false;
-			e.printStackTrace();
-			
-		}
-		
-		assertTrue(condition);
-		
-		Stagiaire stagiaireBDD = facadeSuiviStagiaireRemote.selectStagiaire(stagiaire);
-		
-		assertEquals(stagiaire.getLogin(), stagiaireBDD.getLogin());
-		assertEquals(stagiaire.getMotDePasse(), stagiaireBDD.getMotDePasse());
-		assertEquals(stagiaire.getNom(), stagiaireBDD.getNom());
-		assertEquals(stagiaire.getPrenom(), stagiaireBDD.getPrenom());
-	}
-	
-	/**
-	 * Test d'update d'un NiveauAcquisition
-	 * @throws UnfoundException 
-	 */
-	@Test
-	public void testUpdateNiveauAcquisition() throws UnfoundException{
-		
-		boolean condition = true;
-		NiveauAcquisition niveauAcquisition = new NiveauAcquisition("1","UP");
-		
-		try{
-			
-			facadeSuiviStagiaireRemote.updateNiveauAcquisition(niveauAcquisition);
-			
-		}catch (Exception e) {
-			
-			condition = false;
-			e.printStackTrace();
-			
-		}
-		
-		assertTrue(condition);
-		
-		NiveauAcquisition niveauAcquisitionBDD = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisition);
-		
-		assertEquals(niveauAcquisition.getIdentifiant(),niveauAcquisitionBDD.getIdentifiant());
-		assertEquals(niveauAcquisition.getIdentifiant(), niveauAcquisitionBDD.getIdentifiant());
-		assertEquals(niveauAcquisition.getNiveau(), niveauAcquisitionBDD.getNiveau());
-		
-	}
+//	/**
+//	 * Test d'update d'un Module
+//	 * @throws UnfoundException 
+//	 */
+//	@Test
+//	public void testUpdateModule() throws UnfoundException{
+//		
+//		boolean condition = true;
+//		Module module = new Module("M1","Update","Update");
+//		
+//		try{
+//			
+//			facadeSuiviStagiaireRemote.updateModule(module);
+//			
+//		}catch (Exception e) {
+//			
+//			condition = false;
+//			e.printStackTrace();
+//			
+//		}
+//		
+//		assertTrue(condition);
+//		
+//		Module moduleBDD = facadeSuiviStagiaireRemote.selectModule(module);
+//		
+//		assertEquals(module.getIdentifiant(),moduleBDD.getIdentifiant());
+//		assertEquals(module.getNomCourt(), moduleBDD.getNomCourt());
+//		assertEquals(module.getNomLong(), moduleBDD.getNomLong());
+//		
+//	}
+//	
+//	/**
+//	 * Test d'update d'une Sequence
+//	 * @throws UnfoundException 
+//	 */
+//	@Test
+//	public void testUpdateSequence() throws UnfoundException{
+//		
+//		boolean condition = true;
+//		Sequence sequence = new Sequence("S1",moduleInsert,"update","update");
+//		
+//		try{
+//			
+//			facadeSuiviStagiaireRemote.updateSequence(sequence);
+//			
+//		}catch (Exception e) {
+//			
+//			condition = false;
+//			e.printStackTrace();
+//			
+//		}
+//		
+//		assertTrue(condition);
+//		
+//		Sequence sequenceBDD = facadeSuiviStagiaireRemote.selectSequence(sequence);
+//		
+//		assertEquals(sequence.getIdentifiant(),sequenceBDD.getIdentifiant());
+//		assertEquals(sequence.getNomCourt(), sequenceBDD.getNomCourt());
+//		assertEquals(sequence.getNomLong(), sequenceBDD.getNomLong());
+//	}
+//	
+//	/**
+//	 * Test d'update d'une Competences
+//	 * @throws UnfoundException 
+//	 */
+//	@Test
+//	public void testUpdateCompetence() throws UnfoundException{
+//		
+//		boolean condition = true;
+//		Competence competence = new Competence("C1",sequenceInsert,moduleInsert,"Update","Update");
+//		
+//		try{
+//			
+//			facadeSuiviStagiaireRemote.updateCompetence(competence);
+//			
+//		}catch (Exception e) {
+//			
+//			condition = false;
+//			e.printStackTrace();
+//			
+//		}
+//		
+//		assertTrue(condition);
+//		
+//		Competence competenceBDD = facadeSuiviStagiaireRemote.selectCompetence(competence);
+//		
+//		assertEquals(competence.getIdentifiant(),competenceBDD.getIdentifiant());
+//		assertEquals(competence.getNomCourt(), competenceBDD.getNomCourt());
+//		assertEquals(competence.getNomLong(), competenceBDD.getNomLong());
+//	}
+//	
+//	/**
+//	 * Test d'update d'un Stagiaire
+//	 * @throws UnfoundException 
+//	 */
+//	@Test
+//	public void testUpdateStagiaire() throws UnfoundException{
+//		
+//		boolean condition = true;
+//		Stagiaire stagiaire = new Stagiaire("login","Update","Update","Update",null,null,null,null,null,null);
+//		
+//		try{
+//			
+//			facadeSuiviStagiaireRemote.updateStagiaire(stagiaire);
+//			
+//		}catch (Exception e) {
+//			
+//			condition = false;
+//			e.printStackTrace();
+//			
+//		}
+//		
+//		assertTrue(condition);
+//		
+//		Stagiaire stagiaireBDD = facadeSuiviStagiaireRemote.selectStagiaire(stagiaire);
+//		
+//		assertEquals(stagiaire.getLogin(), stagiaireBDD.getLogin());
+//		assertEquals(stagiaire.getMotDePasse(), stagiaireBDD.getMotDePasse());
+//		assertEquals(stagiaire.getNom(), stagiaireBDD.getNom());
+//		assertEquals(stagiaire.getPrenom(), stagiaireBDD.getPrenom());
+//	}
+//	
+//	/**
+//	 * Test d'update d'un NiveauAcquisition
+//	 * @throws UnfoundException 
+//	 */
+//	@Test
+//	public void testUpdateNiveauAcquisition() throws UnfoundException{
+//		
+//		boolean condition = true;
+//		NiveauAcquisition niveauAcquisition = new NiveauAcquisition("1","UP");
+//		
+//		try{
+//			
+//			facadeSuiviStagiaireRemote.updateNiveauAcquisition(niveauAcquisition);
+//			
+//		}catch (Exception e) {
+//			
+//			condition = false;
+//			e.printStackTrace();
+//			
+//		}
+//		
+//		assertTrue(condition);
+//		
+//		NiveauAcquisition niveauAcquisitionBDD = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisition);
+//		
+//		assertEquals(niveauAcquisition.getIdentifiant(),niveauAcquisitionBDD.getIdentifiant());
+//		assertEquals(niveauAcquisition.getIdentifiant(), niveauAcquisitionBDD.getIdentifiant());
+//		assertEquals(niveauAcquisition.getNiveau(), niveauAcquisitionBDD.getNiveau());
+//		
+//	}
 	
 	/**
 	 * Test d'une update d'une {@link AutoEvaluation}
@@ -272,14 +279,19 @@ public class TestUpdateDao {
 			
 		}
 		
-		assertTrue(condition);
-		
 		AutoEvaluation autoEvaluationBDD = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluation);
 		
-		//assertEquals(autoEvaluation.getIdentifiant(),autoEvaluationBDD.getIdentifiant());
-		assertEquals(autoEvaluation.getIdentifiant(), autoEvaluationBDD.getIdentifiant());
-		assertEquals(autoEvaluation.getDateAutoEvaluation(), autoEvaluationBDD.getDateAutoEvaluation());
-		assertEquals(autoEvaluation.getRessenti(), autoEvaluationBDD.getRessenti());
+		assertTrue("Aucune lever d'exception : ",condition);
+		
+		//assertEquals("Indentifiant : ",autoEvaluation.getIdentifiant(), autoEvaluationBDD.getIdentifiant());
+		assertEquals("Date : ",autoEvaluation.getDateAutoEvaluation(), autoEvaluationBDD.getDateAutoEvaluation());
+		assertEquals("Ressenti : ",autoEvaluation.getRessenti(), autoEvaluationBDD.getRessenti());
+		assertEquals("Module ID : ",autoEvaluation.getModule().getIdentifiant(), autoEvaluationBDD.getModule().getIdentifiant());
+		assertEquals("Sequence ID : ",autoEvaluation.getSequence().getIdentifiant(), autoEvaluationBDD.getSequence().getIdentifiant());
+		assertEquals("Competence ID : ",autoEvaluation.getCompetence().getIdentifiant(), autoEvaluationBDD.getCompetence().getIdentifiant());
+		assertEquals("Stagiaire ID : ",autoEvaluation.getStagiaire().getLogin(), autoEvaluationBDD.getStagiaire().getLogin());
+		assertEquals("NiveauAcquisition ID : ",autoEvaluation.getNiveauAcquisition().getIdentifiant(), autoEvaluationBDD.getNiveauAcquisition().getIdentifiant());
+
 		
 	}
 

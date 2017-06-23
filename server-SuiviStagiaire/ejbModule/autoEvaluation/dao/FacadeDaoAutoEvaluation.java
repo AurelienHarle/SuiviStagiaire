@@ -1,10 +1,9 @@
-package autoEvaluation.facade;
+package autoEvaluation.dao;
 
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
-import autoEvaluation.dao.FacadeDaoAutoEvaluation;
 import autoEvaluation.entity.AutoEvaluation;
 import autoEvaluation.technique.AutoEvaluations;
 import exception.DoublonException;
@@ -13,76 +12,68 @@ import exception.UnfoundException;
 import exception.UpdateException;
 
 /**
- * Session Bean implementation class FacadeServiceAutoEvaluation
+ * Session Bean implementation class FacadeDaoAutoEvaluation
  */
 @Stateless
 @LocalBean
-public class FacadeServiceAutoEvaluation implements FacadeServiceAutoEvaluationLocal {
+public class FacadeDaoAutoEvaluation implements FacadeDaoAutoEvaluationLocal {
 
 	@EJB
-	FacadeDaoAutoEvaluation facadeDaoAutoEvaluation;
+	AutoEvaluationDao autoEvaluationDao;
 	
     /**
      * Default constructor. 
      */
-    public FacadeServiceAutoEvaluation() {
-        
+    public FacadeDaoAutoEvaluation() {
+        // TODO Auto-generated constructor stub
     }
 
-	@Override
+    @Override
 	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException {
 
-		facadeDaoAutoEvaluation.insertAutoEvaluation(autoEvaluation);
+		autoEvaluationDao.insertAutoEvaluation(autoEvaluation);
 		
 	}
-
-	
-
-	@Override
+    
+    @Override
 	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) throws UpdateException {
-		facadeDaoAutoEvaluation.updateAutoEvaluation(autoEvaluation);
+		autoEvaluationDao.updateAutoEvaluation(autoEvaluation);
 		
 	}
-
-	
-	
-	@Override
+    
+    @Override
 	public void deleteAutoEvaluation(AutoEvaluation autoEvaluation) {
-		facadeDaoAutoEvaluation.deleteAutoEvaluation(autoEvaluation);
+		autoEvaluationDao.deleteAutoEvaluation(autoEvaluation);
 		
 	}
-
-	
-
-	@Override
+    
+    @Override
 	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation) throws UnfoundException {
-		return facadeDaoAutoEvaluation.selectAutoEvaluation(autoEvaluation);
+		return autoEvaluationDao.selectAutoEvaluation(autoEvaluation);
 		
 	}
 	
 	@Override
 	public AutoEvaluation selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(
 			AutoEvaluation autoEvaluation) {
-
-		return facadeDaoAutoEvaluation.selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(autoEvaluation);
+		return autoEvaluationDao.selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(autoEvaluation);
 	}
 
 	@Override
 	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException {
-		return facadeDaoAutoEvaluation.selectAutoEvaluationByStagCompDate(autoEvaluation);
+		return autoEvaluationDao.selectAutoEvaluationByStagCompDate(autoEvaluation);
 		
 	}
 
 	@Override
 	public AutoEvaluations selectAutoEvaluationByStagComp(AutoEvaluation autoEvaluation) {
-		return facadeDaoAutoEvaluation.selectAutoEvaluationByStagComp(autoEvaluation);
+		return autoEvaluationDao.selectAutoEvaluationByStagComp(autoEvaluation);
 	}
 
 	@Override
 	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation) {
-		return facadeDaoAutoEvaluation.selectAutoEvaluationByStag(autoEvaluation);
+		return autoEvaluationDao.selectAutoEvaluationByStag(autoEvaluation);
 	}
 
-	
-
+    
 }

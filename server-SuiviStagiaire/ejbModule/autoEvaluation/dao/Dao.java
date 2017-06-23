@@ -8,17 +8,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 
-import autoEvaluation.entity.AutoEvaluation;
 import autoEvaluation.entity.Competence;
 import autoEvaluation.entity.Module;
 import autoEvaluation.entity.NiveauAcquisition;
 import autoEvaluation.entity.Sequence;
-import autoEvaluation.technique.AutoEvaluations;
 import compteUtilisateur.entity.Stagiaire;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
-import exception.UpdateException;
 import logger.JournaliseurNiveauConfig;
 import logger.JournaliseurNiveauError;
 import logger.JournaliseurNiveauInfo;
@@ -37,6 +34,7 @@ import parametre.Parametre;
 public class Dao implements DaoLocal {
 	
 	//TODO Externalisé la construction des message dans une classe et faire la construction des message LOG dans un LogRecord
+	//TODO Deplacé Stagiaire etc dans les bon package/classe
 	
 	@PersistenceContext(unitName=Parametre.PERSISTENCE_UNIT_NAME)
 	EntityManager em;
@@ -53,64 +51,7 @@ public class Dao implements DaoLocal {
     }
 
 
-	@Override
-	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException {
-		
-		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : insertAutoEvaluation");
-		journaliseurNiveauConfig.log("[METHOD IN] AutoEvaluation : " + autoEvaluation);
-
-		 
-		 //Pour verification si il existe deja
-		 try {
-			 
-			updateAutoEvaluation(autoEvaluation);
-			
-		} catch (UpdateException e1) {
-			try{
-				
-				em.persist(autoEvaluation);
-				em.flush();
-				journaliseurNiveauInfo.log("[INSERT]  AutoEvaluation : " + autoEvaluation );
-				
-			}catch (Exception e) {
-				resultat = false;
-				if(e instanceof PersistenceException){
-					
-					Throwable t = e.getCause();
-				
-					while ((t != null) && !(t instanceof SQLIntegrityConstraintViolationException)) {
-						
-						t = t.getCause();
-						
-					}
-					
-					if(t instanceof SQLIntegrityConstraintViolationException){
-						
-						throw new DoublonException("insertAutoEvaluation");
-						
-					}
-					
-				}else if(e instanceof NullPointerException){
-					
-					throw new NullException("insertAutoEvaluation");
-					
-				}else if(e instanceof IllegalArgumentException && autoEvaluation == null){
-					
-					throw new NullException("insertAutoEvaluation");
-					
-				}else{
-					
-					e.printStackTrace();
-					journaliseurNiveauError.log("[METHOD] insertAutoEvaluation [Entity] " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
-					
-				}
-			}
-		}
-		 
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : insertAutoEvaluation " + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : insertAutoEvaluation");
-	}
+	
 
 
 	@Override
@@ -138,20 +79,20 @@ public class Dao implements DaoLocal {
 				
 				if(t instanceof SQLIntegrityConstraintViolationException){
 	
-					throw new DoublonException("insertModule");
+					throw new DoublonException("insertModule [Entity] Module : " + module.toString());
 					
 				}
 			}else if(e instanceof NullPointerException){
 				
-				throw new NullException("insertModule");
+				throw new NullException("insertModule [Entity] Module : " + module.toString());
 				
 			}else if(e instanceof IllegalArgumentException && (module == null || module.getIdentifiant() == null || module.getNomCourt() == null || module.getNomLong() == null)){
 				
-				throw new NullException("insertModule");
+				throw new NullException("insertModule [Entity] Module : " + module.toString());
 				
 			}else{
 				e.printStackTrace();
-				journaliseurNiveauError.log("[METHOD] insertModule [Entity] " + module + " [Exception] " +  e.getClass().getName() + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
+				journaliseurNiveauError.log("[METHOD] insertModule [Entity] Module : " + module + " [Exception] " +  e.getClass().getName() + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			}
 		}
 		
@@ -161,6 +102,7 @@ public class Dao implements DaoLocal {
 	}
 
 
+	@SuppressWarnings("null")
 	@Override
 	public void insertSequence(Sequence sequence) throws DoublonException, NullException {
 		
@@ -186,17 +128,17 @@ public class Dao implements DaoLocal {
 				
 				if(t instanceof SQLIntegrityConstraintViolationException){
 	
-					throw new DoublonException("insertSequence");
+					throw new DoublonException("insertSequence [Entity] Sequence : " + sequence.toString());
 					
 				}
 				
 			}else if(e instanceof NullPointerException){
 				
-				throw new NullException("insertSequence");
+				throw new NullException("insertSequence [Entity] Sequence : " + sequence.toString());
 				
 			}else if(e instanceof IllegalArgumentException && sequence == null){
 				
-				throw new NullException("insertSequence");
+				throw new NullException("insertSequence [Entity] Sequence :  " + sequence.toString());
 				
 			}else{
 				e.printStackTrace();
@@ -352,47 +294,7 @@ public class Dao implements DaoLocal {
 		
 	}
 
-	@Override
-	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) throws UpdateException {
-		
-		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : updateAutoEvaluation");
-		journaliseurNiveauConfig.log("[METHOD IN] AutoEvaluation : " + autoEvaluation);
-		
-		AutoEvaluation autoEvaluation2 = null;
-		
-		try {
-			
-			autoEvaluation2 = selectAutoEvaluationByStagCompDate(autoEvaluation);
-			
-		} catch (UnfoundException e1) {
-			
-			throw new UpdateException("updateAutoEvaluation");
-			
-		}
-
-		autoEvaluation.setIdentifiant(autoEvaluation2.getIdentifiant());
 	
-		try {
-			
-			em.merge(autoEvaluation);
-			em.flush();
-			journaliseurNiveauInfo.log("[UPDATE]  AutoEvaluation : " + autoEvaluation );
-			
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-			resultat = false;
-			journaliseurNiveauError.log("[METHOD] updateAutoEvaluation [Entity] " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
-		
-		}	
-		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : updateAutoEvaluation" + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : updateAutoEvaluation");
-		
-		
-		
-	}
 
 	@Override
 	public void updateModule(Module module) {
@@ -524,30 +426,7 @@ public class Dao implements DaoLocal {
 	}
 
 
-	@Override
-	public void deleteAutoEvaluation(AutoEvaluation autoEvaluation) {
-		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : deleteAutoEvaluation");
-		journaliseurNiveauConfig.log("[METHOD IN] AutoEvaluation : " + autoEvaluation);
-		
-		try {
-			
-			AutoEvaluation autoEvaluation2 = selectAutoEvaluationByStagCompDate(autoEvaluation);
-			em.remove(autoEvaluation2);
-			em.flush();
-			journaliseurNiveauInfo.log("[UPDATE]  AutoEvaluation : " + autoEvaluation);
-			
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-			resultat = false;
-			journaliseurNiveauError.log("[METHOD] deleteAutoEvaluation [Entity] " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
-			
-		}
-		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : deleteAutoEvaluation" + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : deleteAutoEvaluation");
-	}
+	
 
 	@Override
 	public void deleteModule(Module module) {
@@ -678,129 +557,6 @@ public class Dao implements DaoLocal {
 		journaliseurNiveauConfig.log("[FIN METHOD] : deleteStagiaire");
 	}
 
-
-	@Override
-	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation) throws UnfoundException {
-		
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : selectAutoEvaluation ");
-		journaliseurNiveauConfig.log("[METHOD IN] AutoEvaluation : " + autoEvaluation);
-		AutoEvaluation autoEvaluation2 = null;
-		
-		try{
-			
-			autoEvaluation2 = em.find(AutoEvaluation.class, autoEvaluation.getIdentifiant());
-			
-			if(autoEvaluation2 == null){
-				journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " [MESSAGE] : NotFound");
-				throw new UnfoundException("selectAutoEvaluation");
-			}
-			
-			journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " AutoEvaluation [OUT] : " + autoEvaluation2);
-			
-			
-		}catch (Exception e) {
-			
-			if(e instanceof NullPointerException){
-				
-				journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " [MESSAGE] : NotFound");
-				throw new UnfoundException("selectAutoEvaluation");
-				
-			}else if(e instanceof IllegalArgumentException){
-			
-				journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " [MESSAGE] : NotFound");
-				throw new UnfoundException("selectAutoEvaluation");
-				
-			}else{
-				
-				e.printStackTrace();
-				journaliseurNiveauError.log("[METHOD] selectAutoEvaluation [Entity] " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
-			
-			}
-		}
-			
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : selectAutoEvaluation" + autoEvaluation2);
-		journaliseurNiveauConfig.log("[FIN METHOD] : selectAutoEvaluation");
-		
-		return autoEvaluation2;
-	}
-
-	@Override
-	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException {
-		
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : selectAutoEvaluationByStagCompDate ");
-		journaliseurNiveauConfig.log("[METHOD IN] AutoEvaluation : " + autoEvaluation);
-		AutoEvaluation autoEvaluation2 = null;
-		
-		try {
-			
-			String sqlString = "select ae from AutoEvaluation ae where stag_id = ?1 and comp_id = ?2 and ae_date = ?3";
-			
-			autoEvaluation2 = (AutoEvaluation) em.createQuery(sqlString)
-				.setParameter(1, autoEvaluation.getStagiaire().getLogin())
-				.setParameter(2, autoEvaluation.getCompetence().getIdentifiant())
-				.setParameter(3, autoEvaluation.getDateAutoEvaluation()).getSingleResult();
-			
-			if(autoEvaluation2 == null){
-				journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " [MESSAGE] : NotFound");
-				throw new UnfoundException("selectAutoEvaluationByStagCompDate");
-			}
-			
-			journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " AutoEvaluation [OUT] : " + autoEvaluation2);
-			
-		}catch (Exception e) {
-			
-			if(e instanceof NullPointerException){
-				
-				journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " [MESSAGE] : NotFound");
-				throw new UnfoundException("selectAutoEvaluation");
-				
-			}else if(e instanceof IllegalArgumentException){
-			
-				journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " [MESSAGE] : NotFound");
-				throw new UnfoundException("selectAutoEvaluation");
-				
-			}else{
-				
-				e.printStackTrace();
-				journaliseurNiveauError.log("[METHOD] selectAutoEvaluationByStagCompDate [Entity] " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
-			
-			}
-		}
-		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : selectAutoEvaluationByStagCompDate" + autoEvaluation2);
-		journaliseurNiveauConfig.log("[FIN METHOD] : selectAutoEvaluationByStagCompDate");
-		return autoEvaluation2;
-	}
-
-
-	@Override
-	public AutoEvaluation selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(AutoEvaluation autoEvaluation) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public AutoEvaluations selectAutoEvaluationByStagComp(AutoEvaluation autoEvaluation) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public AutoEvaluations selectAutoEvaluationByComp(AutoEvaluation autoEvaluation) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
 	@Override
 	public Module selectModule(Module module) throws UnfoundException {
 		
@@ -809,8 +565,6 @@ public class Dao implements DaoLocal {
 		Module module2 = null;
 		
 		try{
-			
-			if(module == null)
 			
 			module2 = em.find(Module.class, module.getIdentifiant());
 			journaliseurNiveauInfo.log("[Select]  Module [IN] : " + module + " Module [OUT] : " + module2);
@@ -834,7 +588,7 @@ public class Dao implements DaoLocal {
 			}
 		}
 			
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : selectModule" + module2);
+		journaliseurNiveauConfig.log("[RESULTAT METHOD] : selectModule " + module2);
 		journaliseurNiveauConfig.log("[FIN METHOD] : selectModule");
 		
 		return module2; 

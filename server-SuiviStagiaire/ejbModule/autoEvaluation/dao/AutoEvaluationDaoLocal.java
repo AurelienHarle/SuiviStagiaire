@@ -1,4 +1,4 @@
-package autoEvaluation.facade;
+package autoEvaluation.dao;
 
 import javax.ejb.Local;
 
@@ -10,31 +10,29 @@ import exception.UnfoundException;
 import exception.UpdateException;
 
 @Local
-public interface FacadeServiceAutoEvaluationLocal {
+public interface AutoEvaluationDaoLocal {
+
 	
 	/**
 	 * Insertion d'une auto evaluation dans la base
+	 * @throws UpdateException 
 	 * 
 	 * @throws {@link DoublonException}
 	 * @throws {@link NullException}
 	 */
-	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException;
+	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException, UpdateException;
 	
-		
 	/**
 	 * Update d'une auto evaluation dans la base
 	 * @throws UpdateException 
+	 * @throws UnfoundException 
 	 */
-	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) throws UpdateException;
-	
-	
+	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) throws UpdateException, UnfoundException;
 	
 	/**
 	 * Delete d'une auto evaluation dans la base
 	 */
 	public void deleteAutoEvaluation(AutoEvaluation autoEvaluation);
-
-	
 	
 	/**
 	 * Select d'une auto evaluation dans la base
@@ -50,6 +48,7 @@ public interface FacadeServiceAutoEvaluationLocal {
 	/**
 	 * Select d'une auto evaluation par son Stagiaire / Comp / Date
 	 * @throws UnfoundException 
+	 * @throws SelectAutoEvaluationNoResultException 
 	 */
 	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException;
 	
@@ -62,5 +61,10 @@ public interface FacadeServiceAutoEvaluationLocal {
 	 * Select d'une auto evaluation par son Stagiaire
 	 */
 	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation);
+	
+	/**
+	 * Select d'une auto evaluation par sa Competences
+	 */
+	public AutoEvaluations selectAutoEvaluationByComp(AutoEvaluation autoEvaluation);
 	
 }

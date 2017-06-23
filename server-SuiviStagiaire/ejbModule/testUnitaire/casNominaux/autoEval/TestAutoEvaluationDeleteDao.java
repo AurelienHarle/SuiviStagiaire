@@ -31,7 +31,7 @@ import facade.FacadeSuiviStagiaireRemote;
  * @Since 19/06/2017
  *
  */
-public class TestDeleteDao {
+public class TestAutoEvaluationDeleteDao {
 	
 	
 	private static Context context;
@@ -89,10 +89,16 @@ public class TestDeleteDao {
 	}
 	
 
+	//TODO DELETE WHEN COMPLETE TEST
 	@AfterClass
 	public static void finalizeur(){
 		
-
+		facadeSuiviStagiaireRemote.deleteCompetence(competenceInsert);
+		facadeSuiviStagiaireRemote.deleteSequence(sequenceInsert);
+		facadeSuiviStagiaireRemote.deleteModule(moduleInsert);
+		facadeSuiviStagiaireRemote.deleteNiveauAcquisition(niveauAcquisitionInsert);
+		facadeSuiviStagiaireRemote.deleteStagiaire(stagiaireInsert);
+		
 	}
 	
 	/**
@@ -103,32 +109,32 @@ public class TestDeleteDao {
 	public void testDelete() throws UnfoundException{
 
 		AutoEvaluation autoEvaluation = null;
-		Competence competence = null;
-		Sequence sequence = null;
-		Module module = null;
-		Stagiaire stagiaire = null;
-		NiveauAcquisition niveauAcquisition = null;
+//		Competence competence = null;
+//		Sequence sequence = null;
+//		Module module = null;
+//		Stagiaire stagiaire = null;
+//		NiveauAcquisition niveauAcquisition = null;
 		
 		facadeSuiviStagiaireRemote.deleteAutoEvaluation(autoEvaluationInsert);
-		facadeSuiviStagiaireRemote.deleteCompetence(competenceInsert);		
-		facadeSuiviStagiaireRemote.deleteSequence(sequenceInsert);
-		facadeSuiviStagiaireRemote.deleteModule(moduleInsert);
-		facadeSuiviStagiaireRemote.deleteStagiaire(stagiaireInsert);
-		facadeSuiviStagiaireRemote.deleteNiveauAcquisition(niveauAcquisitionInsert);
+//		facadeSuiviStagiaireRemote.deleteCompetence(competenceInsert);		
+//		facadeSuiviStagiaireRemote.deleteSequence(sequenceInsert);
+//		facadeSuiviStagiaireRemote.deleteModule(moduleInsert);
+//		facadeSuiviStagiaireRemote.deleteStagiaire(stagiaireInsert);
+//		facadeSuiviStagiaireRemote.deleteNiveauAcquisition(niveauAcquisitionInsert);
 
-		autoEvaluation = facadeSuiviStagiaireRemote.selectAutoEvaluation(autoEvaluationInsert);
-		competence = facadeSuiviStagiaireRemote.selectCompetence(competenceInsert);
-		sequence = facadeSuiviStagiaireRemote.selectSequence(sequenceInsert);
-		module = facadeSuiviStagiaireRemote.selectModule(moduleInsert);
-		stagiaire = facadeSuiviStagiaireRemote.selectStagiaire(stagiaireInsert);
-		niveauAcquisition = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisitionInsert);
+		autoEvaluation = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluationInsert);
+//		competence = facadeSuiviStagiaireRemote.selectCompetence(competenceInsert);
+//		sequence = facadeSuiviStagiaireRemote.selectSequence(sequenceInsert);
+//		module = facadeSuiviStagiaireRemote.selectModule(moduleInsert);
+//		stagiaire = facadeSuiviStagiaireRemote.selectStagiaire(stagiaireInsert);
+//		niveauAcquisition = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisitionInsert);
 
 		assertNull(autoEvaluation);
-		assertNull(niveauAcquisition);
-		assertNull(stagiaire);
-		assertNull(competence);
-		assertNull(sequence);
-		assertNull(module);
+//		assertNull(niveauAcquisition);
+//		assertNull(stagiaire);
+//		assertNull(competence);
+//		assertNull(sequence);
+//		assertNull(module);
 		
 	}
 

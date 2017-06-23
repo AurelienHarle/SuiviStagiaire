@@ -39,28 +39,23 @@ public class AutoEvaluation implements Serializable {
 	@Column(name="ae_id", length=4, nullable=false)
 	private int identifiant;
 	
-	//TODO CascadeType.ALL -> Aucun
-	@ManyToOne(fetch=FetchType.EAGER,cascade=CascadeType.DETACH)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn( name="comp_id", nullable=false)
 	private Competence competence;
-	
-	//TODO CascadeType.ALL -> Aucun
-	@ManyToOne(fetch=FetchType.EAGER,cascade=CascadeType.DETACH)
+
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn( name="seq_id", nullable=false)
 	private Sequence sequence;
-	
-	//TODO CascadeType.ALL -> Aucun
-	@ManyToOne(fetch=FetchType.EAGER,cascade=CascadeType.DETACH)
+
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn( name="mod_id", nullable=false)
 	private Module module;
 	
-	//TODO CascadeType.ALL -> Aucun
-	@ManyToOne(fetch=FetchType.EAGER,cascade=CascadeType.DETACH)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="na_id", nullable=false)
 	private NiveauAcquisition niveauAcquisition;
-	
-	//TODO CascadeType.ALL -> Aucun
-	@ManyToOne(fetch=FetchType.EAGER,cascade=CascadeType.DETACH)
+
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="stag_id", nullable=false)
 	private Stagiaire stagiaire;
 	

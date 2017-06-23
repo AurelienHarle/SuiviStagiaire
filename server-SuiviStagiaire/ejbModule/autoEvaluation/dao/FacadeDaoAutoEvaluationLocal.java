@@ -1,4 +1,4 @@
-package autoEvaluation.facade;
+package autoEvaluation.dao;
 
 import javax.ejb.Local;
 
@@ -10,7 +10,7 @@ import exception.UnfoundException;
 import exception.UpdateException;
 
 @Local
-public interface FacadeServiceAutoEvaluationLocal {
+public interface FacadeDaoAutoEvaluationLocal {
 	
 	/**
 	 * Insertion d'une auto evaluation dans la base
@@ -20,22 +20,17 @@ public interface FacadeServiceAutoEvaluationLocal {
 	 */
 	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException;
 	
-		
 	/**
 	 * Update d'une auto evaluation dans la base
 	 * @throws UpdateException 
 	 */
 	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) throws UpdateException;
 	
-	
-	
 	/**
 	 * Delete d'une auto evaluation dans la base
 	 */
 	public void deleteAutoEvaluation(AutoEvaluation autoEvaluation);
 
-	
-	
 	/**
 	 * Select d'une auto evaluation dans la base
 	 * @throws UnfoundException 
@@ -62,5 +57,6 @@ public interface FacadeServiceAutoEvaluationLocal {
 	 * Select d'une auto evaluation par son Stagiaire
 	 */
 	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation);
+
 	
 }

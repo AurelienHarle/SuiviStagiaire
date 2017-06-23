@@ -31,7 +31,7 @@ import facade.FacadeSuiviStagiaireRemote;
  * @Since 19/06/2017
  *
  */
-public class TestSelectDao {
+public class TestAutoEvaluationSelectDao {
 	
 	
 	private static Context context;
@@ -84,161 +84,130 @@ public class TestSelectDao {
 	@AfterClass
 	public static void finalizeur(){
 		
-		//TODO FIX IT
-		
-//		autoEvaluationSelect = facadeSuiviStagiaireRemote.selectAutoEvaluation(autoEvaluationSelect);
-//		System.out.println(autoEvaluationSelect);
-//		facadeSuiviStagiaireRemote.deleteAutoEvaluation(autoEvaluationSelect);
-//		
-//		moduleSelect = facadeSuiviStagiaireRemote.selectModule(moduleSelect);
-//		System.out.println(moduleSelect);
-//		facadeSuiviStagiaireRemote.deleteModule(moduleSelect);
-//		
-//		sequenceSelect = facadeSuiviStagiaireRemote.selectSequence(sequenceSelect);
-//		System.out.println(sequenceSelect);
-//		facadeSuiviStagiaireRemote.deleteSequence(sequenceSelect);
-//		
-//		competenceSelect = facadeSuiviStagiaireRemote.selectCompetence(competenceSelect);
-//		System.out.println(competenceSelect);
-//		facadeSuiviStagiaireRemote.deleteCompetence(competenceSelect);
-//		
-//		stagiaireSelect = facadeSuiviStagiaireRemote.selectStagiaire(stagiaireSelect);
-//		System.out.println(stagiaireSelect);
-//		facadeSuiviStagiaireRemote.deleteStagiaire(stagiaireSelect);
-//		
-//		niveauAcquisitionSelect = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisitionSelect);
-//		System.out.println(niveauAcquisitionSelect);
-//		facadeSuiviStagiaireRemote.deleteNiveauAcquisition(niveauAcquisitionSelect);
-//		
-//		moduleSequenceSelect = facadeSuiviStagiaireRemote.selectModule(moduleSequenceSelect);
-//		System.out.println(moduleSequenceSelect);
-//		facadeSuiviStagiaireRemote.deleteModule(moduleSequenceSelect);
-//		
-//		moduleCompetenceSelect = facadeSuiviStagiaireRemote.selectModule(moduleCompetenceSelect);
-//		System.out.println(moduleCompetenceSelect);
-//		facadeSuiviStagiaireRemote.deleteModule(moduleCompetenceSelect);
-//		
-//		sequenceCompetenceSelect = facadeSuiviStagiaireRemote.selectSequence(sequenceCompetenceSelect);
-//		System.out.println(sequenceCompetenceSelect);
-//		facadeSuiviStagiaireRemote.deleteSequence(sequenceCompetenceSelect);
+		facadeSuiviStagiaireRemote.deleteAutoEvaluation(autoEvaluationInsert);
+		facadeSuiviStagiaireRemote.deleteCompetence(competenceInsert);
+		facadeSuiviStagiaireRemote.deleteSequence(sequenceInsert);
+		facadeSuiviStagiaireRemote.deleteModule(moduleInsert);
+		facadeSuiviStagiaireRemote.deleteNiveauAcquisition(niveauAcquisitionInsert);
+		facadeSuiviStagiaireRemote.deleteStagiaire(stagiaireInsert);
 		
 	}
 	
 	
-	/**
-	 * Test d'selection d'un Module
-	 */
-	@Test
-	public void testSelectModule(){
-		
-		Module moduleSelect = null;
-		boolean condition = true;
-		try {
-			moduleSelect = facadeSuiviStagiaireRemote.selectModule(moduleInsert);
-		} catch (UnfoundException e) {
-			condition = false;
-			
-		}
-		
-		assertTrue(condition);
-		assertNotNull(moduleSelect);
-		assertEquals(moduleInsert.getIdentifiant(), moduleSelect.getIdentifiant());
-		assertEquals(moduleInsert.getNomCourt(), moduleSelect.getNomCourt());
-		assertEquals(moduleInsert.getNomLong(), moduleSelect.getNomLong());
-		
-	}
-	
-	/**
-	 * Test d'selection d'une Sequence
-	 */
-	@Test
-	public void testSelectSequence(){
-		
-		Sequence sequenceSelect = null;
-		boolean condition = true;
-		try {
-			sequenceSelect = facadeSuiviStagiaireRemote.selectSequence(sequenceInsert);
-		} catch (UnfoundException e) {
-			condition = false;
-			
-		}
-		
-		assertTrue(condition);
-		assertNotNull(sequenceSelect);
-		assertEquals(sequenceInsert.getIdentifiant(), sequenceSelect.getIdentifiant());		
-		assertEquals(sequenceInsert.getNomCourt(), sequenceSelect.getNomCourt());
-		assertEquals(sequenceInsert.getNomLong(), sequenceSelect.getNomLong());
-	}
-	
-	/**
-	 * Test d'selection d'une Competences
-	 */
-	@Test
-	public void testSelectCompetence(){
-		
-		Competence competenceSelect = null;
-		boolean condition = true;
-		try {
-			competenceSelect = facadeSuiviStagiaireRemote.selectCompetence(competenceInsert);
-		} catch (UnfoundException e) {
-			condition = false;
-			
-		}
-		
-		assertTrue(condition);
-		assertNotNull(competenceSelect);
-		assertEquals(competenceInsert.getIdentifiant(), competenceSelect.getIdentifiant());
-		assertEquals(competenceInsert.getNomCourt(), competenceSelect.getNomCourt());
-		assertEquals(competenceInsert.getNomLong(), competenceSelect.getNomLong());
-
-	}
-	
-	/**
-	 * Test d'selection d'un Stagiaire
-	 */
-	@Test
-	public void testSelectStagiaire(){
-		
-		Stagiaire stagiaireSelect = null;
-		boolean condition = true;
-		try {
-			stagiaireSelect = facadeSuiviStagiaireRemote.selectStagiaire(stagiaireInsert);
-		} catch (UnfoundException e) {
-			condition = false;
-			
-		}
-		
-		assertTrue(condition);
-		assertNotNull(stagiaireSelect);
-		assertEquals(stagiaireInsert.getLogin(), stagiaireSelect.getLogin());
-		assertEquals(stagiaireInsert.getMotDePasse(), stagiaireSelect.getMotDePasse());
-		assertEquals(stagiaireInsert.getNom(), stagiaireSelect.getNom());
-		assertEquals(stagiaireInsert.getPrenom(), stagiaireSelect.getPrenom());
-		
-	}
-	
-	/**
-	 * Test d'selection d'un NiveauAcquisition
-	 */
-	@Test
-	public void testSelectNiveauAcquisition(){
-		
-		NiveauAcquisition niveauAcquisitionSelect = null;
-		boolean condition = true;
-		try {
-			niveauAcquisitionSelect = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisitionInsert);
-		} catch (UnfoundException e) {
-			condition = false;
-			
-		}
-		
-		assertTrue(condition);
-		assertNotNull(niveauAcquisitionSelect);
-		assertEquals(niveauAcquisitionInsert.getIdentifiant(), niveauAcquisitionSelect.getIdentifiant());
-		assertEquals(niveauAcquisitionInsert.getNiveau(), niveauAcquisitionSelect.getNiveau());
-		
-		
-	}
+//	/**
+//	 * Test d'selection d'un Module
+//	 */
+//	@Test
+//	public void testSelectModule(){
+//		
+//		Module moduleSelect = null;
+//		boolean condition = true;
+//		try {
+//			moduleSelect = facadeSuiviStagiaireRemote.selectModule(moduleInsert);
+//		} catch (UnfoundException e) {
+//			condition = false;
+//			
+//		}
+//		
+//		assertTrue(condition);
+//		assertNotNull(moduleSelect);
+//		assertEquals(moduleInsert.getIdentifiant(), moduleSelect.getIdentifiant());
+//		assertEquals(moduleInsert.getNomCourt(), moduleSelect.getNomCourt());
+//		assertEquals(moduleInsert.getNomLong(), moduleSelect.getNomLong());
+//		
+//	}
+//	
+//	/**
+//	 * Test d'selection d'une Sequence
+//	 */
+//	@Test
+//	public void testSelectSequence(){
+//		
+//		Sequence sequenceSelect = null;
+//		boolean condition = true;
+//		try {
+//			sequenceSelect = facadeSuiviStagiaireRemote.selectSequence(sequenceInsert);
+//		} catch (UnfoundException e) {
+//			condition = false;
+//			
+//		}
+//		
+//		assertTrue(condition);
+//		assertNotNull(sequenceSelect);
+//		assertEquals(sequenceInsert.getIdentifiant(), sequenceSelect.getIdentifiant());		
+//		assertEquals(sequenceInsert.getNomCourt(), sequenceSelect.getNomCourt());
+//		assertEquals(sequenceInsert.getNomLong(), sequenceSelect.getNomLong());
+//	}
+//	
+//	/**
+//	 * Test d'selection d'une Competences
+//	 */
+//	@Test
+//	public void testSelectCompetence(){
+//		
+//		Competence competenceSelect = null;
+//		boolean condition = true;
+//		try {
+//			competenceSelect = facadeSuiviStagiaireRemote.selectCompetence(competenceInsert);
+//		} catch (UnfoundException e) {
+//			condition = false;
+//			
+//		}
+//		
+//		assertTrue(condition);
+//		assertNotNull(competenceSelect);
+//		assertEquals(competenceInsert.getIdentifiant(), competenceSelect.getIdentifiant());
+//		assertEquals(competenceInsert.getNomCourt(), competenceSelect.getNomCourt());
+//		assertEquals(competenceInsert.getNomLong(), competenceSelect.getNomLong());
+//
+//	}
+//	
+//	/**
+//	 * Test d'selection d'un Stagiaire
+//	 */
+//	@Test
+//	public void testSelectStagiaire(){
+//		
+//		Stagiaire stagiaireSelect = null;
+//		boolean condition = true;
+//		try {
+//			stagiaireSelect = facadeSuiviStagiaireRemote.selectStagiaire(stagiaireInsert);
+//		} catch (UnfoundException e) {
+//			condition = false;
+//			
+//		}
+//		
+//		assertTrue(condition);
+//		assertNotNull(stagiaireSelect);
+//		assertEquals(stagiaireInsert.getLogin(), stagiaireSelect.getLogin());
+//		assertEquals(stagiaireInsert.getMotDePasse(), stagiaireSelect.getMotDePasse());
+//		assertEquals(stagiaireInsert.getNom(), stagiaireSelect.getNom());
+//		assertEquals(stagiaireInsert.getPrenom(), stagiaireSelect.getPrenom());
+//		
+//	}
+//	
+//	/**
+//	 * Test d'selection d'un NiveauAcquisition
+//	 */
+//	@Test
+//	public void testSelectNiveauAcquisition(){
+//		
+//		NiveauAcquisition niveauAcquisitionSelect = null;
+//		boolean condition = true;
+//		try {
+//			niveauAcquisitionSelect = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisitionInsert);
+//		} catch (UnfoundException e) {
+//			condition = false;
+//			
+//		}
+//		
+//		assertTrue(condition);
+//		assertNotNull(niveauAcquisitionSelect);
+//		assertEquals(niveauAcquisitionInsert.getIdentifiant(), niveauAcquisitionSelect.getIdentifiant());
+//		assertEquals(niveauAcquisitionInsert.getNiveau(), niveauAcquisitionSelect.getNiveau());
+//		
+//		
+//	}
 	
 	/**
 	 * Test d'une selection d'une {@link AutoEvaluation}
