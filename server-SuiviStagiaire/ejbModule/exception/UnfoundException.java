@@ -12,6 +12,8 @@ import logger.JournaliseurNiveauWarning;
  */
 public class UnfoundException extends Exception{
 
+	JournaliseurNiveauWarning journaliseurNiveauWarning = JournaliseurNiveauWarning.getINSTANCE();
+	
 	/**
 	 * 
 	 */
@@ -21,7 +23,7 @@ public class UnfoundException extends Exception{
 
 	public UnfoundException(String string) {
 		super(message + string);
-		JournaliseurNiveauWarning.getINSTANCE().log(message + string);
+		journaliseurNiveauWarning.log(message + string);
 	}
 
 }

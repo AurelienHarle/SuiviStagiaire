@@ -12,6 +12,8 @@ import logger.JournaliseurNiveauWarning;
  */
 public class NullException extends Exception{
 
+	JournaliseurNiveauWarning journaliseurNiveauWarning = JournaliseurNiveauWarning.getINSTANCE();
+	
 	/**
 	 * 
 	 */
@@ -21,7 +23,7 @@ public class NullException extends Exception{
 
 	public NullException(String string) {
 		super(message + string);
-		JournaliseurNiveauWarning.getINSTANCE().log(message + string);
+		journaliseurNiveauWarning.log(message + string);
 	}
 
 }
