@@ -37,13 +37,13 @@ public class JournaliseurNiveauError extends Logger {
 
 		formatter = new SimpleFormatter(); 
 		try {
-			handler = new FileHandler("D:\\Projet\\Suivi stagiaire\\Git\\SuiviStagiaire\\server-SuiviStagiaire\\logs\\"+ LocalDate.now() + "_ERROR_" + ".log");
+			handler = new FileHandler("D:\\Projet\\Suivi stagiaire\\Git\\SuiviStagiaire\\server-SuiviStagiaire\\logs\\"+ LocalDate.now() + "_ERROR_" + ".log",true);
 			handler.setFormatter(formatter); 
 			handler.setLevel(Level.SEVERE);
 			this.setLevel(Level.SEVERE);
 			addHandler(handler);
 		} catch (SecurityException | IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		

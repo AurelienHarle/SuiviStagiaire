@@ -38,16 +38,19 @@ public class JournaliseurNiveauConfig extends Logger {
 	private void init() {
 		
 		formatter = new SimpleFormatter(); 
+		
 		try {
-			handler = new FileHandler("D:\\Projet\\Suivi stagiaire\\Git\\SuiviStagiaire\\server-SuiviStagiaire\\logs\\"+ LocalDate.now() + "_CONFIG_" + ".log");
+			
+			handler = new FileHandler("D:\\Projet\\Suivi stagiaire\\Git\\SuiviStagiaire\\server-SuiviStagiaire\\logs\\"+ LocalDate.now() + "_CONFIG_" + ".log",true);
 			handler.setFormatter(formatter); 
 			handler.setLevel(Level.CONFIG);
 			this.setLevel(Level.CONFIG);
 			addHandler(handler);
 			consoleHandler = new ConsoleHandler();
 			addHandler(consoleHandler);
+			
 		} catch (SecurityException | IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		

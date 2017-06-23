@@ -37,13 +37,13 @@ public class JournaliseurNiveauWarning extends Logger {
 
 		formatter = new SimpleFormatter(); 
 		try {
-			handler = new FileHandler("D:\\Projet\\Suivi stagiaire\\Git\\SuiviStagiaire\\server-SuiviStagiaire\\logs\\"+ LocalDate.now() + "_WARN_" + ".log");
+			handler = new FileHandler("D:\\Projet\\Suivi stagiaire\\Git\\SuiviStagiaire\\server-SuiviStagiaire\\logs\\"+ LocalDate.now() + "_WARN_" + ".log",true);
 			handler.setFormatter(formatter); 
 			handler.setLevel(Level.WARNING);
 			this.setLevel(Level.WARNING);
 			addHandler(handler);
 		} catch (SecurityException | IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
