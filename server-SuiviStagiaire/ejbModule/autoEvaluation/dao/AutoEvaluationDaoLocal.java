@@ -4,10 +4,10 @@ import javax.ejb.Local;
 
 import autoEvaluation.entity.AutoEvaluation;
 import autoEvaluation.technique.AutoEvaluations;
+import exception.DateNullException;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
-import exception.UpdateException;
 
 @Local
 public interface AutoEvaluationDaoLocal {
@@ -15,19 +15,21 @@ public interface AutoEvaluationDaoLocal {
 	
 	/**
 	 * Insertion d'une auto evaluation dans la base
+	 * @throws DateNullException 
 	 * @throws UpdateException 
+	 * @throws  
 	 * 
 	 * @throws {@link DoublonException}
 	 * @throws {@link NullException}
 	 */
-	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException, UpdateException;
+	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException, DateNullException;
 	
 	/**
 	 * Update d'une auto evaluation dans la base
 	 * @throws UpdateException 
 	 * @throws UnfoundException 
 	 */
-	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) throws UpdateException, UnfoundException;
+	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) throws UnfoundException;
 	
 	/**
 	 * Delete d'une auto evaluation dans la base
