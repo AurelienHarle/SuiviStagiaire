@@ -12,8 +12,6 @@ import logger.JournaliseurNiveauWarning;
  */
 public class DoublonException extends Exception{
 	
-	JournaliseurNiveauWarning journaliseurNiveauWarning = JournaliseurNiveauWarning.getINSTANCE();
-	
 	/**
 	 * 
 	 */
@@ -26,7 +24,7 @@ public class DoublonException extends Exception{
 	 */
 	public DoublonException(String string) {
 		super(message + string);
-		journaliseurNiveauWarning.log(message + string);
+		JournaliseurNiveauWarning.getINSTANCE().log(message + string);
 	}
 	
 	
