@@ -1,4 +1,4 @@
-package autoEvaluation.dao;
+package autoEvaluation.dao.facade;
 
 import javax.ejb.Local;
 

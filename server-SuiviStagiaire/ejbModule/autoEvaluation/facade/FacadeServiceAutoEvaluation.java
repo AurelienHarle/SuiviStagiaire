@@ -4,13 +4,13 @@ import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
-import autoEvaluation.dao.FacadeDaoAutoEvaluation;
+import autoEvaluation.dao.facade.FacadeDaoAutoEvaluation;
 import autoEvaluation.entity.AutoEvaluation;
 import autoEvaluation.technique.AutoEvaluations;
+import exception.DateNullException;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
-import exception.UpdateException;
 
 /**
  * Session Bean implementation class FacadeServiceAutoEvaluation
@@ -30,7 +30,7 @@ public class FacadeServiceAutoEvaluation implements FacadeServiceAutoEvaluationL
     }
 
 	@Override
-	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException {
+	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException, DateNullException {
 
 		facadeDaoAutoEvaluation.insertAutoEvaluation(autoEvaluation);
 		
@@ -39,7 +39,7 @@ public class FacadeServiceAutoEvaluation implements FacadeServiceAutoEvaluationL
 	
 
 	@Override
-	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) throws UpdateException {
+	public void updateAutoEvaluation(AutoEvaluation autoEvaluation)  {
 		facadeDaoAutoEvaluation.updateAutoEvaluation(autoEvaluation);
 		
 	}

@@ -4,7 +4,7 @@ import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
-import autoEvaluation.dao.FacadeDaoOther;
+import autoEvaluation.dao.facade.FacadeDaoOther;
 import autoEvaluation.entity.Competence;
 import autoEvaluation.entity.Module;
 import autoEvaluation.entity.NiveauAcquisition;

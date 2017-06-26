@@ -13,10 +13,10 @@ import autoEvaluation.facade.FacadeServiceAutoEvaluation;
 import autoEvaluation.facade.FacadeServiceOther;
 import autoEvaluation.technique.AutoEvaluations;
 import compteUtilisateur.entity.Stagiaire;
+import exception.DateNullException;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
-import exception.UpdateException;
 import logger.JournaliseurNiveauConfig;
 
 /**
@@ -40,7 +40,7 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
     JournaliseurNiveauConfig journaliseurNiveauConfig = JournaliseurNiveauConfig.getINSTANCE();
 
 	@Override
-	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException {
+	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException, DateNullException {
 		facadeServiceAutoEvaluation.insertAutoEvaluation(autoEvaluation);
 		
 	}
@@ -76,7 +76,7 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
 	}
 
 	@Override
-	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) throws UpdateException {
+	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) {
 		facadeServiceAutoEvaluation.updateAutoEvaluation(autoEvaluation);
 		
 	}

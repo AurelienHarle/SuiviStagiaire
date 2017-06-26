@@ -1,9 +1,10 @@
-package autoEvaluation.dao;
+package autoEvaluation.dao.facade;
 
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
+import autoEvaluation.dao.Dao;
 import autoEvaluation.entity.Competence;
 import autoEvaluation.entity.Module;
 import autoEvaluation.entity.NiveauAcquisition;

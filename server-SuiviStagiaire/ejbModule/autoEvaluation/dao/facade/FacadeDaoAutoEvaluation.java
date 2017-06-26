@@ -1,15 +1,16 @@
-package autoEvaluation.dao;
+package autoEvaluation.dao.facade;
 
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
+import autoEvaluation.dao.AutoEvaluationDao;
 import autoEvaluation.entity.AutoEvaluation;
 import autoEvaluation.technique.AutoEvaluations;
+import exception.DateNullException;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
-import exception.UpdateException;
 
 /**
  * Session Bean implementation class FacadeDaoAutoEvaluation
@@ -29,14 +30,14 @@ public class FacadeDaoAutoEvaluation implements FacadeDaoAutoEvaluationLocal {
     }
 
     @Override
-	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException {
+	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException, DateNullException {
 
 		autoEvaluationDao.insertAutoEvaluation(autoEvaluation);
 		
 	}
     
     @Override
-	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) throws UpdateException {
+	public void updateAutoEvaluation(AutoEvaluation autoEvaluation)  {
 		autoEvaluationDao.updateAutoEvaluation(autoEvaluation);
 		
 	}

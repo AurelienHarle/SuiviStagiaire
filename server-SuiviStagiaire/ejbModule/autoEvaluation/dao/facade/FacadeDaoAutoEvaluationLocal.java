@@ -1,30 +1,31 @@
-package autoEvaluation.dao;
+package autoEvaluation.dao.facade;
 
 import javax.ejb.Local;
 
 import autoEvaluation.entity.AutoEvaluation;
 import autoEvaluation.technique.AutoEvaluations;
+import exception.DateNullException;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
-import exception.UpdateException;
 
 @Local
 public interface FacadeDaoAutoEvaluationLocal {
 	
 	/**
 	 * Insertion d'une auto evaluation dans la base
+	 * @throws DateNullException 
 	 * 
 	 * @throws {@link DoublonException}
 	 * @throws {@link NullException}
 	 */
-	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException;
+	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException, DateNullException;
 	
 	/**
 	 * Update d'une auto evaluation dans la base
 	 * @throws UpdateException 
 	 */
-	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) throws UpdateException;
+	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) ;
 	
 	/**
 	 * Delete d'une auto evaluation dans la base

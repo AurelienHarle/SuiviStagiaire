@@ -9,21 +9,22 @@ import autoEvaluation.entity.NiveauAcquisition;
 import autoEvaluation.entity.Sequence;
 import autoEvaluation.technique.AutoEvaluations;
 import compteUtilisateur.entity.Stagiaire;
+import exception.DateNullException;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
-import exception.UpdateException;
 
 @Remote
 public interface FacadeSuiviStagiaireRemote {
 
 	/**
 	 * Insertion d'une auto evaluation dans la base
+	 * @throws DateNullException 
 	 * 
 	 * @throws {@link DoublonException}
 	 * @throws {@link NullException}
 	 */
-	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException;
+	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException, DateNullException;
 	
 	/**
 	 * Insertion d'un Module
@@ -64,7 +65,7 @@ public interface FacadeSuiviStagiaireRemote {
 	 * Update d'une auto evaluation dans la base
 	 * @throws UpdateException 
 	 */
-	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) throws UpdateException;
+	public void updateAutoEvaluation(AutoEvaluation autoEvaluation);
 	
 	/**
 	 * Update d'un Module
