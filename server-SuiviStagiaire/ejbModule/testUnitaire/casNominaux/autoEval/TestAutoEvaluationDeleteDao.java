@@ -18,6 +18,7 @@ import autoEvaluation.entity.Module;
 import autoEvaluation.entity.NiveauAcquisition;
 import autoEvaluation.entity.Sequence;
 import compteUtilisateur.entity.Stagiaire;
+import exception.DateNullException;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
@@ -47,7 +48,7 @@ public class TestAutoEvaluationDeleteDao {
 
 	
 	@BeforeClass
-	public static void init() throws NamingException, DoublonException, NullException, UnfoundException{
+	public static void init() throws NamingException, DoublonException, NullException, UnfoundException, DateNullException{
 		
 		//Initialisation du context
 		context = new InitialContext();
@@ -126,11 +127,13 @@ public class TestAutoEvaluationDeleteDao {
 //		facadeSuiviStagiaireRemote.deleteStagiaire(stagiaireInsert);
 //		facadeSuiviStagiaireRemote.deleteNiveauAcquisition(niveauAcquisitionInsert);
 
+
 		try {
 			autoEvaluation = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluationInsert);
-		} catch (NullException e) {
+		} catch (NullException | UnfoundException e) {
 			conditionSelectAutoEvaluation = true;
 		}
+		
 //		competence = facadeSuiviStagiaireRemote.selectCompetence(competenceInsert);
 //		sequence = facadeSuiviStagiaireRemote.selectSequence(sequenceInsert);
 //		module = facadeSuiviStagiaireRemote.selectModule(moduleInsert);

@@ -18,6 +18,7 @@ import autoEvaluation.entity.Module;
 import autoEvaluation.entity.NiveauAcquisition;
 import autoEvaluation.entity.Sequence;
 import compteUtilisateur.entity.Stagiaire;
+import exception.DateNullException;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
@@ -46,7 +47,7 @@ public class TestAutoEvaluationUpdateDao {
 	
 	
 	@BeforeClass
-	public static void init() throws NamingException, DoublonException, NullException, UnfoundException{
+	public static void init() throws NamingException, DoublonException, NullException, UnfoundException, DateNullException{
 		
 		//Initialisation du context
 		context = new InitialContext();

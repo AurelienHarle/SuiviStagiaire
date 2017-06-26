@@ -18,6 +18,7 @@ import autoEvaluation.entity.Module;
 import autoEvaluation.entity.NiveauAcquisition;
 import autoEvaluation.entity.Sequence;
 import compteUtilisateur.entity.Stagiaire;
+import exception.DateNullException;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
@@ -256,7 +257,7 @@ public class TestAutoEvaluationInsertDao {
 			
 			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluationInsert);
 			
-		} catch (DoublonException | NullException e) {
+		} catch (DoublonException | NullException | DateNullException e) {
 			
 			condition = false;
 			e.printStackTrace();

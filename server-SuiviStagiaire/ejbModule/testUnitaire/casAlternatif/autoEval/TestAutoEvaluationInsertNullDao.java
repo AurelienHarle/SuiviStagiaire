@@ -19,6 +19,7 @@ import autoEvaluation.entity.Module;
 import autoEvaluation.entity.NiveauAcquisition;
 import autoEvaluation.entity.Sequence;
 import compteUtilisateur.entity.Stagiaire;
+import exception.DateNullException;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
@@ -138,7 +139,15 @@ public class TestAutoEvaluationInsertNullDao {
 	@AfterClass
 	public static void finalizeur(){
 		
+		facadeSuiviStagiaireRemote.deleteCompetence(competence);
+		facadeSuiviStagiaireRemote.deleteSequence(sequence);
+		facadeSuiviStagiaireRemote.deleteModule(module);
+		
+		facadeSuiviStagiaireRemote.deleteNiveauAcquisition(niveauAcquisition);
+		facadeSuiviStagiaireRemote.deleteStagiaire(stagiaire);
+		
 	}
+	
 	
 	
 //	/**
@@ -296,7 +305,7 @@ public class TestAutoEvaluationInsertNullDao {
 		
 		try {
 			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation);
-		} catch (DoublonException | NullException e) {
+		} catch (DoublonException | NullException | DateNullException e) {
 			conditionInsert = true;
 		}
 	
@@ -320,48 +329,48 @@ public class TestAutoEvaluationInsertNullDao {
 	public void testInsertAutoEvaluationProprieteNull(){
 
 //Insertion des autoEvaluation avec une propriété a null Dois throw une NullException et passé la condition a true
-//		try {
-//			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation1);
-//		} catch (DoublonException | NullException e) {
-//			conditionInsertAutoEvaluation1 = true;
-//		}
-//		
-//		try {
-//			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation2);
-//		} catch (DoublonException | NullException e) {
-//			conditionInsertAutoEvaluation2 = true;
-//		}
-//		
-//		try {
-//			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation3);
-//		} catch (DoublonException | NullException e) {
-//			conditionInsertAutoEvaluation3 = true;
-//		}
-//		
-//		try {
-//			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation4);
-//		} catch (DoublonException | NullException e) {
-//			conditionInsertAutoEvaluation4 = true;
-//		}
-//		
-//		try {
-//			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation5);
-//		} catch (DoublonException | NullException e) {
-//			conditionInsertAutoEvaluation5 = true;
-//		}
+		try {
+			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation1);
+		} catch (DoublonException | NullException | DateNullException e) {
+			conditionInsertAutoEvaluation1 = true;
+		}
+		
+		try {
+			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation2);
+		} catch (DoublonException | NullException | DateNullException e) {
+			conditionInsertAutoEvaluation2 = true;
+		}
+		
+		try {
+			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation3);
+		} catch (DoublonException | NullException | DateNullException e) {
+			conditionInsertAutoEvaluation3 = true;
+		}
+		
+		try {
+			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation4);
+		} catch (DoublonException | NullException | DateNullException e) {
+			conditionInsertAutoEvaluation4 = true;
+		}
+		
+		try {
+			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation5);
+		} catch (DoublonException | NullException | DateNullException e) {
+			conditionInsertAutoEvaluation5 = true;
+		}
 		
 		try {
 			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation6);
-		} catch (DoublonException | NullException e) {
+		} catch (DoublonException | NullException | DateNullException e) {
 			conditionInsertAutoEvaluation6 = true;
 		}
 
-		//Verification des différente condition
-//		assertTrue("Insert autoEvaluation1", conditionInsertAutoEvaluation1);
-//		assertTrue("Insert autoEvaluation2", conditionInsertAutoEvaluation2);
-//		assertTrue("Insert autoEvaluation3", conditionInsertAutoEvaluation3);
-//		assertTrue("Insert autoEvaluation4", conditionInsertAutoEvaluation4);
-//		assertTrue("Insert autoEvaluation5", conditionInsertAutoEvaluation5);
+//		//Verification des différente condition
+		assertTrue("Insert autoEvaluation1", conditionInsertAutoEvaluation1);
+		assertTrue("Insert autoEvaluation2", conditionInsertAutoEvaluation2);
+		assertTrue("Insert autoEvaluation3", conditionInsertAutoEvaluation3);
+		assertTrue("Insert autoEvaluation4", conditionInsertAutoEvaluation4);
+		assertTrue("Insert autoEvaluation5", conditionInsertAutoEvaluation5);
 		assertTrue("Insert autoEvaluation6", conditionInsertAutoEvaluation6);
 		
 	}
