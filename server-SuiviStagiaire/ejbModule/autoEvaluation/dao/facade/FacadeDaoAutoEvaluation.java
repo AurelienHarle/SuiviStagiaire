@@ -6,7 +6,9 @@ import javax.ejb.Stateless;
 
 import autoEvaluation.dao.AutoEvaluationDao;
 import autoEvaluation.entity.AutoEvaluation;
+import autoEvaluation.entity.Competence;
 import autoEvaluation.technique.AutoEvaluations;
+import compteUtilisateur.entity.Stagiaire;
 import exception.DateNullException;
 import exception.NullException;
 import exception.UnfoundException;
@@ -28,6 +30,13 @@ public class FacadeDaoAutoEvaluation implements FacadeDaoAutoEvaluationLocal {
         // TODO Auto-generated constructor stub
     }
 
+    /**
+	 * Contrôle et insert une {@link AutoEvaluation} si elle correspond au règle métier
+	 * 
+	 * @Param {@link AutoEvaluation}
+	 * @throws NullException
+	 * @throws DateNullException
+	 */
     @Override
 	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws NullException, DateNullException {
 
@@ -35,25 +44,32 @@ public class FacadeDaoAutoEvaluation implements FacadeDaoAutoEvaluationLocal {
 		
 	}
     
+    /**
+	 * Contrôle et update une {@link AutoEvaluation} si elle correspond au règle métier
+	 */
     @Override
 	public void updateAutoEvaluation(AutoEvaluation autoEvaluation)  {
 		autoEvaluationDao.updateAutoEvaluation(autoEvaluation);
 		
 	}
     
+    /**
+	 * Supprime une {@link AutoEvaluation}
+	 */
     @Override
 	public void deleteAutoEvaluation(AutoEvaluation autoEvaluation) {
 		autoEvaluationDao.deleteAutoEvaluation(autoEvaluation);
 		
 	}
     
+    /**
+	 * Select une {@link AutoEvaluation} par son {@link Stagiaire}, {@link Competence}, Date permet aussi certaine contrôle
+	 * 
+	 * @Param {@link AutoEvaluation}
+	 * @throws NullException
+	 * @throws DateNullException
+	 */
     @Override
-	public AutoEvaluation selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(
-			AutoEvaluation autoEvaluation) {
-		return autoEvaluationDao.selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(autoEvaluation);
-	}
-
-	@Override
 	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException, NullException {
 		return autoEvaluationDao.selectAutoEvaluationByStagCompDate(autoEvaluation);
 		

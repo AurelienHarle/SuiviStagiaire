@@ -147,12 +147,6 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
 	}
 
 	@Override
-	public AutoEvaluation selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(
-			AutoEvaluation autoEvaluation) {
-		return facadeServiceAutoEvaluation.selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(autoEvaluation);
-	}
-
-	@Override
 	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException, NullException {
 		return facadeServiceAutoEvaluation.selectAutoEvaluationByStagCompDate(autoEvaluation);
 		

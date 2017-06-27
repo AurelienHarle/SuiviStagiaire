@@ -18,83 +18,91 @@ import exception.UnfoundException;
 public interface FacadeSuiviStagiaireRemote {
 
 	/**
-	 * Insertion d'une auto evaluation dans la base
-	 * @throws DateNullException 
+	 * Contrôle et insert une {@link AutoEvaluation} si elle correspond au règle métier
 	 * 
-	 * @throws {@link DoublonException}
-	 * @throws {@link NullException}
+	 * @Param {@link AutoEvaluation}
+	 * @throws NullException
+	 * @throws DateNullException
 	 */
 	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws NullException, DateNullException;
 	
 	/**
-	 * Insertion d'un Module
-	 * @throws DoublonException 
-	 * @throws NullException 
+	 * TODO 
+	 * 
+	 * @param module
+	 * @throws DoublonException
+	 * @throws NullException
 	 */
 	public void insertModule(Module module) throws DoublonException, NullException;
 	
 	/**
-	 * Insertion d'une Sequence
-	 * @throws DoublonException 
-	 * @throws NullException 
+	 * TODO 
+	 * 
+	 * @param sequence
+	 * @throws DoublonException
+	 * @throws NullException
 	 */
 	public void insertSequence(Sequence sequence) throws DoublonException, NullException;
 	
 	/**
-	 * Insertion d'une competence
-	 * @throws DoublonException 
-	 * @throws NullException 
+	 * TODO 
+	 * 
+	 * @param competence
+	 * @throws DoublonException
+	 * @throws NullException
 	 */
 	public void insertCompetence(Competence competence) throws DoublonException, NullException;
 	
 	/**
-	 * Insertion d'un NiveauAcquisition
-	 * @param competence
+	 * TODO 
+	 * 
+	 * @param niveauAcquisition
 	 * @throws DoublonException
 	 * @throws NullException
 	 */
 	public void insertNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws DoublonException, NullException;
 	
 	/**
-	 * Insertion d'un Stagiaire
+	 * TODO 
 	 * 
+	 * @param stagiaire
+	 * @throws DoublonException
+	 * @throws NullException
 	 */
 	public void insertStagiaire(Stagiaire stagiaire) throws DoublonException, NullException;
 	
 	/**
-	 * Update d'une auto evaluation dans la base
-	 * @throws UpdateNotInsertException 
+	 * Contrôle et update une {@link AutoEvaluation} si elle correspond au règle métier
 	 */
 	public void updateAutoEvaluation(AutoEvaluation autoEvaluation);
 	
 	/**
-	 * Update d'un Module
+	 * TODO
 	 */
 	public void updateModule(Module module);
 	
 	/**
-	 * Update d'une Sequence
-	 * 
+	 * TODO
 	 */
 	public void updateSequence(Sequence sequence);
 	
 	/**
-	 * Update d'une Competences
+	 * TODO
 	 */
 	public void updateCompetence(Competence competence);
 	
 	/**
-	 * Update d'un NiveauAcquisition
+	 * TODO
 	 */
 	public void updateNiveauAcquisition(NiveauAcquisition niveauAcquisition);
 	
 	/**
-	 * Update d'un Stagiaire
+	 * TODO
 	 */
 	public void updateStagiaire(Stagiaire stagiaire);
 	
 	/**
-	 * Delete d'une auto evaluation dans la base
+	 * Supprime une {@link AutoEvaluation}
 	 */
 	public void deleteAutoEvaluation(AutoEvaluation autoEvaluation);
 
@@ -124,14 +132,11 @@ public interface FacadeSuiviStagiaireRemote {
 	public void deleteStagiaire(Stagiaire stagiaire);
 	
 	/**
-	 * Select d'une auto evaluation par tout ses attribue
-	 */
-	public AutoEvaluation selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(AutoEvaluation autoEvaluation);
-	
-	/**
-	 * Select d'une auto evaluation par son Stagiaire / Comp / Date
-	 * @throws UnfoundException 
-	 * @throws NullException 
+	 * Select une {@link AutoEvaluation} par son {@link Stagiaire}, {@link Competence}, Date permet aussi certaine contrôle
+	 * 
+	 * @Param {@link AutoEvaluation}
+	 * @throws NullException
+	 * @throws DateNullException
 	 */
 	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException, NullException;
 	

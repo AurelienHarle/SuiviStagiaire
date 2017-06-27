@@ -3,9 +3,10 @@ package autoEvaluation.facade;
 import javax.ejb.Local;
 
 import autoEvaluation.entity.AutoEvaluation;
+import autoEvaluation.entity.Competence;
 import autoEvaluation.technique.AutoEvaluations;
+import compteUtilisateur.entity.Stagiaire;
 import exception.DateNullException;
-import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
 
@@ -13,39 +14,30 @@ import exception.UnfoundException;
 public interface FacadeServiceAutoEvaluationLocal {
 	
 	/**
-	 * Insertion d'une auto evaluation dans la base
-	 * @throws DateNullException 
+	 * Contrôle et insert une {@link AutoEvaluation} si elle correspond au règle métier
 	 * 
-	 * @throws {@link DoublonException}
-	 * @throws {@link NullException}
+	 * @Param {@link AutoEvaluation}
+	 * @throws NullException
+	 * @throws DateNullException
 	 */
 	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws NullException, DateNullException;
 	
-		
 	/**
-	 * Update d'une auto evaluation dans la base
-	 * @throws UpdateNotInsertException 
+	 * Contrôle et update une {@link AutoEvaluation} si elle correspond au règle métier
 	 */
 	public void updateAutoEvaluation(AutoEvaluation autoEvaluation);
 	
-	
-	
 	/**
-	 * Delete d'une auto evaluation dans la base
+	 * Supprime une {@link AutoEvaluation}
 	 */
 	public void deleteAutoEvaluation(AutoEvaluation autoEvaluation);
 
-	
-	
 	/**
-	 * Select d'une auto evaluation par tout ses attribue
-	 */
-	public AutoEvaluation selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(AutoEvaluation autoEvaluation);
-	
-	/**
-	 * Select d'une auto evaluation par son Stagiaire / Comp / Date
-	 * @throws UnfoundException 
-	 * @throws NullException 
+	 * Select une {@link AutoEvaluation} par son {@link Stagiaire}, {@link Competence}, Date permet aussi certaine contrôle
+	 * 
+	 * @Param {@link AutoEvaluation}
+	 * @throws NullException
+	 * @throws DateNullException
 	 */
 	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException, NullException;
 	
