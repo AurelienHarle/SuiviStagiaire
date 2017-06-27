@@ -65,7 +65,7 @@ public class TestAutoEvaluationDeleteDao {
 		sequenceInsert = facadeSuiviStagiaireRemote.selectSequence(sequenceInsert);
 		
 		//Competences pour testSelectCompetence()
-		competenceInsert = new Competence("C1",sequenceInsert,moduleInsert,"Test","Test");
+		competenceInsert = new Competence("C1",sequenceInsert,"Test","Test");
 		facadeSuiviStagiaireRemote.insertCompetence(competenceInsert);
 		competenceInsert = facadeSuiviStagiaireRemote.selectCompetence(competenceInsert);
 		
@@ -83,7 +83,7 @@ public class TestAutoEvaluationDeleteDao {
 		LocalDate date = LocalDate.now();
 		
 		//AutoEvaluation pour testSelectAutoEvaluation()
-		autoEvaluationInsert = new AutoEvaluation(competenceInsert,sequenceInsert,moduleInsert,niveauAcquisitionInsert,stagiaireInsert,date,null);
+		autoEvaluationInsert = new AutoEvaluation(competenceInsert,niveauAcquisitionInsert,stagiaireInsert,date,null);
 		facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluationInsert);
 		autoEvaluationInsert = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluationInsert);
 		

@@ -72,7 +72,7 @@ public class TestAutoEvaluationInsertDoublonDao {
 		facadeSuiviStagiaireRemote.insertSequence(sequence);
 		
 		
-		competence = new Competence("C2",sequence,module,"Préparer et exécuter les plans de tests","Prépa & exec plan de tests");
+		competence = new Competence("C2",sequence,"Préparer et exécuter les plans de tests","Prépa & exec plan de tests");
 		facadeSuiviStagiaireRemote.insertCompetence(competence);
 		
 		
@@ -89,10 +89,10 @@ public class TestAutoEvaluationInsertDoublonDao {
 
 		
 		//Creation d'une auto-evaluation inséré et une pour test		
-		autoEvaluation = new AutoEvaluation(competence, sequence, module, niveauAcquisition, stagiaire, date, null);
+		autoEvaluation = new AutoEvaluation(competence,niveauAcquisition, stagiaire, date, null);
 		facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation);
 		
-		autoEvaluationDoublon = new AutoEvaluation(competence, sequence, module, niveauAcquisition, stagiaire, date, "Updated");
+		autoEvaluationDoublon = new AutoEvaluation(competence,niveauAcquisition, stagiaire, date, "Updated");
 
 	}
 
@@ -147,10 +147,8 @@ public class TestAutoEvaluationInsertDoublonDao {
 		
 		assertEquals("Date : ",autoEvaluationDoublon.getDateAutoEvaluation(), autoEvaluationBDD.getDateAutoEvaluation());
 		assertEquals("Ressenti : ",autoEvaluationDoublon.getRessenti(), autoEvaluationBDD.getRessenti());
-		assertEquals("Module ID : ",autoEvaluationDoublon.getModule().getIdentifiant(), autoEvaluationBDD.getModule().getIdentifiant());
-		assertEquals("Sequence ID : ",autoEvaluationDoublon.getSequence().getIdentifiant(), autoEvaluationBDD.getSequence().getIdentifiant());
 		assertEquals("Competence ID : ",autoEvaluationDoublon.getCompetence().getIdentifiant(), autoEvaluationBDD.getCompetence().getIdentifiant());
-		assertEquals("Stagiaire ID : ",autoEvaluationDoublon.getStagiaire().getLogin(), autoEvaluationBDD.getStagiaire().getLogin());
+		assertEquals("Stagiaire ID : ",autoEvaluationDoublon.getStagiaire().getOsia(), autoEvaluationBDD.getStagiaire().getOsia());
 		assertEquals("NiveauAcquisition ID : ",autoEvaluationDoublon.getNiveauAcquisition().getIdentifiant(), autoEvaluationBDD.getNiveauAcquisition().getIdentifiant());
 
 	}

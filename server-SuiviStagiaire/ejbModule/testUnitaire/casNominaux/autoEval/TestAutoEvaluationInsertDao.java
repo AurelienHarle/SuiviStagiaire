@@ -73,7 +73,7 @@ public class TestAutoEvaluationInsertDao {
 		sequence = facadeSuiviStagiaireRemote.selectSequence(sequence);
 		
 		//Creation et insertion du competence pour testInsertAutoEvaluation()
-		competence = new Competence("C2",sequence,module,"Préparer et exécuter les plans de tests","Prépa & exec plan de tests");
+		competence = new Competence("C2",sequence,"Préparer et exécuter les plans de tests","Prépa & exec plan de tests");
 		facadeSuiviStagiaireRemote.insertCompetence(competence);
 		competence = facadeSuiviStagiaireRemote.selectCompetence(competence);
 		
@@ -116,7 +116,7 @@ public class TestAutoEvaluationInsertDao {
 //		niveauAcquisitionInsert = new NiveauAcquisition("1","A");
 		
 		//AutoEvaluation pour testInsertAutoEvaluation()
-		autoEvaluationInsert = new AutoEvaluation(competence,sequence,module,niveauAcquisition,stagiaire,date,null);
+		autoEvaluationInsert = new AutoEvaluation(competence,niveauAcquisition,stagiaire,date,null);
 
 	}
 	

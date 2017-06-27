@@ -43,10 +43,6 @@ public class Competence implements Serializable {
 	@JoinColumn(name="seq_id",nullable=false)
 	private Sequence sequence;
 	
-	@ManyToOne(fetch=FetchType.EAGER,cascade=CascadeType.DETACH)
-	@JoinColumn(name="mod_id",nullable=false)
-	private Module module;
-	
 	public Competence() {
 		
 	}
@@ -58,11 +54,10 @@ public class Competence implements Serializable {
 	 * @param nomLong
 	 * @param nomCourt
 	 */
-	public Competence(String identifiant, Sequence sequence, Module module, String nomLong, String nomCourt) {
+	public Competence(String identifiant, Sequence sequence, String nomLong, String nomCourt) {
 		super();
 		this.identifiant = identifiant;
 		this.sequence = sequence;
-		this.module = module;
 		this.nomLong = nomLong;
 		this.nomCourt = nomCourt;
 	}
@@ -129,7 +124,7 @@ public class Competence implements Serializable {
 	@Override
 	public String toString() {
 		return "Competences [identifiant=" + identifiant + ", nomLong=" + nomLong + ", nomCourt=" + nomCourt
-				+ ", sequence=" + sequence + ", module=" + module + "]";
+				+ ", sequence=" + sequence + "]";
 	}
 
 

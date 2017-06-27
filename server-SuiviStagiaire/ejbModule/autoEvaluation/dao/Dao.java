@@ -603,7 +603,7 @@ public class Dao implements DaoLocal {
 		
 		try{
 			
-			stagiaire2 = em.find(Stagiaire.class, stagiaire.getLogin());
+			stagiaire2 = em.find(Stagiaire.class, stagiaire.getOsia());
 			
 			if(stagiaire2 == null){
 				journaliseurNiveauInfo.log("[Select]  Stagiaire [IN] : " + stagiaire + " [MESSAGE] : NotFound");

@@ -64,7 +64,7 @@ public class TestAutoEvaluationUpdateDao {
 		sequenceInsert = facadeSuiviStagiaireRemote.selectSequence(sequenceInsert);
 		
 		//Competences pour testSelectCompetence()
-		competenceInsert = new Competence("C1",sequenceInsert,moduleInsert,"Test","Test");
+		competenceInsert = new Competence("C1",sequenceInsert,"Test","Test");
 		facadeSuiviStagiaireRemote.insertCompetence(competenceInsert);
 		competenceInsert = facadeSuiviStagiaireRemote.selectCompetence(competenceInsert);
 		
@@ -82,7 +82,7 @@ public class TestAutoEvaluationUpdateDao {
 		LocalDate date = LocalDate.now();
 		
 		//AutoEvaluation pour testSelectAutoEvaluation()
-		autoEvaluationInsert = new AutoEvaluation(competenceInsert,sequenceInsert,moduleInsert,niveauAcquisitionInsert,stagiaireInsert,date,null);
+		autoEvaluationInsert = new AutoEvaluation(competenceInsert,niveauAcquisitionInsert,stagiaireInsert,date,null);
 		facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluationInsert);
 		autoEvaluationInsert = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluationInsert);
 		
@@ -267,7 +267,7 @@ public class TestAutoEvaluationUpdateDao {
 		LocalDate date = LocalDate.now();
 				
 		boolean condition = true;
-		AutoEvaluation autoEvaluation = new AutoEvaluation(competenceInsert,sequenceInsert,moduleInsert,niveauAcquisitionInsert,stagiaireInsert,date,"Update from the hell");
+		AutoEvaluation autoEvaluation = new AutoEvaluation(competenceInsert,niveauAcquisitionInsert,stagiaireInsert,date,"Update from the hell");
 		
 		try{
 			
@@ -293,10 +293,8 @@ public class TestAutoEvaluationUpdateDao {
 		//assertEquals("Indentifiant : ",autoEvaluation.getIdentifiant(), autoEvaluationBDD.getIdentifiant());
 		assertEquals("Date : ",autoEvaluation.getDateAutoEvaluation(), autoEvaluationBDD.getDateAutoEvaluation());
 		assertEquals("Ressenti : ",autoEvaluation.getRessenti(), autoEvaluationBDD.getRessenti());
-		assertEquals("Module ID : ",autoEvaluation.getModule().getIdentifiant(), autoEvaluationBDD.getModule().getIdentifiant());
-		assertEquals("Sequence ID : ",autoEvaluation.getSequence().getIdentifiant(), autoEvaluationBDD.getSequence().getIdentifiant());
 		assertEquals("Competence ID : ",autoEvaluation.getCompetence().getIdentifiant(), autoEvaluationBDD.getCompetence().getIdentifiant());
-		assertEquals("Stagiaire ID : ",autoEvaluation.getStagiaire().getLogin(), autoEvaluationBDD.getStagiaire().getLogin());
+		assertEquals("Stagiaire ID : ",autoEvaluation.getStagiaire().getOsia(), autoEvaluationBDD.getStagiaire().getOsia());
 		assertEquals("NiveauAcquisition ID : ",autoEvaluation.getNiveauAcquisition().getIdentifiant(), autoEvaluationBDD.getNiveauAcquisition().getIdentifiant());
 
 		

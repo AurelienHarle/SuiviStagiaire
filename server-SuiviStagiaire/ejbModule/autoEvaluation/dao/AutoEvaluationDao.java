@@ -78,8 +78,16 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 					if(e instanceof PersistenceException){
 						trace = trace + "[PersistenceException]";
 						
+						Throwable test = e.getCause();
+						//Test
+						while(!(test instanceof TransactionRequiredException)){
+							journaliseurNiveauConfig.log("[T] : " + test);
+							test = test.getCause();
+						}
+						
 						if(e.getCause() != null){
 							Throwable t = e.getCause();
+							trace = trace + "[Cause]" + t;
 							while (t != null) {
 								
 								if(t instanceof TransactionRequiredException){
@@ -119,6 +127,7 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 				}
 				
 			}
+			
 			trace = trace + "[Fin]";
 			journaliseurNiveauConfig.log(trace);
 		}
@@ -190,10 +199,10 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 		try {
 			
 			trace = trace + "[Try SQL select]";
-			String sqlString = "select ae from AutoEvaluation ae where stag_id = ?1 and comp_id = ?2 and ae_date = ?3";
+			String sqlString = "select ae from AutoEvaluation ae where stag_osia = ?1 and comp_id = ?2 and ae_date = ?3";
 			
 			autoEvaluation2 = (AutoEvaluation) em.createQuery(sqlString)
-				.setParameter(1, autoEvaluation.getStagiaire().getLogin())
+				.setParameter(1, autoEvaluation.getStagiaire().getOsia())
 				.setParameter(2, autoEvaluation.getCompetence().getIdentifiant())
 				.setParameter(3, autoEvaluation.getDateAutoEvaluation()).getSingleResult();
 

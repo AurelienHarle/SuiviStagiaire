@@ -42,14 +42,6 @@ public class AutoEvaluation implements Serializable {
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn( name="comp_id", nullable=false,unique=false)
 	private Competence competence;
-
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn( name="seq_id", nullable=false,unique=false)
-	private Sequence sequence;
-
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn( name="mod_id", nullable=false,unique=false)
-	private Module module;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="na_id", nullable=false,unique=false)
@@ -80,13 +72,10 @@ public class AutoEvaluation implements Serializable {
 	 * @param dateAutoEvaluation
 	 * @param ressenti
 	 */
-	public AutoEvaluation(Competence competence, Sequence sequence, Module module,
-			NiveauAcquisition niveauAcquisition, Stagiaire stagiaire, LocalDate dateAutoEvaluation, String ressenti) {
+	public AutoEvaluation(Competence competence,NiveauAcquisition niveauAcquisition, Stagiaire stagiaire, LocalDate dateAutoEvaluation, String ressenti) {
 		
 		super();
 		this.competence = competence;
-		this.sequence = sequence;
-		this.module = module;
 		this.niveauAcquisition = niveauAcquisition;
 		this.stagiaire = stagiaire;
 		this.dateAutoEvaluation = dateAutoEvaluation;
@@ -178,41 +167,13 @@ public class AutoEvaluation implements Serializable {
 		this.competence = competence;
 	}
 
-	/**
-	 * @return the sequence
-	 */
-	public Sequence getSequence() {
-		return sequence;
-	}
-
-	/**
-	 * @param sequence the sequence to set
-	 */
-	public void setSequence(Sequence sequence) {
-		this.sequence = sequence;
-	}
-
-	/**
-	 * @return the module
-	 */
-	public Module getModule() {
-		return module;
-	}
-
-	/**
-	 * @param module the module to set
-	 */
-	public void setModule(Module module) {
-		this.module = module;
-	}
-
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "AutoEvaluation [identifiant=" + identifiant + ", competence=" + competence + ", sequence=" + sequence
-				+ ", module=" + module + ", niveauAcquisition=" + niveauAcquisition + ", stagiaire=" + stagiaire
+		return "AutoEvaluation [identifiant=" + identifiant + ", competence=" + competence + ","
+				+ ", niveauAcquisition=" + niveauAcquisition + ", stagiaire=" + stagiaire
 				+ ", dateAutoEvaluation=" + dateAutoEvaluation + ", ressenti=" + ressenti + "]";
 	}
 	

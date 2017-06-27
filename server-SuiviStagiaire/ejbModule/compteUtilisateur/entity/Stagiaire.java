@@ -11,7 +11,7 @@ import javax.persistence.Table;
  * 
  * {@link Class} {@link Entity}, {@link Stagiaire} {@link Class} fille de {@link CompteUtilisateur} elle représente un stagiaire.
  * 
- * elle est composé obligatoirement d'un login, d'un motDePasse, d'un nom, d'un prénom, d'un numéro de telephone administration,
+ * elle est composé obligatoirement d'un osia, d'un motDePasse, d'un nom, d'un prénom, d'un numéro de telephone administration,
  * d'un numéro de telephone formation, d'une adresse, d'un mail, d'un mail formation, et d'une humeur
  * 
  * @author Aurélien Harlé
@@ -29,8 +29,8 @@ public class Stagiaire implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="stag_login", length=8, nullable=false)
-	private String login;
+	@Column(name="stag_osia", length=8, nullable=false)
+	private String osia;
 	
 	@Column(name="stag_mdp", length=30, nullable=false)
 	private String motDePasse;
@@ -64,7 +64,7 @@ public class Stagiaire implements Serializable{
 	}
 
 	/**
-	 * @param login
+	 * @param osia
 	 * @param motDePasse
 	 * @param nom
 	 * @param prenom
@@ -75,10 +75,10 @@ public class Stagiaire implements Serializable{
 	 * @param mailFormation
 	 * @param humeur
 	 */
-	public Stagiaire(String login, String motDePasse, String nom, String prenom, String numeroTelephoneAdministration,
+	public Stagiaire(String osia, String motDePasse, String nom, String prenom, String numeroTelephoneAdministration,
 			String numeroTelephoneFormation, String adresse, String mail, String mailFormation, String humeur) {
 		super();
-		this.login = login;
+		this.osia = osia;
 		this.motDePasse = motDePasse;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -91,17 +91,17 @@ public class Stagiaire implements Serializable{
 	}
 
 	/**
-	 * @return the login
+	 * @return the osia
 	 */
-	public String getLogin() {
-		return login;
+	public String getOsia() {
+		return osia;
 	}
 
 	/**
-	 * @param login the login to set
+	 * @param osia the osia to set
 	 */
-	public void setLogin(String login) {
-		this.login = login;
+	public void setOsia(String osia) {
+		this.osia = osia;
 	}
 
 	/**
@@ -235,7 +235,7 @@ public class Stagiaire implements Serializable{
 	 */
 	@Override
 	public String toString() {
-		return "Stagiaire [" + (getLogin() != null ? "getLogin()=" + getLogin() + ", " : "")
+		return "Stagiaire [" + (getOsia() != null ? "getOsia()=" + getOsia() + ", " : "")
 				+ (getMotDePasse() != null ? "getMotDePasse()=" + getMotDePasse() + ", " : "")
 				+ (getNom() != null ? "getNom()=" + getNom() + ", " : "")
 				+ (getPrenom() != null ? "getPrenom()=" + getPrenom() + ", " : "")

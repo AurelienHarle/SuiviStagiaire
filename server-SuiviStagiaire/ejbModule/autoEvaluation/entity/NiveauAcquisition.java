@@ -8,9 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * {@link Class} {@link Entity}, {@link NiveauAcquisition} elle représente l'éstimation du niveau d'acquisition d'un stagiaire sur une competence.
+ * {@link Class} {@link Entity}, {@link NiveauAcquisition} elle représente l'éstimation du libelle d'acquisition d'un stagiaire sur une competence.
  * 
- * elle est composé obligatoirement d'un identifiant auto-généré, et d'un niveau
+ * elle est composé obligatoirement d'un identifiant auto-généré, et d'un libelle
  * 
  * @author Aurélien Harlé
  * @Version 1
@@ -30,8 +30,8 @@ public class NiveauAcquisition implements Serializable {
 	@Column(name="na_id", length=2, nullable=false)
 	private String identifiant;
 	
-	@Column(name="na_niv", length=2, nullable=false)
-	private String niveau;
+	@Column(name="na_niv", length=20, nullable=false)
+	private String libelle;
 	
 	public NiveauAcquisition() {
 		
@@ -40,12 +40,12 @@ public class NiveauAcquisition implements Serializable {
 
 	/**
 	 * @param identifiant
-	 * @param niveau
+	 * @param libelle
 	 */
-	public NiveauAcquisition(String identifiant, String niveau) {
+	public NiveauAcquisition(String identifiant, String libelle) {
 		super();
 		this.identifiant = identifiant;
-		this.niveau = niveau;
+		this.libelle = libelle;
 	}
 
 	/**
@@ -63,17 +63,17 @@ public class NiveauAcquisition implements Serializable {
 	}
 
 	/**
-	 * @return the niveau
+	 * @return the libelle
 	 */
-	public String getNiveau() {
-		return niveau;
+	public String getLibelle() {
+		return libelle;
 	}
 
 	/**
-	 * @param niveau the niveau to set
+	 * @param libelle the libelle to set
 	 */
-	public void setNiveau(String niveau) {
-		this.niveau = niveau;
+	public void setLibelle(String niveau) {
+		this.libelle = niveau;
 	}
 
 	/* (non-Javadoc)
@@ -83,7 +83,7 @@ public class NiveauAcquisition implements Serializable {
 	public String toString() {
 		return "NiveauAcquisition ["
 				+ (getIdentifiant() != null ? "getIndentifiant()=" + getIdentifiant() + ", " : "")
-				+ (getNiveau() != null ? "getNiveau()=" + getNiveau() : "") + "]";
+				+ (getLibelle() != null ? "getNiveau()=" + getLibelle() : "") + "]";
 	}
 
 }

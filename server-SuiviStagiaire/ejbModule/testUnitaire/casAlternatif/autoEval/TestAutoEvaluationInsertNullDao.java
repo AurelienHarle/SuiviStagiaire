@@ -51,14 +51,10 @@ public class TestAutoEvaluationInsertNullDao {
 	private static boolean conditionInsertAutoEvaluation2;
 	private static boolean conditionInsertAutoEvaluation3;
 	private static boolean conditionInsertAutoEvaluation4;
-	private static boolean conditionInsertAutoEvaluation5;
-	private static boolean conditionInsertAutoEvaluation6;
 	private static AutoEvaluation autoEvaluation1;
 	private static AutoEvaluation autoEvaluation2;
 	private static AutoEvaluation autoEvaluation3;
 	private static AutoEvaluation autoEvaluation4;
-	private static AutoEvaluation autoEvaluation5;
-	private static AutoEvaluation autoEvaluation6;
 	
 	@BeforeClass
 	public static void init() throws NamingException, DoublonException, NullException{
@@ -91,7 +87,7 @@ public class TestAutoEvaluationInsertNullDao {
 			e.printStackTrace();
 		}
 		
-		competence = new Competence("C2",sequence,module,"Préparer et exécuter les plans de tests","Prépa & exec plan de tests");
+		competence = new Competence("C2",sequence,"Préparer et exécuter les plans de tests","Prépa & exec plan de tests");
 		try {
 			facadeSuiviStagiaireRemote.insertCompetence(competence);
 		} catch (DoublonException | NullException e) {
@@ -122,16 +118,12 @@ public class TestAutoEvaluationInsertNullDao {
 		conditionInsertAutoEvaluation2 = false;
 		conditionInsertAutoEvaluation3 = false;
 		conditionInsertAutoEvaluation4 = false;
-		conditionInsertAutoEvaluation5 = false;
-		conditionInsertAutoEvaluation6 = false;
 		
 //Creation des autoEvaluation avec une propriété a null		
-		autoEvaluation1 = new AutoEvaluation(null, sequence, module, niveauAcquisition, stagiaire, date, null);
-		autoEvaluation2 = new AutoEvaluation(competence, null, module, niveauAcquisition, stagiaire, date, null);
-		autoEvaluation3 = new AutoEvaluation(competence, sequence, null, niveauAcquisition, stagiaire, date, null);
-		autoEvaluation4 = new AutoEvaluation(competence, sequence, module, null, stagiaire, date, null);
-		autoEvaluation5 = new AutoEvaluation(competence, sequence, module, niveauAcquisition, null, date, null);
-		autoEvaluation6 = new AutoEvaluation(competence, sequence, module, niveauAcquisition, stagiaire, null, null);
+		autoEvaluation1 = new AutoEvaluation(null, niveauAcquisition, stagiaire, date, null);
+		autoEvaluation2 = new AutoEvaluation(competence, null, stagiaire, date, null);
+		autoEvaluation3 = new AutoEvaluation(competence, niveauAcquisition, null, date, null);
+		autoEvaluation4 = new AutoEvaluation(competence, niveauAcquisition, stagiaire, null, null);
 
 	}
 	
@@ -350,26 +342,13 @@ public class TestAutoEvaluationInsertNullDao {
 		} catch (NullException | DateNullException e) {
 			conditionInsertAutoEvaluation4 = true;
 		}
-		
-		try {
-			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation5);
-		} catch (NullException | DateNullException e) {
-			conditionInsertAutoEvaluation5 = true;
-		}
-		
-		try {
-			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation6);
-		} catch (NullException | DateNullException e) {
-			conditionInsertAutoEvaluation6 = true;
-		}
 
-//		//Verification des différente condition
+
+		//Verification des différente condition
 		assertTrue("Insert autoEvaluation1", conditionInsertAutoEvaluation1);
 		assertTrue("Insert autoEvaluation2", conditionInsertAutoEvaluation2);
 		assertTrue("Insert autoEvaluation3", conditionInsertAutoEvaluation3);
 		assertTrue("Insert autoEvaluation4", conditionInsertAutoEvaluation4);
-		assertTrue("Insert autoEvaluation5", conditionInsertAutoEvaluation5);
-		assertTrue("Insert autoEvaluation6", conditionInsertAutoEvaluation6);
 		
 	}
 

@@ -61,7 +61,7 @@ public class TestAutoEvaluationSelectDao {
 		facadeSuiviStagiaireRemote.insertSequence(sequenceInsert);
 		
 		//Competences pour testSelectCompetence()
-		competenceInsert = new Competence("C1",sequenceInsert,moduleInsert,"Test","Test");
+		competenceInsert = new Competence("C1",sequenceInsert,"Test","Test");
 		facadeSuiviStagiaireRemote.insertCompetence(competenceInsert);
 		
 		//Stagiaire pour testSelectStagiaire()
@@ -76,7 +76,7 @@ public class TestAutoEvaluationSelectDao {
 		LocalDate date = LocalDate.now();
 		
 		//AutoEvaluation pour testSelectAutoEvaluation()
-		autoEvaluationInsert = new AutoEvaluation(competenceInsert,sequenceInsert,moduleInsert,niveauAcquisitionInsert,stagiaireInsert,date,null);
+		autoEvaluationInsert = new AutoEvaluation(competenceInsert,niveauAcquisitionInsert,stagiaireInsert,date,null);
 		facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluationInsert);
 		autoEvaluationInsert = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluationInsert);
 	}
