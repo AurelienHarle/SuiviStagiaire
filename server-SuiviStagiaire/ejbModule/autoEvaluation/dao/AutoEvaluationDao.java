@@ -182,7 +182,7 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 	}
 	
 	/**
-	 * Supprime une {@link AutoEvaluation} si elle correspond au règle métier
+	 * Supprime une {@link AutoEvaluation} 
 	 */
 	@Override
 	public void deleteAutoEvaluation(AutoEvaluation autoEvaluation) {
