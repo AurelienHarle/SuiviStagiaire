@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+<!-- Redirection des partie commune de l'application -->
+
+	<package name="acceuil" namespace="/accueil" extends="struts-default">
+		<action name="accueil">
+			<result>/index.jsp</result>
+		</action>
+	</package>
+	
+	<package name="import" namespace="" extends="struts-default">
+		
+		<action name="JQuery" >
+			<result>/JQuery/jquery-3.1.1.min.js</result>
+		</action>
+		
+		<action name="bootstrap-css">
+			<result>/bootstrap/css/bootstrap-theme.min.css</result>
+		</action>
+		
+		<action name="bootstrap-js">
+			<result>/bootstrap/js/bootstrap.min.js</result>
+		</action>
+		
+		<action name="menu-ccs">
+			<result>/CSS/menu.css</result>
+		</action>
+		
+	</package>
+<!-- Include des différentes fonctionnalités -->
+
+	
+</struts>
