@@ -1,18 +1,30 @@
 package exception;
 
+import autoEvaluation.entity.AutoEvaluation;
 import logger.JournaliseurNiveauWarning;
 
+/**
+ * {@link Exception} qui est throw si on essaye d'entrer une {@link AutoEvaluation} déjà existante en base de données
+ * chaque lever d'exeception provoque une écriture dans les logs Warning
+ * 
+ * @see JournaliseurNiveauWarning
+ * 
+ * @author Aurélien Harlé
+ * @Version 1
+ * @Since 27/06/2017
+ *
+ */
 public class UpdateNotInsertException extends Exception {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	static String message = "[ERROR] Insert not possible become an Update [Method] : ";
+	final static String MESSAGE = "[ERROR] Insert not possible become an Update [Method] : ";
 	
 
-	public UpdateNotInsertException(String string) {
-		super(message + string);
-		JournaliseurNiveauWarning.getINSTANCE().log(message + string);
+	public UpdateNotInsertException(String suiteMessage) {
+		super(MESSAGE + suiteMessage);
+		JournaliseurNiveauWarning.getINSTANCE().log(MESSAGE + suiteMessage);
 	}
 }

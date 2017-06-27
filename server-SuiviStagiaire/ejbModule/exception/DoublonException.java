@@ -4,27 +4,27 @@ import logger.JournaliseurNiveauWarning;
 
 /**
  * {@link Exception} qui est throw si on essaye d'entrer un doublon en base de données
+ * chaque lever d'exeception provoque une écriture dans les logs Warning
+ * 
+ * @see JournaliseurNiveauWarning
  * 
  * @author Aurélien Harlé
  * @Version 1
- * @Since 19/06/2017
+ * @Since 27/06/2017
  *
  */
 public class DoublonException extends Exception{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
-	static String message = "[ERROR] Insertion de doublon impossible [Method] : ";
+	final static String MESSAGE = "[ERROR] Insertion de doublon impossible [Method] : ";
 	
 	/**
-	 * @param string 
+	 * @param suiteMessage 
 	 * 
 	 */
-	public DoublonException(String string) {
-		super(message + string);
-		JournaliseurNiveauWarning.getINSTANCE().log(message + string);
+	public DoublonException(String suiteMessage) {
+		super(MESSAGE + suiteMessage);
+		JournaliseurNiveauWarning.getINSTANCE().log(MESSAGE + suiteMessage);
 	}
 	
 	
