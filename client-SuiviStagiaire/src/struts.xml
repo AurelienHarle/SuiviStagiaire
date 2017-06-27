@@ -6,6 +6,7 @@
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.devMode" value="true" />
 	
+<!-- Redirection par default sur l'accueil -->
 	<package name="default" extends="struts-default">
 		<default-action-ref name="index" />
 		<action name="index">
