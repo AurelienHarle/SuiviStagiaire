@@ -3,34 +3,38 @@
 
 <struts>
 
-<!-- Redirection des partie commune de l'application -->
-
+<!-- Acceuil -->
 	<package name="acceuil" namespace="/accueil" extends="struts-default">
 		<action name="accueil">
 			<result>/index.jsp</result>
 		</action>
 	</package>
 	
-	<package name="import" namespace="" extends="struts-default">
-		
-		<action name="JQuery" >
-			<result>/JQuery/jquery-3.1.1.min.js</result>
+<!-- auto-evaluation -->
+	<package name="auto-evalution" namespace="/auto-evalution"  extends="struts-default">
+		<action name="">
+			<result></result>
 		</action>
+	
+	</package>
+	
+<!-- boostrap -->	
+	<package name="boostrap" namespace="" extends="struts-default">
 		
 		<action name="bootstrap-css">
-			<result>/bootstrap/css/bootstrap-theme.min.css</result>
+			<result>/WEB-INF/bootstrap-3.3.7-dist/css/bootstrap.min.css</result>
+		</action>
+		
+		<action name="bootstrap-theme">
+			<result>/WEB-INF/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css</result>
 		</action>
 		
 		<action name="bootstrap-js">
-			<result>/bootstrap/js/bootstrap.min.js</result>
-		</action>
-		
-		<action name="menu-ccs">
-			<result>/CSS/menu.css</result>
+			<result>"WebContent/WEB-INF/bootstrap-3.3.7-dist/js/bootstrap.min.js"</result>
 		</action>
 		
 	</package>
-<!-- Include des différentes fonctionnalités -->
+	
 
 	
 </struts>
