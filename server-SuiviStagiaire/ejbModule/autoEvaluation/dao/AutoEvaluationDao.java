@@ -1,7 +1,5 @@
 package autoEvaluation.dao;
 
-import java.sql.SQLIntegrityConstraintViolationException;
-
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -10,12 +8,14 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 import javax.persistence.TransactionRequiredException;
 
+import org.hibernate.exception.ConstraintViolationException;
+
 import autoEvaluation.entity.AutoEvaluation;
 import autoEvaluation.technique.AutoEvaluations;
 import exception.DateNullException;
-import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
+import exception.UpdateNotInsertException;
 import logger.JournaliseurNiveauConfig;
 import logger.JournaliseurNiveauError;
 import logger.JournaliseurNiveauInfo;
@@ -28,7 +28,7 @@ import parametre.Parametre;
 @LocalBean
 public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 
-	//TODO CHECK LOGGER 
+	//TODO REFAIRE MESSAGE LOGGER
     /**
      * Default constructor. 
      */
@@ -44,143 +44,125 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 	JournaliseurNiveauInfo journaliseurNiveauInfo = JournaliseurNiveauInfo.getINSTANCE();
 	
 	@Override
-	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException, DateNullException {
-		
-		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : insertAutoEvaluation");
-		journaliseurNiveauConfig.log("[METHOD IN] AutoEvaluation : " + autoEvaluation);
+	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws NullException, DateNullException {
+		String trace = "";
+		trace = trace + "[insertAutoEvaluation] " + autoEvaluation.getRessenti();
 		AutoEvaluation autoEvaluation2 = null;
 		
-		journaliseurNiveauConfig.log("[TRY] selectAutoEvaluationByStagCompDate");
+		//Select de test pour savoir si l'auto eval existe si elle existe on update sinon on insert
 		try {
+			
+			trace = trace + "[Try select]";
 			autoEvaluation2 = selectAutoEvaluationByStagCompDate(autoEvaluation);
-		} catch (UnfoundException e1) {
+			if(autoEvaluation2 != null) throw new UpdateNotInsertException("insertAutoEvaluation");
 			
-			journaliseurNiveauConfig.log("[CATCH] selectAutoEvaluationByStagCompDate");
-			e1.printStackTrace();
+			trace = trace + "[Pas de catch select]";
 			
-		}
-		
-		journaliseurNiveauConfig.log("[FIN TRY] selectAutoEvaluationByStagCompDate");
-		
-		if(autoEvaluation2 != null){
-			
-			updateAutoEvaluation(autoEvaluation);
-			
-		}else{
-			
-			journaliseurNiveauConfig.log("[TRY] persist");
-			try{
+		} catch (UpdateNotInsertException | UnfoundException e1) {
+			trace = trace + "[catch select]";
 
-				em.persist(autoEvaluation);
-				em.flush();
-				journaliseurNiveauInfo.log("[INSERT]  AutoEvaluation : " + autoEvaluation );
+			if(e1 instanceof UpdateNotInsertException){
+				trace = trace + "[UpdateNotInsertException]";
+				updateAutoEvaluation(autoEvaluation);
 				
-			}catch (Exception e) {
-				//journaliseurNiveauConfig.log("[CATCH] persist [Exception] " + e);
-				resultat = false;
-				if(e instanceof PersistenceException){
-					
-					journaliseurNiveauConfig.log("[CATCH] persist [Exception] " + e + "[Instance] PersistenceException");
-					journaliseurNiveauConfig.log("[CONDITION] e.getCause() != null " + (e.getCause() != null));
-					
-					if(e.getCause() != null){
-						Throwable t = e.getCause();
-						while (t != null) {
-							
-							journaliseurNiveauConfig.log("[WHILE][CATCH] persist  [Exception] " + e + "[Instance] PersistenceException [CAUSE] " + t + "[Message] " + t.getMessage());
-							
-							if(t instanceof SQLIntegrityConstraintViolationException){
+			}else if(e1 instanceof UnfoundException){
+				trace = trace + "[UnfoundException]";
+				try{
+					trace = trace + "[Try persist]";
+					em.persist(autoEvaluation);
+					em.flush();
+					journaliseurNiveauInfo.log("[INSERT]  AutoEvaluation : " + autoEvaluation );
+					trace = trace + "[Pas de catch persist]";
+				}catch (Exception e) {
+					trace = trace + "[catch persist]";
+					if(e instanceof PersistenceException){
+						trace = trace + "[PersistenceException]";
+						
+						if(e.getCause() != null){
+							Throwable t = e.getCause();
+							while (t != null) {
 								
-								throw new DoublonException("insertAutoEvaluation [Exception] SQLIntegrityConstraintViolationException [Entity] AutoEvaluation  " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage() + " [Cause] " + t.getMessage());
-							
-							}else if(t instanceof TransactionRequiredException){
-								throw new NullException("insertAutoEvaluation [Exception] TransactionRequiredException [Entity] AutoEvaluation : " + autoEvaluation.toString());
+								if(t instanceof TransactionRequiredException){
+									trace = trace + "[TransactionRequiredException]";
+									throw new NullException("insertAutoEvaluation [Exception] TransactionRequiredException [Entity] AutoEvaluation : " + autoEvaluation.toString());
+								}else if(t instanceof ConstraintViolationException){
+									trace = trace + "[ConstraintViolationException]";
+									throw new NullException("insertAutoEvaluation [Exception] ConstraintViolationException [Entity] AutoEvaluation : " + autoEvaluation.toString());
+								}
+								
+								t = t.getCause();
 							}
-							
-							t = t.getCause();
 						}
+						
+						if(autoEvaluation.getDateAutoEvaluation() == null){
+							trace = trace + "[Date Null]";
+							throw new DateNullException("insertAutoEvaluation [Exception] PersistenceException [Entity] AutoEvaluation : " + autoEvaluation);
+						}
+						
+						e.printStackTrace();
+						journaliseurNiveauError.log("[METHOD] insertAutoEvaluation  [Exception] PersistenceException [Entity] " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
+					
+					}else if(e instanceof NullPointerException){
+						trace = trace + "[NullPointerException]";
+						throw new NullException("insertAutoEvaluation [Exception] NullPointerException [Entity] AutoEvaluation : " + autoEvaluation.toString());
+						
+					}else if(e instanceof IllegalArgumentException){
+						trace = trace + "[IllegalArgumentException]";
+						throw new NullException("insertAutoEvaluation [Exception] IllegalArgumentException [Entity] AutoEvaluation : Null ");
+						
+					}else{
+						trace = trace + "[Exception]" + e;
+						e.printStackTrace();
+						journaliseurNiveauError.log("[METHOD] insertAutoEvaluation [Exception] Exception [Entity] " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
+						
 					}
-					
-					if(autoEvaluation.getDateAutoEvaluation() == null){
-						throw new DateNullException("insertAutoEvaluation [Exception] PersistenceException [Entity] AutoEvaluation : " + autoEvaluation);
-					}
-					e.printStackTrace();
-					journaliseurNiveauError.log("[METHOD] insertAutoEvaluation  [Exception] PersistenceException [Entity] " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
-				
-				}else if(e instanceof NullPointerException){
-					
-					throw new NullException("insertAutoEvaluation [Exception] NullPointerException [Entity] AutoEvaluation : " + autoEvaluation.toString());
-					
-				}else if(e instanceof IllegalArgumentException && autoEvaluation == null){
-					
-					throw new NullException("insertAutoEvaluation [Exception] IllegalArgumentException [Entity] AutoEvaluation : Null ");
-					
-				}else if(e instanceof TransactionRequiredException){
-					
-					journaliseurNiveauConfig.log("[CATCH] persist [Exception] " + e + "[Instance] TransactionRequiredException");
-					throw new NullException("insertAutoEvaluation [Exception] TransactionRequiredException [Entity] AutoEvaluation : " + autoEvaluation.toString());
-				
-				}else{
-					
-					e.printStackTrace();
-					journaliseurNiveauError.log("[METHOD] insertAutoEvaluation [Exception] Exception [Entity] " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
-					
 				}
+				
 			}
+			trace = trace + "[Fin]";
+			journaliseurNiveauConfig.log(trace);
 		}
-		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : insertAutoEvaluation " + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : insertAutoEvaluation");
 	}
 	
 	@Override
 	public void updateAutoEvaluation(AutoEvaluation autoEvaluation)  {
-		
-		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : updateAutoEvaluation");
-		journaliseurNiveauConfig.log("[METHOD IN] AutoEvaluation : " + autoEvaluation);
-		
+		String trace = "";
+		trace = trace + "[updateAutoEvaluation] " + autoEvaluation.getRessenti();
 		AutoEvaluation autoEvaluation2 = null;
 		
 		try {
-			
+			trace = trace + "[try select]";
 			autoEvaluation2 = selectAutoEvaluationByStagCompDate(autoEvaluation);
+			trace = trace + "[Pas de catch select]";
 			
-		} catch (UnfoundException | NullException e1) {
-			
-			e1.printStackTrace();
-			
-		}
-		
-		if(autoEvaluation2 != null){
 			autoEvaluation.setIdentifiant(autoEvaluation2.getIdentifiant());
 			
 			try {
 				
+				trace = trace + "[try update]";
 				em.merge(autoEvaluation);
 				em.flush();
 				journaliseurNiveauInfo.log("[UPDATE]  AutoEvaluation : " + autoEvaluation );
+				trace = trace + "[Pas de catch update]";
 				
 			} catch (Exception e) {
-				
+				trace = trace + "[Exception]" + e;
 				e.printStackTrace();
-				resultat = false;
 				journaliseurNiveauError.log("[METHOD] updateAutoEvaluation [Entity] " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			
 			}	
+		} catch (Exception e) {
+
+			trace = trace + "[Exception]" + e;
+			e.printStackTrace();
+			
 		}
-		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : updateAutoEvaluation " + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : updateAutoEvaluation");
-		
+		trace = trace + "[Fin]";
+		journaliseurNiveauConfig.log(trace);
 	}
 	
 	@Override
 	public void deleteAutoEvaluation(AutoEvaluation autoEvaluation) {
-		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : deleteAutoEvaluation");
-		journaliseurNiveauConfig.log("[METHOD IN] AutoEvaluation : " + autoEvaluation);
 		
 		try {
 			
@@ -192,113 +174,59 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			resultat = false;
 			journaliseurNiveauError.log("[METHOD] deleteAutoEvaluation [Entity] " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			
 		}
-		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : deleteAutoEvaluation " + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : deleteAutoEvaluation");
-	}
-	
-	@Override
-	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation) throws UnfoundException {
-		
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : selectAutoEvaluation ");
-		journaliseurNiveauConfig.log("[METHOD IN] AutoEvaluation : " + autoEvaluation);
-		AutoEvaluation autoEvaluation2 = null;
-		
-		try{
-			
-			autoEvaluation2 = em.find(AutoEvaluation.class, autoEvaluation.getIdentifiant());
-			
-			if(autoEvaluation2 == null){
-				journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " [MESSAGE] : NotFound");
-				throw new UnfoundException("selectAutoEvaluation");
-			}
-			
-			journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " AutoEvaluation [OUT] : " + autoEvaluation2);
-			
-			
-		}catch (Exception e) {
-			if(e instanceof NullPointerException){
-				
-				journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " [MESSAGE] : NotFound");
-				throw new UnfoundException("selectAutoEvaluation");
-				
-			}else if(e instanceof IllegalArgumentException){
-			
-				journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " [MESSAGE] : NotFound");
-				throw new UnfoundException("selectAutoEvaluation");
-				
-			}else{
-				
-				e.printStackTrace();
-				journaliseurNiveauError.log("[METHOD] selectAutoEvaluation [Entity] " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
-			
-			}
-		}
-			
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : selectAutoEvaluation " + autoEvaluation2);
-		journaliseurNiveauConfig.log("[FIN METHOD] : selectAutoEvaluation");
-		
-		return autoEvaluation2;
 	}
 
 	@Override
 	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException, NullException {
+
+		String trace = "";
+		trace = trace + "[selectAutoEvaluationByStagCompDate] " + autoEvaluation.getRessenti();
 		
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : selectAutoEvaluationByStagCompDate ");
-		journaliseurNiveauConfig.log("[METHOD IN] AutoEvaluation : " + autoEvaluation);
 		AutoEvaluation autoEvaluation2 = null;
 		
 		try {
 			
+			trace = trace + "[Try SQL select]";
 			String sqlString = "select ae from AutoEvaluation ae where stag_id = ?1 and comp_id = ?2 and ae_date = ?3";
 			
 			autoEvaluation2 = (AutoEvaluation) em.createQuery(sqlString)
 				.setParameter(1, autoEvaluation.getStagiaire().getLogin())
 				.setParameter(2, autoEvaluation.getCompetence().getIdentifiant())
 				.setParameter(3, autoEvaluation.getDateAutoEvaluation()).getSingleResult();
-			
-			if(autoEvaluation2 == null){
-				journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " [MESSAGE] : NotFound");
-				throw new UnfoundException("selectAutoEvaluationByStagCompDate");
-			}
-			
+
 			journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " AutoEvaluation [OUT] : " + autoEvaluation2);
+			trace = trace + "[Pas de catch]";
 			
 		}catch (Exception e) {
 			if(e instanceof PersistenceException){
-
-				journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " [MESSAGE] : NotFound Enity null");
+				trace = trace + "[PersistenceException]";
 				throw new UnfoundException("selectAutoEvaluation");
 
 			}else if(e instanceof NullPointerException){
-				
-				journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " [MESSAGE] : NotFound Enity null");
+				trace = trace + "[NullPointerException]";
 				throw new UnfoundException("selectAutoEvaluation");
 				
 			}else if(e instanceof IllegalArgumentException){
-			
-				journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " [MESSAGE] : NotFound Enity null");
+				trace = trace + "[IllegalArgumentException]";
 				throw new UnfoundException("selectAutoEvaluation");
 				
 			}else if(e instanceof NoResultException){
-				
-				journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " [MESSAGE] : NotFound");
+				trace = trace + "[NoResultException]";
 				throw new UnfoundException("selectAutoEvaluation");
 				
 			}else{
-				
+				trace = trace + "[Exception]" + e;
 				e.printStackTrace();
 				journaliseurNiveauError.log("[METHOD] selectAutoEvaluationByStagCompDate [Entity] " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			
 			}
 		}
 		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : selectAutoEvaluationByStagCompDate " + autoEvaluation2);
-		journaliseurNiveauConfig.log("[FIN METHOD] : selectAutoEvaluationByStagCompDate");
+		trace = trace + "[Fin]";
+		journaliseurNiveauConfig.log(trace);
 		return autoEvaluation2;
 	}
 	

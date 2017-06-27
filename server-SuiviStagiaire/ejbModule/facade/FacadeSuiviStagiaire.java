@@ -40,7 +40,7 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
     JournaliseurNiveauConfig journaliseurNiveauConfig = JournaliseurNiveauConfig.getINSTANCE();
 
 	@Override
-	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException, DateNullException {
+	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws NullException, DateNullException {
 		facadeServiceAutoEvaluation.insertAutoEvaluation(autoEvaluation);
 		
 	}
@@ -143,12 +143,6 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
 	@Override
 	public void deleteStagiaire(Stagiaire stagiaire) {
 		facadeServiceOther.deleteStagiaire(stagiaire);
-		
-	}
-
-	@Override
-	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation) throws UnfoundException {
-		return facadeServiceAutoEvaluation.selectAutoEvaluation(autoEvaluation);
 		
 	}
 

@@ -148,8 +148,6 @@ public class TestAutoEvaluationInsertNullDao {
 		
 	}
 	
-	
-	
 //	/**
 //	 * Test d'insertion d'un Module Null
 //	 * @throws UnfoundException 
@@ -305,13 +303,13 @@ public class TestAutoEvaluationInsertNullDao {
 		
 		try {
 			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation);
-		} catch (DoublonException | NullException | DateNullException e) {
+		} catch (NullException | DateNullException e) {
 			conditionInsert = true;
 		}
 	
 		try {
-			autoEvaluation = facadeSuiviStagiaireRemote.selectAutoEvaluation(autoEvaluation);
-		} catch (UnfoundException e) {
+			autoEvaluation = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluation);
+		} catch (UnfoundException | NullException e) {
 			conditionSelect = true;
 		}
 	
@@ -331,37 +329,37 @@ public class TestAutoEvaluationInsertNullDao {
 //Insertion des autoEvaluation avec une propriété a null Dois throw une NullException et passé la condition a true
 		try {
 			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation1);
-		} catch (DoublonException | NullException | DateNullException e) {
+		} catch (NullException | DateNullException e) {
 			conditionInsertAutoEvaluation1 = true;
 		}
 		
 		try {
 			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation2);
-		} catch (DoublonException | NullException | DateNullException e) {
+		} catch (NullException | DateNullException e) {
 			conditionInsertAutoEvaluation2 = true;
 		}
 		
 		try {
 			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation3);
-		} catch (DoublonException | NullException | DateNullException e) {
+		} catch (NullException | DateNullException e) {
 			conditionInsertAutoEvaluation3 = true;
 		}
 		
 		try {
 			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation4);
-		} catch (DoublonException | NullException | DateNullException e) {
+		} catch (NullException | DateNullException e) {
 			conditionInsertAutoEvaluation4 = true;
 		}
 		
 		try {
 			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation5);
-		} catch (DoublonException | NullException | DateNullException e) {
+		} catch (NullException | DateNullException e) {
 			conditionInsertAutoEvaluation5 = true;
 		}
 		
 		try {
 			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation6);
-		} catch (DoublonException | NullException | DateNullException e) {
+		} catch (NullException | DateNullException e) {
 			conditionInsertAutoEvaluation6 = true;
 		}
 

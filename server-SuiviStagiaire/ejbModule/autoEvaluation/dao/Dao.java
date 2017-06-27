@@ -57,10 +57,6 @@ public class Dao implements DaoLocal {
 	@Override
 	public void insertModule(Module module) throws DoublonException, NullException {
 		
-		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : insertModule");
-		journaliseurNiveauConfig.log("[METHOD IN] Module : " + module);
-		
 		try{
 			
 			em.persist(module);
@@ -68,7 +64,6 @@ public class Dao implements DaoLocal {
 			journaliseurNiveauInfo.log("[INSERT]  Module : " + module );
 			
 		}catch (Exception e) {
-			resultat = false;
 			if(e instanceof PersistenceException){
 				
 				Throwable t = e.getCause();
@@ -96,19 +91,12 @@ public class Dao implements DaoLocal {
 			}
 		}
 		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : insertModule " + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : insertModule");
-		
 	}
 
 
 	@SuppressWarnings("null")
 	@Override
 	public void insertSequence(Sequence sequence) throws DoublonException, NullException {
-		
-		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : insertSequence");
-		journaliseurNiveauConfig.log("[METHOD IN] Sequence : " + sequence);
 		
 		try{
 
@@ -117,7 +105,6 @@ public class Dao implements DaoLocal {
 			journaliseurNiveauInfo.log("[INSERT]  Sequence : " + sequence );
 			
 		}catch (Exception e ) {
-			resultat = false;
 			if(e instanceof PersistenceException){
 				
 				Throwable t = e.getCause();
@@ -146,17 +133,10 @@ public class Dao implements DaoLocal {
 			}
 		}
 		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : insertSequence " + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : insertSequence");
-		
 	}
 
 	@Override
 	public void insertCompetence(Competence competence) throws DoublonException, NullException {
-		
-		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : insertCompetence");
-		journaliseurNiveauConfig.log("[METHOD IN] Competence : " + competence);
 		
 		try{
 
@@ -165,7 +145,6 @@ public class Dao implements DaoLocal {
 			journaliseurNiveauInfo.log("[INSERT]  Competence : " + competence );
 			
 		}catch (Exception e ) {
-			resultat = false;
 			if(e instanceof PersistenceException){
 				
 				Throwable t = e.getCause();
@@ -192,19 +171,11 @@ public class Dao implements DaoLocal {
 				e.printStackTrace();
 				journaliseurNiveauError.log("[METHOD] insertCompetence [Entity] " + competence + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			}
-		}
-		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : insertCompetence " + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : insertCompetence");
-		
+		}	
 	}
 	
 	@Override
 	public void insertNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws DoublonException, NullException {
-		
-		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : insertNiveauAcquisition");
-		journaliseurNiveauConfig.log("[METHOD IN] NiveauAcquisition : " + niveauAcquisition);
 		
 		try{
 
@@ -213,7 +184,6 @@ public class Dao implements DaoLocal {
 			journaliseurNiveauInfo.log("[INSERT]  NiveauAcquisition : " + niveauAcquisition );
 			
 		}catch (Exception e ) {
-			resultat = false;
 			if(e instanceof PersistenceException){
 				
 				Throwable t = e.getCause();
@@ -241,17 +211,10 @@ public class Dao implements DaoLocal {
 				journaliseurNiveauError.log("[METHOD] insertNiveauAcquisition [Entity] " + niveauAcquisition + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			}
 		}
-		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : insertNiveauAcquisition " + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : insertNiveauAcquisition");
 	}
 	
 	@Override
 	public void insertStagiaire(Stagiaire stagiaire) throws DoublonException, NullException {
-		
-		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : insertStagiaire");
-		journaliseurNiveauConfig.log("[METHOD IN] Stagiaire : " + stagiaire);
 		
 		try{
 
@@ -260,7 +223,6 @@ public class Dao implements DaoLocal {
 			journaliseurNiveauInfo.log("[INSERT]  Stagiaire : " + stagiaire );
 			
 		}catch (Exception e ) {
-			resultat = false;
 			if(e instanceof PersistenceException){
 				
 				Throwable t = e.getCause();
@@ -287,21 +249,13 @@ public class Dao implements DaoLocal {
 				e.printStackTrace();
 				journaliseurNiveauError.log("[METHOD] insertStagiaire [Entity] " + stagiaire + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			}
-		}
-		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : insertStagiaire " + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : insertStagiaire");
-		
+		}		
 	}
 
 	
 
 	@Override
 	public void updateModule(Module module) {
-		
-		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : updateModule");
-		journaliseurNiveauConfig.log("[METHOD IN] Module : " + module);
 		
 		try {
 			
@@ -312,22 +266,15 @@ public class Dao implements DaoLocal {
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			resultat = false;
 			journaliseurNiveauError.log("[METHOD] updateModule [Entity] " + module + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			
 		}
-		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : updateModule :" + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : updateModule");
 		
 	}
 
 
 	@Override
 	public void updateSequence(Sequence sequence) {
-		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : updateSequence");
-		journaliseurNiveauConfig.log("[METHOD IN] Sequence : " + sequence);
 		
 		try {
 			
@@ -338,22 +285,14 @@ public class Dao implements DaoLocal {
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			resultat = false;
 			journaliseurNiveauError.log("[METHOD] updateSequence [Entity] " + sequence + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			
 		}
-		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : updateSequence" + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : updateSequence");
-		
 	}
 
 
 	@Override
 	public void updateCompetence(Competence competence) {
-		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : updateCompetence");
-		journaliseurNiveauConfig.log("[METHOD IN] Competence : " + competence);
 		
 		try {
 			
@@ -364,21 +303,13 @@ public class Dao implements DaoLocal {
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			resultat = false;
 			journaliseurNiveauError.log("[METHOD] updateCompetence [Entity] " + competence + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			
-		}
-		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : updateCompetence" + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : updateCompetence");
-		
+		}		
 	}
 
 	@Override
 	public void updateNiveauAcquisition(NiveauAcquisition niveauAcquisition) {
-		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : updateNiveauAcquisition");
-		journaliseurNiveauConfig.log("[METHOD IN] NiveauAcquisition : " + niveauAcquisition);
 		
 		try {
 			
@@ -389,23 +320,15 @@ public class Dao implements DaoLocal {
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			resultat = false;
 			journaliseurNiveauError.log("[METHOD] updateNiveauAcquisition [Entity] " + niveauAcquisition + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			
 		}
-		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : updateNiveauAcquisition" + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : updateNiveauAcquisition");
-		
 	}
 
 
 	@Override
 	public void updateStagiaire(Stagiaire stagiaire) {
-		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : updateStagiaire");
-		journaliseurNiveauConfig.log("[METHOD IN] Stagiaire : " + stagiaire);
-		
+
 		try {
 			
 			em.merge(stagiaire);
@@ -415,14 +338,10 @@ public class Dao implements DaoLocal {
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			resultat = false;
 			journaliseurNiveauError.log("[METHOD] updateStagiaire [Entity] " + stagiaire + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			
 		}
-		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : updateStagiaire" + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : updateStagiaire");
-		
+
 	}
 
 
@@ -430,10 +349,7 @@ public class Dao implements DaoLocal {
 
 	@Override
 	public void deleteModule(Module module) {
-		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : deleteModule ");
-		journaliseurNiveauConfig.log("[METHOD IN] Module : " + module);
-		
+
 		try {
 			
 			Module module2 = selectModule(module);
@@ -444,22 +360,16 @@ public class Dao implements DaoLocal {
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			resultat = false;
 			journaliseurNiveauError.log("[METHOD] deleteModule [Entity] " + module + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			
 		}
-		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : deleteModule" + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : deleteModule");
+
 	}
 
 
 	@Override
 	public void deleteSequence(Sequence sequence) {
-		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : deleteSequence ");
-		journaliseurNiveauConfig.log("[METHOD IN] Sequence : " + sequence);
-		
+
 		try {
 			
 			Sequence sequence2 = selectSequence(sequence);
@@ -470,22 +380,15 @@ public class Dao implements DaoLocal {
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			resultat = false;
 			journaliseurNiveauError.log("[METHOD] deleteSequence [Entity] " + sequence + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			
 		}
-		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : deleteSequence" + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : deleteSequence");
 	}
 
 
 	@Override
 	public void deleteCompetence(Competence competence) {
-		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : deleteCompetence ");
-		journaliseurNiveauConfig.log("[METHOD IN] Competence : " + competence);
-		
+
 		try {
 			
 			Competence competence2 = selectCompetence(competence);
@@ -496,21 +399,15 @@ public class Dao implements DaoLocal {
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			resultat = false;
 			journaliseurNiveauError.log("[METHOD] deleteCompetence [Entity] " + competence + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			
 		}
-		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : deleteCompetence" + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : deleteCompetence");
+
 	}
 
 
 	@Override
 	public void deleteNiveauAcquisition(NiveauAcquisition niveauAcquisition) {
-		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : deleteNiveauAcquisition ");
-		journaliseurNiveauConfig.log("[METHOD IN] NiveauAcquisition : " + niveauAcquisition);
 		
 		try {
 			
@@ -522,21 +419,15 @@ public class Dao implements DaoLocal {
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			resultat = false;
 			journaliseurNiveauError.log("[METHOD] deleteNiveauAcquisition [Entity] " + niveauAcquisition + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			
 		}
-		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : deleteNiveauAcquisition" + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : deleteNiveauAcquisition");
+
 	}
 
 
 	@Override
 	public void deleteStagiaire(Stagiaire stagiaire) {
-		boolean resultat = true;
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : deleteStagiaire ");
-		journaliseurNiveauConfig.log("[METHOD IN] Stagiaire : " + stagiaire);
 		
 		try {
 			
@@ -548,20 +439,15 @@ public class Dao implements DaoLocal {
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			resultat = false;
 			journaliseurNiveauError.log("[METHOD] deleteStagiaire [Entity] " + stagiaire + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			
 		}
-		
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : deleteStagiaire" + resultat);
-		journaliseurNiveauConfig.log("[FIN METHOD] : deleteStagiaire");
+
 	}
 
 	@Override
 	public Module selectModule(Module module) throws UnfoundException {
-		
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : selectModule ");
-		journaliseurNiveauConfig.log("[METHOD IN] Module : " + module);
+
 		Module module2 = null;
 		
 		try{
@@ -587,9 +473,6 @@ public class Dao implements DaoLocal {
 			
 			}
 		}
-			
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : selectModule " + module2);
-		journaliseurNiveauConfig.log("[FIN METHOD] : selectModule");
 		
 		return module2; 
 		
@@ -598,9 +481,7 @@ public class Dao implements DaoLocal {
 
 	@Override
 	public Sequence selectSequence(Sequence sequence) throws UnfoundException {
-		
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : selectSequence ");
-		journaliseurNiveauConfig.log("[METHOD IN] Sequence : " + sequence);
+
 		Sequence sequence2 = null;
 		
 		try{
@@ -631,9 +512,6 @@ public class Dao implements DaoLocal {
 				journaliseurNiveauError.log("[METHOD] selectSequence [Entity] " + sequence + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			}
 		}
-			
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : selectSequence" + sequence2);
-		journaliseurNiveauConfig.log("[FIN METHOD] : selectSequence");
 		
 		return sequence2; 
 	
@@ -642,9 +520,7 @@ public class Dao implements DaoLocal {
 
 	@Override
 	public Competence selectCompetence(Competence competence) throws UnfoundException{
-		
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : selectCompetence ");
-		journaliseurNiveauConfig.log("[METHOD IN] Competence : " + competence);
+
 		Competence competence2 = null;
 		
 		try{
@@ -675,10 +551,7 @@ public class Dao implements DaoLocal {
 				journaliseurNiveauError.log("[METHOD] selectCompetence [Entity] " + competence + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			}
 		}
-			
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : selectCompetence" + competence2);
-		journaliseurNiveauConfig.log("[FIN METHOD] : selectCompetence");
-		
+
 		return competence2; 
 		 	
 	}
@@ -686,9 +559,7 @@ public class Dao implements DaoLocal {
 
 	@Override
 	public NiveauAcquisition selectNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws UnfoundException {
-		
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : selectNiveauAcquisition ");
-		journaliseurNiveauConfig.log("[METHOD IN] NiveauAcquisition : " + niveauAcquisition);
+
 		NiveauAcquisition niveauAcquisition2 = null;
 		
 		try{
@@ -719,10 +590,7 @@ public class Dao implements DaoLocal {
 				journaliseurNiveauError.log("[METHOD] selectNiveauAcquisition [Entity] " + niveauAcquisition + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			}
 		}
-			
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : selectNiveauAcquisition" + niveauAcquisition2);
-		journaliseurNiveauConfig.log("[FIN METHOD] : selectNiveauAcquisition");
-		
+
 		return niveauAcquisition2; 
 		
 	}
@@ -730,9 +598,7 @@ public class Dao implements DaoLocal {
 
 	@Override
 	public Stagiaire selectStagiaire(Stagiaire stagiaire) throws UnfoundException {
-		
-		journaliseurNiveauConfig.log("[DEBUT METHOD] : selectStagiaire ");
-		journaliseurNiveauConfig.log("[METHOD IN] Stagiaire : " + stagiaire);
+
 		Stagiaire stagiaire2 = null;
 		
 		try{
@@ -762,10 +628,7 @@ public class Dao implements DaoLocal {
 				journaliseurNiveauError.log("[METHOD] selectStagiaire [Entity] " + stagiaire + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			}
 		}
-			
-		journaliseurNiveauConfig.log("[RESULTAT METHOD] : selectStagiaire" + stagiaire2);
-		journaliseurNiveauConfig.log("[FIN METHOD] : selectStagiaire");
-		
+
 		return stagiaire2;  
 		
 	}

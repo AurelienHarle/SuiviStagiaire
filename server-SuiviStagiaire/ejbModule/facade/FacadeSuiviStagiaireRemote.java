@@ -24,7 +24,7 @@ public interface FacadeSuiviStagiaireRemote {
 	 * @throws {@link DoublonException}
 	 * @throws {@link NullException}
 	 */
-	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException, DateNullException;
+	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws NullException, DateNullException;
 	
 	/**
 	 * Insertion d'un Module
@@ -63,7 +63,7 @@ public interface FacadeSuiviStagiaireRemote {
 	
 	/**
 	 * Update d'une auto evaluation dans la base
-	 * @throws UpdateException 
+	 * @throws UpdateNotInsertException 
 	 */
 	public void updateAutoEvaluation(AutoEvaluation autoEvaluation);
 	
@@ -122,12 +122,6 @@ public interface FacadeSuiviStagiaireRemote {
 	 * Delete Stagiaire
 	 */
 	public void deleteStagiaire(Stagiaire stagiaire);
-	
-	/**
-	 * Select d'une auto evaluation dans la base
-	 * @throws UnfoundException 
-	 */
-	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation) throws UnfoundException;
 	
 	/**
 	 * Select d'une auto evaluation par tout ses attribue

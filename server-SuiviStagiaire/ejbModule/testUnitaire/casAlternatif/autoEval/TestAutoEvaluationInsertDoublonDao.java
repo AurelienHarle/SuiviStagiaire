@@ -1,6 +1,7 @@
 package testUnitaire.casAlternatif.autoEval;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDate;
 
@@ -83,19 +84,30 @@ public class TestAutoEvaluationInsertDoublonDao {
 
 		date = LocalDate.now();
 		
-//Creation des boolean de controle		
+		//Creation des boolean de controle		
 		conditionInsertAutoEvaluation1 = false;
 
 		
-//Creation des autoEvaluation avec une propriété a null		
+		//Creation d'une auto-evaluation inséré et une pour test		
 		autoEvaluation = new AutoEvaluation(competence, sequence, module, niveauAcquisition, stagiaire, date, null);
 		facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation);
+		
 		autoEvaluationDoublon = new AutoEvaluation(competence, sequence, module, niveauAcquisition, stagiaire, date, "Updated");
 
 	}
 
 	@AfterClass
 	public static void finalizeur(){
+
+//		facadeSuiviStagiaireRemote.deleteCompetence(competence);
+//		facadeSuiviStagiaireRemote.deleteSequence(sequence);
+//		facadeSuiviStagiaireRemote.deleteModule(module);
+
+//		facadeSuiviStagiaireRemote.deleteNiveauAcquisition(niveauAcquisition);
+//		facadeSuiviStagiaireRemote.deleteStagiaire(stagiaire);
+
+//		facadeSuiviStagiaireRemote.deleteAutoEvaluation(autoEvaluationDoublon);
+		
 		
 	}
 
@@ -109,24 +121,27 @@ public class TestAutoEvaluationInsertDoublonDao {
 	 */
 	@Test
 	public void testInsertDoublonAutoEvaluation(){
-		
+				
 		try {
 			
 			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluationDoublon);
 			
-		} catch (DoublonException | NullException | DateNullException e) {
+		} catch (NullException | DateNullException e) {
 			
 			conditionInsertAutoEvaluation1 = false;
 			
 		}
 		
 		try {
+			
 			autoEvaluationBDD = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluationDoublon);
+			
 		} catch (UnfoundException | NullException e) {
+			
 			conditionSelectAutoEvaluation1 = false;
+			
 		}
 
-		
 		assertTrue("Lever d'exception Insert ",conditionInsertAutoEvaluation1);
 		assertTrue("Lever d'exception Select ",conditionSelectAutoEvaluation1);
 		
@@ -137,9 +152,6 @@ public class TestAutoEvaluationInsertDoublonDao {
 		assertEquals("Competence ID : ",autoEvaluationDoublon.getCompetence().getIdentifiant(), autoEvaluationBDD.getCompetence().getIdentifiant());
 		assertEquals("Stagiaire ID : ",autoEvaluationDoublon.getStagiaire().getLogin(), autoEvaluationBDD.getStagiaire().getLogin());
 		assertEquals("NiveauAcquisition ID : ",autoEvaluationDoublon.getNiveauAcquisition().getIdentifiant(), autoEvaluationBDD.getNiveauAcquisition().getIdentifiant());
-		
-		
-		
-		
+
 	}
 }

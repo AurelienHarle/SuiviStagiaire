@@ -257,7 +257,7 @@ public class TestAutoEvaluationInsertDao {
 			
 			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluationInsert);
 			
-		} catch (DoublonException | NullException | DateNullException e) {
+		} catch (NullException | DateNullException e) {
 			
 			condition = false;
 			e.printStackTrace();

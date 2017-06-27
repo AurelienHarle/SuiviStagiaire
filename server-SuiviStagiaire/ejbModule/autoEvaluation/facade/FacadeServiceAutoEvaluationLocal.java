@@ -19,12 +19,12 @@ public interface FacadeServiceAutoEvaluationLocal {
 	 * @throws {@link DoublonException}
 	 * @throws {@link NullException}
 	 */
-	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException, DateNullException;
+	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws NullException, DateNullException;
 	
 		
 	/**
 	 * Update d'une auto evaluation dans la base
-	 * @throws UpdateException 
+	 * @throws UpdateNotInsertException 
 	 */
 	public void updateAutoEvaluation(AutoEvaluation autoEvaluation);
 	
@@ -36,12 +36,6 @@ public interface FacadeServiceAutoEvaluationLocal {
 	public void deleteAutoEvaluation(AutoEvaluation autoEvaluation);
 
 	
-	
-	/**
-	 * Select d'une auto evaluation dans la base
-	 * @throws UnfoundException 
-	 */
-	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation) throws UnfoundException;
 	
 	/**
 	 * Select d'une auto evaluation par tout ses attribue

@@ -3,7 +3,6 @@ package autoEvaluation.entity;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import autoEvaluation.technique.Competences;
 import compteUtilisateur.entity.Stagiaire;
 
 
@@ -40,29 +40,29 @@ public class AutoEvaluation implements Serializable {
 	private int identifiant;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn( name="comp_id", nullable=false)
+	@JoinColumn( name="comp_id", nullable=false,unique=false)
 	private Competence competence;
 
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn( name="seq_id", nullable=false)
+	@JoinColumn( name="seq_id", nullable=false,unique=false)
 	private Sequence sequence;
 
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn( name="mod_id", nullable=false)
+	@JoinColumn( name="mod_id", nullable=false,unique=false)
 	private Module module;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="na_id", nullable=false)
+	@JoinColumn(name="na_id", nullable=false,unique=false)
 	private NiveauAcquisition niveauAcquisition;
 
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="stag_id", nullable=false)
+	@JoinColumn(name="stag_id", nullable=false,unique=false)
 	private Stagiaire stagiaire;
 	
-	@Column(name="ae_date", length=10, nullable=false)
+	@Column(name="ae_date", length=10, nullable=false,unique=false)
 	private LocalDate dateAutoEvaluation;
 	
-	@Column(name="ae_ressenti", length=4000, nullable=true)
+	@Column(name="ae_ressenti", length=4000, nullable=true,unique=false)
 	private String ressenti;
 
 	public AutoEvaluation() {

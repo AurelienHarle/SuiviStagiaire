@@ -8,7 +8,6 @@ import autoEvaluation.dao.AutoEvaluationDao;
 import autoEvaluation.entity.AutoEvaluation;
 import autoEvaluation.technique.AutoEvaluations;
 import exception.DateNullException;
-import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
 
@@ -30,7 +29,7 @@ public class FacadeDaoAutoEvaluation implements FacadeDaoAutoEvaluationLocal {
     }
 
     @Override
-	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws DoublonException, NullException, DateNullException {
+	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws NullException, DateNullException {
 
 		autoEvaluationDao.insertAutoEvaluation(autoEvaluation);
 		
@@ -49,12 +48,6 @@ public class FacadeDaoAutoEvaluation implements FacadeDaoAutoEvaluationLocal {
 	}
     
     @Override
-	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation) throws UnfoundException {
-		return autoEvaluationDao.selectAutoEvaluation(autoEvaluation);
-		
-	}
-	
-	@Override
 	public AutoEvaluation selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(
 			AutoEvaluation autoEvaluation) {
 		return autoEvaluationDao.selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(autoEvaluation);
