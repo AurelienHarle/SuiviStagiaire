@@ -8,22 +8,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * {@link Class} {@link Entity}, {@link NiveauAcquisition} elle représente l'éstimation du libelle d'acquisition d'un stagiaire sur une competence.
+ * {@link Class} {@link Entity}, {@link NiveauAcquisition} elle représente l'éstimation du niveau d'acquisition d'un stagiaire sur une competence.
  * 
- * elle est composé obligatoirement d'un identifiant auto-généré, et d'un libelle
+ * elle est composé obligatoirement d'un identifiant, et d'un libelle
+ * 
+ * elle est {@link Serializable} 
  * 
  * @author Aurélien Harlé
  * @Version 1
- * @Since 15/06/2017
+ * @Since 27/06/2017
  *
  */
 @Entity
 @Table(name="niv_acqui")
 public class NiveauAcquisition implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -33,14 +32,20 @@ public class NiveauAcquisition implements Serializable {
 	@Column(name="na_niv", length=20, nullable=false)
 	private String libelle;
 	
+	/**
+	 * Constructeur par default
+	 * Attention tout les propriété sont obligatoire pour qu'une {@link NiveauAcquisition} soit persisté
+	 */
 	public NiveauAcquisition() {
 		
 	}
 	
 
 	/**
-	 * @param identifiant
-	 * @param libelle
+	 * Constructeur qui contient toute les informations d'une {@link NiveauAcquisition}
+	 * 
+	 * @param identifiant {@link String} Exemple : "NA", Obligatoire pour persistance
+	 * @param libelle {@link String} Obligatoire pour persistance
 	 */
 	public NiveauAcquisition(String identifiant, String libelle) {
 		super();

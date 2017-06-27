@@ -11,16 +11,15 @@ import javax.persistence.Id;
  *
  * elle est composé obligatoirement d'un identifiant, d'un nom long,et d'un nom court.
  * 
+ * elle est {@link Serializable} 
+ * 
  * @author Aurélien Harlé
  * @Version 1
- * @Since 15/06/2017
+ * @Since 27/06/2017
  */
 @Entity
 public class Module implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -33,14 +32,20 @@ public class Module implements Serializable {
 	@Column(name="mod_nom_court", length=200, nullable=false)
 	private String nomCourt;
 
+	/**
+	 * Constructeur par default
+	 * Attention tout les propriété sont obligatoire pour qu'une {@link Module} soit persisté
+	 */
 	public Module() {
 		
 	}
 	
 	/**
-	 * @param identifiant
-	 * @param nomLong
-	 * @param nomCourt
+	 * Constructeur qui contient toute les informations d'une {@link Module} 
+	 * 
+	 * @param identifiant {@link String} exemple: "M1", Obligatoire pour persistance
+	 * @param nomLong {@link String} Nom long du module, Obligatoire pour persistance
+	 * @param nomCourt {@link String} Nom court du module, Obligatoire pour persistance
 	 */
 	public Module(String identifiant, String nomLong, String nomCourt) {
 		super();

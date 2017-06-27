@@ -23,9 +23,11 @@ import compteUtilisateur.entity.Stagiaire;
  * elle est composé obligatoirement d'un identifiant auto-généré, d'une date d'evaluation mis a la date du jour de l'évaluation,
  * d'un {@link Stagiaire}, d'un {@link NiveauAcquisition}, et d'une {@link Competences}
  * 
+ * elle est {@link Serializable} 
+ * 
  * @author Aurélien Harlé
  * @Version 1
- * @Since 15/06/2017
+ * @Since 27/06/2017
  * 
  */
 @Entity
@@ -57,20 +59,22 @@ public class AutoEvaluation implements Serializable {
 	@Column(name="ae_ressenti", length=4000, nullable=true,unique=false)
 	private String ressenti;
 
+	/**
+	 * Constructeur par default
+	 * Attention certaine propriété sont obligatoire pour qu'une {@link AutoEvaluation} soit persisté
+	 */
 	public AutoEvaluation() {
 		
 	}
 	
 	/**
-	 * Complete constructor
+	 * Constructeur qui contient toute les informations d'une {@link AutoEvaluation}
 	 * 
-	 * @param competence
-	 * @param sequence
-	 * @param module
-	 * @param niveauAcquisition
-	 * @param stagiaire
-	 * @param dateAutoEvaluation
-	 * @param ressenti
+	 * @param competence {@link Competence} Obligatoire pour persistance
+	 * @param niveauAcquisition {@link NiveauAcquisition} Obligatoire pour persistance
+	 * @param stagiaire {@link Stagiaire} Obligatoire pour persistance
+	 * @param dateAutoEvaluation {@link LocalDate} Obligatoire pour persistance
+	 * @param ressenti {@link String} Non Obligatoire pour persistance
 	 */
 	public AutoEvaluation(Competence competence,NiveauAcquisition niveauAcquisition, Stagiaire stagiaire, LocalDate dateAutoEvaluation, String ressenti) {
 		

@@ -9,23 +9,22 @@ import javax.persistence.Table;
 
 /**
  * 
- * {@link Class} {@link Entity}, {@link Stagiaire} {@link Class} fille de {@link CompteUtilisateur} elle représente un stagiaire.
+ * {@link Class} {@link Entity}, {@link Stagiaire} elle représente un stagiaire.
  * 
  * elle est composé obligatoirement d'un osia, d'un motDePasse, d'un nom, d'un prénom, d'un numéro de telephone administration,
  * d'un numéro de telephone formation, d'une adresse, d'un mail, d'un mail formation, et d'une humeur
  * 
+ * elle est {@link Serializable} 
+ * 
  * @author Aurélien Harlé
  * @Version 1
- * @Since 15/06/2017
+ * @Since 27/06/2017
  *
  */
 @Entity
 @Table(name="stag")
 public class Stagiaire implements Serializable{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -59,11 +58,17 @@ public class Stagiaire implements Serializable{
 	@Column(name="stag_humeur", length=20, nullable=true)
 	private String humeur;
 
+	/**
+	 * Constructeur par default
+	 * Attention tout les propriété sont obligatoire pour qu'une {@link Stagiaire} soit persisté
+	 */
 	public Stagiaire() {
 		
 	}
 
 	/**
+	 * Constructeur qui contient toute les informations d'une {@link Stagiaire}
+	 * 
 	 * @param osia
 	 * @param motDePasse
 	 * @param nom

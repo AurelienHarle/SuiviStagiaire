@@ -13,12 +13,14 @@ import javax.persistence.Table;
 /**
  * {@link Class} {@link Entity}, {@link Sequence} elle représente une sequence de la formation.
  * 
- * elle est composé obligatoirement d'un identifiant auto-généré, d'un nom long, d'un nom court,
+ * elle est composé obligatoirement d'un identifiant, d'un nom long, d'un nom court,
  * d'un {@link Module}
+ * 
+ * elle est {@link Serializable} 
  * 
  * @author Aurélien Harlé
  * @Version 1
- * @Since 15/06/2017
+ * @Since 27/06/2017
  */
 @Entity
 @Table(name="seq")
@@ -40,15 +42,21 @@ public class Sequence implements Serializable {
 	@Column(name="seq_nom_court", length=200, nullable=false)
 	private String nomCourt;
 
+	/**
+	 * Constructeur par default
+	 * Attention tout les propriété sont obligatoire pour qu'une {@link Sequence} soit persisté
+	 */
 	public Sequence() {
 		
 	}
 	
 	/**
-	 * @param identifiant
-	 * @param module
-	 * @param nomLong
-	 * @param nomCourt
+	 * Constructeur qui contient toute les informations d'une {@link Sequence}
+	 * 
+	 * @param identifiant {@link String} Exemple : "S1", Obligatoire pour persistance
+	 * @param module {@link Module} Obligatoire pour persistance
+	 * @param nomLong {@link String} Obligatoire pour persistance
+	 * @param nomCourt {@link String} Obligatoire pour persistance 
 	 */
 	public Sequence(String identifiant, Module module, String nomLong, String nomCourt) {
 		super();
