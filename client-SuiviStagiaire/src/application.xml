@@ -19,9 +19,9 @@
 		
 	</package>
 	
-<!-- boostrap -->	
-	<package name="bootstrap" namespace="" extends="struts-default">
-		
+<!-- import -->
+	<package name="import" namespace="" extends="struts-default">
+		<!-- boostrap -->	
 		<action name="bootstrap-css">
 			<result>/WEB-INF/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css</result>
 		</action>
@@ -33,7 +33,11 @@
 		<action name="bootstrap-js">
 			<result>/WEB-INF/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js</result>
 		</action>
+		<!-- image -->
+		<action name="logo-afpa">
+			<result>/client-SuiviStagiaire/WebContent/img/logo-afpa-rectangle.jpg</result>
+		</action>
 		
 	</package>
-	
+
 </struts>
