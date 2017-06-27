@@ -5,42 +5,31 @@ import javax.ejb.Local;
 import autoEvaluation.entity.AutoEvaluation;
 import autoEvaluation.technique.AutoEvaluations;
 import exception.DateNullException;
-import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
-import exception.UpdateNotInsertException;
 
 @Local
 public interface AutoEvaluationDaoLocal {
 
 	
 	/**
-	 * Insertion d'une auto evaluation dans la base
-	 * @throws DateNullException 
-	 * @throws UpdateNotInsertException 
-	 * @throws  
+	 * Contrôle et insert une {@link AutoEvaluation} si elle correspond au règle métier
 	 * 
-	 * @throws {@link DoublonException}
-	 * @throws {@link NullException}
+	 * @Param {@link AutoEvaluation}
+	 * @throws NullException
+	 * @throws DateNullException
 	 */
 	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws NullException, DateNullException;
 	
 	/**
-	 * Update d'une auto evaluation dans la base
-	 * @throws UpdateNotInsertException 
-	 * @throws UnfoundException 
+	 * Contrôle et update une {@link AutoEvaluation} si elle correspond au règle métier
 	 */
 	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) throws UnfoundException;
 	
 	/**
-	 * Delete d'une auto evaluation dans la base
+	 * Supprime une {@link AutoEvaluation} si elle correspond au règle métier
 	 */
 	public void deleteAutoEvaluation(AutoEvaluation autoEvaluation);
-	
-	/**
-	 * Select d'une auto evaluation par tout ses attribue
-	 */
-	public AutoEvaluation selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(AutoEvaluation autoEvaluation);
 	
 	/**
 	 * Select d'une auto evaluation par son Stagiaire / Comp / Date

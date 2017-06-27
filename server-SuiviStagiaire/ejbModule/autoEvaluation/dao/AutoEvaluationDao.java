@@ -11,7 +11,9 @@ import javax.persistence.TransactionRequiredException;
 import org.hibernate.exception.ConstraintViolationException;
 
 import autoEvaluation.entity.AutoEvaluation;
+import autoEvaluation.entity.Competence;
 import autoEvaluation.technique.AutoEvaluations;
+import compteUtilisateur.entity.Stagiaire;
 import exception.DateNullException;
 import exception.NullException;
 import exception.UnfoundException;
@@ -28,12 +30,11 @@ import parametre.Parametre;
 @LocalBean
 public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 
-	//TODO REFAIRE MESSAGE LOGGER
     /**
      * Default constructor. 
      */
     public AutoEvaluationDao() {
-        // TODO Auto-generated constructor stub
+       
     }
     
     @PersistenceContext(unitName=Parametre.PERSISTENCE_UNIT_NAME)
@@ -43,6 +44,13 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 	JournaliseurNiveauError journaliseurNiveauError = JournaliseurNiveauError.getINSTANCE();
 	JournaliseurNiveauInfo journaliseurNiveauInfo = JournaliseurNiveauInfo.getINSTANCE();
 	
+	/**
+	 * Contrôle et insert une {@link AutoEvaluation} si elle correspond au règle métier
+	 * 
+	 * @Param {@link AutoEvaluation}
+	 * @throws NullException
+	 * @throws DateNullException
+	 */
 	@Override
 	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws NullException, DateNullException {
 		String trace = "";
@@ -133,6 +141,9 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 		}
 	}
 	
+	/**
+	 * Contrôle et update une {@link AutoEvaluation} si elle correspond au règle métier
+	 */
 	@Override
 	public void updateAutoEvaluation(AutoEvaluation autoEvaluation)  {
 		String trace = "";
@@ -170,6 +181,9 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 		journaliseurNiveauConfig.log(trace);
 	}
 	
+	/**
+	 * Supprime une {@link AutoEvaluation} si elle correspond au règle métier
+	 */
 	@Override
 	public void deleteAutoEvaluation(AutoEvaluation autoEvaluation) {
 		
@@ -188,6 +202,13 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 		}
 	}
 
+	/**
+	 * Select une {@link AutoEvaluation} par son {@link Stagiaire}, {@link Competence}, Date permet aussi certaine contrôle
+	 * 
+	 * @Param {@link AutoEvaluation}
+	 * @throws NullException
+	 * @throws DateNullException
+	 */
 	@Override
 	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException, NullException {
 
@@ -239,27 +260,27 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 		return autoEvaluation2;
 	}
 	
-	@Override
-	public AutoEvaluation selectAutoEvaluationByDateRessentiCompetenceModuleNiveauAcquisitionSequenceStagiaire(AutoEvaluation autoEvaluation) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
+	/**
+	 * TODO
+	 */
 	@Override
 	public AutoEvaluations selectAutoEvaluationByStagComp(AutoEvaluation autoEvaluation) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
+	/**
+	 * TODO
+	 */
 	@Override
 	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
+	/**
+	 * TODO
+	 */
 	@Override
 	public AutoEvaluations selectAutoEvaluationByComp(AutoEvaluation autoEvaluation) {
 		// TODO Auto-generated method stub
