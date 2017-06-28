@@ -20,8 +20,13 @@
 <!-- auto-evaluation -->
 	<package name="auto-evalution" namespace="/auto-evalution"  extends="struts-default">
 	
-		<action name="Action1">
-			<result>redirection1</result>
+		<action name="*-avis-annonce" method="{1}" class="rtw.beanAction.autoEvalution.Navigation">
+			<result name="rechercher">/vue/{1}-auto-evaluation.jsp</result>
+			<result name="creation">/vue/{1}-auto-evaluation.jsp</result>
+			<result name="modification">/vue/{1}-auto-evaluation.jsp</result>
+			<result name="suppression">/vue/{1}-auto-evaluation.jsp</result>
+			<result name="lister">/vue/{1}-auto-evaluation.jsp</result>
+			<allowed-methods>creation,modification,suppression,rechercher,lister</allowed-methods>
 		</action>
 		
 	</package>
@@ -41,7 +46,7 @@
 		
 	<!-- jquery -->
 		<action name="jquery-js">
-			<result>/WEB-INF/lib/jquery-3.2.1-dist/jquery-1.12.4.min.js</result>
+			<result>/WEB-INF/lib/jquery-3.2.1-dist/jquery-3.2.1.min.js</result>
 		</action>
 		
 	<!-- css -->
