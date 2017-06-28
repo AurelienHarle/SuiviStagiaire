@@ -1,0 +1,43 @@
+@CHARSET "ISO-8859-1";
+
+#bandeau{
+	
+	padding: 0px;
+	height: 107px;
+	margin-bottom: 0px;
+	
+	 background-image: linear-gradient(to right, #66ccff, #ffffff);
+	
+	-moz-box-shadow: 0px 0px 2px 0px #000000;
+	-webkit-box-shadow: 0px 0px 2px 0px #000000;
+	-o-box-shadow: 0px 0px 2px 0px #000000;
+	box-shadow: 0px 0px 2px 0px #000000;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#000000, Direction=NaN, Strength=2);
+
+	 border-bottom-left-radius: 10px;
+	 border-bottom-right-radius: 10px;
+}
+
+#bandeau img{
+	
+	width: 206px;
+	height: 107px;
+
+}
+
+#bandeau h1{
+	
+	display: inline-block;
+	
+	position: relative;
+	top: 10px;
+	left: 25px;
+	
+	width: 72%;
+	font-size: 45px;
+	margin: 0px;
+	color: black;
+	text-align: center;
+	
+	
+}
