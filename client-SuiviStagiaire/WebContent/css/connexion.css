@@ -1,0 +1,33 @@
+@CHARSET "ISO-8859-1";
+
+#connexion{
+	
+	width: 500px;
+	margin-top: 250px;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	border: 1px solid transparent;
+ 	border-radius: 4px;
+ 	border-color: #66ccff;
+}
+
+#information{
+	
+	width: 500px;
+	margin-top: 0px;
+}
+
+#information div{
+	
+	margin: 0px;
+	padding: 5px;
+}
+
+#info-login{
+	display: none;
+}
+
+#info-password{
+	display: none;
+}
