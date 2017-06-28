@@ -1,0 +1,26 @@
+@CHARSET "ISO-8859-1";
+
+#deconnexion{
+	background-color: #ff6666;
+}
+
+#deconnexion :hover{
+	background-color: #ff1a1a;
+}
+
+/* Change the color on hover deconnexion */
+.dropdown-submenu > a:focus, .dropdown-submenu > a:hover, .dropdown-submenu:focus>a, r, .dropdown-submenu:hover>a,
+.dropdown-menu > li a:hover,
+.dropdown-menu > li a:focus { 
+	
+	background-color: orange; background-image: none; filter: none; text-decoration: none; border: none; 
+
+}
+
+
+
+@media (min-width: 979px) {
+  ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+  }
+}
