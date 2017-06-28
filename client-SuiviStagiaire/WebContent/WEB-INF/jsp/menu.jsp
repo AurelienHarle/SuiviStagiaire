@@ -9,16 +9,18 @@
 	<nav id="menu" class="navbar navbar-default">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
-	      <a class="navbar-brand" href="../accueil">Accueil</a>
+	      <a class="navbar-brand" href="../client-SuiviStagiaire/accueil">Accueil</a>
 	    </div>
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Auto-Evaluation <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="#">Creer</a></li>
-	            <li><a href="#">Modifier</a></li>
-	            <li><a href="#">Supprimer</a></li>
+	            <li><a href="../client-SuiviStagiaire/rechercher-auto-evaluation">Rechercher</a></li>
+	            <li><a href="../client-SuiviStagiaire/creation-auto-evaluation">Creation</a></li>
+	            <li><a href="../client-SuiviStagiaire/modification-auto-evaluation">Modification</a></li>
+	            <li><a href="../client-SuiviStagiaire/suppression-auto-evaluation">Suppression</a></li>
+	            <li><a href="../client-SuiviStagiaire/lister-auto-evaluation">Lister</a></li>
 	          </ul>
 	        </li>
 	      </ul>
