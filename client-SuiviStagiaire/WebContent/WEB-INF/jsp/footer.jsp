@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link href="<s:url namespace="" action="footer-css" />" rel="stylesheet" type="text/css">
 </head>
-<body>
-
-</body>
+	<footer>
+		<div id="footer" class="well well-sm">
+			<span>Copyright</span>
+		</div>
+	</footer>
 </html>
