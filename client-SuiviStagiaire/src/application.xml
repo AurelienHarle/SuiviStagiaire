@@ -3,10 +3,17 @@
 
 <struts>
 
-<!-- acceuil -->
-	<package name="acceuil" namespace="/accueil" extends="struts-default">
+<!-- accueil -->
+	<package name="accueil" namespace="/accueil" extends="struts-default">
 		<action name="accueil">
 			<result>/index.jsp</result>
+		</action>
+	</package>
+	
+<!-- connexion -->
+	<package name="connexion" namespace="/connexion" extends="struts-default">
+		<action name="connexion">
+			<result>/vue/connexion.jsp</result>
 		</action>
 	</package>
 	
@@ -21,23 +28,51 @@
 	
 <!-- import -->
 	<package name="import" namespace="" extends="struts-default">
-		<!-- boostrap -->	
+	<!-- boostrap -->	
 		<action name="bootstrap-css">
 			<result>/WEB-INF/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css</result>
 		</action>
-		
 		<action name="bootstrap-theme">
 			<result>/WEB-INF/lib/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css</result>
 		</action>
-		
 		<action name="bootstrap-js">
 			<result>/WEB-INF/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js</result>
 		</action>
-		<!-- image -->
-		<action name="logo-afpa">
-			<result>/client-SuiviStagiaire/WebContent/img/logo-afpa-rectangle.jpg</result>
+		
+	<!-- jquery -->
+		<action name="jquery-js">
+			<result>/WEB-INF/lib/jquery-3.2.1-dist/jquery-1.12.4.min.js</result>
 		</action>
 		
+	<!-- css -->
+		<action name="index-css">
+			<result>/css/index.css</result>
+		</action>
+		
+		<action name="connexion-css">
+			<result>/css/connexion.css</result>
+		</action>
+		
+		<action name="menu-css">
+			<result>/WEB-INF/css/menu.css</result>
+		</action>
+	
+		<action name="bandeau-css">
+			<result>/WEB-INF/css/bandeau.css</result>
+		</action>
+		
+		<action name="footer-css">
+			<result>/WEB-INF/css/footer.css</result>
+		</action>
+		
+	<!-- image -->
+		<action name="logo-afpa">
+			<result>/img/logo-afpa-rectangle.jpg</result>
+		</action>
+		
+		<action name="logo-afpa-transparent">
+			<result>/img/logo-afpa-rectangle-transparent.png</result>
+		</action>
 	</package>
 
 </struts>
