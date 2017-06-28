@@ -4,8 +4,11 @@
 <html lang="fr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 <link href="<s:url namespace="" action="bootstrap-css" />" rel="stylesheet" type="text/css">
 <link href="<s:url namespace="" action="bootstrap-theme" />" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<s:url namespace="" action="jquery-js" />"></script>
 <script type="text/javascript" src="<s:url namespace="" action="bootstrap-js" />"></script>
+
 </head>
 </html>
