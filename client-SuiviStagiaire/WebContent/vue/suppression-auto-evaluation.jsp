@@ -13,9 +13,10 @@
 <%@ include file = "/WEB-INF/jsp/bandeau.jsp" %>
 
 <body>
-
 <%@ include file = "/WEB-INF/jsp/menu.jsp" %>
-
+<div class="container">
+	
+</div>
 </body>
 <%@ include file = "/WEB-INF/jsp/footer.jsp" %>
 </html>

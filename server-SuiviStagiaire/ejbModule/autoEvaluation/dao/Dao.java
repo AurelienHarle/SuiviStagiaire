@@ -19,7 +19,6 @@ import exception.UnfoundException;
 import logger.JournaliseurNiveauConfig;
 import logger.JournaliseurNiveauError;
 import logger.JournaliseurNiveauInfo;
-import parametre.Parametre;
 
 /**
  * Session Bean Dao qui permet l'insertion l'update et le delete dans la base de données
@@ -35,8 +34,9 @@ public class Dao implements DaoLocal {
 	
 	//TODO Externalisé la construction des message dans une classe et faire la construction des message LOG dans un LogRecord
 	//TODO Deplacé Stagiaire etc dans les bon package/classe
+	private static final String PERSISTENCE_UNIT_NAME = "suiviStag";
 	
-	@PersistenceContext(unitName=Parametre.PERSISTENCE_UNIT_NAME)
+	@PersistenceContext(unitName=PERSISTENCE_UNIT_NAME)
 	EntityManager em;
 	
 	JournaliseurNiveauConfig journaliseurNiveauConfig = JournaliseurNiveauConfig.getINSTANCE();

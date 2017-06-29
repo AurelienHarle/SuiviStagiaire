@@ -20,7 +20,7 @@
 <!-- auto-evaluation -->
 	<package name="auto-evaluation" namespace="/auto-evaluation"  extends="struts-default">
 	
-		<action name="*-auto-evaluation" method="{1}" class="autoEvalution.Navigation">
+		<action name="*-auto-evaluation" method="{1}" class="autoEvaluation.Navigation">
 			<result name="rechercher">/vue/{1}-auto-evaluation.jsp</result>
 			<result name="creation">/vue/{1}-auto-evaluation.jsp</result>
 			<result name="modification">/vue/{1}-auto-evaluation.jsp</result>

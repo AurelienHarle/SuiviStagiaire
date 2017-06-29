@@ -21,7 +21,6 @@ import exception.UpdateNotInsertException;
 import logger.JournaliseurNiveauConfig;
 import logger.JournaliseurNiveauError;
 import logger.JournaliseurNiveauInfo;
-import parametre.Parametre;
 
 /**
  * Session Bean implementation class AutoEvaluationDao
@@ -30,6 +29,7 @@ import parametre.Parametre;
 @LocalBean
 public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 
+	private static final String PERSISTENCE_UNIT_NAME = "suiviStag";
     /**
      * Default constructor. 
      */
@@ -37,7 +37,7 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
        
     }
     
-    @PersistenceContext(unitName=Parametre.PERSISTENCE_UNIT_NAME)
+    @PersistenceContext(unitName=PERSISTENCE_UNIT_NAME)
 	EntityManager em;
 	
 	JournaliseurNiveauConfig journaliseurNiveauConfig = JournaliseurNiveauConfig.getINSTANCE();
