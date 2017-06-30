@@ -6,6 +6,7 @@ import autoEvaluation.entity.Competence;
 import autoEvaluation.entity.Module;
 import autoEvaluation.entity.NiveauAcquisition;
 import autoEvaluation.entity.Sequence;
+import autoEvaluation.technique.Competences;
 import compteUtilisateur.entity.Stagiaire;
 import exception.DoublonException;
 import exception.NullException;
@@ -133,6 +134,12 @@ public interface DaoLocal {
 	public Competence selectCompetence(Competence competence) throws UnfoundException;
 	
 	/**
+	 * Retourne toute les competences de la table comp
+	 * @return competences {@link Competences}
+	 */
+	public Competences selectCompetences();
+	
+	/**
 	 * Select NiveauAcquisition
 	 * @throws UnfoundException 
 	 */
@@ -143,6 +150,8 @@ public interface DaoLocal {
 	 * @throws UnfoundException 
 	 */
 	public Stagiaire selectStagiaire(Stagiaire stagiaire) throws UnfoundException;
+
+	
 	
 
 

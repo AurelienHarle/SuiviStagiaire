@@ -8,6 +8,7 @@ import autoEvaluation.entity.Module;
 import autoEvaluation.entity.NiveauAcquisition;
 import autoEvaluation.entity.Sequence;
 import autoEvaluation.technique.AutoEvaluations;
+import autoEvaluation.technique.Competences;
 import compteUtilisateur.entity.Stagiaire;
 import exception.DateNullException;
 import exception.DoublonException;
@@ -168,6 +169,12 @@ public interface FacadeSuiviStagiaireRemote {
 	 * @throws UnfoundException 
 	 */
 	public Competence selectCompetence(Competence competence) throws UnfoundException;
+	
+	/**
+	 * Retourne toute les competences de la table comp
+	 * @return competences {@link Competences}
+	 */
+	public Competences selectCompetences();
 	
 	/**
 	 * Select NiveauAcquisition

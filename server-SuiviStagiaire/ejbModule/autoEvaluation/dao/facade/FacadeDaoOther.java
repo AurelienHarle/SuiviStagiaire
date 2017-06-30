@@ -9,6 +9,7 @@ import autoEvaluation.entity.Competence;
 import autoEvaluation.entity.Module;
 import autoEvaluation.entity.NiveauAcquisition;
 import autoEvaluation.entity.Sequence;
+import autoEvaluation.technique.Competences;
 import compteUtilisateur.entity.Stagiaire;
 import exception.DoublonException;
 import exception.NullException;
@@ -151,6 +152,12 @@ public class FacadeDaoOther implements FacadeDaoAutoOther {
 	public Stagiaire selectStagiaire(Stagiaire stagiaire) throws UnfoundException {
 		return dao.selectStagiaire(stagiaire);
 		
+	}
+
+	@Override
+	public Competences selectCompetences() {
+		
+		return dao.selectCompetences();
 	} 
     
 }

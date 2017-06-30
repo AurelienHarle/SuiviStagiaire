@@ -50,7 +50,7 @@ public class AutoEvaluation implements Serializable {
 	private NiveauAcquisition niveauAcquisition;
 
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="stag_id", nullable=false,unique=false)
+	@JoinColumn(name="stag_osia", nullable=false,unique=false)
 	private Stagiaire stagiaire;
 	
 	@Column(name="ae_date", length=10, nullable=false,unique=false)

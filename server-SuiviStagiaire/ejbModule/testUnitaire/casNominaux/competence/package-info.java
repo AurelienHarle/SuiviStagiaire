@@ -5,4 +5,4 @@
  * @author Afpa
  *
  */
-package autoEvaluation.technique;
+package testUnitaire.casNominaux.competence;

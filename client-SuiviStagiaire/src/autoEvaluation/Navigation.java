@@ -3,7 +3,10 @@ package autoEvaluation;
 import javax.naming.InitialContext;
 
 import autoEvaluation.entity.AutoEvaluation;
+import autoEvaluation.entity.Competence;
+import autoEvaluation.technique.Competences;
 import facade.FacadeSuiviStagiaire;
+import facade.FacadeSuiviStagiaireRemote;
 
 /**
  * Classe qui permet de naviguer entre les différente partie concernant les {@link AutoEvaluation}
@@ -18,7 +21,8 @@ public class Navigation extends ApplicationSupport {
 
 	private static final long serialVersionUID = 1L;
 	private InitialContext context;
-	private FacadeSuiviStagiaire facadeSuiviStagiaire;
+	private FacadeSuiviStagiaireRemote facadeSuiviStagiaireRemote;
+	private Competences competences;
 	private static final String FACADE = "ejb:/server-SuiviStagiaire/FacadeSuiviStagiaire!facade.FacadeSuiviStagiaireRemote";
 	private static final String CREATION = "creation";
 	private static final String MODIFICATION = "modification";
@@ -37,7 +41,7 @@ public class Navigation extends ApplicationSupport {
 		try {
 
 			context = new InitialContext();
-			facadeSuiviStagiaire = (FacadeSuiviStagiaire) context.lookup(FACADE);
+			facadeSuiviStagiaireRemote = (FacadeSuiviStagiaireRemote) context.lookup(FACADE);
 			
 		} catch (Exception e) {
 			
@@ -53,9 +57,16 @@ public class Navigation extends ApplicationSupport {
 	 */
 	public String creation(){
 		
-		System.out.println("Bonjour");
+		init();
 		
-		//Récupération de la liste de competence et set de celle ci
+		competences = facadeSuiviStagiaireRemote.selectCompetences();
+		
+		System.out.println(competences.toString());
+//		System.out.println(competences.size());
+		
+//		for (Competence competence : competences) {
+//			System.out.println(competence);
+//		}
 		
 		return CREATION;
 	}

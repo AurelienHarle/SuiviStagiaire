@@ -1,6 +1,7 @@
 package logger;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.logging.ConsoleHandler;
@@ -8,6 +9,11 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
+
+import javax.annotation.PostConstruct;
+import javax.ejb.ConcurrencyManagement;
+import javax.ejb.ConcurrencyManagementType;
+import javax.ejb.Singleton;
 
 import sun.security.jca.GetInstance;
 
@@ -30,8 +36,13 @@ import sun.security.jca.GetInstance;
  * @since 27/06/2017
  *
  */
-public class JournaliseurNiveauConfig extends Logger {
+@Singleton
 
+@ConcurrencyManagement(ConcurrencyManagementType.CONTAINER)
+
+public class JournaliseurNiveauConfig extends Logger implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private FileHandler handler;
 	private SimpleFormatter formatter;
 	private ConsoleHandler handlerConsole;
@@ -39,15 +50,14 @@ public class JournaliseurNiveauConfig extends Logger {
 	private final static String LOGGER_NAME = "LogConfig";
 	private final static String LOGGER_PATH = "D:\\Projet\\Suivi stagiaire\\Git\\SuiviStagiaire\\server-SuiviStagiaire\\logs\\"+ LocalDate.now() + "_" + Level.CONFIG.getName() + "_" + ".log";
 
-	private JournaliseurNiveauConfig() {
+	public JournaliseurNiveauConfig() {
 		super(LOGGER_NAME, null);
-		init();
-		
 	}
 
 	/**
 	 * Initialise le logger avec tout les configurations nécessaire
 	 */
+	@PostConstruct
 	private void init() {
 		
 		formatter = new SimpleFormatter(); 

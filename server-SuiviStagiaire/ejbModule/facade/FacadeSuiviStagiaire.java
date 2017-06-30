@@ -12,6 +12,7 @@ import autoEvaluation.entity.Sequence;
 import autoEvaluation.facade.FacadeServiceAutoEvaluation;
 import autoEvaluation.facade.FacadeServiceOther;
 import autoEvaluation.technique.AutoEvaluations;
+import autoEvaluation.technique.Competences;
 import compteUtilisateur.entity.Stagiaire;
 import exception.DateNullException;
 import exception.DoublonException;
@@ -190,6 +191,12 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
 	public Stagiaire selectStagiaire(Stagiaire stagiaire) throws UnfoundException {
 		return facadeServiceOther.selectStagiaire(stagiaire);
 		
+	}
+
+	@Override
+	public Competences selectCompetences() {
+		
+		return facadeServiceOther.selectCompetences();
 	} 
     
 }

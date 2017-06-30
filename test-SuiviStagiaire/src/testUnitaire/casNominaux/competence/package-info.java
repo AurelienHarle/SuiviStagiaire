@@ -5,4 +5,4 @@
  * @author Afpa
  *
  */
-package logger;
+package testUnitaire.casNominaux.competence;

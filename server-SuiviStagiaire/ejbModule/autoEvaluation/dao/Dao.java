@@ -1,7 +1,9 @@
 package autoEvaluation.dao;
 
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -12,6 +14,7 @@ import autoEvaluation.entity.Competence;
 import autoEvaluation.entity.Module;
 import autoEvaluation.entity.NiveauAcquisition;
 import autoEvaluation.entity.Sequence;
+import autoEvaluation.technique.Competences;
 import compteUtilisateur.entity.Stagiaire;
 import exception.DoublonException;
 import exception.NullException;
@@ -39,9 +42,12 @@ public class Dao implements DaoLocal {
 	@PersistenceContext(unitName=PERSISTENCE_UNIT_NAME)
 	EntityManager em;
 	
-	JournaliseurNiveauConfig journaliseurNiveauConfig = JournaliseurNiveauConfig.getINSTANCE();
-	JournaliseurNiveauError journaliseurNiveauError = JournaliseurNiveauError.getINSTANCE();
-	JournaliseurNiveauInfo journaliseurNiveauInfo = JournaliseurNiveauInfo.getINSTANCE();
+	@EJB
+	JournaliseurNiveauConfig journaliseurNiveauConfig;
+	@EJB
+	JournaliseurNiveauError journaliseurNiveauError;
+	@EJB
+	JournaliseurNiveauInfo journaliseurNiveauInfo;
 	
     /**
      * Default constructor. 
@@ -554,6 +560,36 @@ public class Dao implements DaoLocal {
 
 		return competence2; 
 		 	
+	}
+	
+	@Override
+	@SuppressWarnings("rawtypes")
+	public Competences selectCompetences(){
+		
+		journaliseurNiveauConfig.log("[Debut methode selectCompetences]");
+		
+		Competences competences = new Competences();
+		
+		journaliseurNiveauConfig.log("[Initialisé competences]");
+		
+		String sqlQuery = "select c from Competence c ORDER BY c.nomLong desc";
+		
+		journaliseurNiveauConfig.log("[sqlQuery : " + sqlQuery + "]");
+		
+		List list = em.createQuery(sqlQuery).getResultList();
+		
+		journaliseurNiveauConfig.log("[list : " + list + "]");
+		
+		for (Object object : list) {
+			
+			journaliseurNiveauConfig.log("[object : " + object + "]");
+			competences.add((Competence) object);
+			
+		}
+		
+		journaliseurNiveauConfig.log("[competences : " + competences + "]");
+		
+		return competences;
 	}
 
 
