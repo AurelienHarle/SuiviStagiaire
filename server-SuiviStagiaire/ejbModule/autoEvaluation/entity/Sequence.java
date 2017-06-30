@@ -32,6 +32,7 @@ public class Sequence implements Serializable {
 	@Column(name="seq_id", length=3, nullable=false)
 	private String identifiant;
 	
+	@Id
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn( name="mod_id", nullable=false)
 	private Module module;

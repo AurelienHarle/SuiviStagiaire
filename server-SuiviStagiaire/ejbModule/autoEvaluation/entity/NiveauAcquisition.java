@@ -1,5 +1,6 @@
 package autoEvaluation.entity;
 
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -29,7 +30,7 @@ public class NiveauAcquisition implements Serializable {
 	@Column(name="na_id", length=2, nullable=false)
 	private String identifiant;
 	
-	@Column(name="na_niv", length=20, nullable=false)
+	@Column(name="na_lbl", length=20, nullable=false)
 	private String libelle;
 	
 	/**

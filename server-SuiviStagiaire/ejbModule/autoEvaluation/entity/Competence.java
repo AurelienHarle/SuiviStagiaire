@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -41,8 +42,11 @@ public class Competence implements Serializable {
 	@Column(name="comp_nom_court", length=200, nullable=false)
 	private String nomCourt;
 	
+	@Id
 	@ManyToOne(fetch=FetchType.EAGER,cascade=CascadeType.DETACH)
-	@JoinColumn(name="seq_id",nullable=false)
+	@JoinColumns(value={
+			@JoinColumn(name="seq_id",nullable=false),
+			@JoinColumn(name="mod_id",nullable=false)})
 	private Sequence sequence;
 	
 	/**

@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -40,9 +41,12 @@ public class AutoEvaluation implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="ae_id", length=4, nullable=false)
 	private int identifiant;
-	
+
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn( name="comp_id", nullable=false,unique=false)
+	@JoinColumns(value={
+			@JoinColumn( name="comp_id", nullable=false),
+			@JoinColumn(name="seq_id",nullable=false),
+			@JoinColumn(name="mod_id",nullable=false)})
 	private Competence competence;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
