@@ -1,4 +1,4 @@
-package testUnitaire.casNominaux.autoEval;
+package testUnitaire.casNominaux.autoEvaluation;
 
 import static org.junit.Assert.assertTrue;
 

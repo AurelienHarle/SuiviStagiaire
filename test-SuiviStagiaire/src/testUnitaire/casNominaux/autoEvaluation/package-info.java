@@ -7,4 +7,4 @@
  * @Since 19/06/2017
  *
  */
-package testUnitaire.casNominaux.autoEval;
+package testUnitaire.casNominaux.autoEvaluation;
