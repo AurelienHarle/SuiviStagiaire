@@ -19,7 +19,6 @@ import niveauAcquisition.technique.NiveauAcquisitions;
  */
 @Local
 public interface NiveauAcquisitionDaoLocal {
-	
 		
 	/**
 	 * Insertion d'un NiveauAcquisition
@@ -51,8 +50,4 @@ public interface NiveauAcquisitionDaoLocal {
 	 */
 	public NiveauAcquisitions selectNiveauAcquisitions();
 
-	
-
-
-	
 }

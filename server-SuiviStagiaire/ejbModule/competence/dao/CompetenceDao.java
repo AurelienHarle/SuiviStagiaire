@@ -32,7 +32,7 @@ import logger.JournaliseurNiveauInfo;
 public class CompetenceDao implements CompetenceDaoLocal {
 	
 	//TODO Externalisé la construction des message dans une classe et faire la construction des message LOG dans un LogRecord
-	//TODO Deplacé Stagiaire etc dans les bon package/classe
+
 	private static final String PERSISTENCE_UNIT_NAME = "suiviStag";
 	
 	@PersistenceContext(unitName=PERSISTENCE_UNIT_NAME)

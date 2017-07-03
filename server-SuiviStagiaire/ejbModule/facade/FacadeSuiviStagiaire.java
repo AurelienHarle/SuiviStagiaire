@@ -156,8 +156,7 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
 
 	@Override
 	public NiveauAcquisitions selectNiveauAcquisitions() {
-		// TODO Auto-generated method stub
-		return null;
+		return facadeServiceNiveauAcquisition.selectNiveauAcquisitions();
 	}
 
 	@Override

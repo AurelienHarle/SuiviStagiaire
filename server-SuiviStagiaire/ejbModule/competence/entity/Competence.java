@@ -46,11 +46,20 @@ public class Competence implements Serializable {
 	@Column(name="comp_nom_court", length=200, nullable=false)
 	private String nomCourt;
 	
+//	@Id
+//	   @JoinColumns(value={
+//	      @JoinColumn(name="mod_id", referencedColumnName="mod_id"),
+//	      @JoinColumn(name="seq_fk", referencedColumnName="seq_id")
+//	   })
+//	@ManyToOne(fetch=FetchType.EAGER)
+//	private Sequence sequence;
+	
+	
 	@Id
 	@ManyToOne(fetch=FetchType.EAGER,cascade=CascadeType.DETACH)
 	@JoinColumns(value={
-			@JoinColumn(name="seq_id",nullable=false,referencedColumnName="seq_id"),
-			@JoinColumn(name="mod_id",nullable=false,referencedColumnName="mod_id")})
+			@JoinColumn(name="mod_id",nullable=false,referencedColumnName="mod_id"),
+			@JoinColumn(name="seq_id",nullable=false,referencedColumnName="seq_id")})
 	private Sequence sequence;
 	
 	/**

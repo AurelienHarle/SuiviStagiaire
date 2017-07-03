@@ -29,8 +29,8 @@ public class Navigation extends ApplicationSupport {
 	private static final String RECHERCHER = "recherche";
 	private static final String LISTER = "listage";
 	
-	public Competences competences;
-	public NiveauAcquisitions niveauAcquisitions;
+	private Competences competences;
+	private NiveauAcquisitions niveauAcquisitions;
 	
 	
 	

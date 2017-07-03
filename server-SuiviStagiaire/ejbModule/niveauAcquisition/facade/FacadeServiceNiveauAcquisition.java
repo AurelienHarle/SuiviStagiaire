@@ -25,31 +25,26 @@ public class FacadeServiceNiveauAcquisition implements FacadeServiceNiveauAcquis
      * Default constructor. 
      */
     public FacadeServiceNiveauAcquisition() {
-        // TODO Auto-generated constructor stub
     }
     
     @Override
 	public void insertNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws DoublonException, NullException {
 		facadeDaoNiveauAcquisition.insertNiveauAcquisition(niveauAcquisition);
-		
 	}
 
 	@Override
 	public void updateNiveauAcquisition(NiveauAcquisition niveauAcquisition) {
 		facadeDaoNiveauAcquisition.updateNiveauAcquisition(niveauAcquisition);
-		
 	}
 
 	@Override
 	public void deleteNiveauAcquisition(NiveauAcquisition niveauAcquisition) {
 		facadeDaoNiveauAcquisition.deleteNiveauAcquisition(niveauAcquisition);
-		
 	}
 
 	@Override
 	public NiveauAcquisition selectNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws UnfoundException {
 		return facadeDaoNiveauAcquisition.selectNiveauAcquisition(niveauAcquisition);
-		
 	}
 
 	@Override

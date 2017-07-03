@@ -32,7 +32,6 @@ import niveauAcquisition.technique.NiveauAcquisitions;
 public class NiveauAcquisitionDao implements NiveauAcquisitionDaoLocal {
 	
 	//TODO Externalisé la construction des message dans une classe et faire la construction des message LOG dans un LogRecord
-	//TODO Deplacé Stagiaire etc dans les bon package/classe
 	private static final String PERSISTENCE_UNIT_NAME = "suiviStag";
 	
 	@PersistenceContext(unitName=PERSISTENCE_UNIT_NAME)
@@ -48,13 +47,8 @@ public class NiveauAcquisitionDao implements NiveauAcquisitionDaoLocal {
     /**
      * Default constructor. 
      */
-    public NiveauAcquisitionDao() {
-        
+    public NiveauAcquisitionDao() { 
     }
-
-
-	
-
 
 	@Override
 	public void insertNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws DoublonException, NullException {

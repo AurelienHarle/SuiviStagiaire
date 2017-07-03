@@ -11,7 +11,6 @@ import niveauAcquisition.technique.NiveauAcquisitions;
 @Local
 public interface FacadeDaoNiveauAcquisitionLocal {
 
-
 	/**
 	 * Insertion d'un NiveauAcquisition
 	 * @param competence

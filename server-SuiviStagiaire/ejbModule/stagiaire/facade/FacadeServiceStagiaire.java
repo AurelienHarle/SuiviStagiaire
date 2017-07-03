@@ -24,31 +24,26 @@ public class FacadeServiceStagiaire implements FacadeServiceStagiaireLocal {
      * Default constructor. 
      */
     public FacadeServiceStagiaire() {
-        // TODO Auto-generated constructor stub
     }
     
     @Override
 	public void insertStagiaire(Stagiaire stagiaire) throws DoublonException, NullException {
 		facadeDaoStagiaire.insertStagiaire(stagiaire);
-		
 	}
 	
 	@Override
 	public void updateStagiaire(Stagiaire stagiaire) {
 		facadeDaoStagiaire.updateStagiaire(stagiaire);
-		
 	}
 	
 	@Override
 	public void deleteStagiaire(Stagiaire stagiaire) {
 		facadeDaoStagiaire.deleteStagiaire(stagiaire);
-		
 	}
 	
 	@Override
 	public Stagiaire selectStagiaire(Stagiaire stagiaire) throws UnfoundException {
 		return facadeDaoStagiaire.selectStagiaire(stagiaire);
-		
-	} 
+	}
 
 }

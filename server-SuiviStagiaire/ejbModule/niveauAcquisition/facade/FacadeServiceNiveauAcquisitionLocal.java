@@ -40,4 +40,5 @@ public interface FacadeServiceNiveauAcquisitionLocal {
 	 * @throws UnfoundException 
 	 */
 	public NiveauAcquisitions selectNiveauAcquisitions();
+	
 }

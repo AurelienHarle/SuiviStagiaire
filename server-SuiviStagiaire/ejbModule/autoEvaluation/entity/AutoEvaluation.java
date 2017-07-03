@@ -15,7 +15,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import competence.entity.Competence;
-import competence.technique.Competences;
 import niveauAcquisition.entity.NiveauAcquisition;
 import stagiaire.entity.Stagiaire;
 
@@ -24,7 +23,7 @@ import stagiaire.entity.Stagiaire;
  * {@link Class} {@link Entity}, {@link AutoEvaluation} elle représente l'évaluation du stagiaire sur une competence donner.
  * 
  * elle est composé obligatoirement d'un identifiant auto-généré, d'une date d'evaluation mis a la date du jour de l'évaluation,
- * d'un {@link Stagiaire}, d'un {@link NiveauAcquisition}, et d'une {@link Competences}
+ * d'un {@link Stagiaire}, d'un {@link NiveauAcquisition}, et d'une {@link Competence}
  * 
  * elle est {@link Serializable} 
  * 
@@ -46,9 +45,12 @@ public class AutoEvaluation implements Serializable {
 
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumns(value={
-			@JoinColumn( name="comp_id", nullable=false),
-			@JoinColumn(name="seq_id",nullable=false),
-			@JoinColumn(name="mod_id",nullable=false)})
+			
+			@JoinColumn(name="mod_id",nullable=false,referencedColumnName="mod_id"),
+			@JoinColumn(name="seq_id",nullable=false,referencedColumnName="seq_id"),
+			@JoinColumn(name="comp_id", nullable=false,referencedColumnName="comp_id")
+			
+	})
 	private Competence competence;
 	
 	@ManyToOne(fetch=FetchType.EAGER)

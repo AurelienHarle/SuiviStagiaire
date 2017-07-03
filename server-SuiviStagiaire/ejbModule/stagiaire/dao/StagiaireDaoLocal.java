@@ -19,14 +19,11 @@ import stagiaire.entity.Stagiaire;
 @Local
 public interface StagiaireDaoLocal {
 	
-		
 	/**
 	 * Insertion d'un Stagiaire
 	 * 
 	 */
 	public void insertStagiaire(Stagiaire stagiaire) throws DoublonException, NullException;
-	
-	
 	
 	/**
 	 * Update d'un Stagiaire
@@ -38,18 +35,10 @@ public interface StagiaireDaoLocal {
 	 */
 	public void deleteStagiaire(Stagiaire stagiaire);
 	
-
-	
-
 	/**
 	 * Select Stagiaire
 	 * @throws UnfoundException 
 	 */
 	public Stagiaire selectStagiaire(Stagiaire stagiaire) throws UnfoundException;
 
-	
-	
-
-
-	
 }

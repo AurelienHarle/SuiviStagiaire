@@ -10,7 +10,6 @@ import stagiaire.entity.Stagiaire;
 @Local
 public interface FacadeDaoStagiaireLocal {
 
-
 	/**
 	 * Insertion d'un Stagiaire
 	 * 

@@ -25,36 +25,30 @@ public class FacadeServiceCompetence implements FacadeServiceCompetenceLocal {
      * Default constructor. 
      */
     public FacadeServiceCompetence() {
-        // TODO Auto-generated constructor stub
     }
     
     @Override
 	public void insertCompetence(Competence competence) throws DoublonException, NullException {
-		facadeDaoCompetence.insertCompetence(competence);
-		
+		facadeDaoCompetence.insertCompetence(competence);	
 	}
 
 	@Override
 	public void updateCompetence(Competence competence) {
 		facadeDaoCompetence.updateCompetence(competence);
-		
 	}
 
 	@Override
 	public void deleteCompetence(Competence competence) {
 		facadeDaoCompetence.deleteCompetence(competence);
-		
 	}
 
 	@Override
 	public Competence selectCompetence(Competence competence) throws UnfoundException {
 		return facadeDaoCompetence.selectCompetence(competence);
-		
 	}
 
 	@Override
 	public Competences selectCompetences() {
-		
 		return facadeDaoCompetence.selectCompetences();
 	} 
 

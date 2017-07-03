@@ -19,7 +19,6 @@ import module.entity.Module;
 @Local
 public interface ModuleDaoLocal {
 	
-		
 	/**
 	 * Insertion d'un Module
 	 * @throws DoublonException 
@@ -43,9 +42,4 @@ public interface ModuleDaoLocal {
 	 */
 	public Module selectModule(Module module) throws UnfoundException;
 
-	
-	
-
-
-	
 }

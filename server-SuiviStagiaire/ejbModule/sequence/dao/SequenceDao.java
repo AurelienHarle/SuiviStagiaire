@@ -30,7 +30,7 @@ import sequence.entity.Sequence;
 public class SequenceDao implements SequenceDaoLocal {
 	
 	//TODO Externalisé la construction des message dans une classe et faire la construction des message LOG dans un LogRecord
-	//TODO Deplacé Stagiaire etc dans les bon package/classe
+
 	private static final String PERSISTENCE_UNIT_NAME = "suiviStag";
 	
 	@PersistenceContext(unitName=PERSISTENCE_UNIT_NAME)
@@ -47,14 +47,8 @@ public class SequenceDao implements SequenceDaoLocal {
      * Default constructor. 
      */
     public SequenceDao() {
-        
     }
 
-
-	
-
-
-	@SuppressWarnings("null")
 	@Override
 	public void insertSequence(Sequence sequence) throws DoublonException, NullException {
 		
@@ -85,7 +79,7 @@ public class SequenceDao implements SequenceDaoLocal {
 				
 			}else if(e instanceof IllegalArgumentException && sequence == null){
 				
-				throw new NullException("insertSequence [Entity] Sequence :  " + sequence.toString());
+				throw new NullException("insertSequence [Entity] Sequence : Null ");
 				
 			}else{
 				e.printStackTrace();

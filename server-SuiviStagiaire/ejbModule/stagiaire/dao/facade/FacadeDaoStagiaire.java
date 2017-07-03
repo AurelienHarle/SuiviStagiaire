@@ -26,33 +26,24 @@ public class FacadeDaoStagiaire implements FacadeDaoStagiaireLocal {
     public FacadeDaoStagiaire() {
     }
 	
-
 	@Override
 	public void insertStagiaire(Stagiaire stagiaire) throws DoublonException, NullException {
 		stagiaireDao.insertStagiaire(stagiaire);
-		
 	}
-
-	
 
 	@Override
 	public void updateStagiaire(Stagiaire stagiaire) {
 		stagiaireDao.updateStagiaire(stagiaire);
-		
 	}
-
-	
 
 	@Override
 	public void deleteStagiaire(Stagiaire stagiaire) {
 		stagiaireDao.deleteStagiaire(stagiaire);
-		
 	}
 
 	@Override
 	public Stagiaire selectStagiaire(Stagiaire stagiaire) throws UnfoundException {
 		return stagiaireDao.selectStagiaire(stagiaire);
-		
 	} 
     
 }

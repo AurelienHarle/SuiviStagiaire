@@ -31,4 +31,5 @@ public interface FacadeServiceStagiaireLocal {
 	 * @throws UnfoundException 
 	 */
 	public Stagiaire selectStagiaire(Stagiaire stagiaire) throws UnfoundException;
+	
 }

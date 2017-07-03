@@ -19,7 +19,6 @@ import sequence.entity.Sequence;
 @Local
 public interface SequenceDaoLocal {
 	
-		
 	/**
 	 * Insertion d'une Sequence
 	 * @throws DoublonException 
@@ -43,10 +42,5 @@ public interface SequenceDaoLocal {
 	 * @throws UnfoundException 
 	 */
 	public Sequence selectSequence(Sequence sequence) throws UnfoundException;
-
-	
-	
-
-
 	
 }

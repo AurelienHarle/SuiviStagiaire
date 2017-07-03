@@ -35,6 +35,10 @@ public interface FacadeDaoCompetenceLocal {
 	 */
 	public Competence selectCompetence(Competence competence) throws UnfoundException;
 	
+	/**
+	 * Retourne toute les competences de la table comp
+	 * @return competences {@link Competences}
+	 */
 	public Competences selectCompetences();
 	
 }

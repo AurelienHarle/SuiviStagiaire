@@ -24,7 +24,6 @@ public class FacadeServiceModule implements FacadeServiceModuleLocal {
      * Default constructor. 
      */
     public FacadeServiceModule() {
-        // TODO Auto-generated constructor stub
     }
     
     @Override

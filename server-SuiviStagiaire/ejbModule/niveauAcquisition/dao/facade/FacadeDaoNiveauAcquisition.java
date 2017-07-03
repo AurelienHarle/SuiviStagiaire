@@ -27,34 +27,28 @@ public class FacadeDaoNiveauAcquisition implements FacadeDaoNiveauAcquisitionLoc
     public FacadeDaoNiveauAcquisition() {
     }
 	
-
 	@Override
 	public void insertNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws DoublonException, NullException {
-		niveauAcquisitionDao.insertNiveauAcquisition(niveauAcquisition);
-		
+		niveauAcquisitionDao.insertNiveauAcquisition(niveauAcquisition);	
 	}
 
 	@Override
 	public void updateNiveauAcquisition(NiveauAcquisition niveauAcquisition) {
 		niveauAcquisitionDao.updateNiveauAcquisition(niveauAcquisition);
-		
 	}
 
 	@Override
 	public void deleteNiveauAcquisition(NiveauAcquisition niveauAcquisition) {
 		niveauAcquisitionDao.deleteNiveauAcquisition(niveauAcquisition);
-		
 	}
 
 	@Override
 	public NiveauAcquisition selectNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws UnfoundException {
 		return niveauAcquisitionDao.selectNiveauAcquisition(niveauAcquisition);
-		
 	}
 
 	@Override
 	public NiveauAcquisitions selectNiveauAcquisitions() {
-		
 		return niveauAcquisitionDao.selectNiveauAcquisitions();
 	} 
     

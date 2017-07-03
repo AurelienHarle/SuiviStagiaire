@@ -53,7 +53,6 @@ public class FacadeDaoCompetence implements FacadeDaoCompetenceLocal {
 
 	@Override
 	public Competences selectCompetences() {
-		
 		return competenceDao.selectCompetences();
 	} 
     
