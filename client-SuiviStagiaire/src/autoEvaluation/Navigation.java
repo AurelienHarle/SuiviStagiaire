@@ -36,6 +36,9 @@ public class Navigation extends ApplicationSupport {
 		
 	}
 	
+	/**
+	 * Initialise la connection vers le serveur EJB.
+	 */
 	private void init() {
 
 		try {
@@ -62,11 +65,10 @@ public class Navigation extends ApplicationSupport {
 		competences = facadeSuiviStagiaireRemote.selectCompetences();
 		
 		System.out.println(competences.toString());
-//		System.out.println(competences.size());
 		
-//		for (Competence competence : competences) {
-//			System.out.println(competence);
-//		}
+		for (Competence competence : competences) {
+			System.out.println(competence);
+		}
 		
 		return CREATION;
 	}
