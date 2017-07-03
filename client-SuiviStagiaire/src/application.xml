@@ -21,12 +21,23 @@
 	<package name="auto-evaluation" namespace="/auto-evaluation"  extends="struts-default">
 	
 		<action name="*-auto-evaluation" method="{1}" class="autoEvaluation.Navigation">
-			<result name="rechercher">/vue/{1}-auto-evaluation.jsp</result>
+			<result name="recherche">/vue/{1}-auto-evaluation.jsp</result>
 			<result name="creation">/vue/{1}-auto-evaluation.jsp</result>
 			<result name="modification">/vue/{1}-auto-evaluation.jsp</result>
 			<result name="suppression">/vue/{1}-auto-evaluation.jsp</result>
+			<result name="listage">/vue/{1}-auto-evaluation.jsp</result>
+			<result name="error">/vue/erreur-auto-evaluation.jsp</result>
+			<allowed-methods>recherche,creation,modification,suppression,listage</allowed-methods>
+		</action>
+		
+		<action name="auto-evaluation-*" method="{1}" class="autoEvaluation.Action">
+			<result name="rechercher">/vue/{1}-auto-evaluation.jsp</result>
+			<result name="creer">/vue/{1}-auto-evaluation.jsp</result>
+			<result name="modifier">/vue/{1}-auto-evaluation.jsp</result>
+			<result name="supprimer">/vue/{1}-auto-evaluation.jsp</result>
 			<result name="lister">/vue/{1}-auto-evaluation.jsp</result>
-			<allowed-methods>creation,modification,suppression,rechercher,lister</allowed-methods>
+			<result name="error">/vue/erreur-auto-evaluation.jsp</result>
+			<allowed-methods>rechercher,creer,modifier,supprimer,lister</allowed-methods>
 		</action>
 		
 	</package>

@@ -16,42 +16,36 @@
 <%@ include file = "/WEB-INF/jsp/menu.jsp" %>
 	<div class="container center-block">
 		<section id="creation-auto-evaluation" class="center-block">
-			<form class="form-horizontal center-block" action="" method="get">
+			<form class="form-horizontal center-block" action="auto-evaluation-creer" method="post" onsubmit="return validateFormCreation(this)">
 				<div class="form-groupe">
 					<label for="competence" class="col-sm-3 col-sm-offset-0 control-label">Compétence :</label>
 					<div id="competence" name="competence" class="col-sm-9 col-sm-offset-0">
 			   			<select title="Compétence" class="form-control">
-			   				<option>Competence 1</option>
+			   				<s:iterator value="Competences">
+							 <option name="competence" value="<s:property value="identifiant"/>"><s:property value="identifiant"/> - <s:property value="nomCourt"/></option>
+							</s:iterator>
 			   			</select>
 		   			</div>
 				</div>
 				<div class="form-group">
 					<label for="niveau-acquisition" class="col-sm-3 col-sm-offset-0 control-label">Niveau d'acquisition :</label>
+						<s:iterator value="NiveauAcquisitions">
 						<div class="col-sm-3 col-sm-offset-0 radio">
 							<label  class="radio-inline">
-							<input type="radio" name="niveau-acquisition" > Acquis
+							<input type="radio" name="niveauAcquisition" value="<s:property value="identifiant"/>" > <s:property value="libelle"/>
 							</label>
 						</div>
-						<div class="col-sm-3 col-sm-offset-0 radio">
-							<label  class="radio-inline">
-							<input type="radio" name="niveau-acquisition"> A confirmer
-							</label>
-						</div>
-						<div class="col-sm-3 col-sm-offset-0 radio">
-							<label  class="radio-inline">
-							<input type="radio" name="niveau-acquisition"> Non acquis
-							</label>
-						</div>
+						</s:iterator>
 				</div>
 				<div class="form-group">
 					<label for="ressenti" class="col-sm-3 col-sm-offset-0 control-label">Ressenti :</label>
 					<div class="col-sm-9 col-sm-offset-0">
-						<textarea class="form-control" id="ressenti" rows="3" >Votre ressenti....</textarea>
+						<textarea class="form-control" name="ressenti" rows="3" >Votre ressenti....</textarea>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-sm-2 col-sm-offset-8">
-						<button type="submit" class="btn btn-default">Annuler</button>
+						<button type="reset" class="btn btn-default">Annuler</button>
 					</div>
 					<div class="col-sm-2 col-sm-offset-0">
 						<button type="submit" class="btn btn-default">Valider</button>
