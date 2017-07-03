@@ -1,6 +1,7 @@
 package niveauAcquisition.dao;
 
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
@@ -16,6 +17,7 @@ import logger.JournaliseurNiveauConfig;
 import logger.JournaliseurNiveauError;
 import logger.JournaliseurNiveauInfo;
 import niveauAcquisition.entity.NiveauAcquisition;
+import niveauAcquisition.technique.NiveauAcquisitions;
 
 /**
  * Session Bean CompetenceDao qui permet l'insertion l'update et le delete dans la base de données
@@ -166,6 +168,26 @@ public class NiveauAcquisitionDao implements NiveauAcquisitionDaoLocal {
 		}
 
 		return niveauAcquisition2; 
+		
+	}
+
+	@SuppressWarnings("rawtypes")
+	@Override
+	public NiveauAcquisitions selectNiveauAcquisitions() {
+		
+		NiveauAcquisitions niveauAcquisitions = new NiveauAcquisitions();
+		
+		String sqlQuery = "select c from Competence c ORDER BY c.identifiant asc";
+		
+		List list = em.createQuery(sqlQuery).getResultList();
+		
+		for (Object object : list) {
+			
+			niveauAcquisitions.add((NiveauAcquisition) object);
+			
+		}
+		
+		return niveauAcquisitions;
 		
 	}
 

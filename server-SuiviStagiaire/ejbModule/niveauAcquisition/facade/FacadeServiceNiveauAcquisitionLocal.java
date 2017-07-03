@@ -6,6 +6,7 @@ import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
 import niveauAcquisition.entity.NiveauAcquisition;
+import niveauAcquisition.technique.NiveauAcquisitions;
 
 @Local
 public interface FacadeServiceNiveauAcquisitionLocal {
@@ -33,4 +34,10 @@ public interface FacadeServiceNiveauAcquisitionLocal {
 	 * @throws UnfoundException 
 	 */
 	public NiveauAcquisition selectNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws UnfoundException;
+
+	/**
+	 * Select NiveauAcquisitions
+	 * @throws UnfoundException 
+	 */
+	public NiveauAcquisitions selectNiveauAcquisitions();
 }

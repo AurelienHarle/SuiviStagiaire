@@ -19,6 +19,7 @@ import module.entity.Module;
 import module.facade.FacadeServiceModule;
 import niveauAcquisition.entity.NiveauAcquisition;
 import niveauAcquisition.facade.FacadeServiceNiveauAcquisition;
+import niveauAcquisition.technique.NiveauAcquisitions;
 import sequence.entity.Sequence;
 import sequence.facade.FacadeServiceSequence;
 import stagiaire.entity.Stagiaire;
@@ -151,6 +152,12 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
 	public NiveauAcquisition selectNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws UnfoundException {
 		return facadeServiceNiveauAcquisition.selectNiveauAcquisition(niveauAcquisition);
 		
+	}
+
+	@Override
+	public NiveauAcquisitions selectNiveauAcquisitions() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override

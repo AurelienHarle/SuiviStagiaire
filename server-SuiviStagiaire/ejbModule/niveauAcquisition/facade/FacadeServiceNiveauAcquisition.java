@@ -9,6 +9,7 @@ import exception.NullException;
 import exception.UnfoundException;
 import niveauAcquisition.dao.facade.FacadeDaoNiveauAcquisition;
 import niveauAcquisition.entity.NiveauAcquisition;
+import niveauAcquisition.technique.NiveauAcquisitions;
 
 /**
  * Session Bean implementation class FacadeServiceCompetence
@@ -49,6 +50,11 @@ public class FacadeServiceNiveauAcquisition implements FacadeServiceNiveauAcquis
 	public NiveauAcquisition selectNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws UnfoundException {
 		return facadeDaoNiveauAcquisition.selectNiveauAcquisition(niveauAcquisition);
 		
+	}
+
+	@Override
+	public NiveauAcquisitions selectNiveauAcquisitions() {
+		return facadeDaoNiveauAcquisition.selectNiveauAcquisitions();
 	} 
 
 }

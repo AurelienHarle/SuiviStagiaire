@@ -12,11 +12,150 @@ import exception.NullException;
 import exception.UnfoundException;
 import module.entity.Module;
 import niveauAcquisition.entity.NiveauAcquisition;
+import niveauAcquisition.technique.NiveauAcquisitions;
 import sequence.entity.Sequence;
 import stagiaire.entity.Stagiaire;
 
 @Remote
 public interface FacadeSuiviStagiaireRemote {
+
+	/**
+	 * TODO 
+	 * 
+	 * @param module
+	 * @throws DoublonException
+	 * @throws NullException
+	 */
+	public void insertModule(Module module) throws DoublonException, NullException;
+
+	/**
+	 * TODO
+	 */
+	public void updateModule(Module module);
+
+	/**
+	 * Delete d'un Module
+	 */
+	public void deleteModule(Module module);
+
+	/**
+	 * Select d'un Module
+	 * @return 
+	 * @throws UnfoundException 
+	 */
+	public Module selectModule(Module module) throws UnfoundException;
+
+	/**
+	 * TODO 
+	 * 
+	 * @param sequence
+	 * @throws DoublonException
+	 * @throws NullException
+	 */
+	public void insertSequence(Sequence sequence) throws DoublonException, NullException;
+
+	/**
+	 * TODO
+	 */
+	public void updateSequence(Sequence sequence);
+
+	/**
+	 * Delete d'une Sequence
+	 */
+	public void deleteSequence(Sequence sequence);
+
+	/**
+	 * Select d'une Sequence
+	 * @throws UnfoundException 
+	 */
+	public Sequence selectSequence(Sequence sequence) throws UnfoundException;
+
+	/**
+	 * TODO 
+	 * 
+	 * @param competence
+	 * @throws DoublonException
+	 * @throws NullException
+	 */
+	public void insertCompetence(Competence competence) throws DoublonException, NullException;
+
+	/**
+	 * TODO
+	 */
+	public void updateCompetence(Competence competence);
+
+	/**
+	 * Delete d'une Competences
+	 */
+	public void deleteCompetence(Competence competence);
+
+	/**
+	 * Select d'une Competences
+	 * @throws UnfoundException 
+	 */
+	public Competence selectCompetence(Competence competence) throws UnfoundException;
+
+	/**
+	 * Retourne toute les competences de la table comp
+	 * @return competences {@link Competences}
+	 */
+	public Competences selectCompetences();
+
+	/**
+	 * TODO 
+	 * 
+	 * @param niveauAcquisition
+	 * @throws DoublonException
+	 * @throws NullException
+	 */
+	public void insertNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws DoublonException, NullException;
+
+	/**
+	 * TODO
+	 */
+	public void updateNiveauAcquisition(NiveauAcquisition niveauAcquisition);
+
+	/**
+	 * Delete NiveauAcquisition
+	 */
+	public void deleteNiveauAcquisition(NiveauAcquisition niveauAcquisition);
+
+	/**
+	 * Select NiveauAcquisition
+	 * @throws UnfoundException 
+	 */
+	public NiveauAcquisition selectNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws UnfoundException;
+
+	/**
+	 * Select NiveauAcquisitions
+	 * @throws UnfoundException 
+	 */
+	public NiveauAcquisitions selectNiveauAcquisitions();
+	
+	/**
+	 * TODO 
+	 * 
+	 * @param stagiaire
+	 * @throws DoublonException
+	 * @throws NullException
+	 */
+	public void insertStagiaire(Stagiaire stagiaire) throws DoublonException, NullException;
+
+	/**
+	 * TODO
+	 */
+	public void updateStagiaire(Stagiaire stagiaire);
+
+	/**
+	 * Delete Stagiaire
+	 */
+	public void deleteStagiaire(Stagiaire stagiaire);
+
+	/**
+	 * Select Stagiaire
+	 * @throws UnfoundException 
+	 */
+	public Stagiaire selectStagiaire(Stagiaire stagiaire) throws UnfoundException;
 
 	/**
 	 * Contrôle et insert une {@link AutoEvaluation} si elle correspond au règle métier
@@ -28,110 +167,15 @@ public interface FacadeSuiviStagiaireRemote {
 	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws NullException, DateNullException;
 	
 	/**
-	 * TODO 
-	 * 
-	 * @param module
-	 * @throws DoublonException
-	 * @throws NullException
-	 */
-	public void insertModule(Module module) throws DoublonException, NullException;
-	
-	/**
-	 * TODO 
-	 * 
-	 * @param sequence
-	 * @throws DoublonException
-	 * @throws NullException
-	 */
-	public void insertSequence(Sequence sequence) throws DoublonException, NullException;
-	
-	/**
-	 * TODO 
-	 * 
-	 * @param competence
-	 * @throws DoublonException
-	 * @throws NullException
-	 */
-	public void insertCompetence(Competence competence) throws DoublonException, NullException;
-	
-	/**
-	 * TODO 
-	 * 
-	 * @param niveauAcquisition
-	 * @throws DoublonException
-	 * @throws NullException
-	 */
-	public void insertNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws DoublonException, NullException;
-	
-	/**
-	 * TODO 
-	 * 
-	 * @param stagiaire
-	 * @throws DoublonException
-	 * @throws NullException
-	 */
-	public void insertStagiaire(Stagiaire stagiaire) throws DoublonException, NullException;
-	
-	/**
 	 * Contrôle et update une {@link AutoEvaluation} si elle correspond au règle métier
 	 */
 	public void updateAutoEvaluation(AutoEvaluation autoEvaluation);
-	
-	/**
-	 * TODO
-	 */
-	public void updateModule(Module module);
-	
-	/**
-	 * TODO
-	 */
-	public void updateSequence(Sequence sequence);
-	
-	/**
-	 * TODO
-	 */
-	public void updateCompetence(Competence competence);
-	
-	/**
-	 * TODO
-	 */
-	public void updateNiveauAcquisition(NiveauAcquisition niveauAcquisition);
-	
-	/**
-	 * TODO
-	 */
-	public void updateStagiaire(Stagiaire stagiaire);
 	
 	/**
 	 * Supprime une {@link AutoEvaluation}
 	 */
 	public void deleteAutoEvaluation(AutoEvaluation autoEvaluation);
 
-	/**
-	 * Delete d'un Module
-	 */
-	public void deleteModule(Module module);
-	
-	/**
-	 * Delete d'une Sequence
-	 */
-	public void deleteSequence(Sequence sequence);
-	
-	/**
-	 * Delete d'une Competences
-	 */
-	public void deleteCompetence(Competence competence);
-	
-	/**
-	 * Delete NiveauAcquisition
-	 */
-	public void deleteNiveauAcquisition(NiveauAcquisition niveauAcquisition);
-	
-	/**
-	 * Delete Stagiaire
-	 */
-	public void deleteStagiaire(Stagiaire stagiaire);
-	
 	/**
 	 * Select une {@link AutoEvaluation} par son {@link Stagiaire}, {@link Competence}, Date permet aussi certaine contrôle
 	 * 
@@ -150,41 +194,4 @@ public interface FacadeSuiviStagiaireRemote {
 	 * Select d'une auto evaluation par son Stagiaire
 	 */
 	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation);
-
-	/**
-	 * Select d'un Module
-	 * @return 
-	 * @throws UnfoundException 
-	 */
-	public Module selectModule(Module module) throws UnfoundException;
-	
-	/**
-	 * Select d'une Sequence
-	 * @throws UnfoundException 
-	 */
-	public Sequence selectSequence(Sequence sequence) throws UnfoundException;
-	
-	/**
-	 * Select d'une Competences
-	 * @throws UnfoundException 
-	 */
-	public Competence selectCompetence(Competence competence) throws UnfoundException;
-	
-	/**
-	 * Retourne toute les competences de la table comp
-	 * @return competences {@link Competences}
-	 */
-	public Competences selectCompetences();
-	
-	/**
-	 * Select NiveauAcquisition
-	 * @throws UnfoundException 
-	 */
-	public NiveauAcquisition selectNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws UnfoundException;
-	
-	/**
-	 * Select Stagiaire
-	 * @throws UnfoundException 
-	 */
-	public Stagiaire selectStagiaire(Stagiaire stagiaire) throws UnfoundException;
 }

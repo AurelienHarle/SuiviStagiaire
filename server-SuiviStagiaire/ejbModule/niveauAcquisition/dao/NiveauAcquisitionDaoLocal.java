@@ -7,6 +7,7 @@ import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
 import niveauAcquisition.entity.NiveauAcquisition;
+import niveauAcquisition.technique.NiveauAcquisitions;
 
 /**
  * Local Bean de {@link CompetenceDao} qui permet l'insertion l'update et le delete dans la base de données
@@ -44,7 +45,12 @@ public interface NiveauAcquisitionDaoLocal {
 	 */
 	public NiveauAcquisition selectNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws UnfoundException;
 
-	
+	/**
+	 * Select NiveauAcquisitions
+	 * @throws UnfoundException 
+	 */
+	public NiveauAcquisitions selectNiveauAcquisitions();
+
 	
 
 
