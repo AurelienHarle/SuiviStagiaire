@@ -170,28 +170,17 @@ public class CompetenceDao implements CompetenceDaoLocal {
 	@SuppressWarnings("rawtypes")
 	public Competences selectCompetences(){
 		
-		journaliseurNiveauConfig.log("[Debut methode selectCompetences]");
-		
 		Competences competences = new Competences();
-		
-		journaliseurNiveauConfig.log("[Initialisé competences]");
 		
 		String sqlQuery = "select c from Competence c ORDER BY c.identifiant asc";
 		
-		journaliseurNiveauConfig.log("[sqlQuery : " + sqlQuery + "]");
-		
 		List list = em.createQuery(sqlQuery).getResultList();
-		
-		journaliseurNiveauConfig.log("[list : " + list + "]");
 		
 		for (Object object : list) {
 			
-			journaliseurNiveauConfig.log("[object : " + object + "]");
 			competences.add((Competence) object);
 			
 		}
-		
-		journaliseurNiveauConfig.log("[competences : " + competences + "]");
 		
 		return competences;
 	}
