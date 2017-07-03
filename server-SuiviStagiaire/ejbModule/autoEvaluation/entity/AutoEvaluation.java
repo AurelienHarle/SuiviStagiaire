@@ -14,8 +14,10 @@ import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import autoEvaluation.technique.Competences;
-import compteUtilisateur.entity.Stagiaire;
+import competence.entity.Competence;
+import competence.technique.Competences;
+import niveauAcquisition.entity.NiveauAcquisition;
+import stagiaire.entity.Stagiaire;
 
 
 /**

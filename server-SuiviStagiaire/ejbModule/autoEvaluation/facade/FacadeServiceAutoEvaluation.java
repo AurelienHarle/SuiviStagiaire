@@ -6,12 +6,12 @@ import javax.ejb.Stateless;
 
 import autoEvaluation.dao.facade.FacadeDaoAutoEvaluation;
 import autoEvaluation.entity.AutoEvaluation;
-import autoEvaluation.entity.Competence;
 import autoEvaluation.technique.AutoEvaluations;
-import compteUtilisateur.entity.Stagiaire;
+import competence.entity.Competence;
 import exception.DateNullException;
 import exception.NullException;
 import exception.UnfoundException;
+import stagiaire.entity.Stagiaire;
 
 /**
  * Session Bean implementation class FacadeServiceAutoEvaluation

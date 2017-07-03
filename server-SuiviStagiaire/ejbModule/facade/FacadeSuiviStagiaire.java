@@ -5,20 +5,24 @@ import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
 import autoEvaluation.entity.AutoEvaluation;
-import autoEvaluation.entity.Competence;
-import autoEvaluation.entity.Module;
-import autoEvaluation.entity.NiveauAcquisition;
-import autoEvaluation.entity.Sequence;
 import autoEvaluation.facade.FacadeServiceAutoEvaluation;
-import autoEvaluation.facade.FacadeServiceOther;
 import autoEvaluation.technique.AutoEvaluations;
-import autoEvaluation.technique.Competences;
-import compteUtilisateur.entity.Stagiaire;
+import competence.entity.Competence;
+import competence.facade.FacadeServiceCompetence;
+import competence.technique.Competences;
 import exception.DateNullException;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
 import logger.JournaliseurNiveauConfig;
+import module.entity.Module;
+import module.facade.FacadeServiceModule;
+import niveauAcquisition.entity.NiveauAcquisition;
+import niveauAcquisition.facade.FacadeServiceNiveauAcquisition;
+import sequence.entity.Sequence;
+import sequence.facade.FacadeServiceSequence;
+import stagiaire.entity.Stagiaire;
+import stagiaire.facade.FacadeServiceStagiaire;
 
 /**
  * Session Bean implementation class FacadeSuiviStagiaire
@@ -36,43 +40,146 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
     @EJB
     FacadeServiceAutoEvaluation facadeServiceAutoEvaluation;
     @EJB
-    FacadeServiceOther facadeServiceOther;
+    FacadeServiceCompetence facadeServiceCompetence;
+    @EJB
+    FacadeServiceSequence facadeServiceSequence;
+    @EJB
+    FacadeServiceModule facadeServiceModule;
+    @EJB
+    FacadeServiceStagiaire facadeServiceStagiaire;
+    @EJB
+    FacadeServiceNiveauAcquisition facadeServiceNiveauAcquisition;
     
     JournaliseurNiveauConfig journaliseurNiveauConfig = JournaliseurNiveauConfig.getINSTANCE();
 
 	@Override
-	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws NullException, DateNullException {
-		facadeServiceAutoEvaluation.insertAutoEvaluation(autoEvaluation);
+	public void insertModule(Module module) throws DoublonException, NullException {
+		facadeServiceModule.insertModule(module);
+	
+	}
+
+	@Override
+	public void updateModule(Module module) {
+		
+		facadeServiceModule.updateModule(module);
+	}
+
+	@Override
+	public void deleteModule(Module module) {
+		facadeServiceModule.deleteModule(module);
+	}
+
+	@Override
+	public Module selectModule(Module module) throws UnfoundException {
+		return facadeServiceModule.selectModule(module);
 		
 	}
 
 	@Override
-	public void insertModule(Module module) throws DoublonException, NullException {
-		facadeServiceOther.insertModule(module);
-
+	public void insertSequence(Sequence sequence) throws DoublonException, NullException {
+		facadeServiceSequence.insertSequence(sequence);
+		
 	}
 
 	@Override
-	public void insertSequence(Sequence sequence) throws DoublonException, NullException {
-		facadeServiceOther.insertSequence(sequence);
+	public void updateSequence(Sequence sequence) {
+		
+		facadeServiceSequence.updateSequence(sequence);
+	}
+
+	@Override
+	public void deleteSequence(Sequence sequence) {
+		facadeServiceSequence.deleteSequence(sequence);
+		
+	}
+
+	@Override
+	public Sequence selectSequence(Sequence sequence) throws UnfoundException {
+		return facadeServiceSequence.selectSequence(sequence);
 		
 	}
 
 	@Override
 	public void insertCompetence(Competence competence) throws DoublonException, NullException {
-		facadeServiceOther.insertCompetence(competence);
+		facadeServiceCompetence.insertCompetence(competence);
 		
 	}
 
 	@Override
+	public void updateCompetence(Competence competence) {
+		facadeServiceCompetence.updateCompetence(competence);
+		
+	}
+
+	@Override
+	public void deleteCompetence(Competence competence) {
+		facadeServiceCompetence.deleteCompetence(competence);
+		
+	}
+
+	@Override
+	public Competence selectCompetence(Competence competence) throws UnfoundException {
+		return facadeServiceCompetence.selectCompetence(competence);
+		
+	}
+
+	@Override
+	public Competences selectCompetences() {
+		
+		return facadeServiceCompetence.selectCompetences();
+	}
+
+	@Override
 	public void insertNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws DoublonException, NullException {
-		facadeServiceOther.insertNiveauAcquisition(niveauAcquisition);
+		facadeServiceNiveauAcquisition.insertNiveauAcquisition(niveauAcquisition);
+		
+	}
+
+	@Override
+	public void updateNiveauAcquisition(NiveauAcquisition niveauAcquisition) {
+		facadeServiceNiveauAcquisition.updateNiveauAcquisition(niveauAcquisition);
+		
+	}
+
+	@Override
+	public void deleteNiveauAcquisition(NiveauAcquisition niveauAcquisition) {
+		facadeServiceNiveauAcquisition.deleteNiveauAcquisition(niveauAcquisition);
+		
+	}
+
+	@Override
+	public NiveauAcquisition selectNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws UnfoundException {
+		return facadeServiceNiveauAcquisition.selectNiveauAcquisition(niveauAcquisition);
 		
 	}
 
 	@Override
 	public void insertStagiaire(Stagiaire stagiaire) throws DoublonException, NullException {
-		facadeServiceOther.insertStagiaire(stagiaire);
+		facadeServiceStagiaire.insertStagiaire(stagiaire);
+		
+	}
+
+	@Override
+	public void updateStagiaire(Stagiaire stagiaire) {
+		facadeServiceStagiaire.updateStagiaire(stagiaire);
+		
+	}
+
+	@Override
+	public void deleteStagiaire(Stagiaire stagiaire) {
+		facadeServiceStagiaire.deleteStagiaire(stagiaire);
+		
+	}
+
+	@Override
+	public Stagiaire selectStagiaire(Stagiaire stagiaire) throws UnfoundException {
+		return facadeServiceStagiaire.selectStagiaire(stagiaire);
+		
+	}
+
+	@Override
+	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws NullException, DateNullException {
+		facadeServiceAutoEvaluation.insertAutoEvaluation(autoEvaluation);
 		
 	}
 
@@ -83,67 +190,8 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
 	}
 
 	@Override
-	public void updateModule(Module module) {
-		
-		facadeServiceOther.updateModule(module);
-	}
-
-	@Override
-	public void updateSequence(Sequence sequence) {
-		
-		facadeServiceOther.updateSequence(sequence);
-	}
-
-	@Override
-	public void updateCompetence(Competence competence) {
-		facadeServiceOther.updateCompetence(competence);
-		
-	}
-
-	@Override
-	public void updateNiveauAcquisition(NiveauAcquisition niveauAcquisition) {
-		facadeServiceOther.updateNiveauAcquisition(niveauAcquisition);
-		
-	}
-
-	@Override
-	public void updateStagiaire(Stagiaire stagiaire) {
-		facadeServiceOther.updateStagiaire(stagiaire);
-		
-	}
-
-	@Override
 	public void deleteAutoEvaluation(AutoEvaluation autoEvaluation) {
 		facadeServiceAutoEvaluation.deleteAutoEvaluation(autoEvaluation);
-		
-	}
-
-	@Override
-	public void deleteModule(Module module) {
-		facadeServiceOther.deleteModule(module);
-	}
-
-	@Override
-	public void deleteSequence(Sequence sequence) {
-		facadeServiceOther.deleteSequence(sequence);
-		
-	}
-
-	@Override
-	public void deleteCompetence(Competence competence) {
-		facadeServiceOther.deleteCompetence(competence);
-		
-	}
-
-	@Override
-	public void deleteNiveauAcquisition(NiveauAcquisition niveauAcquisition) {
-		facadeServiceOther.deleteNiveauAcquisition(niveauAcquisition);
-		
-	}
-
-	@Override
-	public void deleteStagiaire(Stagiaire stagiaire) {
-		facadeServiceOther.deleteStagiaire(stagiaire);
 		
 	}
 
@@ -161,42 +209,6 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
 	@Override
 	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation) {
 		return facadeServiceAutoEvaluation.selectAutoEvaluationByStag(autoEvaluation);
-	}
-
-	@Override
-	public Module selectModule(Module module) throws UnfoundException {
-		return facadeServiceOther.selectModule(module);
-		
-	}
-
-	@Override
-	public Sequence selectSequence(Sequence sequence) throws UnfoundException {
-		return facadeServiceOther.selectSequence(sequence);
-		
-	}
-
-	@Override
-	public Competence selectCompetence(Competence competence) throws UnfoundException {
-		return facadeServiceOther.selectCompetence(competence);
-		
-	}
-
-	@Override
-	public NiveauAcquisition selectNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws UnfoundException {
-		return facadeServiceOther.selectNiveauAcquisition(niveauAcquisition);
-		
-	}
-
-	@Override
-	public Stagiaire selectStagiaire(Stagiaire stagiaire) throws UnfoundException {
-		return facadeServiceOther.selectStagiaire(stagiaire);
-		
-	}
-
-	@Override
-	public Competences selectCompetences() {
-		
-		return facadeServiceOther.selectCompetences();
 	} 
     
 }

@@ -12,9 +12,8 @@ import javax.persistence.TransactionRequiredException;
 import org.hibernate.exception.ConstraintViolationException;
 
 import autoEvaluation.entity.AutoEvaluation;
-import autoEvaluation.entity.Competence;
 import autoEvaluation.technique.AutoEvaluations;
-import compteUtilisateur.entity.Stagiaire;
+import competence.entity.Competence;
 import exception.DateNullException;
 import exception.NullException;
 import exception.UnfoundException;
@@ -22,6 +21,7 @@ import exception.UpdateNotInsertException;
 import logger.JournaliseurNiveauConfig;
 import logger.JournaliseurNiveauError;
 import logger.JournaliseurNiveauInfo;
+import stagiaire.entity.Stagiaire;
 
 /**
  * Session Bean implementation class AutoEvaluationDao

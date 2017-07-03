@@ -6,7 +6,7 @@
    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
    <jta-data-source>java:jboss/datasources/suiviStag</jta-data-source> 
    	<properties>
-         <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+         <property name="hibernate.hbm2ddl.auto" value="update" />
          
          <!-- alternatively to <class> and <property> declarations, you can use a regular hibernate.cfg.xml file -->
          <!-- property name="hibernate.ejb.cfgfile" value="/org/hibernate/ejb/test/hibernate.cfg.xml"/ -->

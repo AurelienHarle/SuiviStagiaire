@@ -3,12 +3,12 @@ package autoEvaluation.dao;
 import javax.ejb.Local;
 
 import autoEvaluation.entity.AutoEvaluation;
-import autoEvaluation.entity.Competence;
 import autoEvaluation.technique.AutoEvaluations;
-import compteUtilisateur.entity.Stagiaire;
+import competence.entity.Competence;
 import exception.DateNullException;
 import exception.NullException;
 import exception.UnfoundException;
+import stagiaire.entity.Stagiaire;
 
 @Local
 public interface AutoEvaluationDaoLocal {

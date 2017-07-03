@@ -3,17 +3,17 @@ package facade;
 import javax.ejb.Remote;
 
 import autoEvaluation.entity.AutoEvaluation;
-import autoEvaluation.entity.Competence;
-import autoEvaluation.entity.Module;
-import autoEvaluation.entity.NiveauAcquisition;
-import autoEvaluation.entity.Sequence;
 import autoEvaluation.technique.AutoEvaluations;
-import autoEvaluation.technique.Competences;
-import compteUtilisateur.entity.Stagiaire;
+import competence.entity.Competence;
+import competence.technique.Competences;
 import exception.DateNullException;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
+import module.entity.Module;
+import niveauAcquisition.entity.NiveauAcquisition;
+import sequence.entity.Sequence;
+import stagiaire.entity.Stagiaire;
 
 @Remote
 public interface FacadeSuiviStagiaireRemote {
