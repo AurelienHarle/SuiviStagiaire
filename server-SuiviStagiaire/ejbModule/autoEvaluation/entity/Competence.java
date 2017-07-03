@@ -45,8 +45,8 @@ public class Competence implements Serializable {
 	@Id
 	@ManyToOne(fetch=FetchType.EAGER,cascade=CascadeType.DETACH)
 	@JoinColumns(value={
-			@JoinColumn(name="seq_id",nullable=false),
-			@JoinColumn(name="mod_id",nullable=false)})
+			@JoinColumn(name="seq_id",nullable=false,referencedColumnName="seq_id"),
+			@JoinColumn(name="mod_id",nullable=false,referencedColumnName="mod_id")})
 	private Sequence sequence;
 	
 	/**
