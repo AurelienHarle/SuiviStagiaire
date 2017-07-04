@@ -179,16 +179,12 @@ public class AutoEvaluation implements Serializable {
 		this.competence = competence;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
-		return "AutoEvaluation [identifiant=" + identifiant + ", competence=" + competence + ","
-				+ ", niveauAcquisition=" + niveauAcquisition + ", stagiaire=" + stagiaire
-				+ ", dateAutoEvaluation=" + dateAutoEvaluation + ", ressenti=" + ressenti + "]";
+		return "AutoEvaluation [identifiant=" + identifiant + ", competence=" + competence + ", niveauAcquisition="
+				+ niveauAcquisition + ", stagiaire=" + stagiaire + ", dateAutoEvaluation=" + dateAutoEvaluation
+				+ ", ressenti=" + ressenti + "]";
 	}
-	
 	
 
 }

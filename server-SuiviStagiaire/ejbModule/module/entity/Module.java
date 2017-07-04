@@ -96,13 +96,9 @@ public class Module implements Serializable {
 		this.nomCourt = nomCourt;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return "Module [identifiant=" + identifiant + ", nomLong=" + nomLong + ", nomCourt=" + nomCourt + "]";
 	}
-
 
 }

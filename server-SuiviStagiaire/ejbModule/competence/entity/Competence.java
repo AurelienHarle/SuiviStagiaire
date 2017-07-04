@@ -46,15 +46,6 @@ public class Competence implements Serializable {
 	@Column(name="comp_nom_court", length=200, nullable=false)
 	private String nomCourt;
 	
-//	@Id
-//	   @JoinColumns(value={
-//	      @JoinColumn(name="mod_id", referencedColumnName="mod_id"),
-//	      @JoinColumn(name="seq_fk", referencedColumnName="seq_id")
-//	   })
-//	@ManyToOne(fetch=FetchType.EAGER)
-//	private Sequence sequence;
-	
-	
 	@Id
 	@ManyToOne(fetch=FetchType.EAGER,cascade=CascadeType.DETACH)
 	@JoinColumns(value={
@@ -142,12 +133,9 @@ public class Competence implements Serializable {
 		this.sequence = sequence;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
-		return "Competences [identifiant=" + identifiant + ", nomLong=" + nomLong + ", nomCourt=" + nomCourt
+		return "Competence [identifiant=" + identifiant + ", nomLong=" + nomLong + ", nomCourt=" + nomCourt
 				+ ", sequence=" + sequence + "]";
 	}
 

@@ -171,7 +171,7 @@ public class NiveauAcquisitionDao implements NiveauAcquisitionDaoLocal {
 		
 		NiveauAcquisitions niveauAcquisitions = new NiveauAcquisitions();
 		
-		String sqlQuery = "select c from Competence c ORDER BY c.identifiant asc";
+		String sqlQuery = "select n from NiveauAcquisition n ORDER BY n.identifiant asc";
 		
 		List list = em.createQuery(sqlQuery).getResultList();
 		

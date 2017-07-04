@@ -125,9 +125,6 @@ public class Sequence implements Serializable {
 		this.module = module;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return "Sequence [identifiant=" + identifiant + ", module=" + module + ", nomLong=" + nomLong + ", nomCourt="

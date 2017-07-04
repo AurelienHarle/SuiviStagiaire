@@ -235,23 +235,12 @@ public class Stagiaire implements Serializable{
 		this.humeur = humeur;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
-		return "Stagiaire [" + (getOsia() != null ? "getOsia()=" + getOsia() + ", " : "")
-				+ (getMotDePasse() != null ? "getMotDePasse()=" + getMotDePasse() + ", " : "")
-				+ (getNom() != null ? "getNom()=" + getNom() + ", " : "")
-				+ (getPrenom() != null ? "getPrenom()=" + getPrenom() + ", " : "")
-				+ (getNumeroTelephoneAdministration() != null
-						? "getNumeroTelephoneAdministration()=" + getNumeroTelephoneAdministration() + ", " : "")
-				+ (getNumeroTelephoneFormation() != null
-						? "getNumeroTelephoneFormation()=" + getNumeroTelephoneFormation() + ", " : "")
-				+ (getAdresse() != null ? "getAdresse()=" + getAdresse() + ", " : "")
-				+ (getMail() != null ? "getMail()=" + getMail() + ", " : "")
-				+ (getMailFormateur() != null ? "getMailFormateur()=" + getMailFormateur() + ", " : "")
-				+ (getHumeur() != null ? "getHumeur()=" + getHumeur() : "") + "]";
+		return "Stagiaire [osia=" + osia + ", motDePasse=" + motDePasse + ", nom=" + nom + ", prenom=" + prenom
+				+ ", numeroTelephoneAdministration=" + numeroTelephoneAdministration + ", numeroTelephoneFormation="
+				+ numeroTelephoneFormation + ", adresse=" + adresse + ", mail=" + mail + ", mailFormation="
+				+ mailFormation + ", humeur=" + humeur + "]";
 	}
 
 }

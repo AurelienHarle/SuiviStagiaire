@@ -82,14 +82,10 @@ public class NiveauAcquisition implements Serializable {
 		this.libelle = niveau;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+
 	@Override
 	public String toString() {
-		return "NiveauAcquisition ["
-				+ (getIdentifiant() != null ? "getIndentifiant()=" + getIdentifiant() + ", " : "")
-				+ (getLibelle() != null ? "getNiveau()=" + getLibelle() : "") + "]";
+		return "NiveauAcquisition [identifiant=" + identifiant + ", libelle=" + libelle + "]";
 	}
 
 }
