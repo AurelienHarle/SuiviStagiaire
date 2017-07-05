@@ -38,16 +38,21 @@ body {
 
 }
 
-#information{
-	
-	width: 500px;
+#information-creation-auto-evaluation{
+
+	width: 750px;
 	margin-top: 0px;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+
+ 	
 }
 
-#information div{
+#information-connexion{
 	
-	margin: 0px;
-	padding: 5px;
+	margin-top: 0px;
+	
 }
 
 #info-login{
@@ -56,6 +61,20 @@ body {
 
 #info-password{
 	display: none;
+}
+
+#info-competence{
+	
+	display: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+#info-niveau-acquisition{
+	
+	display: none;
+	margin: 0px;
+	padding: 0px;
 }
 
 #caracter-restant{

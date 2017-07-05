@@ -54,10 +54,13 @@
 					<div class="col-sm-2 col-sm-offset-0">
 						<button type="submit" class="btn btn-default">Valider</button>
 					</div>
-				</div>
 			</form>
+		</section >
+		<section id="information-creation-auto-evaluation" class="center-block">
+			<div id="info-competence" class="alert alert-danger" role="alert"><span>Attention : Vous devez obligatoirement sélectionner une compétence</span></div>
+			<div id="info-niveau-acquisition" class="alert alert-danger" role="alert"><span>Attention : Vous devez obligatoirement sélectionner un niveau de competence</span></div>
 		</section>
 	</div>
+	<%@ include file = "/WEB-INF/jsp/footer.jsp" %>
 </body>
-<%@ include file = "/WEB-INF/jsp/footer.jsp" %>
 </html>

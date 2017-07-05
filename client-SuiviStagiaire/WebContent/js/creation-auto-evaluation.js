@@ -3,14 +3,68 @@
  * Fonctionnalité qui contrôle si le formulaire de creation,
  * d'une auto-evaluation est completes
  */
-function validateFormCreation(form){
+function validateFormCreation(element){
+
+	console.log('validateFormCreation');
+	var competences = element.querySelectorAll('option');
+	var competenceSelected = false;
+	var niveauAcquisitions = element.querySelectorAll('input[type="radio"]');
+	var niveauAcquisitionSelected = false;
 	
-	console.log(form);
+	var formValidate = false;
 	
-	return true;
+	for(var i = 0; i < competences.length; i++){
+		
+		if(competences[i].selected){
+			var competenceSelected = true;
+			break;
+		}
+		
+	}
+	
+	console.log('competenceSelected ' + competenceSelected);
+	if(!competenceSelected) informationSelectionCompetence();
+	
+	for(var i = 0; i < niveauAcquisitions.length; i++){
+		
+		if(niveauAcquisitions[i].checked){
+			var niveauAcquisitionSelected = true;
+			break;
+		}
+		
+	}
+	
+	console.log('niveauAcquisitionSelected ' + niveauAcquisitionSelected);
+	if(!niveauAcquisitionSelected) informationSelectionNiveauAcquisition();
+	
+	if(competenceSelected && niveauAcquisitionSelected) formValidate = true;
+	console.log('formValidate ' + formValidate);
+	return formValidate;
 }
 
+/**
+ * Informe l'utilisateur qu'il dois sélectionner une competence
+ */
+function informationSelectionCompetence(){
+	
+	console.log('informationSelectionCompetence ');
+	document.querySelector("#info-competence").style.display = "block";
+	
+} 
 
+/**
+ * Informe l'utilisateur qu'il dois sélectionner un niveau d'acquisition
+ */
+function informationSelectionNiveauAcquisition(){
+	console.log('informationSelectionNiveauAcquisition ');
+	document.querySelector("#info-niveau-acquisition").style.display = "block";
+}
+
+/**
+ * Vide le textArea ressenti
+ * 
+ * @param element TextArea
+ */
 function cleanRessenti(element){
 	
 	element.innerHTML = "";

@@ -42,7 +42,7 @@
 				</div>  
 			</form>
 		</section>
-		<section id="information" class="center-block">
+		<section id="information-connexion" class="center-block">
 			<div id="info-login" class="alert alert-danger" role="alert"><span>Attention : Vous avez rentré un login incorrect</span></div>
 			<div id="info-password" class="alert alert-danger" role="alert"><span>Attention : Vous avez rentré un mot de passe incorrect</span></div>
 		</section>
