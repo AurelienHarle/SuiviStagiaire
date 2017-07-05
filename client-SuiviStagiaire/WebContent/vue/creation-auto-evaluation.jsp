@@ -41,7 +41,10 @@
 				<div class="form-group">
 					<label for="ressenti" class="col-sm-3 col-sm-offset-0 control-label">Ressenti :</label>
 					<div class="col-sm-9 col-sm-offset-0">
-						<textarea class="form-control" name="ressenti" rows="3" onclick="cleanRessenti(this)">Votre ressenti....</textarea>
+						<div id="caractere-restant">
+							<label class="control-label" id="label-nombre-caractere-restant">Nombre de caractère restant : </label><p id="nombre-caractere-restant">4000</p>
+						</div>
+						<textarea class="form-control" name="ressenti" rows="3" onclick="cleanRessenti(this)" onkeyup="calculCaractereRestant(this)">Votre ressenti....</textarea>
 					</div>
 				</div>
 				<div class="form-group">
