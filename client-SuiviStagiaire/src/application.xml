@@ -81,6 +81,11 @@
 			<result>/WEB-INF/css/footer.css</result>
 		</action>
 		
+	<!-- js -->
+		<action name="creation-auto-evaluation-js">
+			<result>/js/creation-auto-evaluation.js</result>
+		</action>
+		
 	<!-- image -->
 		<action name="logo-afpa">
 			<result>/img/logo-afpa-rectangle.jpg</result>

@@ -9,3 +9,10 @@ function validateFormCreation(form){
 	
 	return true;
 }
+
+
+function cleanRessenti(element){
+	
+	element.innerHTML = "";
+	
+}

@@ -18,7 +18,7 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Projet/Suivi stagiaire/lib/server-SuiviStagiaire-default-V1.07.jar">
+	<classpathentry kind="lib" path="D:/Projet/Suivi stagiaire/lib/server-SuiviStagiaire-default-V1.09.jar" sourcepath="/server-SuiviStagiaire/build/classes/competence/entity">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>

@@ -1,5 +1,6 @@
 package competence.dao;
 
+import java.lang.reflect.Field;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
+import javax.persistence.Query;
 
 import competence.entity.Competence;
 import competence.technique.Competences;
@@ -132,11 +134,17 @@ public class CompetenceDao implements CompetenceDaoLocal {
 	public Competence selectCompetence(Competence competence) throws UnfoundException{
 
 		Competence competence2 = null;
+
+		String hqlString = "select c from Competence c where c.identifiant = ?1 and c.sequence.identifiant = ?2 and c.sequence.module.identifiant = ?3";
 		
 		try{
-			
-			competence2 = em.find(Competence.class, competence.getIdentifiant());
-			
+
+			competence2 = (Competence) em.createQuery(hqlString)
+				.setParameter(1, competence.getIdentifiant())
+				.setParameter(2, competence.getSequence().getIdentifiant())
+				.setParameter(3, competence.getSequence().getModule().getIdentifiant())
+				.getSingleResult();
+
 			if(competence2 == null){
 				journaliseurNiveauInfo.log("[Select]  Competence [IN] : " + competence + " [MESSAGE] : NotFound");
 				throw new UnfoundException("selectCompetence");
@@ -147,12 +155,12 @@ public class CompetenceDao implements CompetenceDaoLocal {
 		}catch (Exception e) {
 			if(e instanceof NullPointerException){
 				
-				journaliseurNiveauInfo.log("[Select]  Competence [IN] : " + competence + " [MESSAGE] : NotFound");
+				journaliseurNiveauInfo.log("[Select]  Competence [IN] : " + competence + "[Exception] : NullPointerException "  + " [MESSAGE] : NotFound");
 				throw new UnfoundException("selectCompetence");
 				
 			}else if(e instanceof IllegalArgumentException){
 			
-				journaliseurNiveauInfo.log("[Select]  Competence [IN] : " + competence + " [MESSAGE] : NotFound");
+				journaliseurNiveauInfo.log("[Select]  Competence [IN] : " + competence + "[Exception] : IllegalArgumentException " + " [MESSAGE] : NotFound");
 				throw new UnfoundException("selectCompetence");
 				
 			}else{
