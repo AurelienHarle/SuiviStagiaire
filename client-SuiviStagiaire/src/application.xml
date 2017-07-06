@@ -37,6 +37,21 @@
 		</action>
 		
 	</package>
+	
+<!-- ajax -->	
+	<package name="ajax" namespace="/ajax" extends="json-default">
+				
+		<action name="ajax" method="{1]" class="autoEvaluation.Navigation">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="json">
+			  	<param name="enableSMD">true</param>
+			</interceptor-ref>
+			<result name="success" type="json"></result>
+			<result name="error" type="json"></result>
+			<allowed-methods>module,sequence</allowed-methods>
+		</action>
+		
+	</package>
 
 <!-- font -->
  	<package name="fonts" namespace="/fonts" extends="struts-default">
