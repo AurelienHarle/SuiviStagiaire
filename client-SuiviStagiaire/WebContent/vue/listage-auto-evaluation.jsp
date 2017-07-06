@@ -15,7 +15,7 @@
 <%@ include file="/WEB-INF/jsp/bandeau.jsp"%>
 <body>
 	<%@ include file="/WEB-INF/jsp/menu.jsp"%>
-	<div class="container">
+	<div class="container-fluid">
 		<section>
 		<table class="table-striped table-bordered table-condensed">
 			<tr>
