@@ -95,6 +95,10 @@ function calculCaractereRestant(element){
 	
 }
 
+/**
+ * Demande a l'utilisateur si il est sur de vouloir supprimer une auto-évaluation
+ * @returns true if user click on yes
+ */
 function validationSuppression(){
 	
 	if (confirm("Êtes vous sur de vouloir supprimer cette auto-évaluation?")) {
@@ -104,4 +108,59 @@ function validationSuppression(){
 	}
 	
 	return retour;
+}
+
+/**
+ * 
+ * @returns
+ */
+function moduleSelected(element){
+	
+	console.log('moduleSelected');
+	console.log(element);
+	var options = element.getElementsByTagName('option');
+	console.log(options);
+	
+	for(var i = 0; i < options.length;i++){
+		if(options[i].selected){
+			option = options[i];
+			break;
+		}
+	}
+	
+	if(option.value != "-1"){
+		
+		var module = {
+			"identifiant" : option.value,
+		}
+		
+		var jsonModule = JSON.stringify(module);
+		url = "../ajax/module";
+		
+		$.ajax({
+			
+			url : url,
+			data : {jsonModule : jsonModule},
+			type : 'get',
+			contentType : 'application/json',
+			dataType : 'json',
+			error : function(){message = "error";},
+			success : function(){message = "success";},
+			complete : function(data){
+				
+				console.log(message);
+				console.log(data);
+				console.log(data.responseText);
+				
+				if(message == "success"){
+					
+					console.log(message);
+					console.log(data);
+					console.log(data.responseText);
+					
+				}
+			}
+		})
+		
+	}
 }

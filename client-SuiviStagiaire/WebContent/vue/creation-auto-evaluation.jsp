@@ -52,6 +52,7 @@
 					<div class="col-sm-2 col-sm-offset-0">
 						<button type="submit" class="btn btn-default">Valider</button>
 					</div>
+				</div>
 			</form>
 		</section >
 		<section id="information-creation-auto-evaluation" class="center-block">
