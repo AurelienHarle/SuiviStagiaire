@@ -17,11 +17,13 @@ import exception.UnfoundException;
 import logger.JournaliseurNiveauConfig;
 import module.entity.Module;
 import module.facade.FacadeServiceModule;
+import module.technique.Modules;
 import niveauAcquisition.entity.NiveauAcquisition;
 import niveauAcquisition.facade.FacadeServiceNiveauAcquisition;
 import niveauAcquisition.technique.NiveauAcquisitions;
 import sequence.entity.Sequence;
 import sequence.facade.FacadeServiceSequence;
+import sequence.technique.Sequences;
 import stagiaire.entity.Stagiaire;
 import stagiaire.facade.FacadeServiceStagiaire;
 
@@ -77,6 +79,11 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
 	}
 
 	@Override
+	public Modules selectModules() {
+		return facadeServiceModule.selectModules();
+	}
+
+	@Override
 	public void insertSequence(Sequence sequence) throws DoublonException, NullException {
 		facadeServiceSequence.insertSequence(sequence);
 		
@@ -98,6 +105,11 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
 	public Sequence selectSequence(Sequence sequence) throws UnfoundException {
 		return facadeServiceSequence.selectSequence(sequence);
 		
+	}
+
+	@Override
+	public Sequences selectSequences() {
+		return facadeServiceSequence.selectSequences();
 	}
 
 	@Override

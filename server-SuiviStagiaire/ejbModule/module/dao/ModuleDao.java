@@ -1,6 +1,7 @@
 package module.dao;
 
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
@@ -9,6 +10,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 
+import competence.entity.Competence;
+import competence.technique.Competences;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
@@ -16,6 +19,7 @@ import logger.JournaliseurNiveauConfig;
 import logger.JournaliseurNiveauError;
 import logger.JournaliseurNiveauInfo;
 import module.entity.Module;
+import module.technique.Modules;
 
 /**
  * Session Bean CompetenceDao qui permet l'insertion l'update et le delete dans la base de données
@@ -159,6 +163,25 @@ public class ModuleDao implements ModuleDaoLocal {
 		
 		return module2; 
 		
+	}
+	
+	@Override
+	@SuppressWarnings("rawtypes")
+	public Modules selectModules(){
+		
+		Modules modules = new Modules();
+		
+		String sqlQuery = "select m from Module m ORDER BY m.identifiant asc";
+		
+		List list = em.createQuery(sqlQuery).getResultList();
+		
+		for (Object object : list) {
+			
+			modules.add((Module) object);
+			
+		}
+		
+		return modules;
 	}
 
 }

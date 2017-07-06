@@ -9,6 +9,7 @@ import exception.NullException;
 import exception.UnfoundException;
 import module.dao.facade.FacadeDaoModule;
 import module.entity.Module;
+import module.technique.Modules;
 
 /**
  * Session Bean implementation class FacadeServiceCompetence
@@ -34,7 +35,6 @@ public class FacadeServiceModule implements FacadeServiceModuleLocal {
 	@Override
 	public void updateModule(Module module) {
 		facadeDaoModule.updateModule(module);
-		
 	}
 
 	@Override
@@ -45,7 +45,11 @@ public class FacadeServiceModule implements FacadeServiceModuleLocal {
 	@Override
 	public Module selectModule(Module module) throws UnfoundException {
 		return facadeDaoModule.selectModule(module);
-		
+	}
+
+	@Override
+	public Modules selectModules() {
+		return facadeDaoModule.selectModules();
 	} 
 
 }

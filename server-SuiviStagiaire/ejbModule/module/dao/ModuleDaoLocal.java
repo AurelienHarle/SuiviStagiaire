@@ -7,6 +7,7 @@ import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
 import module.entity.Module;
+import module.technique.Modules;
 
 /**
  * Local Bean de {@link CompetenceDao} qui permet l'insertion l'update et le delete dans la base de données
@@ -41,5 +42,11 @@ public interface ModuleDaoLocal {
 	 * @throws UnfoundException 
 	 */
 	public Module selectModule(Module module) throws UnfoundException;
+	
+	/**
+	 * Sélectionne tout les modules de la table module
+	 * @return {@link Modules}
+	 */
+	public Modules selectModules();
 
 }

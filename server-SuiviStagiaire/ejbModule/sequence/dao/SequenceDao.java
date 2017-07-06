@@ -1,6 +1,7 @@
 package sequence.dao;
 
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
@@ -15,7 +16,10 @@ import exception.UnfoundException;
 import logger.JournaliseurNiveauConfig;
 import logger.JournaliseurNiveauError;
 import logger.JournaliseurNiveauInfo;
+import module.entity.Module;
+import module.technique.Modules;
 import sequence.entity.Sequence;
+import sequence.technique.Sequences;
 
 /**
  * Session Bean CompetenceDao qui permet l'insertion l'update et le delete dans la base de données
@@ -162,6 +166,25 @@ public class SequenceDao implements SequenceDaoLocal {
 		
 		return sequence2; 
 	
+	}
+	
+	@Override
+	@SuppressWarnings("rawtypes")
+	public Sequences selectSequences(){
+		
+		Sequences sequences = new Sequences();
+		
+		String sqlQuery = "select m from Sequence m ORDER BY m.identifiant asc";
+		
+		List list = em.createQuery(sqlQuery).getResultList();
+		
+		for (Object object : list) {
+			
+			sequences.add((Sequence) object);
+			
+		}
+		
+		return sequences;
 	}
 
 }

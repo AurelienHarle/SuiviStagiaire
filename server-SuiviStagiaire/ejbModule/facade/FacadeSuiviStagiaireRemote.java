@@ -11,9 +11,11 @@ import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
 import module.entity.Module;
+import module.technique.Modules;
 import niveauAcquisition.entity.NiveauAcquisition;
 import niveauAcquisition.technique.NiveauAcquisitions;
 import sequence.entity.Sequence;
+import sequence.technique.Sequences;
 import stagiaire.entity.Stagiaire;
 
 @Remote
@@ -46,6 +48,12 @@ public interface FacadeSuiviStagiaireRemote {
 	public Module selectModule(Module module) throws UnfoundException;
 
 	/**
+	 * Sélectionne tout les modules de la table module
+	 * @return {@link Modules}
+	 */
+	public Modules selectModules();
+	
+	/**
 	 * TODO 
 	 * 
 	 * @param sequence
@@ -69,6 +77,12 @@ public interface FacadeSuiviStagiaireRemote {
 	 * @throws UnfoundException 
 	 */
 	public Sequence selectSequence(Sequence sequence) throws UnfoundException;
+	
+	/**
+	 * Selectionne tout les sequences de la table seq
+	 * @return {@link Sequences}
+	 */
+	public Sequences selectSequences();
 
 	/**
 	 * TODO 

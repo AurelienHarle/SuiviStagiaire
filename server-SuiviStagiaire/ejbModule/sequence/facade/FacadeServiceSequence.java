@@ -9,6 +9,7 @@ import exception.NullException;
 import exception.UnfoundException;
 import sequence.dao.facade.FacadeDaoSequence;
 import sequence.entity.Sequence;
+import sequence.technique.Sequences;
 
 /**
  * Session Bean implementation class FacadeServiceCompetence
@@ -44,6 +45,11 @@ public class FacadeServiceSequence implements FacadeServiceSequenceLocal {
 	@Override
 	public Sequence selectSequence(Sequence sequence) throws UnfoundException {
 		return facadeDaoSequence.selectSequence(sequence);
+	}
+
+	@Override
+	public Sequences selectSequences() {
+		return facadeDaoSequence.selectSequences();
 	} 
 
 }

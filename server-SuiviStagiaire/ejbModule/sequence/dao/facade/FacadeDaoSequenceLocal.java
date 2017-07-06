@@ -6,6 +6,7 @@ import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
 import sequence.entity.Sequence;
+import sequence.technique.Sequences;
 
 @Local
 public interface FacadeDaoSequenceLocal {
@@ -34,5 +35,11 @@ public interface FacadeDaoSequenceLocal {
 	 * @throws UnfoundException 
 	 */
 	public Sequence selectSequence(Sequence sequence) throws UnfoundException;
+	
+	/**
+	 * Selectionne tout les sequences de la table seq
+	 * @return {@link Sequences}
+	 */
+	public Sequences selectSequences();
 	
 }

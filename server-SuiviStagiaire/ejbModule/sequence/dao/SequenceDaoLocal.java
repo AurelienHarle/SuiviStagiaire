@@ -7,6 +7,7 @@ import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
 import sequence.entity.Sequence;
+import sequence.technique.Sequences;
 
 /**
  * Local Bean de {@link CompetenceDao} qui permet l'insertion l'update et le delete dans la base de données
@@ -42,5 +43,11 @@ public interface SequenceDaoLocal {
 	 * @throws UnfoundException 
 	 */
 	public Sequence selectSequence(Sequence sequence) throws UnfoundException;
+
+	/**
+	 * Selectionne tout les sequences de la table seq
+	 * @return {@link Sequences}
+	 */
+	public Sequences selectSequences();
 	
 }

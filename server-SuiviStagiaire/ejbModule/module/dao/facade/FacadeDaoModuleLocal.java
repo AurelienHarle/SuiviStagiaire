@@ -6,6 +6,7 @@ import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
 import module.entity.Module;
+import module.technique.Modules;
 
 @Local
 public interface FacadeDaoModuleLocal {
@@ -33,5 +34,11 @@ public interface FacadeDaoModuleLocal {
 	 * @throws UnfoundException 
 	 */
 	public Module selectModule(Module module) throws UnfoundException;
+	
+	/**
+	 * Sélectionne tout les modules de la table module
+	 * @return {@link Modules}
+	 */
+	public Modules selectModules();
 	
 }
