@@ -68,6 +68,20 @@
 			<result>/WEB-INF/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js</result>
 		</action>
 		
+	<!-- datetimePicker -->	
+		<action name="bootstrap-datetimepicker-css">
+			<result>/WEB-INF/lib/bootstrap-datetimepicker-4.17.47-dist/css/bootstrap-datetimepicker.min.css</result>
+		</action>
+		
+		<action name="bootstrap-datetimepicker-js">
+			<result>/WEB-INF/lib/bootstrap-datetimepicker-4.17.47-dist/js/bootstrap-datetimepicker.min.js</result>
+		</action>
+		
+	<!-- moment -->
+		<action name="moment-js">
+			<result>/WEB-INF/lib/moment-2.18.1-dist/moment.min.js</result>
+		</action>	
+		
 	<!-- jquery -->
 		<action name="jquery-js">
 			<result>/WEB-INF/lib/jquery-3.2.1-dist/jquery-3.2.1.min.js</result>
