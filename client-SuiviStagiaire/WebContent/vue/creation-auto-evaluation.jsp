@@ -10,15 +10,13 @@
 <link href="<s:url namespace="" action="index-css" />" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="<s:url namespace="" action="creation-auto-evaluation-js" />"></script>
 </head>
-
 <%@ include file = "/WEB-INF/jsp/bandeau.jsp" %>
-
 <body>
 <%@ include file = "/WEB-INF/jsp/menu.jsp" %>
 	<div class="container center-block">
 		<section id="creation-auto-evaluation" class="center-block">
 			<form class="form-horizontal center-block" action="auto-evaluation-creer" method="post" onsubmit="return validateFormCreation(this)">
-				<div class="form-groupe">
+				<div class="form-group">
 					<label for="competence" class="col-sm-3 col-sm-offset-0 control-label">Compétence :</label>
 					<div id="competence" class="col-sm-9 col-sm-offset-0">
 			   			<select title="Compétence" name="stringCompetence" class="form-control">

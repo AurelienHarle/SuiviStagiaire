@@ -1,13 +1,8 @@
 package autoEvaluation;
 
-import java.awt.List;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Hashtable;
 
 import javax.naming.InitialContext;
-
-import com.sun.javafx.collections.MappingChange.Map;
 
 import autoEvaluation.entity.AutoEvaluation;
 import competence.entity.Competence;
@@ -18,7 +13,6 @@ import facade.FacadeSuiviStagiaireRemote;
 import module.entity.Module;
 import niveauAcquisition.entity.NiveauAcquisition;
 import sequence.entity.Sequence;
-import stagiaire.dao.StagiaireDao;
 import stagiaire.entity.Stagiaire;
 
 /**
@@ -36,14 +30,9 @@ public class Action extends ApplicationSupport {
 	private FacadeSuiviStagiaireRemote facadeSuiviStagiaireRemote;
 	private static final String FACADE = "ejb:/server-SuiviStagiaire/FacadeSuiviStagiaire!facade.FacadeSuiviStagiaireRemote";
 	
-	private static final String CREER = "creer";
-	private static final String MODIFIER = "modifier";
-	private static final String SUPPRIMER = "supprimer";
-	private static final String RECHERCHER = "rechercher";
-	private static final String LISTER = "lister";
-	
 	private String stringCompetence;
 	private String stringNiveauAcquisition;
+	private String identifiantAutoEvaluation;
 	private String ressenti;
 
 	
@@ -77,6 +66,7 @@ public class Action extends ApplicationSupport {
 	public String creer(){
 		
 		init();
+		String retour = Action.SUCCESS;
 		
 		//Stagiaire creer en dure avant gestion des comptes
 		Stagiaire stagiaire = new Stagiaire("13111384", "Password", "Harlé", "Aurélien", null, null, null, null, null, null);
@@ -96,10 +86,11 @@ public class Action extends ApplicationSupport {
 		try {
 			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation);
 		} catch (NullException | DateNullException e) {
+			retour = Action.ERROR;
 			e.printStackTrace();
 		}
 		
-		return CREER;
+		return retour;
 		
 	}
 
@@ -112,10 +103,33 @@ public class Action extends ApplicationSupport {
 	public String modifier(){
 		
 		init();
-		
+		String retour = Action.SUCCESS;
 		System.out.println("modifier");
 		
-		return MODIFIER;
+		System.out.println(getStringCompetence());
+		System.out.println(getStringNiveauAcquisition());
+		System.out.println(getIdentifiantAutoEvaluation());
+		System.out.println(getRessenti());
+		
+		
+		//Stagiaire creer en dure avant gestion des comptes
+		Stagiaire stagiaire = new Stagiaire("13111384", "Password", "Harlé", "Aurélien", null, null, null, null, null, null);
+		
+		//Creation et recupération d'une competence depuis un string
+		Competence competence = selectCompetenceFromString();
+		
+		//Creation et recupération d'un niveauAcquisition depuis un string
+		NiveauAcquisition niveauAcquisition = selectNiveauAcquisitionFromString();
+		
+		//Date du jour
+		LocalDate dateAutoEvaluation = LocalDate.now();
+		
+		//Creation autoEvaluation et insertion
+		AutoEvaluation autoEvaluation = new AutoEvaluation(Integer.parseInt(identifiantAutoEvaluation),competence, niveauAcquisition, stagiaire, dateAutoEvaluation, getRessenti());
+		
+		facadeSuiviStagiaireRemote.updateAutoEvaluation(autoEvaluation);
+		
+		return retour;
 		
 	}
 	
@@ -128,10 +142,14 @@ public class Action extends ApplicationSupport {
 	public String supprimer(){
 		
 		init();
-		
+		String retour = Action.SUCCESS;
 		System.out.println("supprimer");
 		
-		return SUPPRIMER;
+		AutoEvaluation autoEvaluation = new AutoEvaluation(Integer.parseInt(identifiantAutoEvaluation));
+		autoEvaluation = facadeSuiviStagiaireRemote.selectAutoEvaluation(autoEvaluation);
+		facadeSuiviStagiaireRemote.deleteAutoEvaluation(autoEvaluation);
+		
+		return retour;
 		
 	}
 	
@@ -144,10 +162,10 @@ public class Action extends ApplicationSupport {
 	public String rechercher(){
 		
 		init();
-		
+		String retour = Action.SUCCESS;
 		System.out.println("rechercher");
 		
-		return RECHERCHER;
+		return retour;
 		
 	}
 	
@@ -160,10 +178,10 @@ public class Action extends ApplicationSupport {
 	public String lister(){
 		
 		init();
-		
+		String retour = Action.SUCCESS;
 		System.out.println("lister");
 		
-		return LISTER;
+		return retour;
 		
 	}
 
@@ -242,6 +260,14 @@ public class Action extends ApplicationSupport {
 		}
 		System.out.println(competence);
 		return competence;
+	}
+
+	public String getIdentifiantAutoEvaluation() {
+		return identifiantAutoEvaluation;
+	}
+
+	public void setIdentifiantAutoEvaluation(String identifiantAutoEvaluation) {
+		this.identifiantAutoEvaluation = identifiantAutoEvaluation;
 	}
 
 }

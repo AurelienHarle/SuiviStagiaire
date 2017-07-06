@@ -175,6 +175,14 @@ public interface FacadeSuiviStagiaireRemote {
 	 * Supprime une {@link AutoEvaluation}
 	 */
 	public void deleteAutoEvaluation(AutoEvaluation autoEvaluation);
+	
+	/**
+	 * Select une {@link AutoEvaluation} par son {@link identifiant}.
+	 * 
+	 * @param autoEvaluation {@link AutoEvaluation}
+	 * @return autoEvaluation {@link AutoEvaluation}
+	 */
+	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation);
 
 	/**
 	 * Select une {@link AutoEvaluation} par son {@link Stagiaire}, {@link Competence}, Date permet aussi certaine contrôle

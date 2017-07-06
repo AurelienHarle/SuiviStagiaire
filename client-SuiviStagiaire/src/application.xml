@@ -31,16 +31,29 @@
 		</action>
 		
 		<action name="auto-evaluation-*" method="{1}" class="autoEvaluation.Action">
-			<result name="rechercher">/vue/{1}-auto-evaluation.jsp</result>
-			<result name="creer">/vue/{1}-auto-evaluation.jsp</result>
-			<result name="modifier">/vue/{1}-auto-evaluation.jsp</result>
-			<result name="supprimer">/vue/{1}-auto-evaluation.jsp</result>
-			<result name="lister">/vue/{1}-auto-evaluation.jsp</result>
-			<result name="error">/vue/erreur-auto-evaluation.jsp</result>
+			<result name="success">/vue/success-auto-evaluation.jsp</result>
+			<result name="error">/vue/error-auto-evaluation.jsp</result>
 			<allowed-methods>rechercher,creer,modifier,supprimer,lister</allowed-methods>
 		</action>
 		
 	</package>
+
+<!-- font -->
+ 	<package name="fonts" namespace="/fonts" extends="struts-default">
+ 	
+ 		<action name="glyphicons-halflings-regular.ttf">
+ 			<result>/WEB-INF/lib/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.ttf</result>
+ 		</action>
+ 	
+ 		<action name="glyphicons-halflings-regular.woff">
+ 			<result>/WEB-INF/lib/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff</result>
+ 		</action>
+ 		
+ 		<action name="glyphicons-halflings-regular.woff2">
+ 			<result>/WEB-INF/lib/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff2</result>
+ 		</action>
+ 		
+ 	</package>
 	
 <!-- import -->
 	<package name="import" namespace="" extends="struts-default">

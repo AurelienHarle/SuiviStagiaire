@@ -1,11 +1,15 @@
 package autoEvaluation;
 
+import java.time.LocalDate;
+
 import javax.naming.InitialContext;
 
 import autoEvaluation.entity.AutoEvaluation;
+import autoEvaluation.technique.AutoEvaluations;
 import competence.technique.Competences;
 import facade.FacadeSuiviStagiaireRemote;
 import niveauAcquisition.technique.NiveauAcquisitions;
+import stagiaire.entity.Stagiaire;
 
 /**
  * Classe qui permet de naviguer entre les différentes partie concernant les {@link AutoEvaluation}
@@ -31,8 +35,10 @@ public class Navigation extends ApplicationSupport {
 	
 	private Competences competences;
 	private NiveauAcquisitions niveauAcquisitions;
-	
-	
+	private AutoEvaluations autoEvaluations;
+	private LocalDate dateJour;
+	private String identifiantAutoEvaluation;
+	private AutoEvaluation autoEvaluation;
 	
 	public Navigation() {
 		
@@ -81,8 +87,15 @@ public class Navigation extends ApplicationSupport {
 	public String modification(){
 		
 		init();
+
+		niveauAcquisitions = facadeSuiviStagiaireRemote.selectNiveauAcquisitions();
 		
-		System.out.println("Modification");
+		if(identifiantAutoEvaluation!=null){
+			
+			autoEvaluation = new AutoEvaluation(Integer.parseInt(identifiantAutoEvaluation));
+			autoEvaluation = facadeSuiviStagiaireRemote.selectAutoEvaluation(autoEvaluation);
+			
+		}
 		
 		return MODIFICATION;
 		
@@ -123,11 +136,17 @@ public class Navigation extends ApplicationSupport {
 	 * 
 	 * @return
 	 */
-	public String lister(){
+	public String listage(){
 		
 		init();
 		
-		System.out.println("lister");
+		//Stagiaire creer en dure avant gestion des comptes
+		Stagiaire stagiaire = new Stagiaire("13111384", "Password", "Harlé", "Aurélien", null, null, null, null, null, null);
+		
+		AutoEvaluation autoEvaluation = new AutoEvaluation(null, null, stagiaire, null, null);
+		
+		autoEvaluations = facadeSuiviStagiaireRemote.selectAutoEvaluationByStag(autoEvaluation);
+		dateJour = LocalDate.now();
 		
 		return LISTER;
 		
@@ -160,5 +179,43 @@ public class Navigation extends ApplicationSupport {
 	 */
 	public void setNiveauAcquisitions(NiveauAcquisitions niveauAcquisitions) {
 		this.niveauAcquisitions = niveauAcquisitions;
+	}
+
+	public AutoEvaluations getAutoEvaluations() {
+		return autoEvaluations;
+	}
+
+	public void setAutoEvaluations(AutoEvaluations autoEvaluations) {
+		this.autoEvaluations = autoEvaluations;
+	}
+
+	/**
+	 * @return the dateJour
+	 */
+	public LocalDate getDateJour() {
+		return dateJour;
+	}
+
+	/**
+	 * @param dateJour the dateJour to set
+	 */
+	public void setDateJour(LocalDate dateJour) {
+		this.dateJour = dateJour;
+	}
+
+	public String getIdentifiantAutoEvaluation() {
+		return identifiantAutoEvaluation;
+	}
+
+	public void setIdentifiantAutoEvaluation(String identifiantAutoEvaluation) {
+		this.identifiantAutoEvaluation = identifiantAutoEvaluation;
+	}
+
+	public AutoEvaluation getAutoEvaluation() {
+		return autoEvaluation;
+	}
+
+	public void setAutoEvaluation(AutoEvaluation autoEvaluation) {
+		this.autoEvaluation = autoEvaluation;
 	}
 }

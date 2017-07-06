@@ -63,6 +63,17 @@ public class FacadeServiceAutoEvaluation implements FacadeServiceAutoEvaluationL
 	}
 
 	/**
+	 * Select une {@link AutoEvaluation} par son {@link identifiant}.
+	 * 
+	 * @param autoEvaluation {@link AutoEvaluation}
+	 * @return autoEvaluation {@link AutoEvaluation}
+	 */
+	@Override
+	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation) {
+		return facadeDaoAutoEvaluation.selectAutoEvaluation(autoEvaluation);
+	}
+
+	/**
 	 * Select une {@link AutoEvaluation} par son {@link Stagiaire}, {@link Competence}, Date permet aussi certaine contrôle
 	 * 
 	 * @Param {@link AutoEvaluation}
@@ -72,7 +83,6 @@ public class FacadeServiceAutoEvaluation implements FacadeServiceAutoEvaluationL
 	@Override
 	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException, NullException {
 		return facadeDaoAutoEvaluation.selectAutoEvaluationByStagCompDate(autoEvaluation);
-		
 	}
 
 	@Override

@@ -1,5 +1,7 @@
 package autoEvaluation.dao;
 
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -190,6 +192,21 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 			
 		}
 	}
+	
+	/**
+	 * Select une {@link AutoEvaluation} par son {@link identifiant}.
+	 * 
+	 * @param autoEvaluation {@link AutoEvaluation}
+	 * @return autoEvaluation {@link AutoEvaluation}
+	 * 
+	 */
+	@Override
+	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation){
+		
+		autoEvaluation = em.find(AutoEvaluation.class, autoEvaluation.getIdentifiant());
+		
+		return autoEvaluation;
+	}
 
 	/**
 	 * Select une {@link AutoEvaluation} par son {@link Stagiaire}, {@link Competence}, Date permet aussi certaine contrôle
@@ -252,12 +269,25 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 	}
 
 	/**
-	 * TODO
+	 * Recherche toute les {@link AutoEvaluation} d'un stagiaire
+	 * @return {@link AutoEvaluations}
 	 */
+	@SuppressWarnings("rawtypes")
 	@Override
 	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation) {
-		// TODO Auto-generated method stub
-		return null;
+
+		String sqlString = "select ae from AutoEvaluation ae where stag_osia = ?1";
+		AutoEvaluations autoEvaluations = new AutoEvaluations();
+		
+		List list = em.createQuery(sqlString)
+			.setParameter(1, autoEvaluation.getStagiaire().getOsia())
+			.getResultList();
+		
+		for (Object object : list) {
+			autoEvaluations.add((AutoEvaluation) object);
+		}
+		
+		return autoEvaluations;
 	}
 
 	/**

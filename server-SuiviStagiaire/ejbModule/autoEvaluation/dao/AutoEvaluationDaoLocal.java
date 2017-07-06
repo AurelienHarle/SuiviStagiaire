@@ -56,5 +56,13 @@ public interface AutoEvaluationDaoLocal {
 	 * Select d'une auto evaluation par sa Competences
 	 */
 	public AutoEvaluations selectAutoEvaluationByComp(AutoEvaluation autoEvaluation);
+
+	/**
+	 * Select une {@link AutoEvaluation} par son {@link identifiant}.
+	 * 
+	 * @param autoEvaluation {@link AutoEvaluation}
+	 * @return autoEvaluation {@link AutoEvaluation}
+	 */
+	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation);
 	
 }

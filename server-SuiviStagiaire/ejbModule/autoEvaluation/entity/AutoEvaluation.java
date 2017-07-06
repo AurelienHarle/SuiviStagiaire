@@ -76,7 +76,15 @@ public class AutoEvaluation implements Serializable {
 	}
 	
 	/**
-	 * Constructeur qui contient toute les informations d'une {@link AutoEvaluation}
+	 * Constructeur avec seulement l'id pour permetre les Select depuis la base de données
+	 * Attention certaine propriété sont obligatoire pour qu'une {@link AutoEvaluation} soit persisté
+	 */
+	public AutoEvaluation(int identifiant) {
+		setIdentifiant(identifiant);
+	}
+	
+	/**
+	 * Constructeur qui contient toute les informations sauf l'identifiant d'une {@link AutoEvaluation}
 	 * 
 	 * @param competence {@link Competence} Obligatoire pour persistance
 	 * @param niveauAcquisition {@link NiveauAcquisition} Obligatoire pour persistance
@@ -87,6 +95,27 @@ public class AutoEvaluation implements Serializable {
 	public AutoEvaluation(Competence competence,NiveauAcquisition niveauAcquisition, Stagiaire stagiaire, LocalDate dateAutoEvaluation, String ressenti) {
 		
 		super();
+		this.competence = competence;
+		this.niveauAcquisition = niveauAcquisition;
+		this.stagiaire = stagiaire;
+		this.dateAutoEvaluation = dateAutoEvaluation;
+		this.ressenti = ressenti;
+		
+	}
+	
+	/**
+	 * Constructeur qui contient toute les informations d'une {@link AutoEvaluation}
+	 * 
+	 * @param competence {@link Competence} Obligatoire pour persistance
+	 * @param niveauAcquisition {@link NiveauAcquisition} Obligatoire pour persistance
+	 * @param stagiaire {@link Stagiaire} Obligatoire pour persistance
+	 * @param dateAutoEvaluation {@link LocalDate} Obligatoire pour persistance
+	 * @param ressenti {@link String} Non Obligatoire pour persistance
+	 */
+	public AutoEvaluation(int identifiant,Competence competence,NiveauAcquisition niveauAcquisition, Stagiaire stagiaire, LocalDate dateAutoEvaluation, String ressenti) {
+		
+		super();
+		this.identifiant = identifiant;
 		this.competence = competence;
 		this.niveauAcquisition = niveauAcquisition;
 		this.stagiaire = stagiaire;

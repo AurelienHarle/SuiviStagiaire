@@ -7,7 +7,7 @@
 <link href="<s:url namespace="" action="footer-css" />" rel="stylesheet" type="text/css">
 </head>
 	<footer>
-		<div id="footer" class="well well-sm">
+		<div id="footer" class="container-fluid well well-sm">
 			<span>Copyright</span>
 		</div>
 	</footer>

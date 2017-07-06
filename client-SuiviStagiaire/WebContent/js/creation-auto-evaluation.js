@@ -49,6 +49,7 @@ function informationSelectionCompetence(){
 	
 	console.log('informationSelectionCompetence ');
 	document.querySelector("#info-competence").style.display = "block";
+	document.querySelectorAll('.form-group')[0].className = "form-group has-error";
 	
 } 
 
@@ -58,6 +59,7 @@ function informationSelectionCompetence(){
 function informationSelectionNiveauAcquisition(){
 	console.log('informationSelectionNiveauAcquisition ');
 	document.querySelector("#info-niveau-acquisition").style.display = "block";
+	document.querySelectorAll('.form-group')[1].className = "form-group has-error";
 }
 
 /**
@@ -77,6 +79,10 @@ function cleanRessenti(element){
 function calculCaractereRestant(element){
 
 	var nombreCharaRestant = 4000 - element.value.length;
+	
+	if (nombreCharaRestant < 0 ) document.querySelectorAll('.form-group')[2].className = "form-group has-error";
+	else document.querySelectorAll('.form-group')[2].className = "form-group";
+	
 	var pNombreCharaRestant = document.getElementById('nombre-caractere-restant');
 
 	var red =  255 - Math.trunc((nombreCharaRestant/15.68627450980392));
@@ -87,4 +93,15 @@ function calculCaractereRestant(element){
 	pNombreCharaRestant.setAttribute("style", plusRougeTueLeRouge); 
 	pNombreCharaRestant.innerHTML = nombreCharaRestant;
 	
+}
+
+function validationSuppression(){
+	
+	if (confirm("Êtes vous sur de vouloir supprimer cette auto-évaluation?")) {
+	    var retour = true;
+	} else {
+		var retour = false;
+	}
+	
+	return retour;
 }
