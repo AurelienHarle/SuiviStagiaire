@@ -20,6 +20,9 @@ import exception.UnfoundException;
 import logger.JournaliseurNiveauConfig;
 import logger.JournaliseurNiveauError;
 import logger.JournaliseurNiveauInfo;
+import module.entity.Module;
+import sequence.entity.Sequence;
+import sequence.technique.Sequences;
 
 /**
  * Session Bean CompetenceDao qui permet l'insertion l'update et le delete dans la base de données
@@ -172,6 +175,27 @@ public class CompetenceDao implements CompetenceDaoLocal {
 
 		return competence2; 
 		 	
+	}
+	
+	@Override
+	@SuppressWarnings("rawtypes")
+	public Competences selectCompetenceByModule(Module module){
+		
+		Competences competences = new Competences();
+		
+		String sqlQuery = "select c from Competence c where c.mod_id = ?1 ORDER BY c.identifiant asc";
+		
+		List list = em.createQuery(sqlQuery).setParameter(1, module.getIdentifiant()).getResultList();
+		
+		for (Object object : list) {
+			
+			competences.add((Competence) object);
+			
+		}
+		
+		return competences;
+		
+		
 	}
 	
 	@Override

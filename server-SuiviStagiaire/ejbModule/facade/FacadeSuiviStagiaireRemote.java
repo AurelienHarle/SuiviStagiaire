@@ -79,6 +79,13 @@ public interface FacadeSuiviStagiaireRemote {
 	public Sequence selectSequence(Sequence sequence) throws UnfoundException;
 	
 	/**
+	 * Selectionne les {@link Sequences} d'un {@link Module}
+	 * @param module {@link Module}
+	 * @return {@link Sequences}
+	 */
+	public Sequences selectSequenceByModule(Module module);
+	
+	/**
 	 * Selectionne tout les sequences de la table seq
 	 * @return {@link Sequences}
 	 */
@@ -108,6 +115,14 @@ public interface FacadeSuiviStagiaireRemote {
 	 * @throws UnfoundException 
 	 */
 	public Competence selectCompetence(Competence competence) throws UnfoundException;
+	
+	/**
+	 * select les {@link Competences} d'après un module
+	 * @param module {@link Module}
+	 * @return {@link Competences}
+	 * 
+	 */
+	public Competences selectCompetenceByModule(Module module);
 
 	/**
 	 * Retourne toute les competences de la table comp

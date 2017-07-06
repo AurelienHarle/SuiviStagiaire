@@ -10,6 +10,7 @@ import competence.technique.Competences;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
+import module.entity.Module;
 
 /**
  * Session Bean implementation class FacadeServiceCompetence
@@ -45,6 +46,11 @@ public class FacadeServiceCompetence implements FacadeServiceCompetenceLocal {
 	@Override
 	public Competence selectCompetence(Competence competence) throws UnfoundException {
 		return facadeDaoCompetence.selectCompetence(competence);
+	}
+
+	@Override
+	public Competences selectCompetenceByModule(Module module) {
+		return facadeDaoCompetence.selectCompetenceByModule(module);
 	}
 
 	@Override

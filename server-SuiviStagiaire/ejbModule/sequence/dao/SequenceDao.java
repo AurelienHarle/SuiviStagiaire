@@ -170,11 +170,32 @@ public class SequenceDao implements SequenceDaoLocal {
 	
 	@Override
 	@SuppressWarnings("rawtypes")
+	public Sequences selectSequenceByModule(Module module){
+		
+		Sequences sequences = new Sequences();
+		
+		String sqlQuery = "select s from Sequence s where s.mod_id = ?1 ORDER BY m.identifiant asc";
+		
+		List list = em.createQuery(sqlQuery).setParameter(1, module.getIdentifiant()).getResultList();
+		
+		for (Object object : list) {
+			
+			sequences.add((Sequence) object);
+			
+		}
+		
+		return sequences;
+		
+		
+	}
+	
+	@Override
+	@SuppressWarnings("rawtypes")
 	public Sequences selectSequences(){
 		
 		Sequences sequences = new Sequences();
 		
-		String sqlQuery = "select m from Sequence m ORDER BY m.identifiant asc";
+		String sqlQuery = "select s from Sequence s ORDER BY s.identifiant asc";
 		
 		List list = em.createQuery(sqlQuery).getResultList();
 		

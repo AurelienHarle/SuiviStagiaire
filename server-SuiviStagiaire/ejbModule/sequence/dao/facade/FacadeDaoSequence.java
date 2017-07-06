@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
+import module.entity.Module;
 import sequence.dao.SequenceDao;
 import sequence.entity.Sequence;
 import sequence.technique.Sequences;
@@ -49,6 +50,12 @@ public class FacadeDaoSequence implements FacadeDaoSequenceLocal {
 	public Sequence selectSequence(Sequence sequence) throws UnfoundException {
 		return sequenceDao.selectSequence(sequence);
 		
+	}
+
+
+	@Override
+	public Sequences selectSequenceByModule(Module module) {
+		return sequenceDao.selectSequenceByModule(module);
 	}
 
 

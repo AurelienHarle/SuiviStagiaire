@@ -6,6 +6,7 @@ import competence.dao.CompetenceDao;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
+import module.entity.Module;
 import sequence.entity.Sequence;
 import sequence.technique.Sequences;
 
@@ -49,5 +50,12 @@ public interface SequenceDaoLocal {
 	 * @return {@link Sequences}
 	 */
 	public Sequences selectSequences();
+
+	/**
+	 * Selectionne les {@link Sequences} d'un {@link Module}
+	 * @param module {@link Module}
+	 * @return {@link Sequences}
+	 */
+	public Sequences selectSequenceByModule(Module module);
 	
 }

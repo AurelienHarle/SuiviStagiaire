@@ -7,6 +7,7 @@ import competence.technique.Competences;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
+import module.entity.Module;
 
 @Local
 public interface FacadeServiceCompetenceLocal {
@@ -33,6 +34,14 @@ public interface FacadeServiceCompetenceLocal {
 	 * @throws UnfoundException 
 	 */
 	public Competence selectCompetence(Competence competence) throws UnfoundException;
+	
+	/**
+	 * select les {@link Competences} d'après un module
+	 * @param module {@link Module}
+	 * @return {@link Competences}
+	 * 
+	 */
+	public Competences selectCompetenceByModule(Module module);
 	
 	/**
 	 * Retourne toute les competences de la table comp

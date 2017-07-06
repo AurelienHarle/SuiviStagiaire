@@ -7,6 +7,7 @@ import competence.technique.Competences;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
+import module.entity.Module;
 
 /**
  * Local Bean de {@link CompetenceDao} qui permet l'insertion l'update et le delete dans la base de données
@@ -48,6 +49,14 @@ public interface CompetenceDaoLocal {
 	 * @return competences {@link Competences}
 	 */
 	public Competences selectCompetences();
+	
+	/**
+	 * select les {@link Competences} d'après un module
+	 * @param module {@link Module}
+	 * @return {@link Competences}
+	 * 
+	 */
+	public Competences selectCompetenceByModule(Module module);
 
 	
 	

@@ -5,6 +5,7 @@ import javax.ejb.Local;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
+import module.entity.Module;
 import sequence.entity.Sequence;
 import sequence.technique.Sequences;
 
@@ -35,6 +36,13 @@ public interface FacadeDaoSequenceLocal {
 	 * @throws UnfoundException 
 	 */
 	public Sequence selectSequence(Sequence sequence) throws UnfoundException;
+	
+	/**
+	 * Selectionne les {@link Sequences} d'un {@link Module}
+	 * @param module {@link Module}
+	 * @return {@link Sequences}
+	 */
+	public Sequences selectSequenceByModule(Module module);
 	
 	/**
 	 * Selectionne tout les sequences de la table seq
