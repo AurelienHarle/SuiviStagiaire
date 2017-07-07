@@ -72,6 +72,7 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
 
 	@Override
 	public Module selectModule(Module module) throws UnfoundException {
+		journaliseurNiveauConfig.log("[Debut method] selectModule(Module module)" );
 		return facadeServiceModule.selectModule(module);
 	}
 

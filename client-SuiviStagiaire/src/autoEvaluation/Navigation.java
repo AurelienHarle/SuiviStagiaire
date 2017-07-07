@@ -1,14 +1,21 @@
 package autoEvaluation;
 
+import java.lang.reflect.Method;
 import java.time.LocalDate;
 
 import javax.naming.InitialContext;
 
+import com.google.gson.Gson;
+
 import autoEvaluation.entity.AutoEvaluation;
 import autoEvaluation.technique.AutoEvaluations;
 import competence.technique.Competences;
+import exception.UnfoundException;
 import facade.FacadeSuiviStagiaireRemote;
+import module.entity.Module;
+import module.technique.Modules;
 import niveauAcquisition.technique.NiveauAcquisitions;
+import sequence.technique.Sequences;
 import stagiaire.entity.Stagiaire;
 
 /**
@@ -30,15 +37,19 @@ public class Navigation extends ApplicationSupport {
 	private static final String CREATION = "creation";
 	private static final String MODIFICATION = "modification";
 	private static final String SUPPRESSION = "suppression";
-	private static final String RECHERCHER = "recherche";
+	private static final String RECHERCHE = "recherche";
 	private static final String LISTER = "listage";
 	
 	private Competences competences;
+	private Sequences sequences;
+	private Modules modules;
 	private NiveauAcquisitions niveauAcquisitions;
 	private AutoEvaluations autoEvaluations;
 	private LocalDate dateJour;
 	private String identifiantAutoEvaluation;
 	private AutoEvaluation autoEvaluation;
+	private String jsonModule;
+	private Module module;
 	
 	public Navigation() {
 		
@@ -121,13 +132,17 @@ public class Navigation extends ApplicationSupport {
 	 * 
 	 * @return
 	 */
-	public String rechercher(){
+	public String recherche(){
 		
 		init();
 		
-		System.out.println("rechercher");
+		System.out.println("recherche");
+		competences = facadeSuiviStagiaireRemote.selectCompetences();
+		sequences = facadeSuiviStagiaireRemote.selectSequences();
+		modules = facadeSuiviStagiaireRemote.selectModules();
 		
-		return RECHERCHER;
+		niveauAcquisitions = facadeSuiviStagiaireRemote.selectNiveauAcquisitions();
+		return RECHERCHE;
 		
 	}
 	
@@ -152,6 +167,38 @@ public class Navigation extends ApplicationSupport {
 		
 	}
 	
+	/**
+	 * {@link Method} qui récupère un text JSon qui représente un {@link Module} avec son identifiant,
+	 * Instancie ensuite un {@link Module} avec la librairie {@link Gson}, pour sélectionner dans la base de données
+	 * les {@link Sequences} et les {@link Competences} compris dans ce {@link Module}.
+	 */
+	public String module(){
+
+		//Retour de la methode
+		init();
+		String retour = Action.SUCCESS;
+
+		//Creation de l'objet module depuis JSon recus, de la page web avec requette ajax
+		Gson gson = new Gson();
+		module = gson.fromJson(jsonModule, Module.class);
+
+		try {
+			
+			//Selection du module dans la base de données
+			module = facadeSuiviStagiaireRemote.selectModule(module);
+
+		} catch (UnfoundException e) {
+
+			retour = Action.ERROR;
+			e.printStackTrace();
+
+		}
+
+		sequences = facadeSuiviStagiaireRemote.selectSequenceByModule(module);
+		competences = facadeSuiviStagiaireRemote.selectCompetenceByModule(module);
+
+		return retour;
+	}
 
 	/**
 	 * @return the competences
@@ -217,5 +264,29 @@ public class Navigation extends ApplicationSupport {
 
 	public void setAutoEvaluation(AutoEvaluation autoEvaluation) {
 		this.autoEvaluation = autoEvaluation;
+	}
+
+	public Sequences getSequences() {
+		return sequences;
+	}
+
+	public void setSequences(Sequences sequences) {
+		this.sequences = sequences;
+	}
+
+	public Modules getModules() {
+		return modules;
+	}
+
+	public void setModules(Modules modules) {
+		this.modules = modules;
+	}
+
+	public String getJsonModule() {
+		return jsonModule;
+	}
+
+	public void setJsonModule(String jsonModule) {
+		this.jsonModule = jsonModule;
 	}
 }

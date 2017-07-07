@@ -9,6 +9,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
+import javax.persistence.Query;
 
 import exception.DoublonException;
 import exception.NullException;
@@ -17,7 +18,6 @@ import logger.JournaliseurNiveauConfig;
 import logger.JournaliseurNiveauError;
 import logger.JournaliseurNiveauInfo;
 import module.entity.Module;
-import module.technique.Modules;
 import sequence.entity.Sequence;
 import sequence.technique.Sequences;
 
@@ -173,10 +173,9 @@ public class SequenceDao implements SequenceDaoLocal {
 	public Sequences selectSequenceByModule(Module module){
 		
 		Sequences sequences = new Sequences();
-		
-		String sqlQuery = "select s from Sequence s where s.mod_id = ?1 ORDER BY m.identifiant asc";
-		
-		List list = em.createQuery(sqlQuery).setParameter(1, module.getIdentifiant()).getResultList();
+		String sqlQuery = "select s from Sequence s where s.module.identifiant = ?1 ORDER BY s.identifiant asc";
+		Query query = em.createQuery(sqlQuery).setParameter(1, module.getIdentifiant());
+		List list = query.getResultList();
 		
 		for (Object object : list) {
 			
