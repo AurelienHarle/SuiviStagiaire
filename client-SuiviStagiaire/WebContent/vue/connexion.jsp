@@ -1,14 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="fr">
 <head>
-<title>Connexion - Suivi de stagiaire</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ include file="/WEB-INF/jsp/import-boostrap.jsp"%>
-<link href="<s:url namespace="" action="index-css" />" rel="stylesheet"
-	type="text/css">
+<link href="<s:url namespace="" action="index-css" />" rel="stylesheet" type="text/css">
 </head>
 <%@ include file="/WEB-INF/jsp/bandeau.jsp"%>
 <body>
@@ -18,16 +15,13 @@
 			<div class="form-group">
 				<label for="inputEmail3" class="col-sm-2 control-label">Login</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="inputEmail3"
-						placeholder="Login">
+					<input type="text" class="form-control" id="inputEmail3" placeholder="Login">
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="inputPassword3"
-					class="col-sm-offset-0 col-sm-2 control-label">Password</label>
+				<label for="inputPassword3" class="col-sm-offset-0 col-sm-2 control-label">Password</label>
 				<div class="col-sm-10">
-					<input type="password" class="form-control" id="inputPassword3"
-						placeholder="Password">
+					<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
 				</div>
 			</div>
 			<div class="form-group">
