@@ -201,9 +201,12 @@ public class CompetenceDao implements CompetenceDaoLocal {
 		
 		Competences competences = new Competences();
 		
-		String sqlQuery = "select c from Competence c where c.sequence.identifiant = ?1 ORDER BY c.identifiant asc";
+		String sqlQuery = "select c from Competence c where c.sequence.identifiant = ?1 c.sequence.module.identifiant = ?2 ORDER BY c.identifiant asc";
 		
-		List list = em.createQuery(sqlQuery).setParameter(1, sequence.getIdentifiant()).getResultList();
+		List list = em.createQuery(sqlQuery)
+				.setParameter(1, sequence.getIdentifiant())
+				.setParameter(2, sequence.getModule().getIdentifiant())
+		.getResultList();
 		
 		for (Object object : list) {
 			
