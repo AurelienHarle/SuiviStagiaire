@@ -125,6 +125,14 @@ public interface FacadeSuiviStagiaireRemote {
 	public Competences selectCompetenceByModule(Module module);
 
 	/**
+	 * select les {@link Competences} d'après une {@link Sequence}
+	 * @param module {@link Sequence}
+	 * @return {@link Competences}
+	 * 
+	 */
+	public Competences selectCompetenceBySequence(Sequence sequence);
+	
+	/**
 	 * Retourne toute les competences de la table comp
 	 * @return competences {@link Competences}
 	 */

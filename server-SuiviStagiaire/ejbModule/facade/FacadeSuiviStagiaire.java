@@ -137,6 +137,11 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
 	}
 
 	@Override
+	public Competences selectCompetenceBySequence(Sequence sequence) {
+		return facadeServiceCompetence.selectCompetenceBySequence(sequence);
+	}
+
+	@Override
 	public Competences selectCompetences() {
 		return facadeServiceCompetence.selectCompetences();
 	}

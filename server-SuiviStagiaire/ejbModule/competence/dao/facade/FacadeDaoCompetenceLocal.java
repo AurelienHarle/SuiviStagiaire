@@ -8,6 +8,7 @@ import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
 import module.entity.Module;
+import sequence.entity.Sequence;
 
 @Local
 public interface FacadeDaoCompetenceLocal {
@@ -43,6 +44,14 @@ public interface FacadeDaoCompetenceLocal {
 	 * 
 	 */
 	public Competences selectCompetenceByModule(Module module);
+	
+	/**
+	 * select les {@link Competences} d'après une {@link Sequence}
+	 * @param module {@link Sequence}
+	 * @return {@link Competences}
+	 * 
+	 */
+	public Competences selectCompetenceBySequence(Sequence sequence);
 	
 	/**
 	 * Retourne toute les competences de la table comp
