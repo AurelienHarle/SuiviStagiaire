@@ -101,7 +101,7 @@ function calculCaractereRestant(element){
  */
 function validationSuppression(){
 	
-	if (confirm("Êtes vous sur de vouloir supprimer cette auto-évaluation?")) {
+	if (confirm("&Ecirc;tes vous sur de vouloir supprimer cette auto-&eacute;valuation?")) {
 	    var retour = true;
 	} else {
 		var retour = false;
@@ -114,9 +114,9 @@ function validationSuppression(){
  * 
  * @returns
  */
-function moduleSelected(element){
+function ajaxRecherche(element){
 	
-	console.log('moduleSelected');
+	console.log('ajaxRecherche');
 	console.log(element);
 	var options = element.getElementsByTagName('option');
 	console.log(options);
@@ -130,17 +130,33 @@ function moduleSelected(element){
 	
 	if(option.value != "-1"){
 
-		var module = new Object();
-		module.identifiant = option.value;
+		var identifiants = option.value.split(',');
 		
-		var jsonModule = JSON.stringify(module);
-		console.log(jsonModule);
-		url = "../ajax/ajax-module";
+		switch (identifiants.length) {
+		case 1:
+			var module = new Object();
+			module.identifiant = identifiants[0];
+			var jsonData = JSON.stringify(module);
+			break;
+		case 2:
+			var sequence = new Object();
+			sequence.module = new Object();
+			sequence.identifiant = identifiants[1];
+			sequence.module.identifiant = identifiants[0];
+			var jsonData = JSON.stringify(sequence);
+			break;
+		default:
+			break;
+		}
+
+		console.log(jsonData);
+		
+		url = "../ajax/ajax-recherche";
 		
 		$.ajax({
 			
 			url : url,
-			data : {jsonModule : jsonModule},
+			data : {jsonData : jsonData},
 			type : 'get',
 			dataType : 'json',
 			error : function(){message = "error";},
@@ -174,45 +190,51 @@ function moduleSelected(element){
  * @returns
  */
 function updateView(response){
-	
+		
 	selects = document.getElementsByTagName("select");
 	selectSequence = selects[1];
 	selectCompetence = selects[2];
 	
-	while (selectSequence.firstChild) {
-		selectSequence.removeChild(selectSequence.firstChild);
-	}
-	
-	while (selectCompetence.firstChild) {
-		selectCompetence.removeChild(selectCompetence.firstChild);
-	}
-	
-	var option = document.createElement("option");
-	option.value =  "-1";
-	option.innerHTML = "Séquence...";
-	selectSequence.appendChild(option);
-	for(var i = 0;i < response.sequences.length;i++){
+	if(response.sequences != null){
+		while (selectSequence.firstChild) {
+			selectSequence.removeChild(selectSequence.firstChild);
+		}
 		
 		var option = document.createElement("option");
-		option.value =  response.sequences[i].module.identifiant + "," + response.sequences[i].identifiant;
-		option.innerHTML = response.sequences[i].identifiant + " - " +  response.sequences[i].nomCourt;
+		option.value =  "-1";
+		option.innerHTML = "S&eacute;quence...";
 		selectSequence.appendChild(option);
+		for(var i = 0;i < response.sequences.length;i++){
+			
+			var option = document.createElement("option");
+			option.value =  response.sequences[i].module.identifiant + "," + response.sequences[i].identifiant;
+			option.innerHTML = response.sequences[i].identifiant + " - " +  response.sequences[i].nomCourt;
+			selectSequence.appendChild(option);
+			
+		}
 		
 	}
 	
-	var option = document.createElement("option");
-	option.value =  "-1";
-	option.innerHTML = "Compétence...";
-	selectCompetence.appendChild(option);
-	for(var i = 0;i < response.competences.length;i++){
+	if(response.competences != null){
+		while (selectCompetence.firstChild) {
+			selectCompetence.removeChild(selectCompetence.firstChild);
+		}
+		
 		
 		var option = document.createElement("option");
-		option.value =  response.competences[i].sequence.module.identifiant 
-						+ "," + response.competences[i].sequence.identifiant 
-						+ " , " + response.competences[i].identifiant;
-		option.innerHTML = response.competences[i].identifiant + " - " +  response.competences[i].nomCourt;
+		option.value =  "-1";
+		option.innerHTML = "Comp&eacute;tence...";
 		selectCompetence.appendChild(option);
-		
+		for(var i = 0;i < response.competences.length;i++){
+			
+			var option = document.createElement("option");
+			option.value =  response.competences[i].sequence.module.identifiant 
+							+ "," + response.competences[i].sequence.identifiant 
+							+ " , " + response.competences[i].identifiant;
+			option.innerHTML = response.competences[i].identifiant + " - " +  response.competences[i].nomCourt;
+			selectCompetence.appendChild(option);
+			
+	}
 	}
 	
 }

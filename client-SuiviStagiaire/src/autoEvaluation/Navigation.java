@@ -9,12 +9,14 @@ import com.google.gson.Gson;
 
 import autoEvaluation.entity.AutoEvaluation;
 import autoEvaluation.technique.AutoEvaluations;
+import competence.entity.Competence;
 import competence.technique.Competences;
 import exception.UnfoundException;
 import facade.FacadeSuiviStagiaireRemote;
 import module.entity.Module;
 import module.technique.Modules;
 import niveauAcquisition.technique.NiveauAcquisitions;
+import sequence.entity.Sequence;
 import sequence.technique.Sequences;
 import stagiaire.entity.Stagiaire;
 
@@ -48,8 +50,9 @@ public class Navigation extends ApplicationSupport {
 	private LocalDate dateJour;
 	private String identifiantAutoEvaluation;
 	private AutoEvaluation autoEvaluation;
-	private String jsonModule;
 	private Module module;
+	private String jsonData;
+	private Sequence sequence;
 	
 	public Navigation() {
 		
@@ -172,48 +175,72 @@ public class Navigation extends ApplicationSupport {
 	 * Instancie ensuite un {@link Module} avec la librairie {@link Gson}, pour sélectionner dans la base de données
 	 * les {@link Sequences} et les {@link Competences} compris dans ce {@link Module}.
 	 */
-	public String module(){
+	public String ajaxRecherche(){
 
 		//Retour de la methode
 		init();
 		String retour = Action.SUCCESS;
-
+		
+		System.out.println(jsonData);
+		
 		//Creation de l'objet module depuis JSon recus, de la page web avec requette ajax
 		Gson gson = new Gson();
-		module = gson.fromJson(jsonModule, Module.class);
-
-		try {
+		
+		if (jsonData.contains("module")){
 			
-			//Selection du module dans la base de données
-			module = facadeSuiviStagiaireRemote.selectModule(module);
+			System.out.println(jsonData.contains("module"));
+			
+			sequence = gson.fromJson(jsonData, Sequence.class);
+			System.out.println(sequence);
+			try {
 
-		} catch (UnfoundException e) {
+				sequence = facadeSuiviStagiaireRemote.selectSequence(sequence);
+				
+				System.out.println(sequence);
+				System.out.println("je men bas lec je fais pas la suite ici");
+				competences = facadeSuiviStagiaireRemote.selectCompetenceBySequence(sequence);
+				System.out.println(competences);
+				for (Competence competence : competences) {
+					System.out.println(competence);
+				}
+				
+			} catch (UnfoundException e) {
 
-			retour = Action.ERROR;
-			e.printStackTrace();
+				retour = Action.ERROR;
+				e.printStackTrace();
 
+			}
+			
+		}else{
+			
+			System.out.println("else");
+			module = gson.fromJson(jsonData, Module.class);
+			System.out.println(module);
+			try {
+				
+				module = facadeSuiviStagiaireRemote.selectModule(module);
+				System.out.println(module);
+				sequences = facadeSuiviStagiaireRemote.selectSequenceByModule(module);
+				for (Sequence sequence : sequences) {
+					System.out.println(sequence);
+				}
+				
+				competences = facadeSuiviStagiaireRemote.selectCompetenceByModule(module);
+				for (Competence competence : competences) {
+					System.out.println(competence);
+				}
+			} catch (UnfoundException e) {
+
+				retour = Action.ERROR;
+				e.printStackTrace();
+
+			}
 		}
-
-		sequences = facadeSuiviStagiaireRemote.selectSequenceByModule(module);
-		competences = facadeSuiviStagiaireRemote.selectCompetenceByModule(module);
-
+		
+		System.out.println(retour);
 		return retour;
 	}
-
-	/**
-	 * @return the competences
-	 */
-	public Competences getCompetences() {
-		return competences;
-	}
-
-	/**
-	 * @param competences the competences to set
-	 */
-	public void setCompetences(Competences competences) {
-		this.competences = competences;
-	}
-
+	
 	/**
 	 * @return the niveauAcquisitions
 	 */
@@ -282,11 +309,27 @@ public class Navigation extends ApplicationSupport {
 		this.modules = modules;
 	}
 
-	public String getJsonModule() {
-		return jsonModule;
+	public Module getModule() {
+		return module;
 	}
 
-	public void setJsonModule(String jsonModule) {
-		this.jsonModule = jsonModule;
+	public void setModule(Module module) {
+		this.module = module;
+	}
+
+	public String getJsonData() {
+		return jsonData;
+	}
+
+	public void setJsonData(String jsonData) {
+		this.jsonData = jsonData;
+	}
+
+	public Competences getCompetences() {
+		return competences;
+	}
+
+	public void setCompetences(Competences competences) {
+		this.competences = competences;
 	}
 }

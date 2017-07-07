@@ -33,7 +33,7 @@
 			<div class="form-group">
 				<label for="module" class="col-sm-3 col-sm-offset-0 control-label">Module :</label>
 				<div id="module" class="col-sm-9 col-sm-offset-0">
-					<select title="Module" name="stringModule" class="form-control" onchange="moduleSelected(this)">
+					<select title="Module" name="stringModule" class="form-control" onchange="ajaxRecherche(this)">
 						<option value="-1">Module...</option>
 						<s:iterator value="Modules">
 							<option value="<s:property value="identifiant" />"><s:property value="identifiant" /> -
@@ -45,7 +45,7 @@
 			<div class="form-group">
 				<label for="sequence" class="col-sm-3 col-sm-offset-0 control-label">Séquence :</label>
 				<div id="sequence" class="col-sm-9 col-sm-offset-0">
-					<select title="Séquence" name="stringSequence" class="form-control">
+					<select title="Séquence" name="stringSequence" class="form-control" onchange="ajaxRecherche(this)">
 						<option value="-1">Séquence...</option>
 						<s:iterator value="Sequences">
 							<option value="<s:property value="module.identifiant" />,<s:property value="identifiant" />"><s:property value="identifiant" /> -
