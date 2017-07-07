@@ -11,6 +11,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
+import competence.entity.Competence;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
@@ -134,11 +135,16 @@ public class SequenceDao implements SequenceDaoLocal {
 	public Sequence selectSequence(Sequence sequence) throws UnfoundException {
 
 		Sequence sequence2 = null;
+
+		String hqlString = "select s from Sequence s where s.identifiant = ?1 and s.module.identifiant = ?2";
 		
 		try{
-			
-			sequence2 = em.find(Sequence.class, sequence.getIdentifiant());
-			
+
+			sequence2 = (Sequence) em.createQuery(hqlString)
+				.setParameter(1, sequence.getIdentifiant())
+				.setParameter(2, sequence.getModule().getIdentifiant())
+				.getSingleResult();
+
 			if(sequence2 == null){
 				journaliseurNiveauInfo.log("[Select]  Sequence [IN] : " + sequence + " [MESSAGE] : NotFound");
 				throw new UnfoundException("selectSequence");
@@ -149,12 +155,12 @@ public class SequenceDao implements SequenceDaoLocal {
 		}catch (Exception e) {
 			if(e instanceof NullPointerException){
 				
-				journaliseurNiveauInfo.log("[Select]  Sequence [IN] : " + sequence + " [MESSAGE] : NotFound");
+				journaliseurNiveauInfo.log("[Select]  Sequence [IN] : " + sequence + "[Exception] : NullPointerException "  + " [MESSAGE] : NotFound");
 				throw new UnfoundException("selectSequence");
 				
 			}else if(e instanceof IllegalArgumentException){
 			
-				journaliseurNiveauInfo.log("[Select]  Sequence [IN] : " + sequence + " [MESSAGE] : NotFound");
+				journaliseurNiveauInfo.log("[Select]  Sequence [IN] : " + sequence + "[Exception] : IllegalArgumentException " + " [MESSAGE] : NotFound");
 				throw new UnfoundException("selectSequence");
 				
 			}else{
@@ -163,7 +169,7 @@ public class SequenceDao implements SequenceDaoLocal {
 				journaliseurNiveauError.log("[METHOD] selectSequence [Entity] " + sequence + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			}
 		}
-		
+
 		return sequence2; 
 	
 	}
