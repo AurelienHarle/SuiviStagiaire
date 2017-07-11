@@ -63,8 +63,7 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws NullException, DateNullException {
 
 		AutoEvaluation autoEvaluation2 = null;
-		
-		//Select de test pour savoir si l'auto eval existe si elle existe on update sinon on insert
+
 		try {
 
 			autoEvaluation2 = selectAutoEvaluationByStagCompDate(autoEvaluation);

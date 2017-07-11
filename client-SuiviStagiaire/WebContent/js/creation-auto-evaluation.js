@@ -4,7 +4,6 @@
  */
 function validateFormCreation(element) {
 
-	console.log('validateFormCreation');
 	var competences = element.querySelectorAll('option');
 	var competenceSelected = false;
 	var niveauAcquisitions = element.querySelectorAll('input[type="radio"]');
@@ -45,7 +44,7 @@ function validateFormCreation(element) {
 
 	if (competenceSelected && niveauAcquisitionSelected && ressentiLength)
 		formValidate = true;
-	console.log('formValidate ' + formValidate);
+
 	return formValidate;
 }
 
@@ -59,15 +58,15 @@ function validateFormRecherche(element) {
 	var date = document.getElementById('datetimepicker4');
 	var module = element.querySelectorAll('select')[0];
 	var sequence = element.querySelectorAll('select')[1];
-	var compentee = element.querySelectorAll('select')[2];
+	var compentence = element.querySelectorAll('select')[2];
 	var niveauAcquisition = element.querySelectorAll('input[type="radio"]');
-	
+
 	var formValide = false;
 	var dateSelected = false;
 	var moduleSelected = false;
 	var sequenceSelected = false;
 	var competenceSelected = false;
-	
+
 	if (date.value.length > 0) {
 		dateSelected = true;
 	}
@@ -98,21 +97,21 @@ function validateFormRecherche(element) {
 		}
 
 	}
-	
-	if(dateSelected && moduleSelected && sequenceSelected && competenceSelected) formValide = true;
-	if(!formValide) informationRecherche();
+
+	if (dateSelected || moduleSelected || sequenceSelected
+			|| competenceSelected)
+		formValide = true;
+	if (!formValide)
+		informationRecherche();
 	return formValide;
 
 }
-
-
 
 /**
  * Informe l'utilisateur qu'il dois sélectionner un element pour rechercher
  */
 function informationRecherche() {
 
-	console.log('informationSelectionCompetence ');
 	document.querySelector("#info-recherche").style.display = "block";
 	document.querySelectorAll('.form-group')[0].className = "form-group has-error";
 	document.querySelectorAll('.form-group')[1].className = "form-group has-error";
@@ -127,7 +126,6 @@ function informationRecherche() {
  */
 function informationSelectionCompetence() {
 
-	console.log('informationSelectionCompetence ');
 	document.querySelector("#info-competence").style.display = "block";
 	document.querySelectorAll('.form-group')[0].className = "form-group has-error";
 
@@ -137,7 +135,7 @@ function informationSelectionCompetence() {
  * Informe l'utilisateur qu'il dois sélectionner un niveau d'acquisition
  */
 function informationSelectionNiveauAcquisition() {
-	console.log('informationSelectionNiveauAcquisition ');
+
 	document.querySelector("#info-niveau-acquisition").style.display = "block";
 	document.querySelectorAll('.form-group')[1].className = "form-group has-error";
 }
@@ -148,7 +146,6 @@ function informationSelectionNiveauAcquisition() {
  */
 function informationRessentiLength() {
 
-	console.log('informationSelectionCompetence ');
 	document.querySelector("#info-ressenti").style.display = "block";
 	document.querySelectorAll('.form-group')[2].className = "form-group has-error";
 
@@ -224,8 +221,6 @@ function ajaxRecherche(element) {
 		}
 	}
 
-	console.log(element.tagName);
-
 	if (element.tagName == "BUTTON") {
 
 		var request = new Object();
@@ -280,13 +275,8 @@ function ajaxRecherche(element) {
 			},
 			complete : function(data) {
 
-				console.log(message);
-				console.log(data);
-				console.log(data.responseText);
-
 				if (message == "success") {
 
-					console.log(data.responseText);
 					response = JSON.parse(data.responseText);
 					updateView(response);
 				}
