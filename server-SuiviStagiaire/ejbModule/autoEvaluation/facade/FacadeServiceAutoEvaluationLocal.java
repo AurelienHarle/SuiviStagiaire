@@ -67,9 +67,10 @@ public interface FacadeServiceAutoEvaluationLocal {
 	 * @param moduleRechercher {@link Module}
 	 * @param sequenceRechercher {@link Sequence}
 	 * @param competenceRechercher {@link Competence}
+	 * @param autoEvaluationNoter {@link AutoEvaluation}
 	 * @return {@link AutoEvaluations}
 	 */
 	public AutoEvaluations selectAutoEvaluationsByMultipleCritere(AutoEvaluation autoEvaluationDater, Module moduleRechercher,
-			Sequence sequenceRechercher, Competence competenceRechercher);
+			Sequence sequenceRechercher, Competence competenceRechercher,AutoEvaluation autoEvaluationNoter);
 	
 }

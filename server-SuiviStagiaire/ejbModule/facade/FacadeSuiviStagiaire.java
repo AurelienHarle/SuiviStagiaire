@@ -228,8 +228,8 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
 
 	@Override
 	public AutoEvaluations selectAutoEvaluationsByMultipleCritere(AutoEvaluation autoEvaluationDater,
-			Module moduleRechercher, Sequence sequenceRechercher, Competence competenceRechercher) {
-		return facadeServiceAutoEvaluation.selectAutoEvaluationsByMultipleCritere(autoEvaluationDater,moduleRechercher, sequenceRechercher, competenceRechercher);
-	} 
+			Module moduleRechercher, Sequence sequenceRechercher, Competence competenceRechercher,AutoEvaluation autoEvaluationNoter) {
+		return facadeServiceAutoEvaluation.selectAutoEvaluationsByMultipleCritere(autoEvaluationDater,moduleRechercher, sequenceRechercher, competenceRechercher,autoEvaluationNoter);
+	}
     
 }

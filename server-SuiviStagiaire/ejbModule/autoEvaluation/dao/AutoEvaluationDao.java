@@ -293,7 +293,7 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 	}
 	
 	@Override
-	public AutoEvaluations selectAutoEvaluationsByMultipleCritere(AutoEvaluation autoEvaluationDater,Module moduleRechercher,Sequence sequenceRechercher,Competence competenceRechercher){
+	public AutoEvaluations selectAutoEvaluationsByMultipleCritere(AutoEvaluation autoEvaluationDater,Module moduleRechercher,Sequence sequenceRechercher,Competence competenceRechercher,AutoEvaluation autoEvaluationNoter){
 		AutoEvaluations autoEvaluations = new AutoEvaluations();
 		boolean precedentAjouter = false;
 		String sqlString = "select ae from AutoEvaluation ae where ";
@@ -324,6 +324,14 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 				sqlString = sqlString + " and ";
 			}
 			sqlString = sqlString + "ae.competence.identifiant = " + competenceRechercher.getIdentifiant();
+			precedentAjouter = true;
+		}
+		
+		if(autoEvaluationNoter != null){
+			if(precedentAjouter){
+				sqlString = sqlString + " and ";
+			}
+			sqlString = sqlString + "ae.niveauAcquisition.identifiant = " + autoEvaluationNoter.getNiveauAcquisition().getIdentifiant();
 			precedentAjouter = true;
 		}
 		

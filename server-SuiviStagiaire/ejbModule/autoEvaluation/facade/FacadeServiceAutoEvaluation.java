@@ -99,8 +99,8 @@ public class FacadeServiceAutoEvaluation implements FacadeServiceAutoEvaluationL
 
 	@Override
 	public AutoEvaluations selectAutoEvaluationsByMultipleCritere(AutoEvaluation autoEvaluationDater,
-			Module moduleRechercher, Sequence sequenceRechercher, Competence competenceRechercher) {
-		return facadeDaoAutoEvaluation.selectAutoEvaluationsByMultipleCritere(autoEvaluationDater,moduleRechercher, sequenceRechercher, competenceRechercher);
+			Module moduleRechercher, Sequence sequenceRechercher, Competence competenceRechercher,AutoEvaluation autoEvaluationNoter) {
+		return facadeDaoAutoEvaluation.selectAutoEvaluationsByMultipleCritere(autoEvaluationDater,moduleRechercher, sequenceRechercher, competenceRechercher,autoEvaluationNoter);
 	}
 
 	
