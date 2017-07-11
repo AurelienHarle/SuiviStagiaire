@@ -92,6 +92,14 @@ body {
 	
 }
 
+#info-ressenti{
+	
+	display: none;
+	margin: 0px;
+	padding: 0px;
+	
+}
+
 #info-creation{
 	
 	display: none;

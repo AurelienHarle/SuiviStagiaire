@@ -10,7 +10,8 @@ function validateFormCreation(element){
 	var competenceSelected = false;
 	var niveauAcquisitions = element.querySelectorAll('input[type="radio"]');
 	var niveauAcquisitionSelected = false;
-	
+	var ressenti = element.querySelector('textarea');
+	var ressentiLength = false;
 	var formValidate = false;
 	
 	for(var i = 0; i < competences.length; i++){
@@ -22,7 +23,6 @@ function validateFormCreation(element){
 		
 	}
 	
-	console.log('competenceSelected ' + competenceSelected);
 	if(!competenceSelected) informationSelectionCompetence();
 	
 	for(var i = 0; i < niveauAcquisitions.length; i++){
@@ -34,10 +34,13 @@ function validateFormCreation(element){
 		
 	}
 	
-	console.log('niveauAcquisitionSelected ' + niveauAcquisitionSelected);
 	if(!niveauAcquisitionSelected) informationSelectionNiveauAcquisition();
 	
-	if(competenceSelected && niveauAcquisitionSelected) formValidate = true;
+	if(ressenti.value.length < 4000) ressentiLength = true;
+	
+	if(!ressentiLength) informationRessentiLength();
+	
+	if(competenceSelected && niveauAcquisitionSelected && ressentiLength) formValidate = true;
 	console.log('formValidate ' + formValidate);
 	return formValidate;
 }
@@ -61,6 +64,17 @@ function informationSelectionNiveauAcquisition(){
 	document.querySelector("#info-niveau-acquisition").style.display = "block";
 	document.querySelectorAll('.form-group')[1].className = "form-group has-error";
 }
+
+/**
+ * Informe l'utilisateur qu'il dois pas ecrire un ressenti de plus de 4000 caractere
+ */
+function informationRessentiLength(){
+	
+	console.log('informationSelectionCompetence ');
+	document.querySelector("#info-ressenti").style.display = "block";
+	document.querySelectorAll('.form-group')[0].className = "form-group has-error";
+	
+} 
 
 /**
  * Vide le textArea ressenti
@@ -101,7 +115,7 @@ function calculCaractereRestant(element){
  */
 function validationSuppression(){
 	
-	if (confirm("&Ecirc;tes vous sur de vouloir supprimer cette auto-&eacute;valuation?")) {
+	if (confirm("Etes vous sur de vouloir supprimer cette auto-evaluation?")) {
 	    var retour = true;
 	} else {
 		var retour = false;

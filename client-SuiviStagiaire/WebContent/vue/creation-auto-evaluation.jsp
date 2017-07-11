@@ -61,6 +61,9 @@
 		<div id="info-niveau-acquisition" class="alert alert-danger" role="alert">
 			<span>Attention : Vous devez obligatoirement sélectionner un niveau de competence</span>
 		</div>
+		<div id="info-ressenti" class="alert alert-danger" role="alert">
+			<span>Attention : Vous devez obligatoirement écrire un ressenti de moins de 4000 caractères</span>
+		</div>
 		</section>
 	</div>
 	<%@ include file="/WEB-INF/jsp/footer.jsp"%>

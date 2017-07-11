@@ -5,8 +5,6 @@ import java.time.format.DateTimeFormatter;
 
 import javax.naming.InitialContext;
 
-import com.sun.xml.internal.ws.api.policy.ModelUnmarshaller;
-
 import autoEvaluation.entity.AutoEvaluation;
 import autoEvaluation.technique.AutoEvaluations;
 import competence.entity.Competence;
@@ -33,6 +31,7 @@ public class Action extends ApplicationSupport {
 	private InitialContext context;
 	private FacadeSuiviStagiaireRemote facadeSuiviStagiaireRemote;
 	private static final String FACADE = "ejb:/server-SuiviStagiaire/FacadeSuiviStagiaire!facade.FacadeSuiviStagiaireRemote";
+	private static final String RECHERCHER = "rechercher";
 	
 	private String stringCompetence;
 	private String stringSequence;
@@ -42,6 +41,7 @@ public class Action extends ApplicationSupport {
 	private String ressenti;
 	private String dateRecherche;
 	private AutoEvaluations autoEvaluations;
+	private LocalDate dateJour;
 	public Action() {
 		
 	}
@@ -161,7 +161,7 @@ public class Action extends ApplicationSupport {
 	public String rechercher(){
 		
 		init();
-		String retour = Action.SUCCESS;
+		String retour = RECHERCHER;
 		final String MOIN_UN = "-1";
 		
 		AutoEvaluation autoEvaluationDater = null;
@@ -195,26 +195,79 @@ public class Action extends ApplicationSupport {
 			autoEvaluationNoter = new AutoEvaluation(null, niveauAcquisition, null, null, null);
 		}
 		
+		dateJour = LocalDate.now();
 		autoEvaluations = facadeSuiviStagiaireRemote.selectAutoEvaluationsByMultipleCritere(autoEvaluationDater,moduleRechercher,sequenceRechercher,competenceRechercher,autoEvaluationNoter);
 		
 		return retour;
 		
 	}
+
+	private NiveauAcquisition selectNiveauAcquisitionFromString() {
+		
+		String identifiant = getStringNiveauAcquisition();
+		NiveauAcquisition niveauAcquisition = new NiveauAcquisition(identifiant,null);
+		try {
+			niveauAcquisition = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisition);
+		} catch (UnfoundException e) {
+			e.printStackTrace();
+		}
+		return niveauAcquisition;
+	}
+
+	private Competence selectCompetenceFromString() {
 	
-	/**
-	 * Méthode qui est lancer une fois le formulaire de listage lancer,
-	 *  
-	 * @return LISTER String
-	 * 
-	 */
-	public String lister(){
+		String stringIdentifiantCompetence = getStringCompetence();
 		
-		init();
-		String retour = Action.SUCCESS;
-		//System.out.println("lister");
+		String[] tabStringIdentifiantCompetence = stringIdentifiantCompetence.split(",");
 		
-		return retour;
+		Module module = new Module(tabStringIdentifiantCompetence[0],null,null);
+		Sequence sequence = new Sequence(tabStringIdentifiantCompetence[1],module,null,null);
+		Competence competence = new Competence(tabStringIdentifiantCompetence[2],sequence,null,null);
 		
+		try {
+			competence = facadeSuiviStagiaireRemote.selectCompetence(competence);
+		} catch (UnfoundException e) {
+			
+			e.printStackTrace();
+			
+		}
+	
+		return competence;
+	}
+
+	private Sequence selectSequenceFromString() {
+	
+		String stringIdentifiantSequence = getStringSequence();
+		
+		String[] tabStringIdentifiantSequence = stringIdentifiantSequence.split(",");
+		
+		Module module = new Module(tabStringIdentifiantSequence[0],null,null);
+		Sequence sequence = new Sequence(tabStringIdentifiantSequence[1],module,null,null);
+		
+		try {
+			sequence = facadeSuiviStagiaireRemote.selectSequence(sequence);
+		} catch (UnfoundException e) {
+			
+			e.printStackTrace();
+			
+		}
+	
+		return sequence;
+	}
+
+	private Module selectModuleFromString() {
+		
+		Module module = new Module(getStringModule(),null,null);
+		
+		try {
+			module = facadeSuiviStagiaireRemote.selectModule(module);
+		} catch (UnfoundException e) {
+			
+			e.printStackTrace();
+			
+		}
+	
+		return module;
 	}
 
 	/**
@@ -259,74 +312,6 @@ public class Action extends ApplicationSupport {
 		this.stringCompetence = stringCompetence;
 	}
 
-	private NiveauAcquisition selectNiveauAcquisitionFromString() {
-		
-		String identifiant = getStringNiveauAcquisition();
-		NiveauAcquisition niveauAcquisition = new NiveauAcquisition(identifiant,null);
-		try {
-			niveauAcquisition = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisition);
-		} catch (UnfoundException e) {
-			e.printStackTrace();
-		}
-		return niveauAcquisition;
-	}
-
-	private Competence selectCompetenceFromString() {
-
-		String stringIdentifiantCompetence = getStringCompetence();
-		
-		String[] tabStringIdentifiantCompetence = stringIdentifiantCompetence.split(",");
-		
-		Module module = new Module(tabStringIdentifiantCompetence[0],null,null);
-		Sequence sequence = new Sequence(tabStringIdentifiantCompetence[1],module,null,null);
-		Competence competence = new Competence(tabStringIdentifiantCompetence[2],sequence,null,null);
-		
-		try {
-			competence = facadeSuiviStagiaireRemote.selectCompetence(competence);
-		} catch (UnfoundException e) {
-			
-			e.printStackTrace();
-			
-		}
-
-		return competence;
-	}
-	
-	private Sequence selectSequenceFromString() {
-
-		String stringIdentifiantSequence = getStringSequence();
-		
-		String[] tabStringIdentifiantSequence = stringIdentifiantSequence.split(",");
-		
-		Module module = new Module(tabStringIdentifiantSequence[0],null,null);
-		Sequence sequence = new Sequence(tabStringIdentifiantSequence[1],module,null,null);
-		
-		try {
-			sequence = facadeSuiviStagiaireRemote.selectSequence(sequence);
-		} catch (UnfoundException e) {
-			
-			e.printStackTrace();
-			
-		}
-
-		return sequence;
-	}
-	
-	private Module selectModuleFromString() {
-		
-		Module module = new Module(getStringModule(),null,null);
-		
-		try {
-			module = facadeSuiviStagiaireRemote.selectModule(module);
-		} catch (UnfoundException e) {
-			
-			e.printStackTrace();
-			
-		}
-
-		return module;
-	}
-
 	public String getIdentifiantAutoEvaluation() {
 		return identifiantAutoEvaluation;
 	}
@@ -365,6 +350,14 @@ public class Action extends ApplicationSupport {
 
 	public void setAutoEvaluations(AutoEvaluations autoEvaluations) {
 		this.autoEvaluations = autoEvaluations;
+	}
+
+	public LocalDate getDateJour() {
+		return dateJour;
+	}
+
+	public void setDateJour(LocalDate dateJour) {
+		this.dateJour = dateJour;
 	}
 
 }
