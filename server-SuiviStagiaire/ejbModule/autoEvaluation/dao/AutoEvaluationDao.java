@@ -23,6 +23,8 @@ import exception.UpdateNotInsertException;
 import logger.JournaliseurNiveauConfig;
 import logger.JournaliseurNiveauError;
 import logger.JournaliseurNiveauInfo;
+import module.entity.Module;
+import sequence.entity.Sequence;
 import stagiaire.entity.Stagiaire;
 
 /**
@@ -289,15 +291,45 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 		
 		return autoEvaluations;
 	}
-
-	/**
-	 * TODO
-	 */
+	
 	@Override
-	public AutoEvaluations selectAutoEvaluationByComp(AutoEvaluation autoEvaluation) {
-		// TODO Auto-generated method stub
-		return null;
+	public AutoEvaluations selectAutoEvaluationsByMultipleCritere(AutoEvaluation autoEvaluationDater,Module moduleRechercher,Sequence sequenceRechercher,Competence competenceRechercher){
+		AutoEvaluations autoEvaluations = new AutoEvaluations();
+		boolean precedentAjouter = false;
+		String sqlString = "select ae from AutoEvaluation ae where ";
+		
+		if(autoEvaluationDater != null){
+			sqlString = sqlString + "ae.dateAutoEvaluation =" + autoEvaluationDater.getDateAutoEvaluation();
+			precedentAjouter = true;
+		}
+		
+		if(moduleRechercher != null){
+			if(precedentAjouter){
+				sqlString = sqlString + " and ";
+			}
+			sqlString = sqlString + "ae.competence.sequence.module.idetifiant = " + moduleRechercher.getIdentifiant();
+			precedentAjouter = true;
+		}
+		
+		if(sequenceRechercher != null){
+			if(precedentAjouter){
+				sqlString = sqlString + " and ";
+			}
+			sqlString = sqlString + "ae.competence.sequence.identifiant = " + sequenceRechercher.getIdentifiant();
+			precedentAjouter = true;
+		}
+		
+		if(competenceRechercher != null){
+			if(precedentAjouter){
+				sqlString = sqlString + " and ";
+			}
+			sqlString = sqlString + "ae.competence.identifiant = " + competenceRechercher.getIdentifiant();
+			precedentAjouter = true;
+		}
+		
+		journaliseurNiveauConfig.log(sqlString);
+		
+		return autoEvaluations;
+		
 	}
-
-
 }

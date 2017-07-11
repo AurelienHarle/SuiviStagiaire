@@ -11,6 +11,8 @@ import competence.entity.Competence;
 import exception.DateNullException;
 import exception.NullException;
 import exception.UnfoundException;
+import module.entity.Module;
+import sequence.entity.Sequence;
 import stagiaire.entity.Stagiaire;
 
 /**
@@ -94,6 +96,13 @@ public class FacadeDaoAutoEvaluation implements FacadeDaoAutoEvaluationLocal {
 	@Override
 	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation) {
 		return autoEvaluationDao.selectAutoEvaluationByStag(autoEvaluation);
+	}
+
+	@Override
+	public AutoEvaluations selectAutoEvaluationsByMultipleCritere(AutoEvaluation autoEvaluationDater,
+			Module moduleRechercher, Sequence sequenceRechercher, Competence competenceRechercher) {
+		
+		return autoEvaluationDao.selectAutoEvaluationsByMultipleCritere(autoEvaluationDater,moduleRechercher, sequenceRechercher, competenceRechercher);
 	}
 
     

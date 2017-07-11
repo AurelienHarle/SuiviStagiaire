@@ -8,6 +8,8 @@ import competence.entity.Competence;
 import exception.DateNullException;
 import exception.NullException;
 import exception.UnfoundException;
+import module.entity.Module;
+import sequence.entity.Sequence;
 import stagiaire.entity.Stagiaire;
 
 @Local
@@ -58,4 +60,15 @@ public interface FacadeDaoAutoEvaluationLocal {
 	 * Select d'une auto evaluation par son Stagiaire
 	 */
 	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation);
+	
+	/**
+	 * Sélectionne une autoEvaluation celons les critères envoyé
+	 * @param autoEvaluationDater {@link AutoEvaluation}
+	 * @param moduleRechercher {@link Module}
+	 * @param sequenceRechercher {@link Sequence}
+	 * @param competenceRechercher {@link Competence}
+	 * @return {@link AutoEvaluations}
+	 */
+	public AutoEvaluations selectAutoEvaluationsByMultipleCritere(AutoEvaluation autoEvaluationDater, Module moduleRechercher,
+			Sequence sequenceRechercher, Competence competenceRechercher);
 }

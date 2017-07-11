@@ -8,6 +8,8 @@ import competence.entity.Competence;
 import exception.DateNullException;
 import exception.NullException;
 import exception.UnfoundException;
+import module.entity.Module;
+import sequence.entity.Sequence;
 import stagiaire.entity.Stagiaire;
 
 @Local
@@ -53,16 +55,23 @@ public interface AutoEvaluationDaoLocal {
 	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation);
 	
 	/**
-	 * Select d'une auto evaluation par sa Competences
-	 */
-	public AutoEvaluations selectAutoEvaluationByComp(AutoEvaluation autoEvaluation);
-
-	/**
 	 * Select une {@link AutoEvaluation} par son {@link identifiant}.
 	 * 
 	 * @param autoEvaluation {@link AutoEvaluation}
 	 * @return autoEvaluation {@link AutoEvaluation}
 	 */
 	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation);
-	
+
+	/**
+	 * Sélectionne une autoEvaluation celons les critères envoyé
+	 * @param autoEvaluationDater {@link AutoEvaluation}
+	 * @param moduleRechercher {@link Module}
+	 * @param sequenceRechercher {@link Sequence}
+	 * @param competenceRechercher {@link Competence}
+	 * @return {@link AutoEvaluations}
+	 */
+	public AutoEvaluations selectAutoEvaluationsByMultipleCritere(AutoEvaluation autoEvaluationDater, Module moduleRechercher,
+			Sequence sequenceRechercher, Competence competenceRechercher);
+
+
 }

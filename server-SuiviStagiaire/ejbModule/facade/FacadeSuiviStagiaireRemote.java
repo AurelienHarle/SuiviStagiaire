@@ -239,4 +239,15 @@ public interface FacadeSuiviStagiaireRemote {
 	 * Select d'une auto evaluation par son Stagiaire
 	 */
 	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation);
+	
+	/**
+	 * Sélectionne une autoEvaluation celons les critères envoyé
+	 * @param autoEvaluationDater {@link AutoEvaluation}
+	 * @param moduleRechercher {@link Module}
+	 * @param sequenceRechercher {@link Sequence}
+	 * @param competenceRechercher {@link Competence}
+	 * @return {@link AutoEvaluations}
+	 */
+	public AutoEvaluations selectAutoEvaluationsByMultipleCritere(AutoEvaluation autoEvaluationDater, Module moduleRechercher,
+			Sequence sequenceRechercher, Competence competenceRechercher);
 }
