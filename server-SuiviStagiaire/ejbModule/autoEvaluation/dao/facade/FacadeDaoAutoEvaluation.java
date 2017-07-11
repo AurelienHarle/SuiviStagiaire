@@ -98,5 +98,10 @@ public class FacadeDaoAutoEvaluation implements FacadeDaoAutoEvaluationLocal {
 		return autoEvaluationDao.selectAutoEvaluationsByMultipleCritere(autoEvaluationDater,moduleRechercher, sequenceRechercher, competenceRechercher,autoEvaluationNoter);
 	}
 
+	@Override
+	public AutoEvaluations selectAutoEvaluationsByStagDate(AutoEvaluation autoEvaluation) {
+		return autoEvaluationDao.selectAutoEvaluationsByStagDate(autoEvaluation);
+	}
+
     
 }

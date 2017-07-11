@@ -70,7 +70,6 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 			autoEvaluation2 = selectAutoEvaluationByStagCompDate(autoEvaluation);
 			if(autoEvaluation2 != null) throw new UpdateNotInsertException("insertAutoEvaluation");
 
-			
 		} catch (UpdateNotInsertException | UnfoundException e1) {
 
 			if(e1 instanceof UpdateNotInsertException){
@@ -139,39 +138,30 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 	 */
 	@Override
 	public void updateAutoEvaluation(AutoEvaluation autoEvaluation)  {
-		String trace = "";
-		trace = trace + "[updateAutoEvaluation] " + autoEvaluation.getRessenti();
+
 		AutoEvaluation autoEvaluation2 = null;
 		
 		try {
-			trace = trace + "[try select]";
+
 			autoEvaluation2 = selectAutoEvaluationByStagCompDate(autoEvaluation);
-			trace = trace + "[Pas de catch select]";
-			
 			autoEvaluation.setIdentifiant(autoEvaluation2.getIdentifiant());
 			
 			try {
 				
-				trace = trace + "[try update]";
 				em.merge(autoEvaluation);
 				em.flush();
 				journaliseurNiveauInfo.log("[UPDATE]  AutoEvaluation : " + autoEvaluation );
-				trace = trace + "[Pas de catch update]";
 				
 			} catch (Exception e) {
-				trace = trace + "[Exception]" + e;
 				e.printStackTrace();
 				journaliseurNiveauError.log("[METHOD] updateAutoEvaluation [Entity] " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
 			
 			}	
 		} catch (Exception e) {
 
-			trace = trace + "[Exception]" + e;
 			e.printStackTrace();
 			
 		}
-		trace = trace + "[Fin]";
-		//journaliseurNiveauConfig(trace);
 	}
 	
 	/**
@@ -338,5 +328,23 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 		
 		return autoEvaluations;
 		
+	}
+
+	@Override
+	public AutoEvaluations selectAutoEvaluationsByStagDate(AutoEvaluation autoEvaluation) {
+		AutoEvaluations autoEvaluations = new AutoEvaluations();
+
+			String sqlString = "select ae from AutoEvaluation ae where stag_osia = ?1 and ae_date = ?2";
+			
+			@SuppressWarnings("rawtypes")
+			List list = em.createQuery(sqlString)
+				.setParameter(1, autoEvaluation.getStagiaire().getOsia())
+				.setParameter(2, autoEvaluation.getDateAutoEvaluation()).getResultList();
+			
+			for (Object object : list) {
+				autoEvaluations.add((AutoEvaluation)object);
+			}
+
+		return autoEvaluations;
 	}
 }

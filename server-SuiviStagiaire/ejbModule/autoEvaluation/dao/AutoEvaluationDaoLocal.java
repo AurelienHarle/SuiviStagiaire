@@ -68,5 +68,13 @@ public interface AutoEvaluationDaoLocal {
 	 */
 	public AutoEvaluations selectAutoEvaluationsByMultipleCritere(AutoEvaluation autoEvaluationDater, Module moduleRechercher,
 			Sequence sequenceRechercher, Competence competenceRechercher,AutoEvaluation autoEvaluationNoter);
+	
+	/**
+	 * Sélectionne une auto-évaluation a une date donnée pour un stagiaire donné
+	 * 
+	 * @param autoEvaluation {@link AutoEvaluation}
+	 * @return {@link AutoEvaluations}
+	 */
+	public AutoEvaluations selectAutoEvaluationsByStagDate(AutoEvaluation autoEvaluation);
 
 }
