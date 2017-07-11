@@ -17,7 +17,7 @@
 					<li><a href="http://localhost:8080/client-SuiviStagiaire/auto-evaluation/recherche-auto-evaluation">Rechercher</a></li>
 					<li><a href="http://localhost:8080/client-SuiviStagiaire/auto-evaluation/creation-auto-evaluation">Creation</a></li>
 					<li><a href="http://localhost:8080/client-SuiviStagiaire/auto-evaluation/modification-auto-evaluation">Modification</a></li>
-					<li><a href="http://localhost:8080/client-SuiviStagiaire/auto-evaluation/suppression-auto-evaluation">Suppression</a></li>
+					<li><a href="http://localhost:8080/client-SuiviStagiaire/auto-evaluation/suppression-auto-evaluation">Supression</a></li>
 					<li><a href="http://localhost:8080/client-SuiviStagiaire/auto-evaluation/listage-auto-evaluation">Lister</a></li>
 				</ul></li>
 		</ul>

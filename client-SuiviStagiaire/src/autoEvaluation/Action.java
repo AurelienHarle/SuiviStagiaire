@@ -31,6 +31,9 @@ public class Action extends ApplicationSupport {
 	private InitialContext context;
 	private FacadeSuiviStagiaireRemote facadeSuiviStagiaireRemote;
 	private static final String FACADE = "ejb:/server-SuiviStagiaire/FacadeSuiviStagiaire!facade.FacadeSuiviStagiaireRemote";
+	private static final String CREER = "creer";
+	private static final String MODIFIER = "modifier";
+	private static final String SUPPRIMER = "supprimer";
 	private static final String RECHERCHER = "rechercher";
 	
 	private String stringCompetence;
@@ -72,7 +75,7 @@ public class Action extends ApplicationSupport {
 	public String creer(){
 		
 		init();
-		String retour = Action.SUCCESS;
+		String retour = CREER;
 		
 		//Stagiaire creer en dure avant gestion des comptes
 		Stagiaire stagiaire = new Stagiaire("13111384", "Password", "Harlé", "Aurélien", null, null, null, null, null, null);
@@ -109,7 +112,7 @@ public class Action extends ApplicationSupport {
 	public String modifier(){
 		
 		init();
-		String retour = Action.SUCCESS;		
+		String retour = MODIFIER;		
 		
 		//Stagiaire creer en dure avant gestion des comptes
 		Stagiaire stagiaire = new Stagiaire("13111384", "Password", "Harlé", "Aurélien", null, null, null, null, null, null);
@@ -141,7 +144,7 @@ public class Action extends ApplicationSupport {
 	public String supprimer(){
 		
 		init();
-		String retour = Action.SUCCESS;
+		String retour = SUPPRIMER;
 		//System.out.println("supprimer");
 		
 		AutoEvaluation autoEvaluation = new AutoEvaluation(Integer.parseInt(identifiantAutoEvaluation));

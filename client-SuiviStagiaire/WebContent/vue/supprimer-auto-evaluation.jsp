@@ -3,6 +3,7 @@
 <html lang="fr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="refresh" content="5; URL=http://localhost:8080/client-SuiviStagiaire/auto-evaluation/suppression-auto-evaluation"> 
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ include file="/WEB-INF/jsp/import-boostrap.jsp"%>
 <link href="<s:url namespace="" action="index-css" />" rel="stylesheet" type="text/css">
@@ -14,7 +15,7 @@
 	<div class="container center-block">
 		<section>
 		<div id="information-success" class="alert alert-success" role="alert">
-			<span>Félicitation : Votre auto-évaluation a bien était enregistrer par le système</span>
+			<span>Félicitation : Votre auto-évaluation a bien était supprimer par le système</span>
 		</div>
 		</section>
 	</div>

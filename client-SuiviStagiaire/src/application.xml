@@ -31,10 +31,12 @@
 		</action>
 		
 		<action name="auto-evaluation-*" method="{1}" class="autoEvaluation.Action">
+			<result name="creer">/vue/creer-auto-evaluation.jsp</result>
+			<result name="modifier">/vue/modifier-auto-evaluation.jsp</result>
+			<result name="supprimer">/vue/supprimer-auto-evaluation.jsp</result>
 			<result name="rechercher">/vue/rechercher-auto-evaluation.jsp</result>
-			<result name="success">/vue/success-auto-evaluation.jsp</result>
 			<result name="error">/vue/error-auto-evaluation.jsp</result>
-			<allowed-methods>rechercher,creer,modifier,supprimer,lister</allowed-methods>
+			<allowed-methods>rechercher,creer,modifier,supprimer</allowed-methods>
 		</action>
 		
 	</package>

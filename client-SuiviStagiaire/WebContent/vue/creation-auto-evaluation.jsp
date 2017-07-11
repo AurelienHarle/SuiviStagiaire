@@ -12,47 +12,64 @@
 <body>
 	<%@ include file="/WEB-INF/jsp/menu.jsp"%>
 	<div class="container center-block">
+		<section class="center-block" id="explication-creation-auto-evaluation">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Explication</h3>
+			</div>
+			<div class="panel-body">
+				<span>Pour creer votre auto-évaluation vous devez obligatoirement sélectionner une compétence sur la quel vous désirez vous évalué ainsi que spécifiez le niveau d'acquisition que vous pensez avoir atteins. Vous pouvez aussi écrire votre ressenti sur cette compétence même si cela n'est pas obligatoire</span>
+			</div>
+		</div>
+		</section>
 		<section id="creation-auto-evaluation" class="center-block">
-		<form class="form-horizontal center-block" action="auto-evaluation-creer" method="post" onsubmit="return validateFormCreation(this)">
-			<div class="form-group">
-				<label for="competence" class="col-sm-3 col-sm-offset-0 control-label">Compétence :</label>
-				<div id="competence" class="col-sm-9 col-sm-offset-0">
-					<select title="Compétence" name="stringCompetence" class="form-control">
-						<s:iterator value="Competences">
-							<option value="<s:property value="sequence.module.identifiant" />,<s:property value="sequence.identifiant" />,<s:property value="identifiant" />"><s:property value="identifiant" /> -
-								<s:property value="nomCourt" /></option>
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">Formulaire de création : </h3>
+			</div>
+			<div class="panel-body">
+				<form class="form-horizontal center-block" action="auto-evaluation-creer" method="post" onsubmit="return validateFormCreation(this)">
+					<div class="form-group">
+						<label for="competence" class="col-sm-3 col-sm-offset-0 control-label text-left">Compétence </label>
+						<div id="competence" class="col-sm-9 col-sm-offset-0">
+							<select title="Compétence" name="stringCompetence" class="form-control">
+								<s:iterator value="Competences">
+									<option value="<s:property value="sequence.module.identifiant" />,<s:property value="sequence.identifiant" />,<s:property value="identifiant" />"><s:property value="identifiant" /> -
+										<s:property value="nomCourt" /></option>
+								</s:iterator>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="identifiantNiveauAcquisition" class="col-sm-3 col-sm-offset-0 control-label text-left">Niveau d'acquisition </label>
+						<s:iterator value="NiveauAcquisitions">
+							<div class="col-sm-3 col-sm-offset-0 radio">
+								<label class="radio-inline"> <input type="radio" name="stringNiveauAcquisition" value="<s:property value="identifiant" />"> <s:property value="libelle" />
+								</label>
+							</div>
 						</s:iterator>
-					</select>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="identifiantNiveauAcquisition" class="col-sm-3 col-sm-offset-0 control-label">Niveau d'acquisition :</label>
-				<s:iterator value="NiveauAcquisitions">
-					<div class="col-sm-3 col-sm-offset-0 radio">
-						<label class="radio-inline"> <input type="radio" name="stringNiveauAcquisition" value="<s:property value="identifiant" />"> <s:property value="libelle" />
-						</label>
 					</div>
-				</s:iterator>
-			</div>
-			<div class="form-group">
-				<label for="ressenti" class="col-sm-3 col-sm-offset-0 control-label">Ressenti :</label>
-				<div class="col-sm-9 col-sm-offset-0">
-					<div id="caractere-restant">
-						<label class="control-label" id="label-nombre-caractere-restant">Nombre de caractère restant : </label>
-						<p id="nombre-caractere-restant">4000</p>
+					<div class="form-group">
+						<label for="ressenti" class="col-sm-3 col-sm-offset-0 control-label text-left">Ressenti </label>
+						<div class="col-sm-9 col-sm-offset-0">
+							<div id="caractere-restant">
+								<label class="control-label" id="label-nombre-caractere-restant">Nombre de caractère restant </label>
+								<p id="nombre-caractere-restant">4000</p>
+							</div>
+							<textarea class="form-control" name="ressenti" rows="3" onclick="cleanRessenti(this)" onkeyup="calculCaractereRestant(this)">Votre ressenti....</textarea>
+						</div>
 					</div>
-					<textarea class="form-control" name="ressenti" rows="3" onclick="cleanRessenti(this)" onkeyup="calculCaractereRestant(this)">Votre ressenti....</textarea>
-				</div>
+					<div class="form-group">
+						<div class="col-sm-2 col-sm-offset-8">
+							<button type="reset" class="btn btn-default">Annuler</button>
+						</div>
+						<div class="col-sm-2 col-sm-offset-0">
+							<button type="submit" class="btn btn-default">Valider</button>
+						</div>
+					</div>
+				</form>
 			</div>
-			<div class="form-group">
-				<div class="col-sm-2 col-sm-offset-8">
-					<button type="reset" class="btn btn-default">Annuler</button>
-				</div>
-				<div class="col-sm-2 col-sm-offset-0">
-					<button type="submit" class="btn btn-default">Valider</button>
-				</div>
-			</div>
-		</form>
+		</div>
 		</section>
 		<section id="information-creation-auto-evaluation" class="center-block">
 		<div id="info-competence" class="alert alert-danger" role="alert">

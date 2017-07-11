@@ -9,7 +9,6 @@ import com.google.gson.Gson;
 
 import autoEvaluation.entity.AutoEvaluation;
 import autoEvaluation.technique.AutoEvaluations;
-import competence.entity.Competence;
 import competence.technique.Competences;
 import exception.UnfoundException;
 import facade.FacadeSuiviStagiaireRemote;
@@ -101,7 +100,8 @@ public class Navigation extends ApplicationSupport {
 	public String modification(){
 		
 		init();
-
+		Stagiaire stagiaire = new Stagiaire("13111384", "Password", "Harlé", "Aurélien", null, null, null, null, null, null);
+		
 		niveauAcquisitions = facadeSuiviStagiaireRemote.selectNiveauAcquisitions();
 		
 		if(identifiantAutoEvaluation!=null){
@@ -111,6 +111,13 @@ public class Navigation extends ApplicationSupport {
 			
 		}
 		
+		if(autoEvaluation == null){
+			
+			autoEvaluation = new AutoEvaluation(null, null, stagiaire, LocalDate.now(), null);
+			autoEvaluations = facadeSuiviStagiaireRemote.selectAutoEvaluationsByStagDate(autoEvaluation);
+			
+		}
+		dateJour = LocalDate.now();
 		return MODIFICATION;
 		
 	}
@@ -124,7 +131,12 @@ public class Navigation extends ApplicationSupport {
 		
 		init();
 		
-		//System.out.println("suppression");
+		//Stagiaire creer en dure avant gestion des comptes
+		Stagiaire stagiaire = new Stagiaire("13111384", "Password", "Harlé", "Aurélien", null, null, null, null, null, null);
+		
+		AutoEvaluation autoEvaluation = new AutoEvaluation(null, null, stagiaire, null, null);
+		
+		autoEvaluations = facadeSuiviStagiaireRemote.selectAutoEvaluationByStag(autoEvaluation);
 		
 		return SUPPRESSION;
 		
@@ -216,10 +228,7 @@ public class Navigation extends ApplicationSupport {
 					module = facadeSuiviStagiaireRemote.selectModule(module);
 					sequences = facadeSuiviStagiaireRemote.selectSequenceByModule(module);					
 					competences = facadeSuiviStagiaireRemote.selectCompetenceByModule(module);
-					
-					for (Competence competence : competences) {
-						//System.out.println(competence);
-					}
+
 				} catch (UnfoundException e) {
 	
 					retour = Action.ERROR;
@@ -227,8 +236,7 @@ public class Navigation extends ApplicationSupport {
 	
 				}
 			}
-		
-		//System.out.println(retour);
+
 		return retour;
 	}
 	

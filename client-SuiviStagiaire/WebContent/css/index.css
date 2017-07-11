@@ -7,6 +7,10 @@ body {
    height:100%;
 }
 
+table{
+	width: 100%;
+}
+
 #container {
    min-height: 100%;
    height:100%;
@@ -25,35 +29,68 @@ body {
  	border-color: #66ccff;
 }
 
-#creation-auto-evaluation{
+#explication-creation-auto-evaluation{
 	
 	width: 750px;
-	margin-top: 200px;
 	padding-top: 15px;
 	padding-left: 15px;
 	padding-right: 15px;
-	border: 1px solid transparent;
- 	border-radius: 4px;
- 	border-color: #66ccff;
+
+
+}
+
+#creation-auto-evaluation{
+	
+	width: 750px;
+	padding-left: 15px;
+	padding-right: 15px;
+
+
+}
+
+
+#information-creation-auto-evaluation{
+
+	width: 750px;
+	margin-top: 0px;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+
+ 	
+}
+
+#explication-recherche-auto-evaluation{
+	
+	width: 750px;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
 
 }
 
 #recherche-auto-evaluation{
 	
 	width: 750px;
-	margin-top: 200px;
-	padding-top: 15px;
 	padding-left: 15px;
 	padding-right: 15px;
-	border: 1px solid transparent;
- 	border-radius: 4px;
- 	border-color: #66ccff;
 
 }
 
-#information-creation-auto-evaluation{
+#information-recherche-auto-evaluation{
 
 	width: 750px;
+	margin-top: 0px;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+
+ 	
+}
+
+#information-modification-auto-evaluation{
+
+	width: 100%;
 	margin-top: 0px;
 	padding-top: 15px;
 	padding-left: 15px;
@@ -101,6 +138,14 @@ body {
 }
 
 #info-creation{
+	
+	display: none;
+	margin: 0px;
+	padding: 0px;
+	
+}
+
+#info-recherche{
 	
 	display: none;
 	margin: 0px;
