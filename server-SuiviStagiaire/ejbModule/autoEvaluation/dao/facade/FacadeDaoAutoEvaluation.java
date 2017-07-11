@@ -28,9 +28,7 @@ public class FacadeDaoAutoEvaluation implements FacadeDaoAutoEvaluationLocal {
     /**
      * Default constructor. 
      */
-    public FacadeDaoAutoEvaluation() {
-        // TODO Auto-generated constructor stub
-    }
+    public FacadeDaoAutoEvaluation() {}
 
     /**
 	 * Contrôle et insert une {@link AutoEvaluation} si elle correspond au règle métier
@@ -86,11 +84,6 @@ public class FacadeDaoAutoEvaluation implements FacadeDaoAutoEvaluationLocal {
 	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException, NullException {
 		return autoEvaluationDao.selectAutoEvaluationByStagCompDate(autoEvaluation);
 		
-	}
-
-	@Override
-	public AutoEvaluations selectAutoEvaluationByStagComp(AutoEvaluation autoEvaluation) {
-		return autoEvaluationDao.selectAutoEvaluationByStagComp(autoEvaluation);
 	}
 
 	@Override

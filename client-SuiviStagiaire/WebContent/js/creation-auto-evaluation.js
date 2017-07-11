@@ -116,11 +116,8 @@ function validationSuppression(){
  */
 function ajaxRecherche(element){
 	
-	console.log('ajaxRecherche');
-	console.log(element);
 	var options = element.getElementsByTagName('option');
-	console.log(options);
-	
+
 	for(var i = 0; i < options.length;i++){
 		if(options[i].selected){
 			option = options[i];
@@ -128,28 +125,43 @@ function ajaxRecherche(element){
 		}
 	}
 	
-	if(option.value != "-1"){
-
+	console.log(element.tagName);
+	
+	if(element.tagName == "BUTTON"){
+		
+		var request = new Object();
+		request.all = new Object();
+		var jsonData = JSON.stringify(request);
+		
+	}else if(element.value != "-1"){
+		
 		var identifiants = option.value.split(',');
 		
 		switch (identifiants.length) {
 		case 1:
+				
 			var module = new Object();
 			module.identifiant = identifiants[0];
 			var jsonData = JSON.stringify(module);
+	
 			break;
+			
 		case 2:
+			
 			var sequence = new Object();
 			sequence.module = new Object();
 			sequence.identifiant = identifiants[1];
 			sequence.module.identifiant = identifiants[0];
 			var jsonData = JSON.stringify(sequence);
 			break;
+			
 		default:
 			break;
 		}
+		
+	}
 
-		console.log(jsonData);
+	if(jsonData != null){
 		
 		url = "../ajax/ajax-recherche";
 		
@@ -175,11 +187,6 @@ function ajaxRecherche(element){
 				}
 			}
 		})
-		
-	}else{
-		
-		//ajax reclamant tout :3
-		
 	}
 }
 
@@ -192,10 +199,32 @@ function ajaxRecherche(element){
 function updateView(response){
 		
 	selects = document.getElementsByTagName("select");
+	selectModule = selects[0]
 	selectSequence = selects[1];
 	selectCompetence = selects[2];
 	
+	if(response.modules != null){
+		
+		while (selectModule.firstChild) {
+			selectModule.removeChild(selectModule.firstChild);
+		}
+		
+		var option = document.createElement("option");
+		option.value =  "-1";
+		option.innerHTML = "Module...";
+		selectModule.appendChild(option);
+		for(var i = 0;i < response.modules.length;i++){
+			
+			var option = document.createElement("option");
+			option.value =  response.modules[i].identifiant;
+			option.innerHTML = response.modules[i].identifiant + " - " +  response.modules[i].nomCourt;
+			selectModule.appendChild(option);
+			
+		}
+	}
+	
 	if(response.sequences != null){
+		
 		while (selectSequence.firstChild) {
 			selectSequence.removeChild(selectSequence.firstChild);
 		}
@@ -216,6 +245,7 @@ function updateView(response){
 	}
 	
 	if(response.competences != null){
+		
 		while (selectCompetence.firstChild) {
 			selectCompetence.removeChild(selectCompetence.firstChild);
 		}

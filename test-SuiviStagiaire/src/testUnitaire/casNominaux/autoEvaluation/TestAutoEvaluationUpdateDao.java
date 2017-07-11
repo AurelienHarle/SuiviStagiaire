@@ -284,7 +284,6 @@ public class TestAutoEvaluationUpdateDao {
 		try {
 			autoEvaluationBDD = facadeSuiviStagiaireRemote.selectAutoEvaluationByStagCompDate(autoEvaluation);
 		} catch (NullException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

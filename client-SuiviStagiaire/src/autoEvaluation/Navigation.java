@@ -124,7 +124,7 @@ public class Navigation extends ApplicationSupport {
 		
 		init();
 		
-		System.out.println("suppression");
+		//System.out.println("suppression");
 		
 		return SUPPRESSION;
 		
@@ -139,7 +139,7 @@ public class Navigation extends ApplicationSupport {
 		
 		init();
 		
-		System.out.println("recherche");
+		//System.out.println("recherche");
 		competences = facadeSuiviStagiaireRemote.selectCompetences();
 		sequences = facadeSuiviStagiaireRemote.selectSequences();
 		modules = facadeSuiviStagiaireRemote.selectModules();
@@ -181,63 +181,54 @@ public class Navigation extends ApplicationSupport {
 		init();
 		String retour = Action.SUCCESS;
 		
-		System.out.println(jsonData);
+		//System.out.println(jsonData);
 		
 		//Creation de l'objet module depuis JSon recus, de la page web avec requette ajax
 		Gson gson = new Gson();
+		if(jsonData.contains("all")){
+			
+			modules = facadeSuiviStagiaireRemote.selectModules();
+			sequences = facadeSuiviStagiaireRemote.selectSequences();
+			competences = facadeSuiviStagiaireRemote.selectCompetences();
 		
-		if (jsonData.contains("module")){
-			
-			System.out.println(jsonData.contains("module"));
-			
-			sequence = gson.fromJson(jsonData, Sequence.class);
-			System.out.println(sequence);
-			try {
+		}else if (jsonData.contains("module")){
 
-				sequence = facadeSuiviStagiaireRemote.selectSequence(sequence);
-				
-				System.out.println(sequence);
-				System.out.println("je men bas lec je fais pas la suite ici");
-				competences = facadeSuiviStagiaireRemote.selectCompetenceBySequence(sequence);
-				System.out.println(competences);
-				for (Competence competence : competences) {
-					System.out.println(competence);
+				sequence = gson.fromJson(jsonData, Sequence.class);
+
+				try {
+	
+					sequence = facadeSuiviStagiaireRemote.selectSequence(sequence);
+					competences = facadeSuiviStagiaireRemote.selectCompetenceBySequence(sequence);
+
+				} catch (UnfoundException e) {
+	
+					retour = Action.ERROR;
+					e.printStackTrace();
+
 				}
 				
-			} catch (UnfoundException e) {
+			}else{
 
-				retour = Action.ERROR;
-				e.printStackTrace();
-
+				module = gson.fromJson(jsonData, Module.class);
+				
+				try {
+					
+					module = facadeSuiviStagiaireRemote.selectModule(module);
+					sequences = facadeSuiviStagiaireRemote.selectSequenceByModule(module);					
+					competences = facadeSuiviStagiaireRemote.selectCompetenceByModule(module);
+					
+					for (Competence competence : competences) {
+						//System.out.println(competence);
+					}
+				} catch (UnfoundException e) {
+	
+					retour = Action.ERROR;
+					e.printStackTrace();
+	
+				}
 			}
-			
-		}else{
-			
-			System.out.println("else");
-			module = gson.fromJson(jsonData, Module.class);
-			System.out.println(module);
-			try {
-				
-				module = facadeSuiviStagiaireRemote.selectModule(module);
-				System.out.println(module);
-				sequences = facadeSuiviStagiaireRemote.selectSequenceByModule(module);
-				for (Sequence sequence : sequences) {
-					System.out.println(sequence);
-				}
-				
-				competences = facadeSuiviStagiaireRemote.selectCompetenceByModule(module);
-				for (Competence competence : competences) {
-					System.out.println(competence);
-				}
-			} catch (UnfoundException e) {
-
-				retour = Action.ERROR;
-				e.printStackTrace();
-
-			}
-		}
 		
-		System.out.println(retour);
+		//System.out.println(retour);
 		return retour;
 	}
 	

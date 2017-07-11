@@ -14,13 +14,13 @@
 	<div class="container center-block">
 		<section id="recherche-auto-evaluation" class="center-block">
 		<div class="panel">
-			<span>Vous pouvez recherche comme ceci cela</span>
+			<span>Tout les elements sont indépendant.</span>
 		</div>
 		<form class="form-horizontal center-block" action="auto-evaluation-rechercher" method="get" onsubmit="return validateFormCreation(this)">
 			<div class="form-group">
 				<label for="date" class="col-sm-3 col-sm-offset-0 control-label">Date :</label>
 				<div class="col-sm-9 col-sm-offset-0">
-					<input type='text' class="form-control" data-format="DD/MM/YYYY" id='datetimepicker4' />
+					<input type='text' name="dateRecherche" class="form-control" data-format="DD/MM/YYYY" id='datetimepicker4' />
 					<script type="text/javascript">
 						$(function() {
 							$('#datetimepicker4').datetimepicker({
@@ -77,10 +77,10 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-2 col-sm-offset-8">
-					<button type="reset" class="btn btn-default">Annuler</button>
+					<button type="reset" class="btn btn-default" onclick="ajaxRecherche(this)" >Reset</button>
 				</div>
 				<div class="col-sm-2 col-sm-offset-0">
-					<button type="submit" class="btn btn-default">Valider</button>
+					<button type="submit" class="btn btn-default">Rechercher</button>
 				</div>
 			</div>
 		</form>

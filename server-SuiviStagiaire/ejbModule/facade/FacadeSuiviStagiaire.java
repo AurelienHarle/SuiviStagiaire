@@ -72,7 +72,7 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
 
 	@Override
 	public Module selectModule(Module module) throws UnfoundException {
-		journaliseurNiveauConfig.log("[Debut method] selectModule(Module module)" );
+		//journaliseurNiveauConfig("[Debut method] selectModule(Module module)" );
 		return facadeServiceModule.selectModule(module);
 	}
 
@@ -214,11 +214,6 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
 	@Override
 	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException, NullException {
 		return facadeServiceAutoEvaluation.selectAutoEvaluationByStagCompDate(autoEvaluation);
-	}
-
-	@Override
-	public AutoEvaluations selectAutoEvaluationByStagComp(AutoEvaluation autoEvaluation) {
-		return facadeServiceAutoEvaluation.selectAutoEvaluationByStagComp(autoEvaluation);
 	}
 
 	@Override

@@ -231,11 +231,6 @@ public interface FacadeSuiviStagiaireRemote {
 	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException, NullException;
 	
 	/**
-	 * Select d'une auto evaluation par son Stagiaire / Comp
-	 */
-	public AutoEvaluations selectAutoEvaluationByStagComp(AutoEvaluation autoEvaluation);
-	
-	/**
 	 * Select d'une auto evaluation par son Stagiaire
 	 */
 	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation);

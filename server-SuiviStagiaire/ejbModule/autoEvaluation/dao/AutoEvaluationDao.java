@@ -171,7 +171,7 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 			
 		}
 		trace = trace + "[Fin]";
-		journaliseurNiveauConfig.log(trace);
+		//journaliseurNiveauConfig(trace);
 	}
 	
 	/**
@@ -260,15 +260,6 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 
 		return autoEvaluation2;
 	}
-	
-	/**
-	 * TODO
-	 */
-	@Override
-	public AutoEvaluations selectAutoEvaluationByStagComp(AutoEvaluation autoEvaluation) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	/**
 	 * Recherche toute les {@link AutoEvaluation} d'un stagiaire
@@ -292,14 +283,16 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 		return autoEvaluations;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public AutoEvaluations selectAutoEvaluationsByMultipleCritere(AutoEvaluation autoEvaluationDater,Module moduleRechercher,Sequence sequenceRechercher,Competence competenceRechercher,AutoEvaluation autoEvaluationNoter){
+		
 		AutoEvaluations autoEvaluations = new AutoEvaluations();
 		boolean precedentAjouter = false;
 		String sqlString = "select ae from AutoEvaluation ae where ";
 		
 		if(autoEvaluationDater != null){
-			sqlString = sqlString + "ae.dateAutoEvaluation =" + autoEvaluationDater.getDateAutoEvaluation();
+			sqlString = sqlString + "ae.dateAutoEvaluation = to_date('" + autoEvaluationDater.getDateAutoEvaluation() + "','YYYY-MM-DD')";
 			precedentAjouter = true;
 		}
 		
@@ -307,7 +300,7 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 			if(precedentAjouter){
 				sqlString = sqlString + " and ";
 			}
-			sqlString = sqlString + "ae.competence.sequence.module.idetifiant = " + moduleRechercher.getIdentifiant();
+			sqlString = sqlString + "ae.competence.sequence.module.identifiant = '" + moduleRechercher.getIdentifiant() + "'";
 			precedentAjouter = true;
 		}
 		
@@ -315,7 +308,7 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 			if(precedentAjouter){
 				sqlString = sqlString + " and ";
 			}
-			sqlString = sqlString + "ae.competence.sequence.identifiant = " + sequenceRechercher.getIdentifiant();
+			sqlString = sqlString + "ae.competence.sequence.identifiant = '" + sequenceRechercher.getIdentifiant() + "'";
 			precedentAjouter = true;
 		}
 		
@@ -323,7 +316,7 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 			if(precedentAjouter){
 				sqlString = sqlString + " and ";
 			}
-			sqlString = sqlString + "ae.competence.identifiant = " + competenceRechercher.getIdentifiant();
+			sqlString = sqlString + "ae.competence.identifiant = '" + competenceRechercher.getIdentifiant()+ "'";
 			precedentAjouter = true;
 		}
 		
@@ -331,11 +324,17 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 			if(precedentAjouter){
 				sqlString = sqlString + " and ";
 			}
-			sqlString = sqlString + "ae.niveauAcquisition.identifiant = " + autoEvaluationNoter.getNiveauAcquisition().getIdentifiant();
+			sqlString = sqlString + "ae.niveauAcquisition.identifiant = '" + autoEvaluationNoter.getNiveauAcquisition().getIdentifiant() + "'";
 			precedentAjouter = true;
 		}
 		
-		journaliseurNiveauConfig.log(sqlString);
+		sqlString = sqlString + " order by ae.dateAutoEvaluation desc";
+		
+		List list = em.createQuery(sqlString).getResultList();
+		
+		for (Object object : list) {
+			autoEvaluations.add((AutoEvaluation) object);
+		}
 		
 		return autoEvaluations;
 		

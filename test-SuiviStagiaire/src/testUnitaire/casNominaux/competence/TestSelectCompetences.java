@@ -60,14 +60,12 @@ public class TestSelectCompetences {
 		try {
 			facadeSuiviStagiaireRemote.insertModule(module);
 		} catch (DoublonException | NullException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
 		try {
 			facadeSuiviStagiaireRemote.insertSequence(sequence);
 		} catch (DoublonException | NullException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		

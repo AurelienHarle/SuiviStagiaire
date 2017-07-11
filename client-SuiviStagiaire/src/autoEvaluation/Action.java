@@ -1,10 +1,14 @@
 package autoEvaluation;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.naming.InitialContext;
 
+import com.sun.xml.internal.ws.api.policy.ModelUnmarshaller;
+
 import autoEvaluation.entity.AutoEvaluation;
+import autoEvaluation.technique.AutoEvaluations;
 import competence.entity.Competence;
 import exception.DateNullException;
 import exception.NullException;
@@ -31,11 +35,13 @@ public class Action extends ApplicationSupport {
 	private static final String FACADE = "ejb:/server-SuiviStagiaire/FacadeSuiviStagiaire!facade.FacadeSuiviStagiaireRemote";
 	
 	private String stringCompetence;
+	private String stringSequence;
+	private String stringModule;
 	private String stringNiveauAcquisition;
 	private String identifiantAutoEvaluation;
 	private String ressenti;
-
-	
+	private String dateRecherche;
+	private AutoEvaluations autoEvaluations;
 	public Action() {
 		
 	}
@@ -103,14 +109,7 @@ public class Action extends ApplicationSupport {
 	public String modifier(){
 		
 		init();
-		String retour = Action.SUCCESS;
-		System.out.println("modifier");
-		
-		System.out.println(getStringCompetence());
-		System.out.println(getStringNiveauAcquisition());
-		System.out.println(getIdentifiantAutoEvaluation());
-		System.out.println(getRessenti());
-		
+		String retour = Action.SUCCESS;		
 		
 		//Stagiaire creer en dure avant gestion des comptes
 		Stagiaire stagiaire = new Stagiaire("13111384", "Password", "Harlé", "Aurélien", null, null, null, null, null, null);
@@ -143,7 +142,7 @@ public class Action extends ApplicationSupport {
 		
 		init();
 		String retour = Action.SUCCESS;
-		System.out.println("supprimer");
+		//System.out.println("supprimer");
 		
 		AutoEvaluation autoEvaluation = new AutoEvaluation(Integer.parseInt(identifiantAutoEvaluation));
 		autoEvaluation = facadeSuiviStagiaireRemote.selectAutoEvaluation(autoEvaluation);
@@ -163,7 +162,40 @@ public class Action extends ApplicationSupport {
 		
 		init();
 		String retour = Action.SUCCESS;
-		System.out.println("rechercher");
+		final String MOIN_UN = "-1";
+		
+		AutoEvaluation autoEvaluationDater = null;
+		AutoEvaluation autoEvaluationNoter = null;		
+		Module moduleRechercher = null;
+		Sequence sequenceRechercher = null;
+		Competence competenceRechercher = null;
+		NiveauAcquisition niveauAcquisition = null;
+		
+		if(getDateRecherche().length() > 0){
+			
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			LocalDate dateRechercher = LocalDate.parse(dateRecherche, dtf);			
+			autoEvaluationDater = new AutoEvaluation(null,null,null,dateRechercher,null);
+		}
+		
+		if(!getStringModule().contains(MOIN_UN)){
+			moduleRechercher = selectModuleFromString();
+		}
+		
+		if(!getStringSequence().contains(MOIN_UN)){
+			sequenceRechercher = selectSequenceFromString();
+		}
+		
+		if(!getStringCompetence().contains(MOIN_UN)){
+			competenceRechercher = selectCompetenceFromString();
+		}
+		
+		if(getStringNiveauAcquisition() != null){
+			niveauAcquisition = selectNiveauAcquisitionFromString();
+			autoEvaluationNoter = new AutoEvaluation(null, niveauAcquisition, null, null, null);
+		}
+		
+		autoEvaluations = facadeSuiviStagiaireRemote.selectAutoEvaluationsByMultipleCritere(autoEvaluationDater,moduleRechercher,sequenceRechercher,competenceRechercher,autoEvaluationNoter);
 		
 		return retour;
 		
@@ -179,7 +211,7 @@ public class Action extends ApplicationSupport {
 		
 		init();
 		String retour = Action.SUCCESS;
-		System.out.println("lister");
+		//System.out.println("lister");
 		
 		return retour;
 		
@@ -234,10 +266,8 @@ public class Action extends ApplicationSupport {
 		try {
 			niveauAcquisition = facadeSuiviStagiaireRemote.selectNiveauAcquisition(niveauAcquisition);
 		} catch (UnfoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(niveauAcquisition);
 		return niveauAcquisition;
 	}
 
@@ -258,8 +288,43 @@ public class Action extends ApplicationSupport {
 			e.printStackTrace();
 			
 		}
-		System.out.println(competence);
+
 		return competence;
+	}
+	
+	private Sequence selectSequenceFromString() {
+
+		String stringIdentifiantSequence = getStringSequence();
+		
+		String[] tabStringIdentifiantSequence = stringIdentifiantSequence.split(",");
+		
+		Module module = new Module(tabStringIdentifiantSequence[0],null,null);
+		Sequence sequence = new Sequence(tabStringIdentifiantSequence[1],module,null,null);
+		
+		try {
+			sequence = facadeSuiviStagiaireRemote.selectSequence(sequence);
+		} catch (UnfoundException e) {
+			
+			e.printStackTrace();
+			
+		}
+
+		return sequence;
+	}
+	
+	private Module selectModuleFromString() {
+		
+		Module module = new Module(getStringModule(),null,null);
+		
+		try {
+			module = facadeSuiviStagiaireRemote.selectModule(module);
+		} catch (UnfoundException e) {
+			
+			e.printStackTrace();
+			
+		}
+
+		return module;
 	}
 
 	public String getIdentifiantAutoEvaluation() {
@@ -268,6 +333,38 @@ public class Action extends ApplicationSupport {
 
 	public void setIdentifiantAutoEvaluation(String identifiantAutoEvaluation) {
 		this.identifiantAutoEvaluation = identifiantAutoEvaluation;
+	}
+
+	public String getDateRecherche() {
+		return dateRecherche;
+	}
+
+	public void setDateRecherche(String dateRecherche) {
+		this.dateRecherche = dateRecherche;
+	}
+
+	public String getStringSequence() {
+		return stringSequence;
+	}
+
+	public void setStringSequence(String stringSequence) {
+		this.stringSequence = stringSequence;
+	}
+
+	public String getStringModule() {
+		return stringModule;
+	}
+
+	public void setStringModule(String stringModule) {
+		this.stringModule = stringModule;
+	}
+
+	public AutoEvaluations getAutoEvaluations() {
+		return autoEvaluations;
+	}
+
+	public void setAutoEvaluations(AutoEvaluations autoEvaluations) {
+		this.autoEvaluations = autoEvaluations;
 	}
 
 }

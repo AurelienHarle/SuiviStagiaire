@@ -88,11 +88,6 @@ public class FacadeServiceAutoEvaluation implements FacadeServiceAutoEvaluationL
 	}
 
 	@Override
-	public AutoEvaluations selectAutoEvaluationByStagComp(AutoEvaluation autoEvaluation) {
-		return facadeDaoAutoEvaluation.selectAutoEvaluationByStagComp(autoEvaluation);
-	}
-
-	@Override
 	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation) {
 		return facadeDaoAutoEvaluation.selectAutoEvaluationByStag(autoEvaluation);
 	}
