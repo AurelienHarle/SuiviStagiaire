@@ -18,7 +18,7 @@
 				<h3 class="panel-title">Explication</h3>
 			</div>
 			<div class="panel-body">
-				<span>Pour rechercher une auto-évaluation vous devez spécifier au minimum un des champs suivant, mais vous pouvez en sélectionnez qu'un seul.<br /><br /> exemple : si vous souhaitez afficher toute vos auto-évaluation avec le niveau non-acquis spécifiez seulement le niveau d'acquisition "non-acquis". </span>
+				<span>Pour rechercher une auto-évaluation, vous devez spécifier au minimum un des champs suivant.<br /><br /> exemple : si vous souhaitez afficher toute vos auto-évaluation avec le niveau non-acquis spécifiez seulement le niveau d'acquisition "non-acquis". </span>
 			</div>
 		</div>
 		</section>

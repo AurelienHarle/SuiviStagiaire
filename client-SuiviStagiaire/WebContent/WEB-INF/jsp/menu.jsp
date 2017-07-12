@@ -12,7 +12,7 @@
 	</div>
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Auto-Evaluation <span class="caret"></span></a>
+			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Auto-Évaluation <span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li><a href="http://localhost:8080/client-SuiviStagiaire/auto-evaluation/recherche-auto-evaluation">Rechercher</a></li>
 					<li><a href="http://localhost:8080/client-SuiviStagiaire/auto-evaluation/creation-auto-evaluation">Creation</a></li>
@@ -24,9 +24,9 @@
 		<ul class="nav navbar-nav navbar-right">
 			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon compte <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="#">action</a></li>
-					<li><a href="#">action</a></li>
-					<li><a href="#">here</a></li>
+					<li><a href="#">Lien 1</a></li>
+					<li><a href="#">Lien 2</a></li>
+					<li><a href="#">Lien 3</a></li>
 					<li role="separator" class="divider"></li>
 					<li id="deconnexion"><a href="#">Déconnexion</a></li>
 				</ul></li>

@@ -18,7 +18,7 @@
 				<h3 class="panel-title">Explication</h3>
 			</div>
 			<div class="panel-body">
-				<span>Pour creer votre auto-évaluation vous devez obligatoirement sélectionner une compétence sur la quel vous désirez vous évalué ainsi que spécifiez le niveau d'acquisition que vous pensez avoir atteins. Vous pouvez aussi écrire votre ressenti sur cette compétence même si cela n'est pas obligatoire</span>
+				<span>Pour creer votre auto-évaluation, vous devez obligatoirement sélectionner une compétence sur la quel vous désirez vous évalué, ainsi que spécifiez le niveau d'acquisition que vous pensez avoir atteins. Vous pouvez aussi écrire votre ressenti sur cette compétence même si cela n'est pas obligatoire.</span>
 			</div>
 		</div>
 		</section>

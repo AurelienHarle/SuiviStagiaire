@@ -16,11 +16,11 @@
 		<table class="table-striped table-bordered table-condensed">
 			<tr>
 				<th>Identifiant</th>
-				<th colspan="3">Competence</th>
+				<th colspan="3">Compétence</th>
 				<th>Ressenti</th>
 				<th>Niveau d'acquisition</th>
 				<th>Date</th>
-				<th>Editer</th>
+				<th>Éditer</th>
 				<th>Supprimer</th>
 			</tr>
 			<tr>

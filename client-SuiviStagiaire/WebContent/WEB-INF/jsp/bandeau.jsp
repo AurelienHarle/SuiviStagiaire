@@ -8,7 +8,7 @@
 <header>
 <div id="bandeau">
 	<img src="<s:url namespace="" action="logo-afpa-transparent" />" alt="Logo Afpa" class="img-rounded" />
-	<h1>Concepteur Développeur Informatique</h1>
+	<h1 class="heading">Concepteur Développeur Informatique</h1>
 </div>
 </header>
 </html>

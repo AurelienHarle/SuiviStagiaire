@@ -11,6 +11,10 @@ table{
 	width: 100%;
 }
 
+button{
+	width: 100px;
+}
+
 #container {
    min-height: 100%;
    height:100%;
