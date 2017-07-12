@@ -11,7 +11,7 @@
 <%@ include file="/WEB-INF/jsp/bandeau.jsp"%>
 <body>
 	<%@ include file="/WEB-INF/jsp/menu.jsp"%>
-	<div class="container-fluid">
+	<div class="container-fluid center-block">
 		<s:if test="!autoEvaluations.isEmpty()">
 			<section id="rechercher-auto-evaluation">
 			<table class="table-striped table-bordered table-condensed">
@@ -65,7 +65,10 @@
 		<s:else>
 			<section id="information-rechercher-auto-evaluation" class="center-block">
 			<div id="info-autoEvaluations" class="alert alert-info" role="alert">
-				<span>Information : Votre recherche n'a trouver aucun résultat</span>
+				<span>Information : Votre recherche n'a donné aucun résultat</span>
+			</div>
+			<div id="information-redirection" class="alert alert-info" role="alert">
+				<span>Redirection dans : </span><span id="seconde">5</span><span> seconde</span>
 			</div>
 			</section>
 		</s:else>

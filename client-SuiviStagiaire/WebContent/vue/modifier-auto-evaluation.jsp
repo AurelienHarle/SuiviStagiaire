@@ -10,12 +10,15 @@
 <script type="text/javascript" src="<s:url namespace="" action="auto-evaluation-js" />"></script>
 </head>
 <%@ include file="/WEB-INF/jsp/bandeau.jsp"%>
-<body>
+<body onload="redirectSuccessPage()">
 	<%@ include file="/WEB-INF/jsp/menu.jsp"%>
-	<div class="container center-block">
+	<div class="container-fluid center-block">
 		<section>
 		<div id="information-success" class="alert alert-success" role="alert">
 			<span>Félicitation : Votre auto-évaluation a bien était modifier par le système</span>
+		</div>
+		<div id="information-redirection" class="alert alert-info" role="alert">
+			<span>Redirection dans : </span><span id="seconde">5</span><span> seconde</span>
 		</div>
 		</section>
 	</div>

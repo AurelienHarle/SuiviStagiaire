@@ -366,3 +366,39 @@ function updateView(response) {
 	}
 
 }
+
+/**
+ * Redirige les pages après 5 seconds
+ */
+function redirectSuccessPage(){
+
+	url = window.location.href;
+	
+	switch (url) {
+	case "http://localhost:8080/client-SuiviStagiaire/auto-evaluation/auto-evaluation-creer":
+		redirectUrl = "http://localhost:8080/client-SuiviStagiaire/auto-evaluation/creation-auto-evaluation"
+		break;
+	case "http://localhost:8080/client-SuiviStagiaire/auto-evaluation/auto-evaluation-modifier":
+		redirectUrl = "http://localhost:8080/client-SuiviStagiaire/auto-evaluation/modification-auto-evaluation"
+		break;
+	case "http://localhost:8080/client-SuiviStagiaire/auto-evaluation/auto-evaluation-supprimer":
+		redirectUrl = "http://localhost:8080/client-SuiviStagiaire/auto-evaluation/suppression-auto-evaluation"
+		break;
+	case "http://localhost:8080/client-SuiviStagiaire/auto-evaluation/auto-evaluation-rechercher":
+		redirectUrl = "http://localhost:8080/client-SuiviStagiaire/auto-evaluation/recherche-auto-evaluation"
+		break;
+	default:
+		redirectUrl = "http://localhost:8080/client-SuiviStagiaire/accueil"
+		break;
+	}
+	
+	console.log(redirectUrl);
+	var i=5;
+	setInterval(function() {
+		i--;
+		document.getElementById('seconde').innerHTML = i;
+		if(i == 0){
+			window.location.replace(redirectUrl);
+		}
+	}, 1000)
+}

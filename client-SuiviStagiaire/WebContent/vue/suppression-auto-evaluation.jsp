@@ -10,7 +10,7 @@
 <%@ include file="/WEB-INF/jsp/bandeau.jsp"%>
 <body>
 	<%@ include file="/WEB-INF/jsp/menu.jsp"%>
-	<div class="container-fluid">
+	<div class="container-fluid center-block">
 		<s:if test="!autoEvaluations.isEmpty()">
 			<section id="suppression-auto-evaluation">
 			<table class="table-striped table-bordered table-condensed">

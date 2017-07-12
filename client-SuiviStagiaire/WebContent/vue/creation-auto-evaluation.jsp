@@ -11,7 +11,7 @@
 <%@ include file="/WEB-INF/jsp/bandeau.jsp"%>
 <body>
 	<%@ include file="/WEB-INF/jsp/menu.jsp"%>
-	<div class="container center-block">
+	<div class="container-fluid center-block">
 		<section class="center-block" id="explication-creation-auto-evaluation">
 		<div class="panel panel-info">
 			<div class="panel-heading">

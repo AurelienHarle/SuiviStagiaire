@@ -92,11 +92,30 @@ button{
  	
 }
 
+#modification-auto-evaluation{
+	
+	width: 750px;
+	padding-left: 15px;
+	padding-right: 15px;
+
+}
+
 #information-modification-auto-evaluation{
 
 	width: 100%;
 	margin-top: 0px;
 	padding-top: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+
+ 	
+}
+
+#information-aucune-auto-evaluation{
+
+	width: 100%;
+	margin-top: 0px;
+	padding-top: 0px;
 	padding-left: 15px;
 	padding-right: 15px;
 

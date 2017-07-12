@@ -10,60 +10,75 @@
 </head>
 <%@ include file="/WEB-INF/jsp/bandeau.jsp"%>
 <body>
-	<s:set var="booleanInformationAutoEvaluation" value="true"></s:set>
 	<%@ include file="/WEB-INF/jsp/menu.jsp"%>
 	<s:if test="autoEvaluation.identifiant!=0">
-		<div class="container center-block">
-			<s:set var="booleanInformationAutoEvaluation" value="false"></s:set>
+		<div class="container-fluid center-block">
+			<section class="center-block" id="explication-creation-auto-evaluation">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title">Explication</h3>
+				</div>
+				<div class="panel-body">
+					<span>Vous pouvez modifier votre niveau d'acquisition, ainsi que votre ressenti.</span>
+				</div>
+			</div>
+			</section>
 			<section id="modification-auto-evaluation" class="center-block">
-			<form class="form-horizontal center-block" action="auto-evaluation-modifier" method="post" onsubmit="return validateFormCreation(this)">
-				<div class="form-group">
-					<label for="competence" class="col-sm-3 col-sm-offset-0 control-label">Compétence :</label>
-					<div id="competence" class="col-sm-9 col-sm-offset-0">
-						<select title="Compétence" name="stringCompetence" class="form-control">
-							<option selected="selected" value="<s:property value="autoEvaluation.competence.sequence.module.identifiant" />,<s:property value="autoEvaluation.competence.sequence.identifiant" />,<s:property value="autoEvaluation.competence.identifiant" />"><s:property value="autoEvaluation.competence.identifiant" /> -
-								<s:property value="autoEvaluation.competence.nomCourt" /></option>
-						</select>
-					</div>
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title">Formulaire de création :</h3>
 				</div>
-				<div class="form-group">
-					<label for="identifiantNiveauAcquisition" class="col-sm-3 col-sm-offset-0 control-label">Niveau d'acquisition :</label>
-					<s:iterator value="NiveauAcquisitions">
-						<div class="col-sm-3 col-sm-offset-0 radio">
-							<label class="radio-inline"> <s:if test="autoEvaluation.niveauAcquisition.identifiant.equals(identifiant)">
-									<input checked="checked" type="radio" name="stringNiveauAcquisition" value="<s:property value="identifiant" />">
-									<s:property value="libelle" />
-								</s:if> <s:else>
-									<input type="radio" name="stringNiveauAcquisition" value="<s:property value="identifiant" />">
-									<s:property value="libelle" />
-								</s:else>
-							</label>
+				<div class="panel-body">
+					<form class="form-horizontal center-block" action="auto-evaluation-modifier" method="post" onsubmit="return validateFormCreation(this)">
+						<div class="form-group">
+							<label for="competence" class="col-sm-3 col-sm-offset-0 control-label">Compétence </label>
+							<div id="competence" class="col-sm-9 col-sm-offset-0">
+								<select title="Compétence" name="stringCompetence" class="form-control">
+									<option selected="selected" value="<s:property value="autoEvaluation.competence.sequence.module.identifiant" />,<s:property value="autoEvaluation.competence.sequence.identifiant" />,<s:property value="autoEvaluation.competence.identifiant" />"><s:property value="autoEvaluation.competence.identifiant" /> -
+										<s:property value="autoEvaluation.competence.nomCourt" /></option>
+								</select>
+							</div>
 						</div>
-					</s:iterator>
-				</div>
-				<div class="form-group">
-					<label for="ressenti" class="col-sm-3 col-sm-offset-0 control-label">Ressenti :</label>
-					<div class="col-sm-9 col-sm-offset-0">
-						<div id="caractere-restant">
-							<label class="control-label" id="label-nombre-caractere-restant">Nombre de caractère restant : </label>
-							<p id="nombre-caractere-restant">4000</p>
+						<div class="form-group">
+							<label for="identifiantNiveauAcquisition" class="col-sm-3 col-sm-offset-0 control-label">Niveau d'acquisition </label>
+							<s:iterator value="NiveauAcquisitions">
+								<div class="col-sm-3 col-sm-offset-0 radio">
+									<label class="radio-inline"> <s:if test="autoEvaluation.niveauAcquisition.identifiant.equals(identifiant)">
+											<input checked="checked" type="radio" name="stringNiveauAcquisition" value="<s:property value="identifiant" />">
+											<s:property value="libelle" />
+										</s:if> <s:else>
+											<input type="radio" name="stringNiveauAcquisition" value="<s:property value="identifiant" />">
+											<s:property value="libelle" />
+										</s:else>
+									</label>
+								</div>
+							</s:iterator>
 						</div>
-						<textarea class="form-control" name="ressenti" rows="3" onkeyup="calculCaractereRestant(this)"><s:property value="autoEvaluation.ressenti" /></textarea>
-					</div>
+						<div class="form-group">
+							<label for="ressenti" class="col-sm-3 col-sm-offset-0 control-label">Ressenti </label>
+							<div class="col-sm-9 col-sm-offset-0">
+								<div id="caractere-restant">
+									<label class="control-label" id="label-nombre-caractere-restant">Nombre de caractère restant : </label>
+									<p id="nombre-caractere-restant">4000</p>
+								</div>
+								<textarea class="form-control" name="ressenti" rows="3" onkeyup="calculCaractereRestant(this)"><s:property value="autoEvaluation.ressenti" /></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-2 col-sm-offset-8">
+								<button type="reset" class="btn btn-default">Annuler</button>
+							</div>
+							<div class="col-sm-2 col-sm-offset-0">
+								<button name="identifiantAutoEvaluation" value="<s:property value="autoEvaluation.identifiant" />" type="submit" class="btn btn-default">Valider</button>
+							</div>
+						</div>
+					</form>
 				</div>
-				<div class="form-group">
-					<div class="col-sm-2 col-sm-offset-8">
-						<button type="reset" class="btn btn-default">Annuler</button>
-					</div>
-					<div class="col-sm-2 col-sm-offset-0">
-						<button name="identifiantAutoEvaluation" value="<s:property value="autoEvaluation.identifiant" />" type="submit" class="btn btn-default">Valider</button>
-					</div>
-				</div>
-			</form>
+			</div>
 			</section>
 		</div>
 	</s:if>
-	<s:else>
+	<s:elseif test="!autoEvaluations.isEmpty()">
 		<div class="container-fluid">
 			<section id="liste-auto-evaluation">
 			<table class="table-striped table-bordered table-condensed">
@@ -96,7 +111,6 @@
 						<td><s:property value="niveauAcquisition.libelle" /></td>
 						<td><s:property value="dateAutoEvaluation" /></td>
 						<td><s:if test="dateAutoEvaluation.equals(dateJour)">
-								<s:set var="booleanInformationAutoEvaluation" value="false"></s:set>
 								<form method="get" action="modification-auto-evaluation">
 									<button name="identifiantAutoEvaluation" value="<s:property value='identifiant' />" type="submit" class="btn btn-default" aria-label="Left Align">
 										<span class="glyphicon glyphicon-pencil" aria-hidden="true">Editer</span>
@@ -115,19 +129,21 @@
 			</table>
 			</section>
 		</div>
-	</s:else>
-	<section id="information-modification-auto-evaluation" class="center-block"> <s:if test="#booleanInformationAutoEvaluation">
-		<div id="info-auto-evaluation" class="info alert-info" role="alert">
+	</s:elseif>
+	<s:else>
+		<section id="information-aucune-auto-evaluation" class="center-block">
+		<div id="info-auto-evaluation" class="alert alert-info" role="alert">
 			<span>Information : Vous n'avez aucune auto-évaluation a modifier à ce jour.</span>
 		</div>
-	</s:if>
-	<div id="info-competence" class="alert alert-danger" role="alert">
-		<span>Attention : Vous devez obligatoirement sélectionner une compétence</span>
-	</div>
-	<div id="info-niveau-acquisition" class="alert alert-danger" role="alert">
-		<span>Attention : Vous devez obligatoirement sélectionner un niveau de competence</span>
-	</div>
-	</section>
+		</section>
+	</s:else>
+	<section id="information-modification-auto-evaluation" class="center-block">
+		<div id="info-competence" class="alert alert-danger" role="alert">
+			<span>Attention : Vous devez obligatoirement sélectionner une compétence</span>
+		</div>
+		<div id="info-niveau-acquisition" class="alert alert-danger" role="alert">
+			<span>Attention : Vous devez obligatoirement sélectionner un niveau de competence</span>
+		</div></section>
 </body>
 <%@ include file="/WEB-INF/jsp/footer.jsp"%>
 </html>
