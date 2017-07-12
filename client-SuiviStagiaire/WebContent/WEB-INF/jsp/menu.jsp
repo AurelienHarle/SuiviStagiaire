@@ -15,7 +15,7 @@
 			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Auto-Évaluation <span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li><a href="http://localhost:8080/client-SuiviStagiaire/auto-evaluation/recherche-auto-evaluation">Rechercher</a></li>
-					<li><a href="http://localhost:8080/client-SuiviStagiaire/auto-evaluation/creation-auto-evaluation">Creation</a></li>
+					<li><a href="http://localhost:8080/client-SuiviStagiaire/auto-evaluation/creation-auto-evaluation">Création</a></li>
 					<li><a href="http://localhost:8080/client-SuiviStagiaire/auto-evaluation/modification-auto-evaluation">Modification</a></li>
 					<li><a href="http://localhost:8080/client-SuiviStagiaire/auto-evaluation/suppression-auto-evaluation">Supression</a></li>
 					<li><a href="http://localhost:8080/client-SuiviStagiaire/auto-evaluation/listage-auto-evaluation">Lister</a></li>
