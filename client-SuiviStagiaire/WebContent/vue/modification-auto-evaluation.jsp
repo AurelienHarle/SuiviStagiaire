@@ -115,7 +115,7 @@
 											<span class="glyphicon glyphicon-pencil" aria-hidden="true">Editer</span>
 										</button>
 									</form>
-								</s:if> <s:else>Edition impossible, vous pouvez éditer seulement votre dernière auto-évaluation.</s:else></td>
+								</s:if> <s:else>Edition impossible : Vous pouvez éditer seulement les auto-évaluations réaliser le jour même.</s:else></td>
 							<td>
 								<form method="post" action="auto-evaluation-supprimer" onsubmit="return validationSuppression()">
 									<button name="identifiantAutoEvaluation" value="<s:property value='identifiant' />" type="submit" class="btn btn-default" aria-label="Left Align">
@@ -132,16 +132,16 @@
 		<s:else>
 			<section id="information-aucune-auto-evaluation" class="center-block">
 			<div id="info-auto-evaluation" class="alert alert-info" role="alert">
-				<span>Information : Vous n'avez aucune auto-évaluation a modifier à ce jour.</span>
+				<span>Information : Vous n'avez aucune auto-évaluations, réalisée à ce jour.</span>
 			</div>
 			</section>
 		</s:else>
 		<section id="information-modification-auto-evaluation" class="center-block">
 		<div id="info-competence" class="alert alert-danger" role="alert">
-			<span>Attention : Vous devez obligatoirement sélectionner une compétence</span>
+			<span>Attention : Vous devez obligatoirement sélectionner une compétence.</span>
 		</div>
 		<div id="info-niveau-acquisition" class="alert alert-danger" role="alert">
-			<span>Attention : Vous devez obligatoirement sélectionner un niveau de competence</span>
+			<span>Attention : Vous devez obligatoirement sélectionner un niveau de competence.</span>
 		</div>
 		</section>
 	</div>

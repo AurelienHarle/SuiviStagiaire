@@ -48,7 +48,7 @@
 										<span class="glyphicon glyphicon-pencil" aria-hidden="true">Editer</span>
 									</button>
 								</form>
-							</s:if> <s:else>Edition impossible, vous pouvez éditer seulement votre dernière auto-évaluation.</s:else></td>
+							</s:if> <s:else>Edition impossible : Vous pouvez éditer seulement les auto-évaluations réaliser le jour même.</s:else></td>
 						<td>
 							<form method="post" action="auto-evaluation-supprimer" onsubmit="return validationSuppression()">
 								<button name="identifiantAutoEvaluation" value="<s:property value='identifiant' />" type="submit" class="btn btn-default" aria-label="Left Align">
@@ -64,7 +64,7 @@
 		<s:else>
 			<section id="information-aucune-auto-evaluation" class="center-block">
 			<div id="info-autoEvaluations" class="alert alert-info" role="alert">
-				<span>Information : Vous n'avez aucune auto-évaluations réaliser à ce jour.</span>
+				<span>Information : Vous n'avez aucune auto-évaluations, réalisée à ce jour.</span>
 			</div>
 			</section>
 		</s:else>
