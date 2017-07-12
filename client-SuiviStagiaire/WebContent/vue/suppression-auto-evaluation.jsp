@@ -62,7 +62,7 @@
 			</section>
 		</s:if>
 		<s:else>
-			<section id="information-suppression-auto-evaluation" class="center-block">
+			<section id="information-aucune-auto-evaluation" class="center-block">
 			<div id="info-autoEvaluations" class="alert alert-info" role="alert">
 				<span>Information : Vous n'avez aucune auto-évaluations réaliser à ce jour.</span>
 			</div>

@@ -11,8 +11,8 @@
 <%@ include file="/WEB-INF/jsp/bandeau.jsp"%>
 <body>
 	<%@ include file="/WEB-INF/jsp/menu.jsp"%>
-	<s:if test="autoEvaluation.identifiant!=0">
-		<div class="container-fluid center-block">
+	<div class="container-fluid center-block">
+		<s:if test="autoEvaluation.identifiant!=0">
 			<section class="center-block" id="explication-creation-auto-evaluation">
 			<div class="panel panel-info">
 				<div class="panel-heading">
@@ -76,74 +76,75 @@
 				</div>
 			</div>
 			</section>
-		</div>
-	</s:if>
-	<s:elseif test="!autoEvaluations.isEmpty()">
-		<div class="container-fluid">
-			<section id="liste-auto-evaluation">
-			<table class="table-striped table-bordered table-condensed">
-				<tr>
-					<th>Identifiant</th>
-					<th colspan="3">Compétence</th>
-					<th>Ressenti</th>
-					<th>Niveau d'acquisition</th>
-					<th>Date</th>
-					<th>Éditer</th>
-					<th>Supprimer</th>
-				</tr>
-				<tr>
-					<th></th>
-					<th>identifiant</th>
-					<th>nom long</th>
-					<th>nom court</th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-				</tr>
-				<s:iterator value="autoEvaluations">
+		</s:if>
+		<s:elseif test="!autoEvaluations.isEmpty()">
+			<div class="container-fluid">
+				<section id="liste-auto-evaluation">
+				<table class="table-striped table-bordered table-condensed">
 					<tr>
-						<td><s:property value="identifiant" /></td>
-						<td><s:property value="competence.sequence.module.identifiant" /> - <s:property value="competence.sequence.identifiant" /> - <s:property value="competence.identifiant" /></td>
-						<td><s:property value="competence.nomLong" /></td>
-						<td><s:property value="competence.nomCourt" /></td>
-						<td><s:property value="ressenti" /></td>
-						<td><s:property value="niveauAcquisition.libelle" /></td>
-						<td><s:property value="dateAutoEvaluation" /></td>
-						<td><s:if test="dateAutoEvaluation.equals(dateJour)">
-								<form method="get" action="modification-auto-evaluation">
+						<th>Identifiant</th>
+						<th colspan="3">Compétence</th>
+						<th>Ressenti</th>
+						<th>Niveau d'acquisition</th>
+						<th>Date</th>
+						<th>Éditer</th>
+						<th>Supprimer</th>
+					</tr>
+					<tr>
+						<th></th>
+						<th>identifiant</th>
+						<th>nom long</th>
+						<th>nom court</th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+					<s:iterator value="autoEvaluations">
+						<tr>
+							<td><s:property value="identifiant" /></td>
+							<td><s:property value="competence.sequence.module.identifiant" /> - <s:property value="competence.sequence.identifiant" /> - <s:property value="competence.identifiant" /></td>
+							<td><s:property value="competence.nomLong" /></td>
+							<td><s:property value="competence.nomCourt" /></td>
+							<td><s:property value="ressenti" /></td>
+							<td><s:property value="niveauAcquisition.libelle" /></td>
+							<td><s:property value="dateAutoEvaluation" /></td>
+							<td><s:if test="dateAutoEvaluation.equals(dateJour)">
+									<form method="get" action="modification-auto-evaluation">
+										<button name="identifiantAutoEvaluation" value="<s:property value='identifiant' />" type="submit" class="btn btn-default" aria-label="Left Align">
+											<span class="glyphicon glyphicon-pencil" aria-hidden="true">Editer</span>
+										</button>
+									</form>
+								</s:if> <s:else>Edition impossible, vous pouvez éditer seulement votre dernière auto-évaluation.</s:else></td>
+							<td>
+								<form method="post" action="auto-evaluation-supprimer" onsubmit="return validationSuppression()">
 									<button name="identifiantAutoEvaluation" value="<s:property value='identifiant' />" type="submit" class="btn btn-default" aria-label="Left Align">
-										<span class="glyphicon glyphicon-pencil" aria-hidden="true">Editer</span>
+										<span class="glyphicon glyphicon-trash" aria-hidden="true">Supprimer</span>
 									</button>
 								</form>
-							</s:if> <s:else>Edition impossible, vous pouvez éditer seulement votre dernière auto-évaluation.</s:else></td>
-						<td>
-							<form method="post" action="auto-evaluation-supprimer" onsubmit="return validationSuppression()">
-								<button name="identifiantAutoEvaluation" value="<s:property value='identifiant' />" type="submit" class="btn btn-default" aria-label="Left Align">
-									<span class="glyphicon glyphicon-trash" aria-hidden="true">Supprimer</span>
-								</button>
-							</form>
-						</td>
-					</tr>
-				</s:iterator>
-			</table>
+							</td>
+						</tr>
+					</s:iterator>
+				</table>
+				</section>
+			</div>
+		</s:elseif>
+		<s:else>
+			<section id="information-aucune-auto-evaluation" class="center-block">
+			<div id="info-auto-evaluation" class="alert alert-info" role="alert">
+				<span>Information : Vous n'avez aucune auto-évaluation a modifier à ce jour.</span>
+			</div>
 			</section>
-		</div>
-	</s:elseif>
-	<s:else>
-		<section id="information-aucune-auto-evaluation" class="center-block">
-		<div id="info-auto-evaluation" class="alert alert-info" role="alert">
-			<span>Information : Vous n'avez aucune auto-évaluation a modifier à ce jour.</span>
-		</div>
-		</section>
-	</s:else>
-	<section id="information-modification-auto-evaluation" class="center-block">
+		</s:else>
+		<section id="information-modification-auto-evaluation" class="center-block">
 		<div id="info-competence" class="alert alert-danger" role="alert">
 			<span>Attention : Vous devez obligatoirement sélectionner une compétence</span>
 		</div>
 		<div id="info-niveau-acquisition" class="alert alert-danger" role="alert">
 			<span>Attention : Vous devez obligatoirement sélectionner un niveau de competence</span>
-		</div></section>
+		</div>
+		</section>
+	</div>
 </body>
 <%@ include file="/WEB-INF/jsp/footer.jsp"%>
 </html>

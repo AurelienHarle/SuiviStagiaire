@@ -13,7 +13,7 @@
 	<%@ include file="/WEB-INF/jsp/menu.jsp"%>
 	<div class="container-fluid center-block">
 		<s:if test="!autoEvaluations.isEmpty()">
-			<section id="liste-auto-evaluation">
+			<section id="liste-auto-evaluation" class="center-block">
 			<table class="table-striped table-bordered table-condensed">
 				<tr>
 					<th>Identifiant</th>
@@ -65,7 +65,7 @@
 		<s:else>
 			<section id="information-aucune-auto-evaluation" class="center-block">
 			<div id="info-auto-evaluation" class="alert alert-info" role="alert">
-				<span>Information : Vous n'avez aucune auto-évaluation a modifier à ce jour.</span>
+				<span>Information : Vous n'avez aucune auto-évaluation a lister à ce jour.</span>
 			</div>
 			</section>
 		</s:else>
