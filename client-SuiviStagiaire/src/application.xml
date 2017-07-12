@@ -26,7 +26,7 @@
 			<result name="modification">/vue/{1}-auto-evaluation.jsp</result>
 			<result name="suppression">/vue/{1}-auto-evaluation.jsp</result>
 			<result name="listage">/vue/{1}-auto-evaluation.jsp</result>
-			<result name="error">/vue/erreur-auto-evaluation.jsp</result>
+			<result name="error">/vue/error-auto-evaluation.jsp</result>
 			<allowed-methods>recherche,creation,modification,suppression,listage</allowed-methods>
 		</action>
 		

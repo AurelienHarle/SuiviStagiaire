@@ -64,12 +64,13 @@
 		</s:if>
 		<s:else>
 			<section id="information-rechercher-auto-evaluation" class="center-block">
-			<div id="info-autoEvaluations" class="alert alert-info" role="alert">
-				<span>Information : Votre recherche n'a donné aucun résultat</span>
+			<div id="info-autoEvaluations" class="alert alert-warning" role="alert">
+				<span>Information : Votre recherche n'a donné aucun résultat.</span>
 			</div>
 			<div id="information-redirection" class="alert alert-info" role="alert">
-				<span>Redirection dans : </span><span id="seconde">5</span><span> seconde</span>
+				<span>Redirection dans : </span><span id="seconde">5</span><span> secondes.</span>
 			</div>
+			<script language="javascript" type="text/javascript">redirectSuccessPage();</script>
 			</section>
 		</s:else>
 	</div>

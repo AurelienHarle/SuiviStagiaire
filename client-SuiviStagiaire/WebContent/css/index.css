@@ -84,12 +84,10 @@ button{
 #information-recherche-auto-evaluation{
 
 	width: 750px;
-	margin-top: 0px;
 	padding-top: 15px;
 	padding-left: 15px;
 	padding-right: 15px;
 
- 	
 }
 
 #modification-auto-evaluation{
@@ -97,29 +95,25 @@ button{
 	width: 750px;
 	padding-left: 15px;
 	padding-right: 15px;
-
+	
 }
 
 #information-modification-auto-evaluation{
 
-	width: 100%;
-	margin-top: 0px;
+	width: 750px;
 	padding-top: 15px;
 	padding-left: 15px;
 	padding-right: 15px;
-
  	
 }
 
 #information-aucune-auto-evaluation{
 
 	width: 100%;
-	margin-top: 0px;
 	padding-top: 0px;
 	padding-left: 15px;
 	padding-right: 15px;
 
- 	
 }
 
 #information-connexion{
@@ -130,10 +124,14 @@ button{
 
 #info-login{
 	display: none;
+	margin: 0px;
+	padding: 0px;
 }
 
 #info-password{
 	display: none;
+	margin: 0px;
+	padding: 0px;
 }
 
 #info-competence{

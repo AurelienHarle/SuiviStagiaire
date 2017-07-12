@@ -33,6 +33,7 @@
 						<label for="competence" class="col-sm-3 col-sm-offset-0 control-label text-left">Compétence </label>
 						<div id="competence" class="col-sm-9 col-sm-offset-0">
 							<select title="Compétence" name="stringCompetence" class="form-control">
+								<option value="-1">Compétence...</option>
 								<s:iterator value="Competences">
 									<option value="<s:property value="sequence.module.identifiant" />,<s:property value="sequence.identifiant" />,<s:property value="identifiant" />"><s:property value="identifiant" /> -
 										<s:property value="nomCourt" /></option>
@@ -76,7 +77,7 @@
 			<span>Attention : Vous devez obligatoirement sélectionner une compétence</span>
 		</div>
 		<div id="info-niveau-acquisition" class="alert alert-danger" role="alert">
-			<span>Attention : Vous devez obligatoirement sélectionner un niveau de competence</span>
+			<span>Attention : Vous devez obligatoirement sélectionner un niveau d'acquisition</span>
 		</div>
 		<div id="info-ressenti" class="alert alert-danger" role="alert">
 			<span>Attention : Vous devez obligatoirement écrire un ressenti de moins de 4000 caractères</span>

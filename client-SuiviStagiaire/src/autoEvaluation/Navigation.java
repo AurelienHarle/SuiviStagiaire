@@ -58,7 +58,7 @@ public class Navigation extends ApplicationSupport {
 	}
 	
 	/**
-	 * Initialise la connection vers le serveur EJB.
+	 * Initialise la connection vers le serveur EJB et instancie le lien vers la facade principal du projet.
 	 */
 	private void init() {
 
@@ -76,109 +76,186 @@ public class Navigation extends ApplicationSupport {
 	
 	/**
 	 * Méthode lancer avant l'arriver sur la page, de creation d'une auto-évaluation, 
-	 * elle permet de récupérer la liste des competences pour integration, a la page de creation d'auto-evaluation
+	 * elle permet de récupérer la liste des {@link Competences} et les {@link NiveauAcquisitions} possible pour integration, a la page.
 	 * 
-	 * @return
+	 * @return {@link String} d'erreur ou de success
 	 */
 	public String creation(){
 		
 		init();
+		String retour = CREATION;
 		
-		competences = facadeSuiviStagiaireRemote.selectCompetences();
+		try{
+			competences = facadeSuiviStagiaireRemote.selectCompetences();
+		}catch (Exception e) {
+			retour = Action.ERROR;
+		}
 		
-		niveauAcquisitions = facadeSuiviStagiaireRemote.selectNiveauAcquisitions();
+		try{
+			niveauAcquisitions = facadeSuiviStagiaireRemote.selectNiveauAcquisitions();
+		}catch (Exception e) {
+			retour = Action.ERROR;
+		}
 		
-		return CREATION;
+		return retour;
 		
 	}
 	
 	/**
 	 * Méthode lancer avant l'arriver sur la page, de modification d'une auto-évaluation, 
+	 * elle permet de récupérer les {@link NiveauAcquisitions} possible pour integration a la page
+	 * ainsi que d'instancier la liste d' {@link AutoEvaluations} ou une seul {@link AutoEvaluation} celons si le {@link Stagiaire} passe directement par la liste,
+	 * d'auto-évaluation ou par le menu des auto-évaluation
+	 * instancie aussi la date du jour pour contrôle de possibilité d'edition sur la liste.
 	 * 
-	 * @return
+	 * @return {@link String}
 	 */
 	public String modification(){
 		
 		init();
+		String retour = MODIFICATION;
+		
+		/* 
+		 * TODO DELETE après creation fonctionnalité de gestion de compte utilisateur
+		 * devrais etre remplacé par une select vers la base grace a la session utilisateur enregistré dans le context html "session"
+		 */
 		Stagiaire stagiaire = new Stagiaire("13111384", "Password", "Harlé", "Aurélien", null, null, null, null, null, null);
 		
-		niveauAcquisitions = facadeSuiviStagiaireRemote.selectNiveauAcquisitions();
+		try {
+			niveauAcquisitions = facadeSuiviStagiaireRemote.selectNiveauAcquisitions();
+		} catch (Exception e) {
+			retour = Action.ERROR;
+		}
 		
 		if(identifiantAutoEvaluation!=null){
 			
 			autoEvaluation = new AutoEvaluation(Integer.parseInt(identifiantAutoEvaluation));
-			autoEvaluation = facadeSuiviStagiaireRemote.selectAutoEvaluation(autoEvaluation);
+			
+			try {
+				autoEvaluation = facadeSuiviStagiaireRemote.selectAutoEvaluation(autoEvaluation);
+			} catch (Exception e) {
+				retour = Action.ERROR;
+			}
 			
 		}
-		
+
 		if(autoEvaluation == null){
 			
 			autoEvaluation = new AutoEvaluation(null, null, stagiaire, LocalDate.now(), null);
-			autoEvaluations = facadeSuiviStagiaireRemote.selectAutoEvaluationsByStagDate(autoEvaluation);
+			
+			try {
+				autoEvaluations = facadeSuiviStagiaireRemote.selectAutoEvaluationsByStagDate(autoEvaluation);
+			} catch (Exception e) {
+				retour = Action.ERROR;
+			}
 			
 		}
+		
 		dateJour = LocalDate.now();
-		return MODIFICATION;
+		
+		return retour;
 		
 	}
 	
 	/**
 	 * Méthode lancer avant l'arriver sur la page, de suppression d'une auto-évaluation, 
+	 * elle permet d'initié la liste des {@link AutoEvaluations} du {@link Stagiaire}, pour les intégrés a la page.
+	 * instancie aussi la date du jour pour contrôle de possibilité d'edition.
 	 * 
-	 * @return
+	 * @return {@link String}
 	 */
 	public String suppression(){
 		
 		init();
+		String retour = SUPPRESSION;
 		
-		//Stagiaire creer en dure avant gestion des comptes
+		/* 
+		 * TODO DELETE après creation fonctionnalité de gestion de compte utilisateur
+		 * devrais etre remplacé par une select vers la base grace a la session utilisateur enregistré dans le context html "session"
+		 */
 		Stagiaire stagiaire = new Stagiaire("13111384", "Password", "Harlé", "Aurélien", null, null, null, null, null, null);
 		
 		AutoEvaluation autoEvaluation = new AutoEvaluation(null, null, stagiaire, null, null);
 		
-		autoEvaluations = facadeSuiviStagiaireRemote.selectAutoEvaluationByStag(autoEvaluation);
-		
-		return SUPPRESSION;
+		try {
+			autoEvaluations = facadeSuiviStagiaireRemote.selectAutoEvaluationByStag(autoEvaluation);
+		} catch (Exception e) {
+			retour = Action.ERROR;
+		}
+		dateJour = LocalDate.now();
+		return retour;
 		
 	}
 	
 	/**
-	 * Méthode lancer avant l'arriver sur la page, de rechercher d'une auto-évaluation, 
+	 * Méthode lancer avant l'arriver sur la page, de rechercher d'une {@link AutoEvaluation}, 
+	 * elle permet d'ininité les {@link Modules}, les {@link Sequences}, les {@link Competences} ainsi que les {@link NiveauAcquisitions}.
+	 * afin de pouvoir les intégrés a la page.
 	 * 
-	 * @return
+	 * @return {@link String}
 	 */
 	public String recherche(){
 		
 		init();
+		String retour = RECHERCHE;
 		
-		//System.out.println("recherche");
-		competences = facadeSuiviStagiaireRemote.selectCompetences();
-		sequences = facadeSuiviStagiaireRemote.selectSequences();
-		modules = facadeSuiviStagiaireRemote.selectModules();
+		try {
+			competences = facadeSuiviStagiaireRemote.selectCompetences();
+		} catch (Exception e) {
+			retour = Action.ERROR;
+		}
 		
-		niveauAcquisitions = facadeSuiviStagiaireRemote.selectNiveauAcquisitions();
-		return RECHERCHE;
+		try {
+			sequences = facadeSuiviStagiaireRemote.selectSequences();
+		} catch (Exception e) {
+			retour = Action.ERROR;
+		}
+		
+		try {
+			modules = facadeSuiviStagiaireRemote.selectModules();
+		} catch (Exception e) {
+			retour = Action.ERROR;
+		}
+		
+		try {
+			niveauAcquisitions = facadeSuiviStagiaireRemote.selectNiveauAcquisitions();
+		} catch (Exception e) {
+			retour = Action.ERROR;
+		}
+		
+		return retour;
 		
 	}
 	
 	/**
-	 * Méthode lancer avant l'arriver sur la page, de lister d'une auto-évaluation, 
+	 * Méthode lancer avant l'arriver sur la page, de lister d'une {@link AutoEvaluation}, 
+	 * elle permet d'initié la liste des {@link AutoEvaluations} du {@link Stagiaire} pour pouvoir les intégrés a la page.
+	 * instancie aussi la date du jour pour contrôle de possibilité d'edition.
 	 * 
-	 * @return
+	 * @return {@link String}
 	 */
 	public String listage(){
 		
 		init();
+		String retour = LISTER;
 		
-		//Stagiaire creer en dure avant gestion des comptes
+		/* 
+		 * TODO DELETE après creation fonctionnalité de gestion de compte utilisateur
+		 * devrais etre remplacé par une select vers la base grace a la session utilisateur enregistré dans le context html "session"
+		 */
 		Stagiaire stagiaire = new Stagiaire("13111384", "Password", "Harlé", "Aurélien", null, null, null, null, null, null);
 		
 		AutoEvaluation autoEvaluation = new AutoEvaluation(null, null, stagiaire, null, null);
 		
-		autoEvaluations = facadeSuiviStagiaireRemote.selectAutoEvaluationByStag(autoEvaluation);
+		try {
+			autoEvaluations = facadeSuiviStagiaireRemote.selectAutoEvaluationByStag(autoEvaluation);
+		} catch (Exception e) {
+			retour = Action.ERROR;
+		}
+		
 		dateJour = LocalDate.now();
 		
-		return LISTER;
+		return retour;
 		
 	}
 	
@@ -189,13 +266,9 @@ public class Navigation extends ApplicationSupport {
 	 */
 	public String ajaxRecherche(){
 
-		//Retour de la methode
 		init();
 		String retour = Action.SUCCESS;
-		
-		//System.out.println(jsonData);
-		
-		//Creation de l'objet module depuis JSon recus, de la page web avec requette ajax
+
 		Gson gson = new Gson();
 		if(jsonData.contains("all")){
 			
@@ -215,8 +288,7 @@ public class Navigation extends ApplicationSupport {
 				} catch (UnfoundException e) {
 	
 					retour = Action.ERROR;
-					e.printStackTrace();
-
+					
 				}
 				
 			}else{
@@ -232,102 +304,169 @@ public class Navigation extends ApplicationSupport {
 				} catch (UnfoundException e) {
 	
 					retour = Action.ERROR;
-					e.printStackTrace();
 	
 				}
 			}
 
 		return retour;
 	}
-	
+
 	/**
-	 * @return the niveauAcquisitions
+	 * getter/setter
+	 * @return niveauAcquisitions {@link NiveauAcquisitions}
 	 */
 	public NiveauAcquisitions getNiveauAcquisitions() {
 		return niveauAcquisitions;
 	}
 
 	/**
-	 * @param niveauAcquisitions the niveauAcquisitions to set
+	 * getter/setter
+	 * @param niveauAcquisitions {@link NiveauAcquisitions}
 	 */
 	public void setNiveauAcquisitions(NiveauAcquisitions niveauAcquisitions) {
 		this.niveauAcquisitions = niveauAcquisitions;
 	}
 
+	/**
+	 * getter/setter
+	 * @return autoEvaluations {@link AutoEvaluations}
+	 */
 	public AutoEvaluations getAutoEvaluations() {
 		return autoEvaluations;
 	}
 
+	/**
+	 * getter/setter
+	 * @param autoEvaluations {@link AutoEvaluations}
+	 */
 	public void setAutoEvaluations(AutoEvaluations autoEvaluations) {
 		this.autoEvaluations = autoEvaluations;
 	}
 
 	/**
-	 * @return the dateJour
+	 * getter/setter
+	 * @return dateJour {@link LocalDate}
 	 */
 	public LocalDate getDateJour() {
 		return dateJour;
 	}
 
 	/**
-	 * @param dateJour the dateJour to set
+	 * getter/setter
+	 * @param dateJour {@link LocalDate}
 	 */
 	public void setDateJour(LocalDate dateJour) {
 		this.dateJour = dateJour;
 	}
 
+	/**
+	 * getter/setter
+	 * @return identifiantAutoEvaluation {@link String}
+	 */
 	public String getIdentifiantAutoEvaluation() {
 		return identifiantAutoEvaluation;
 	}
 
+	/**
+	 * getter/setter
+	 * @param identifiantAutoEvaluation {@link String}
+	 */
 	public void setIdentifiantAutoEvaluation(String identifiantAutoEvaluation) {
 		this.identifiantAutoEvaluation = identifiantAutoEvaluation;
 	}
 
+	/**
+	 * getter/setter
+	 * @return autoEvaluation {@link AutoEvaluation}
+	 */
 	public AutoEvaluation getAutoEvaluation() {
 		return autoEvaluation;
 	}
 
+	/**
+	 * getter/setter
+	 * @param autoEvaluation {@link AutoEvaluation}
+	 */
 	public void setAutoEvaluation(AutoEvaluation autoEvaluation) {
 		this.autoEvaluation = autoEvaluation;
 	}
 
+	/**
+	 * getter/setter
+	 * @return sequences {@link Sequences}
+	 */
 	public Sequences getSequences() {
 		return sequences;
 	}
 
+	/**
+	 * getter/setter
+	 * @param sequences {@link Sequences}
+	 */
 	public void setSequences(Sequences sequences) {
 		this.sequences = sequences;
 	}
 
+	/**
+	 * getter/setter
+	 * @return modules {@link Modules}
+	 */
 	public Modules getModules() {
 		return modules;
 	}
 
+	/**
+	 * getter/setter
+	 * @param modules {@link Modules}
+	 */
 	public void setModules(Modules modules) {
 		this.modules = modules;
 	}
 
+	/**
+	 * getter/setter
+	 * @return module {@link Module}
+	 */
 	public Module getModule() {
 		return module;
 	}
 
+	/**
+	 * getter/setter
+	 * @param module {@link Module}
+	 */
 	public void setModule(Module module) {
 		this.module = module;
 	}
 
+	/**
+	 * getter/setter
+	 * @return jsonData {@link String}
+	 */
 	public String getJsonData() {
 		return jsonData;
 	}
 
+	/**
+	 * getter/setter
+	 * @param jsonData {@link String}
+	 */
 	public void setJsonData(String jsonData) {
 		this.jsonData = jsonData;
 	}
 
+	/**
+	 * getter/setter
+	 * @return competences {@link Competences}
+	 */
 	public Competences getCompetences() {
 		return competences;
 	}
 
+	/**
+	 * getter/setter
+	 * @param competences {@link Competences}
+	 */
 	public void setCompetences(Competences competences) {
 		this.competences = competences;
 	}

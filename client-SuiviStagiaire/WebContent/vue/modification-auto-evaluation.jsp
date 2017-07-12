@@ -141,7 +141,10 @@
 			<span>Attention : Vous devez obligatoirement sélectionner une compétence.</span>
 		</div>
 		<div id="info-niveau-acquisition" class="alert alert-danger" role="alert">
-			<span>Attention : Vous devez obligatoirement sélectionner un niveau de competence.</span>
+			<span>Attention : Vous devez obligatoirement sélectionner un niveau d'acquisition.</span>
+		</div>
+		<div id="info-ressenti" class="alert alert-danger" role="alert">
+			<span>Attention : Vous devez obligatoirement écrire un ressenti de moins de 4000 caractères</span>
 		</div>
 		</section>
 	</div>

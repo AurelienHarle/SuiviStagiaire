@@ -1,6 +1,7 @@
 package facade;
 
 import javax.ejb.Remote;
+import javax.persistence.EntityManager;
 
 import autoEvaluation.entity.AutoEvaluation;
 import autoEvaluation.technique.AutoEvaluations;
@@ -20,238 +21,139 @@ import stagiaire.entity.Stagiaire;
 
 @Remote
 public interface FacadeSuiviStagiaireRemote {
-
+	
 	/**
-	 * TODO 
+	 * Service qui permet d'inséré un {@link Module} dans la table module grace a un {@link EntityManager}.
 	 * 
-	 * @param module
-	 * @throws DoublonException
-	 * @throws NullException
+	 * @param module {@link Module} le module a inséré
+	 * @throws {@link DoublonException} 
+	 * @throws {@link NullException}
 	 */
 	public void insertModule(Module module) throws DoublonException, NullException;
 
 	/**
-	 * TODO
+	 * Service qui permet d'update un {@link Module} dans la table module grace a un {@link EntityManager}.
+	 * 
+	 * @param module {@link Module} le module a update
 	 */
 	public void updateModule(Module module);
 
 	/**
-	 * Delete d'un Module
+	 * Service qui permet de delete un {@link Module} dans la table module grace a un {@link EntityManager}.
+	 * 
+	 * @param module {@link Module} le module a delete
 	 */
 	public void deleteModule(Module module);
 
 	/**
-	 * Select d'un Module
-	 * @return 
-	 * @throws UnfoundException 
+	 * Service qui permet de select un {@link Module} grace  a sa clé primaire dans la table module grace a un {@link EntityManager}.
+	 * 
+	 * @param module {@link Module} le module a select
+	 * @throws {@link UnfoundException}
 	 */
 	public Module selectModule(Module module) throws UnfoundException;
 
 	/**
-	 * Sélectionne tout les modules de la table module
-	 * @return {@link Modules}
+	 * Service qui permet de select tout les {@link Module} dans la table module grace a un {@link EntityManager}.
+	 * 
+	 * @param module {@link Module} le module a select
+	 * @throws {@link UnfoundException}
 	 */
 	public Modules selectModules();
-	
+
 	/**
-	 * TODO 
+	 * Service qui permet d'inséré une {@link Sequence} dans la table seq grace a un {@link EntityManager}.
 	 * 
-	 * @param sequence
-	 * @throws DoublonException
-	 * @throws NullException
+	 * @param sequence {@link Sequence} la sequence a inséré
+	 * @throws {@link DoublonException} 
+	 * @throws {@link NullException}
 	 */
 	public void insertSequence(Sequence sequence) throws DoublonException, NullException;
 
-	/**
-	 * TODO
-	 */
 	public void updateSequence(Sequence sequence);
 
-	/**
-	 * Delete d'une Sequence
-	 */
 	public void deleteSequence(Sequence sequence);
 
-	/**
-	 * Select d'une Sequence
-	 * @throws UnfoundException 
-	 */
 	public Sequence selectSequence(Sequence sequence) throws UnfoundException;
 	
-	/**
-	 * Selectionne les {@link Sequences} d'un {@link Module}
-	 * @param module {@link Module}
-	 * @return {@link Sequences}
-	 */
 	public Sequences selectSequenceByModule(Module module);
-	
-	/**
-	 * Selectionne tout les sequences de la table seq
-	 * @return {@link Sequences}
-	 */
+
 	public Sequences selectSequences();
 
 	/**
-	 * TODO 
+	 * Service qui permet d'inséré une {@link Competence} dans la table comp grace a un {@link EntityManager}.
 	 * 
-	 * @param competence
-	 * @throws DoublonException
-	 * @throws NullException
+	 * @param competence {@link Competence} la competence a inséré
+	 * @throws {@link DoublonException} 
+	 * @throws {@link NullException}
 	 */
 	public void insertCompetence(Competence competence) throws DoublonException, NullException;
 
-	/**
-	 * TODO
-	 */
 	public void updateCompetence(Competence competence);
 
-	/**
-	 * Delete d'une Competences
-	 */
 	public void deleteCompetence(Competence competence);
 
-	/**
-	 * Select d'une Competences
-	 * @throws UnfoundException 
-	 */
 	public Competence selectCompetence(Competence competence) throws UnfoundException;
 	
-	/**
-	 * select les {@link Competences} d'après un module
-	 * @param module {@link Module}
-	 * @return {@link Competences}
-	 * 
-	 */
 	public Competences selectCompetenceByModule(Module module);
 
-	/**
-	 * select les {@link Competences} d'après une {@link Sequence}
-	 * @param module {@link Sequence}
-	 * @return {@link Competences}
-	 * 
-	 */
 	public Competences selectCompetenceBySequence(Sequence sequence);
-	
-	/**
-	 * Retourne toute les competences de la table comp
-	 * @return competences {@link Competences}
-	 */
+
 	public Competences selectCompetences();
 
 	/**
-	 * TODO 
+	 * Service qui permet d'inséré un {@link NiveauAcquisition} dans la table niv_acqui grace a un {@link EntityManager}.
 	 * 
-	 * @param niveauAcquisition
-	 * @throws DoublonException
-	 * @throws NullException
+	 * @param niveauAcquisition {@link NiveauAcquisition} le niveauAcquisition a inséré
+	 * @throws {@link DoublonException} 
+	 * @throws {@link NullException}
 	 */
 	public void insertNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws DoublonException, NullException;
 
-	/**
-	 * TODO
-	 */
 	public void updateNiveauAcquisition(NiveauAcquisition niveauAcquisition);
 
-	/**
-	 * Delete NiveauAcquisition
-	 */
 	public void deleteNiveauAcquisition(NiveauAcquisition niveauAcquisition);
 
-	/**
-	 * Select NiveauAcquisition
-	 * @throws UnfoundException 
-	 */
 	public NiveauAcquisition selectNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws UnfoundException;
 
-	/**
-	 * Select NiveauAcquisitions
-	 * @throws UnfoundException 
-	 */
 	public NiveauAcquisitions selectNiveauAcquisitions();
-	
+
 	/**
-	 * TODO 
+	 * Service qui permet d'inséré un {@link Stagiaire} dans la table stag grace a un {@link EntityManager}.
 	 * 
-	 * @param stagiaire
-	 * @throws DoublonException
-	 * @throws NullException
+	 * @param stagiaire {@link Stagiaire} le stagiaire a inséré
+	 * @throws {@link DoublonException} 
+	 * @throws {@link NullException}
 	 */
 	public void insertStagiaire(Stagiaire stagiaire) throws DoublonException, NullException;
 
-	/**
-	 * TODO
-	 */
 	public void updateStagiaire(Stagiaire stagiaire);
 
-	/**
-	 * Delete Stagiaire
-	 */
 	public void deleteStagiaire(Stagiaire stagiaire);
 
-	/**
-	 * Select Stagiaire
-	 * @throws UnfoundException 
-	 */
 	public Stagiaire selectStagiaire(Stagiaire stagiaire) throws UnfoundException;
 
 	/**
-	 * Contrôle et insert une {@link AutoEvaluation} si elle correspond au règle métier
+	 * Service qui permet d'inséré un {@link AutoEvaluation} dans la table auto_eval grace a un {@link EntityManager}.
 	 * 
-	 * @Param {@link AutoEvaluation}
-	 * @throws NullException
-	 * @throws DateNullException
+	 * @param autoEvaluation {@link AutoEvaluation} l'autoEvaluation a inséré
+	 * @throws {@link DoublonException} 
+	 * @throws {@link NullException}
 	 */
 	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws NullException, DateNullException;
-	
-	/**
-	 * Contrôle et update une {@link AutoEvaluation} si elle correspond au règle métier
-	 */
+
 	public void updateAutoEvaluation(AutoEvaluation autoEvaluation);
-	
-	/**
-	 * Supprime une {@link AutoEvaluation}
-	 */
+
 	public void deleteAutoEvaluation(AutoEvaluation autoEvaluation);
-	
-	/**
-	 * Select une {@link AutoEvaluation} par son {@link identifiant}.
-	 * 
-	 * @param autoEvaluation {@link AutoEvaluation}
-	 * @return autoEvaluation {@link AutoEvaluation}
-	 */
+
 	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation);
 
-	/**
-	 * Select une {@link AutoEvaluation} par son {@link Stagiaire}, {@link Competence}, Date permet aussi certaine contrôle
-	 * 
-	 * @Param {@link AutoEvaluation}
-	 * @throws NullException
-	 * @throws DateNullException
-	 */
 	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException, NullException;
-	
-	/**
-	 * Select d'une auto evaluation par son Stagiaire
-	 */
+
 	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation);
-	
-	/**
-	 * Sélectionne une autoEvaluation celons les critères envoyé
-	 * @param autoEvaluationDater {@link AutoEvaluation}
-	 * @param moduleRechercher {@link Module}
-	 * @param sequenceRechercher {@link Sequence}
-	 * @param competenceRechercher {@link Competence}
-	 * @param autoEvaluationNoter {@link AutoEvaluation}
-	 * @return {@link AutoEvaluations}
-	 */
+
 	public AutoEvaluations selectAutoEvaluationsByMultipleCritere(AutoEvaluation autoEvaluationDater, Module moduleRechercher,
 			Sequence sequenceRechercher, Competence competenceRechercher,AutoEvaluation autoEvaluationNoter);
 	
-	/**
-	 * Sélectionne une auto-évaluation a une date donnée pour un stagiaire donné
-	 * 
-	 * @param autoEvaluation {@link AutoEvaluation}
-	 * @return {@link AutoEvaluations}
-	 */
 	public AutoEvaluations selectAutoEvaluationsByStagDate(AutoEvaluation autoEvaluation);
 }

@@ -14,7 +14,7 @@ function validateFormCreation(element) {
 
 	for (var i = 0; i < competences.length; i++) {
 
-		if (competences[i].selected) {
+		if (competences[i].selected && competences[i].value != "-1") {
 			var competenceSelected = true;
 			break;
 		}
@@ -23,6 +23,8 @@ function validateFormCreation(element) {
 
 	if (!competenceSelected)
 		informationSelectionCompetence();
+	else
+		disableInformationSelectionCompetence();
 
 	for (var i = 0; i < niveauAcquisitions.length; i++) {
 
@@ -35,16 +37,24 @@ function validateFormCreation(element) {
 
 	if (!niveauAcquisitionSelected)
 		informationSelectionNiveauAcquisition();
+	else
+		disableInformationSelectionNiveauAcquisition();
 
 	if (ressenti.value.length < 4000)
 		ressentiLength = true;
 
 	if (!ressentiLength)
 		informationRessentiLength();
+	else
+		disableInformationRessentiLength();
 
 	if (competenceSelected && niveauAcquisitionSelected && ressentiLength)
 		formValidate = true;
-
+	
+	console.log(competenceSelected);
+	console.log(niveauAcquisitionSelected);
+	console.log(ressentiLength);
+	console.log(formValidate);
 	return formValidate;
 }
 
@@ -58,7 +68,7 @@ function validateFormRecherche(element) {
 	var date = document.getElementById('datetimepicker4');
 	var module = element.querySelectorAll('select')[0];
 	var sequence = element.querySelectorAll('select')[1];
-	var compentence = element.querySelectorAll('select')[2];
+	var competence = element.querySelectorAll('select')[2];
 	var niveauAcquisition = element.querySelectorAll('input[type="radio"]');
 
 	var formValide = false;
@@ -66,6 +76,7 @@ function validateFormRecherche(element) {
 	var moduleSelected = false;
 	var sequenceSelected = false;
 	var competenceSelected = false;
+	var niveauAcquisitionSelected = false;
 
 	if (date.value.length > 0) {
 		dateSelected = true;
@@ -74,7 +85,7 @@ function validateFormRecherche(element) {
 	for (var i = 0; i < module.length; i++) {
 
 		if (module[i].selected && module[i].value != "-1") {
-			var moduleSelected = true;
+			moduleSelected = true;
 			break;
 		}
 
@@ -83,7 +94,7 @@ function validateFormRecherche(element) {
 	for (var i = 0; i < sequence.length; i++) {
 
 		if (sequence[i].selected && sequence[i].value != "-1") {
-			var sequenceSelected = true;
+			sequenceSelected = true;
 			break;
 		}
 
@@ -92,14 +103,23 @@ function validateFormRecherche(element) {
 	for (var i = 0; i < competence.length; i++) {
 
 		if (competence[i].selected && competence[i].value != "-1") {
-			var competenceSelected = true;
+			competenceSelected = true;
+			break;
+		}
+
+	}
+
+	for (var i = 0; i < niveauAcquisition.length; i++) {
+
+		if (niveauAcquisition[i].checked) {
+			niveauAcquisitionSelected = true;
 			break;
 		}
 
 	}
 
 	if (dateSelected || moduleSelected || sequenceSelected
-			|| competenceSelected)
+			|| competenceSelected || niveauAcquisitionSelected)
 		formValide = true;
 	if (!formValide)
 		informationRecherche();
@@ -132,12 +152,32 @@ function informationSelectionCompetence() {
 }
 
 /**
+ * Retire les information utilisateur qu'il dois sélectionner une competence
+ */
+function disableInformationSelectionCompetence() {
+
+	document.querySelector("#info-competence").style.display = "none";
+	document.querySelectorAll('.form-group')[0].className = "form-group";
+
+}
+
+/**
  * Informe l'utilisateur qu'il dois sélectionner un niveau d'acquisition
  */
 function informationSelectionNiveauAcquisition() {
 
 	document.querySelector("#info-niveau-acquisition").style.display = "block";
 	document.querySelectorAll('.form-group')[1].className = "form-group has-error";
+}
+
+/**
+ * Retire l'information utilisateur qu'il dois sélectionner un niveau
+ * d'acquisition
+ */
+function disableInformationSelectionNiveauAcquisition() {
+
+	document.querySelector("#info-niveau-acquisition").style.display = "none";
+	document.querySelectorAll('.form-group')[1].className = "form-group";
 }
 
 /**
@@ -148,6 +188,17 @@ function informationRessentiLength() {
 
 	document.querySelector("#info-ressenti").style.display = "block";
 	document.querySelectorAll('.form-group')[2].className = "form-group has-error";
+
+}
+
+/**
+ * Retire l'information utilisateur qu'il dois pas ecrire un ressenti de plus de
+ * 4000 caractere
+ */
+function disableInformationRessentiLength() {
+
+	document.querySelector("#info-ressenti").style.display = "none";
+	document.querySelectorAll('.form-group')[2].className = "form-group";
 
 }
 
@@ -370,10 +421,10 @@ function updateView(response) {
 /**
  * Redirige les pages après 5 seconds
  */
-function redirectSuccessPage(){
+function redirectSuccessPage() {
 
 	url = window.location.href;
-	
+
 	switch (url) {
 	case "http://localhost:8080/client-SuiviStagiaire/auto-evaluation/auto-evaluation-creer":
 		redirectUrl = "http://localhost:8080/client-SuiviStagiaire/auto-evaluation/creation-auto-evaluation"
@@ -384,20 +435,21 @@ function redirectSuccessPage(){
 	case "http://localhost:8080/client-SuiviStagiaire/auto-evaluation/auto-evaluation-supprimer":
 		redirectUrl = "http://localhost:8080/client-SuiviStagiaire/auto-evaluation/suppression-auto-evaluation"
 		break;
-	case "http://localhost:8080/client-SuiviStagiaire/auto-evaluation/auto-evaluation-rechercher":
-		redirectUrl = "http://localhost:8080/client-SuiviStagiaire/auto-evaluation/recherche-auto-evaluation"
-		break;
 	default:
 		redirectUrl = "http://localhost:8080/client-SuiviStagiaire/accueil"
 		break;
 	}
-	
+
+	if (url
+			.startsWith("http://localhost:8080/client-SuiviStagiaire/auto-evaluation/auto-evaluation-rechercher"))
+		redirectUrl = "http://localhost:8080/client-SuiviStagiaire/auto-evaluation/recherche-auto-evaluation"
+
 	console.log(redirectUrl);
-	var i=5;
+	var i = 5;
 	setInterval(function() {
 		i--;
 		document.getElementById('seconde').innerHTML = i;
-		if(i == 0){
+		if (i == 0) {
 			window.location.replace(redirectUrl);
 		}
 	}, 1000)
