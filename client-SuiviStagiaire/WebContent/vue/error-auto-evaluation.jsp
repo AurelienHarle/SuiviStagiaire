@@ -6,7 +6,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ include file="/WEB-INF/jsp/import-boostrap.jsp"%>
 <link href="<s:url namespace="" action="index-css" />" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="<s:url namespace="" action="creation-auto-evaluation-js" />"></script>
+<script type="text/javascript" src="<s:url namespace="" action="auto-evaluation-js" />"></script>
 </head>
 <%@ include file="/WEB-INF/jsp/bandeau.jsp"%>
 <body>

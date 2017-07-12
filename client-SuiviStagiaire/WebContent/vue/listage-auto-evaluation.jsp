@@ -6,7 +6,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ include file="/WEB-INF/jsp/import-boostrap.jsp"%>
 <link href="<s:url namespace="" action="index-css" />" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="<s:url namespace="" action="creation-auto-evaluation-js" />"></script>
+<script type="text/javascript" src="<s:url namespace="" action="auto-evaluation-js" />"></script>
 </head>
 <%@ include file="/WEB-INF/jsp/bandeau.jsp"%>
 <body>
@@ -42,16 +42,13 @@
 					<td><s:property value="ressenti" /></td>
 					<td><s:property value="niveauAcquisition.libelle" /></td>
 					<td><s:property value="dateAutoEvaluation" /></td>
-					<td>
-					<s:if test="dateAutoEvaluation.equals(dateJour)">
+					<td><s:if test="dateAutoEvaluation.equals(dateJour)">
 							<form method="get" action="modification-auto-evaluation">
 								<button name="identifiantAutoEvaluation" value="<s:property value='identifiant' />" type="submit" class="btn btn-default" aria-label="Left Align">
 									<span class="glyphicon glyphicon-pencil" aria-hidden="true">Editer</span>
 								</button>
 							</form>
-					</s:if>
-					<s:else>Edition impossible, vous pouvez éditer seulement votre dernière auto-évaluation.</s:else>
-					</td>
+						</s:if> <s:else>Edition impossible, vous pouvez éditer seulement votre dernière auto-évaluation.</s:else></td>
 					<td>
 						<form method="post" action="auto-evaluation-supprimer" onsubmit="return validationSuppression()">
 							<button name="identifiantAutoEvaluation" value="<s:property value='identifiant' />" type="submit" class="btn btn-default" aria-label="Left Align">

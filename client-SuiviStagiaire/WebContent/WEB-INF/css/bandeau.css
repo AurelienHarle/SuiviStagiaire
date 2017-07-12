@@ -3,7 +3,7 @@
 #bandeau{
 	
 	padding: 0px;
-	height: 107px;
+	min-height: 107px;
 	margin-bottom: 0px;
 	
 	background-image: linear-gradient(to right, #66ccff, #ffffff);
@@ -37,7 +37,7 @@
     position: relative;
     display: inline;	
 	top: 10px;
-	left: 243px;
+	left: 25px;
 	
 	width: 72%;
 	font-size: 45px;
@@ -48,8 +48,8 @@
 @media screen and (max-width: 768px) {
    #bandeau h1{
    		top: 10px;
-		left: 0px;
-        font-size:14px;
+		left: 25px;
+        /*font-size:14px;*/
     }
 }
 

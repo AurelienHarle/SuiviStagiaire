@@ -127,8 +127,8 @@
 		</action>
 		
 	<!-- js -->
-		<action name="creation-auto-evaluation-js">
-			<result>/js/creation-auto-evaluation.js</result>
+		<action name="auto-evaluation-js">
+			<result>/js/auto-evaluation.js</result>
 		</action>
 		
 	<!-- image -->
