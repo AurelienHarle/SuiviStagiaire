@@ -282,16 +282,21 @@ public interface FacadeSuiviStagiaireRemote {
 	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation);
 
 	/**
-	 * Service qui permet de select une {@link AutoEvaluation} grâce au parametre specifié cela peux etre
+	 * Service qui permet de select une {@link AutoEvaluation} grâce au paramètre spécifié cela peux être
 	 * la {@link Date} de l' {@link AutoEvaluation},
 	 * la clé primaire du {@link Module},
 	 * la clé primaire de la {@link Sequence},
 	 * la clé primaire de la {@link Competence},
 	 * ou le {@link NiveauAcquisition} de l' {@link AutoEvaluation}
+	 * si l'un des paramètre est null, il seras pas pris en compte dans le select.
 	 * dans la table auto_eval grâce à un {@link EntityManager}.
 	 * 
-	 * @param autoEvaluation {@link AutoEvaluation} l'autoEvaluation a select
-	 * @return {@link AutoEvaluation} l'autoEvaluation select
+	 * @param autoEvaluationDater {@link AutoEvaluation} l'autoEvaluation dater qui permet de select par la date.
+	 * @param moduleRechercher {@link Module} le module qui permet le select par l'identifiant module
+	 * @param sequenceRechercher {@link Sequence} la sequence qui permet le select par l'identifiant sequence
+	 * @param competenceRechercher {@link Competence} la competence qui permet le select par l'identifiant competence
+	 * @param autoEvaluationNoter {@link AutoEvaluation} le l'auto-évaluation noter qui permet le select par le {@link NiveauAcquisition}
+	 * @return {@link AutoEvaluations} l'autoEvaluations la liste des autoEvaluations correspondant au select
 	 */
 	public AutoEvaluations selectAutoEvaluationsByMultipleCritere(AutoEvaluation autoEvaluationDater, Module moduleRechercher,
 			Sequence sequenceRechercher, Competence competenceRechercher,AutoEvaluation autoEvaluationNoter);
