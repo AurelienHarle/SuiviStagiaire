@@ -16,6 +16,15 @@ import niveauAcquisition.entity.NiveauAcquisition;
 import sequence.entity.Sequence;
 import stagiaire.entity.Stagiaire;
 
+/**
+ * Interface qui est la couche d'accées a la persistance des données elle regroupe toute les méthodes,
+ * qui peuvent être rendu pour la persistance des données.
+ * 
+ * @author Aurélien Harlé
+ * @version 1
+ * @since 13/07/2017
+ *
+ */
 @Local
 public interface AutoEvaluationDaoLocal {
 
