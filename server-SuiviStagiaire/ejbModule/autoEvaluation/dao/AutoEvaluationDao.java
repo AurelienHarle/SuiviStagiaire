@@ -70,30 +70,30 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 	 */
 	@Override
 	public void insertAutoEvaluation(AutoEvaluation autoEvaluation) throws NullException, DateNullException {
-
+		
 		AutoEvaluation autoEvaluation2 = null;
-
+		
 		try {
-
+			
 			autoEvaluation2 = selectAutoEvaluationByStagCompDate(autoEvaluation);
 			if(autoEvaluation2 != null) throw new UpdateNotInsertException("insertAutoEvaluation");
 
 		} catch (UpdateNotInsertException | UnfoundException e1) {
-
+			
 			if(e1 instanceof UpdateNotInsertException){
-
+				
 				updateAutoEvaluation(autoEvaluation);
 				
 			}else if(e1 instanceof UnfoundException){
 
 				try{
-
+					
 					em.persist(autoEvaluation);
 					em.flush();
 					journaliseurNiveauInfo.log("[INSERT]  AutoEvaluation : " + autoEvaluation );
-
+					
 				}catch (Exception e) {
-
+					
 					if(e instanceof PersistenceException){
 						
 						if(e.getCause() != null){
@@ -103,10 +103,11 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 								
 								if(t instanceof TransactionRequiredException){
 
-									throw new NullException("insertAutoEvaluation [Exception] TransactionRequiredException [Entity] AutoEvaluation : " + autoEvaluation.toString());
+									throw new NullException("insertAutoEvaluation [Exception] TransactionRequiredException [Entity] AutoEvaluation : " + autoEvaluation);
+									
 								}else if(t instanceof ConstraintViolationException){
 
-									throw new NullException("insertAutoEvaluation [Exception] ConstraintViolationException [Entity] AutoEvaluation : " + autoEvaluation.toString());
+									throw new NullException("insertAutoEvaluation [Exception] ConstraintViolationException [Entity] AutoEvaluation : " + autoEvaluation);
 								}
 								
 								t = t.getCause();
@@ -116,23 +117,24 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 						if(autoEvaluation.getDateAutoEvaluation() == null){
 
 							throw new DateNullException("insertAutoEvaluation [Exception] PersistenceException [Entity] AutoEvaluation : " + autoEvaluation);
+							
 						}
 						
 						e.printStackTrace();
-						journaliseurNiveauError.log("[METHOD] insertAutoEvaluation  [Exception] PersistenceException [Entity] " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
+						journaliseurNiveauError.log("[METHOD] insertAutoEvaluation  [Exception]  " +  e.getClass().getName() + " [Entity]  " + autoEvaluation  + " [StackTrace]  " + e.getMessage());
 					
 					}else if(e instanceof NullPointerException){
 
-						throw new NullException("insertAutoEvaluation [Exception] NullPointerException [Entity] AutoEvaluation : " + autoEvaluation.toString());
+						throw new NullException("insertAutoEvaluation [Exception] NullPointerException [Entity] AutoEvaluation : " + autoEvaluation);
 						
 					}else if(e instanceof IllegalArgumentException){
 
-						throw new NullException("insertAutoEvaluation [Exception] IllegalArgumentException [Entity] AutoEvaluation : Null ");
+						throw new NullException("insertAutoEvaluation [Exception] IllegalArgumentException [Entity] AutoEvaluation :  " + autoEvaluation);
 						
 					}else{
 
 						e.printStackTrace();
-						journaliseurNiveauError.log("[METHOD] insertAutoEvaluation [Exception] Exception [Entity] " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
+						journaliseurNiveauError.log("[METHOD] insertAutoEvaluation  [Exception]  " +  e.getClass().getName() + " [Entity] " + autoEvaluation +  " [StackTrace] " + e.getMessage());
 						
 					}
 				}
@@ -148,11 +150,10 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 	 */
 	@Override
 	public void updateAutoEvaluation(AutoEvaluation autoEvaluation)  {
-
 		AutoEvaluation autoEvaluation2 = null;
 		
 		try {
-
+			
 			autoEvaluation2 = selectAutoEvaluationByStagCompDate(autoEvaluation);
 			autoEvaluation.setIdentifiant(autoEvaluation2.getIdentifiant());
 			
@@ -163,12 +164,13 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 				journaliseurNiveauInfo.log("[UPDATE]  AutoEvaluation : " + autoEvaluation );
 				
 			} catch (Exception e) {
+				
 				e.printStackTrace();
-				journaliseurNiveauError.log("[METHOD] updateAutoEvaluation [Entity] " + autoEvaluation + " [Exception] " +  e.getClass().getName() + " [StackTrace] " + e.getMessage());
+				journaliseurNiveauError.log("[METHOD] updateAutoEvaluation [Exception]  " +  e.getClass().getName()  +" [Entity] " + autoEvaluation + "  [StackTrace]  " + e.getMessage());
 			
 			}	
 		} catch (Exception e) {
-
+			
 			e.printStackTrace();
 			
 		}
