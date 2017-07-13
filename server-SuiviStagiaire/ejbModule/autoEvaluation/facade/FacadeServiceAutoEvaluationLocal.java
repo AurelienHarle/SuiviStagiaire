@@ -16,6 +16,15 @@ import niveauAcquisition.entity.NiveauAcquisition;
 import sequence.entity.Sequence;
 import stagiaire.entity.Stagiaire;
 
+/**
+ * Interface qui est la facade principal de toute la partie "auto-évaluation" de l'application elle regroupe tout les services,
+ * qui peuvent être rendu sur une auto-évaluation.
+ * 
+ * @author Aurélien Harlé
+ * @version 1
+ * @since 13/07/2017
+ *
+ */
 @Local
 public interface FacadeServiceAutoEvaluationLocal {
 	

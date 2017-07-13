@@ -31,7 +31,14 @@ import stagiaire.entity.Stagiaire;
 import stagiaire.facade.FacadeServiceStagiaire;
 
 /**
- * Session Bean implementation class {@link FacadeSuiviStagiaire}
+ * Class qui est la facade principal de l'application elle regroupe tout les services,
+ * que l'application peux rendre.
+ * Implementation de {@link FacadeSuiviStagiaireRemote}
+ * 
+ * @author Aurélien Harlé
+ * @version 1
+ * @since 13/07/2017
+ * 
  */
 @Stateless
 @Remote(FacadeSuiviStagiaireRemote.class)
@@ -42,7 +49,7 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
      */
     public FacadeSuiviStagiaire() {
     }
-    
+
     @EJB
     private FacadeServiceAutoEvaluation facadeServiceAutoEvaluation;
     @EJB
@@ -55,6 +62,7 @@ public class FacadeSuiviStagiaire implements FacadeSuiviStagiaireRemote {
     private FacadeServiceStagiaire facadeServiceStagiaire;
     @EJB
     private FacadeServiceNiveauAcquisition facadeServiceNiveauAcquisition;
+    
     /*
      * Utiliser pour debugger l'application.
      */

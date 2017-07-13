@@ -21,6 +21,15 @@ import sequence.entity.Sequence;
 import sequence.technique.Sequences;
 import stagiaire.entity.Stagiaire;
 
+/**
+ * Interface qui est la facade principal de l'application elle regroupe tout les services,
+ * que l'application peux rendre.
+ * 
+ * @author Aurélien Harlé
+ * @version 1
+ * @since 13/07/2017
+ *
+ */
 @Remote
 public interface FacadeSuiviStagiaireRemote {
 	

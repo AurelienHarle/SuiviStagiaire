@@ -16,6 +16,15 @@ import niveauAcquisition.entity.NiveauAcquisition;
 import sequence.entity.Sequence;
 import stagiaire.entity.Stagiaire;
 
+/**
+ * Interface qui est la facade qui permet l'accées a la persistance des données elle regroupe tout les services,
+ * qui peuvent être rendu pour la persistance des données.
+ * 
+ * @author Aurélien Harlé
+ * @version 1
+ * @since 13/07/2017
+ *
+ */
 @Local
 public interface FacadeDaoAutoEvaluationLocal {
 	

@@ -2,6 +2,7 @@ package autoEvaluation.dao.facade;
 
 import java.sql.Date;
 
+
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -20,7 +21,14 @@ import sequence.entity.Sequence;
 import stagiaire.entity.Stagiaire;
 
 /**
- * Session Bean implementation class FacadeDaoAutoEvaluation
+ * Class qui est la facade qui permet l'accées a la persistance des données elle regroupe tout les services,
+ * qui peuvent être rendu pour la persistance des données.
+ * Implementation de {@link FacadeDaoAutoEvaluationLocal}
+ * 
+ * @author Aurélien Harlé
+ * @version 1
+ * @since 13/07/2017
+ * 
  */
 @Stateless
 @LocalBean
