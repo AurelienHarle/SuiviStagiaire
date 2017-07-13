@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{E4349A4A-AB11-4E80-9B9C-65C0803A4D92}" Label="" LastModificationDate="1498809735" Name="DC1 - Suivi Pédagogique" Objects="138" Symbols="12" Target="Java" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.2.0.3042"?>
+<?PowerDesigner AppLocale="UTF16" ID="{E4349A4A-AB11-4E80-9B9C-65C0803A4D92}" Label="" LastModificationDate="1499941951" Name="DC1 - Suivi Pédagogique" Objects="222" Symbols="16" Target="Java" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.2.0.3042"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -12,7 +12,7 @@
 <a:Code>DC1___Suivi_Pedagogique</a:Code>
 <a:CreationDate>1497432113</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497532644</a:ModificationDate>
+<a:ModificationDate>1499941951</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:PackageOptionsText>[FolderOptions]
 
@@ -2103,7 +2103,7 @@ NameToCode=No</a:ModelOptionsText>
 <a:Code>DC1_3___AutoEval</a:Code>
 <a:CreationDate>1497432113</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497511469</a:ModificationDate>
+<a:ModificationDate>1499941951</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:DisplayPreferences>[DisplayPreferences]
 
@@ -2594,9 +2594,9 @@ Shadow=0</a:DisplayPreferences>
 </o:TitleSymbol>
 <o:AssociationSymbol Id="o7">
 <a:CreationDate>1497433224</a:CreationDate>
-<a:ModificationDate>1497511469</a:ModificationDate>
-<a:Rect>((-48363,-27863), (-44539,-10968))</a:Rect>
-<a:ListOfPoints>((-46526,-10968),(-46526,-27863))</a:ListOfPoints>
+<a:ModificationDate>1499941765</a:ModificationDate>
+<a:Rect>((-54400,-27863), (-50502,-4036))</a:Rect>
+<a:ListOfPoints>((-52526,-4036),(-52526,-27863))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
@@ -2615,9 +2615,9 @@ SOURCE 0 Arial,8,N</a:FontList>
 </o:AssociationSymbol>
 <o:AssociationSymbol Id="o11">
 <a:CreationDate>1497433283</a:CreationDate>
-<a:ModificationDate>1497511469</a:ModificationDate>
-<a:Rect>((-46526,-29036), (-19363,-26688))</a:Rect>
-<a:ListOfPoints>((-46526,-27863),(-19363,-27863))</a:ListOfPoints>
+<a:ModificationDate>1499941765</a:ModificationDate>
+<a:Rect>((-52526,-29036), (-15734,-26688))</a:Rect>
+<a:ListOfPoints>((-52526,-27863),(-15734,-27863))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
@@ -2636,9 +2636,9 @@ SOURCE 0 Arial,8,N</a:FontList>
 </o:AssociationSymbol>
 <o:AssociationSymbol Id="o14">
 <a:CreationDate>1497433354</a:CreationDate>
-<a:ModificationDate>1497511469</a:ModificationDate>
-<a:Rect>((12214,-27863), (16038,-10968))</a:Rect>
-<a:ListOfPoints>((14051,-10968),(14051,-27863))</a:ListOfPoints>
+<a:ModificationDate>1499941776</a:ModificationDate>
+<a:Rect>((22352,-27863), (26250,7164))</a:Rect>
+<a:ListOfPoints>((24226,7164),(24226,-27863))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
@@ -2657,9 +2657,9 @@ SOURCE 0 Arial,8,N</a:FontList>
 </o:AssociationSymbol>
 <o:AssociationSymbol Id="o18">
 <a:CreationDate>1497433358</a:CreationDate>
-<a:ModificationDate>1497511469</a:ModificationDate>
-<a:Rect>((-19363,-29036), (14051,-26688))</a:Rect>
-<a:ListOfPoints>((14051,-27863),(-19363,-27863))</a:ListOfPoints>
+<a:ModificationDate>1499941765</a:ModificationDate>
+<a:Rect>((-15734,-29036), (24226,-26688))</a:Rect>
+<a:ListOfPoints>((24226,-27863),(-15734,-27863))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
@@ -2678,9 +2678,9 @@ SOURCE 0 Arial,8,N</a:FontList>
 </o:AssociationSymbol>
 <o:AssociationSymbol Id="o20">
 <a:CreationDate>1497440342</a:CreationDate>
-<a:ModificationDate>1497511469</a:ModificationDate>
-<a:Rect>((14051,-29036), (47686,-26688))</a:Rect>
-<a:ListOfPoints>((14051,-27863),(47686,-27863))</a:ListOfPoints>
+<a:ModificationDate>1499941765</a:ModificationDate>
+<a:Rect>((24226,-29036), (62485,-26688))</a:Rect>
+<a:ListOfPoints>((24226,-27863),(62485,-27863))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
@@ -2699,9 +2699,9 @@ SOURCE 0 Arial,8,N</a:FontList>
 </o:AssociationSymbol>
 <o:ClassSymbol Id="o16">
 <a:CreationDate>1497432168</a:CreationDate>
-<a:ModificationDate>1497511469</a:ModificationDate>
+<a:ModificationDate>1499941765</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((598,-33331), (27504,-22395))</a:Rect>
+<a:Rect>((8726,-38201), (39726,-17525))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:FillColor>8454016</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -2722,9 +2722,9 @@ LABL 0 Arial,8,N</a:FontList>
 </o:ClassSymbol>
 <o:ClassSymbol Id="o8">
 <a:CreationDate>1497432169</a:CreationDate>
-<a:ModificationDate>1497511469</a:ModificationDate>
+<a:ModificationDate>1499941660</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((-58627,-15462), (-34425,-6474))</a:Rect>
+<a:Rect>((-64627,-10965), (-40425,2893))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:FillColor>8454016</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -2745,9 +2745,9 @@ LABL 0 Arial,8,N</a:FontList>
 </o:ClassSymbol>
 <o:ClassSymbol Id="o9">
 <a:CreationDate>1497432169</a:CreationDate>
-<a:ModificationDate>1497511469</a:ModificationDate>
+<a:ModificationDate>1499941765</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((-56619,-32357), (-36433,-23369))</a:Rect>
+<a:Rect>((-64936,-36253), (-40116,-19473))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:FillColor>8454016</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -2768,9 +2768,9 @@ LABL 0 Arial,8,N</a:FontList>
 </o:ClassSymbol>
 <o:ClassSymbol Id="o12">
 <a:CreationDate>1497432170</a:CreationDate>
-<a:ModificationDate>1497511469</a:ModificationDate>
+<a:ModificationDate>1499941765</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((-29456,-32357), (-9270,-23368))</a:Rect>
+<a:Rect>((-29380,-36254), (-2088,-19473))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:FillColor>8454016</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -2791,9 +2791,9 @@ LABL 0 Arial,8,N</a:FontList>
 </o:ClassSymbol>
 <o:ClassSymbol Id="o15">
 <a:CreationDate>1497432187</a:CreationDate>
-<a:ModificationDate>1497511469</a:ModificationDate>
+<a:ModificationDate>1499941776</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((3958,-15949), (24144,-5987))</a:Rect>
+<a:Rect>((10425,-9992), (38027,24320))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:FillColor>8454016</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -2814,9 +2814,9 @@ LABL 0 Arial,8,N</a:FontList>
 </o:ClassSymbol>
 <o:ClassSymbol Id="o21">
 <a:CreationDate>1497440298</a:CreationDate>
-<a:ModificationDate>1497511469</a:ModificationDate>
+<a:ModificationDate>1499941765</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((36744,-32357), (58628,-23368))</a:Rect>
+<a:Rect>((50384,-33332), (74586,-22395))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:FillColor>8454016</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -2848,7 +2848,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>AutoEvaluation</a:Code>
 <a:CreationDate>1497432168</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497511559</a:ModificationDate>
+<a:ModificationDate>1499941740</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
@@ -2858,7 +2858,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>identifiant</a:Code>
 <a:CreationDate>1497511538</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497511548</a:ModificationDate>
+<a:ModificationDate>1499941567</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
@@ -2869,7 +2869,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>dateAutoEvaluation</a:Code>
 <a:CreationDate>1497432216</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497443756</a:ModificationDate>
+<a:ModificationDate>1499941567</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:DataType>Date</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
@@ -2880,59 +2880,42 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>ressenti</a:Code>
 <a:CreationDate>1497432216</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432261</a:ModificationDate>
+<a:ModificationDate>1499941567</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
+<o:Attribute Id="o32">
+<a:ObjectID>4880E807-56D0-42EB-AC55-FAEBB1449D21</a:ObjectID>
+<a:Name>stagiaire</a:Name>
+<a:Code>stagiaire</a:Code>
+<a:CreationDate>1499941112</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941567</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:DataType>Stagiaire</a:DataType>
+<a:Attribute.Visibility>-</a:Attribute.Visibility>
+<c:ObjectDataType>
+<o:Class Ref="o27"/>
+</c:ObjectDataType>
+</o:Attribute>
+<o:Attribute Id="o33">
+<a:ObjectID>8A1AECD6-EEFF-45EA-96AB-AC3C12CFAA62</a:ObjectID>
+<a:Name>competence</a:Name>
+<a:Code>competence</a:Code>
+<a:CreationDate>1499941112</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941567</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:DataType>Competence</a:DataType>
+<a:Attribute.Visibility>-</a:Attribute.Visibility>
+<c:ObjectDataType>
+<o:Class Ref="o26"/>
+</c:ObjectDataType>
+</o:Attribute>
 </c:Attributes>
 <c:Operations>
-<o:Operation Id="o32">
-<a:ObjectID>4DA0F923-CBA6-4FC1-881D-F8A97AA42DE7</a:ObjectID>
-<a:Name>getDateAutoEvaluation</a:Name>
-<a:Code>getDateAutoEvaluation</a:Code>
-<a:CreationDate>1497443755</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497443756</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Stereotype>Getter</a:Stereotype>
-<a:ReturnType>Date</a:ReturnType>
-<a:Automatic>1</a:Automatic>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-<c:InfluentObject>
-<o:Attribute Ref="o30"/>
-</c:InfluentObject>
-</o:Operation>
-<o:Operation Id="o33">
-<a:ObjectID>B78EECE3-813E-4D05-96C7-716E05BEA9F3</a:ObjectID>
-<a:Name>setDateAutoEvaluation</a:Name>
-<a:Code>setDateAutoEvaluation</a:Code>
-<a:CreationDate>1497443755</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497443756</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Stereotype>Setter</a:Stereotype>
-<a:ReturnType>void</a:ReturnType>
-<a:Automatic>1</a:Automatic>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-<c:Parameters>
-<o:Parameter Id="o34">
-<a:ObjectID>C9CDE2C9-D483-428D-BA64-45E1F39FE4C7</a:ObjectID>
-<a:Name>newDateAutoEvaluation</a:Name>
-<a:Code>newDateAutoEvaluation</a:Code>
-<a:CreationDate>1497443755</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497443756</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Parameter.DataType>Date</a:Parameter.DataType>
-<a:ParameterType>I</a:ParameterType>
-</o:Parameter>
-</c:Parameters>
-<c:InfluentObject>
-<o:Attribute Ref="o30"/>
-</c:InfluentObject>
-</o:Operation>
-<o:Operation Id="o35">
+<o:Operation Id="o34">
 <a:ObjectID>528C8370-20E2-465E-885E-62B5565DD6F1</a:ObjectID>
 <a:Name>AutoEvaluation</a:Name>
 <a:Code>AutoEvaluation</a:Code>
@@ -2947,22 +2930,253 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Class Ref="o23"/>
 </c:InfluentObject>
 </o:Operation>
-<o:Operation Id="o36">
-<a:ObjectID>B16B5BA6-F438-48BD-B4E1-493CCC641F88</a:ObjectID>
-<a:Name>finalize</a:Name>
-<a:Code>finalize</a:Code>
-<a:CreationDate>1497432275</a:CreationDate>
+<o:Operation Id="o35">
+<a:ObjectID>6D934FBF-B07E-44A0-A564-8199BB82247B</a:ObjectID>
+<a:Name>getIdentifiant</a:Name>
+<a:Code>getIdentifiant</a:Code>
+<a:CreationDate>1499941566</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432275</a:ModificationDate>
+<a:ModificationDate>1499941567</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
-<a:Stereotype>Destructor</a:Stereotype>
-<a:ReturnType>void</a:ReturnType>
-<a:Operation.Visibility>#</a:Operation.Visibility>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
 <a:Automatic>1</a:Automatic>
 <a:TemplateBody>%DefaultBody%</a:TemplateBody>
 <c:InfluentObject>
-<o:Class Ref="o23"/>
+<o:Attribute Ref="o29"/>
 </c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o36">
+<a:ObjectID>77A9E692-F23C-441D-941A-6299AC1F72D3</a:ObjectID>
+<a:Name>setIdentifiant</a:Name>
+<a:Code>setIdentifiant</a:Code>
+<a:CreationDate>1499941566</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941567</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o37">
+<a:ObjectID>B2695B63-040D-451C-B28D-4F7D59CDD4AC</a:ObjectID>
+<a:Name>newIdentifiant</a:Name>
+<a:Code>newIdentifiant</a:Code>
+<a:CreationDate>1499941566</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941567</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o29"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o38">
+<a:ObjectID>9C0775CB-A6D3-4F95-82E4-069345326415</a:ObjectID>
+<a:Name>getDateAutoEvaluation</a:Name>
+<a:Code>getDateAutoEvaluation</a:Code>
+<a:CreationDate>1499941566</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941567</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>Date</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:InfluentObject>
+<o:Attribute Ref="o30"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o39">
+<a:ObjectID>DDA8B5AA-D8C5-40EB-9C7B-B6219A56615D</a:ObjectID>
+<a:Name>setDateAutoEvaluation</a:Name>
+<a:Code>setDateAutoEvaluation</a:Code>
+<a:CreationDate>1499941566</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941567</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o40">
+<a:ObjectID>A72900F0-F65B-44A5-885C-5748E8A5F7AF</a:ObjectID>
+<a:Name>newDateAutoEvaluation</a:Name>
+<a:Code>newDateAutoEvaluation</a:Code>
+<a:CreationDate>1499941566</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941567</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>Date</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o30"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o41">
+<a:ObjectID>7AD6F2EF-D6B2-4E17-BC48-C8BC4F78A69C</a:ObjectID>
+<a:Name>getRessenti</a:Name>
+<a:Code>getRessenti</a:Code>
+<a:CreationDate>1499941566</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941567</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:InfluentObject>
+<o:Attribute Ref="o31"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o42">
+<a:ObjectID>6D37A6AD-3C55-427F-BF6C-1F6431883AA7</a:ObjectID>
+<a:Name>setRessenti</a:Name>
+<a:Code>setRessenti</a:Code>
+<a:CreationDate>1499941566</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941567</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o43">
+<a:ObjectID>AEFB8B2D-FC53-46E8-AA20-239654E753BE</a:ObjectID>
+<a:Name>newRessenti</a:Name>
+<a:Code>newRessenti</a:Code>
+<a:CreationDate>1499941566</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941567</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o31"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o44">
+<a:ObjectID>21C3B2AC-517E-4744-A817-71F924A47324</a:ObjectID>
+<a:Name>getStagiaire</a:Name>
+<a:Code>getStagiaire</a:Code>
+<a:CreationDate>1499941566</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941567</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>Stagiaire</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:ObjectReturnType>
+<o:Class Ref="o27"/>
+</c:ObjectReturnType>
+<c:InfluentObject>
+<o:Attribute Ref="o32"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o45">
+<a:ObjectID>65665EAD-A45C-45D5-A373-BE73BB040C5F</a:ObjectID>
+<a:Name>setStagiaire</a:Name>
+<a:Code>setStagiaire</a:Code>
+<a:CreationDate>1499941566</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941567</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o46">
+<a:ObjectID>D4B6AF22-B9DC-4F0E-9BB6-CAEF01AB9F34</a:ObjectID>
+<a:Name>newStagiaire</a:Name>
+<a:Code>newStagiaire</a:Code>
+<a:CreationDate>1499941566</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941567</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>Stagiaire</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+<c:ObjectDataType>
+<o:Class Ref="o27"/>
+</c:ObjectDataType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o32"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o47">
+<a:ObjectID>D0D88FEA-9EC0-4BF8-9B7C-3A7317C7B861</a:ObjectID>
+<a:Name>getCompetence</a:Name>
+<a:Code>getCompetence</a:Code>
+<a:CreationDate>1499941566</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941567</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>Competence</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:ObjectReturnType>
+<o:Class Ref="o26"/>
+</c:ObjectReturnType>
+<c:InfluentObject>
+<o:Attribute Ref="o33"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o48">
+<a:ObjectID>CBB4B859-AAA5-4880-967B-24ACCCEC5A1C</a:ObjectID>
+<a:Name>setCompetence</a:Name>
+<a:Code>setCompetence</a:Code>
+<a:CreationDate>1499941566</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941567</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o49">
+<a:ObjectID>8E09D7B9-3AD7-4759-8B82-FD98E4A88C06</a:ObjectID>
+<a:Name>newCompetence</a:Name>
+<a:Code>newCompetence</a:Code>
+<a:CreationDate>1499941566</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941567</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>Competence</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+<c:ObjectDataType>
+<o:Class Ref="o26"/>
+</c:ObjectDataType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o33"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o50">
+<a:ObjectID>8F9100E0-D37C-41F4-B66F-726E086B12C9</a:ObjectID>
+<a:Name>toString</a:Name>
+<a:Code>toString</a:Code>
+<a:CreationDate>1499941731</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941740</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:ReturnType>String</a:ReturnType>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
 </o:Operation>
 </c:Operations>
 </o:Class>
@@ -2972,86 +3186,52 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Module</a:Code>
 <a:CreationDate>1497432169</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497440821</a:ModificationDate>
+<a:ModificationDate>1499941706</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
-<o:Attribute Id="o37">
+<o:Attribute Id="o51">
 <a:ObjectID>1CEA1DA4-89B5-4487-AF27-F272852A77B2</a:ObjectID>
 <a:Name>identifiant</a:Name>
 <a:Code>identifiant</a:Code>
 <a:CreationDate>1497432283</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432340</a:ModificationDate>
+<a:ModificationDate>1499941458</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o38">
+<o:Attribute Id="o52">
 <a:ObjectID>4C148253-B2CD-4F32-BA29-B02F71450EC5</a:ObjectID>
-<a:Name>nom</a:Name>
-<a:Code>nom</a:Code>
+<a:Name>nomLong</a:Name>
+<a:Code>nomLong</a:Code>
 <a:CreationDate>1497432283</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432312</a:ModificationDate>
+<a:ModificationDate>1499941458</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:DataType>String</a:DataType>
+<a:Attribute.Visibility>-</a:Attribute.Visibility>
+</o:Attribute>
+<o:Attribute Id="o53">
+<a:ObjectID>29093869-F4B3-4193-8C3C-4B612632CC52</a:ObjectID>
+<a:Name>nomCourt</a:Name>
+<a:Code>nomCourt</a:Code>
+<a:CreationDate>1499941337</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941458</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 </c:Attributes>
 <c:Operations>
-<o:Operation Id="o39">
-<a:ObjectID>38147860-B41D-40F9-BD9F-88A7607D555C</a:ObjectID>
-<a:Name>getIdentifiant</a:Name>
-<a:Code>getIdentifiant</a:Code>
-<a:CreationDate>1497432337</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432340</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Stereotype>Getter</a:Stereotype>
-<a:ReturnType>String</a:ReturnType>
-<a:Automatic>1</a:Automatic>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-<c:InfluentObject>
-<o:Attribute Ref="o37"/>
-</c:InfluentObject>
-</o:Operation>
-<o:Operation Id="o40">
-<a:ObjectID>C8483C08-9A8C-4E04-9E85-AF0BF509DB58</a:ObjectID>
-<a:Name>setIdentifiant</a:Name>
-<a:Code>setIdentifiant</a:Code>
-<a:CreationDate>1497432337</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432340</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Stereotype>Setter</a:Stereotype>
-<a:ReturnType>void</a:ReturnType>
-<a:Automatic>1</a:Automatic>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-<c:Parameters>
-<o:Parameter Id="o41">
-<a:ObjectID>E785E42E-300B-4A3C-AFB6-31B85AB50967</a:ObjectID>
-<a:Name>newIdentifiant</a:Name>
-<a:Code>newIdentifiant</a:Code>
-<a:CreationDate>1497432337</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432340</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Parameter.DataType>String</a:Parameter.DataType>
-<a:ParameterType>I</a:ParameterType>
-</o:Parameter>
-</c:Parameters>
-<c:InfluentObject>
-<o:Attribute Ref="o37"/>
-</c:InfluentObject>
-</o:Operation>
-<o:Operation Id="o42">
-<a:ObjectID>9457E0AF-8022-4263-A195-CEFFA1736C67</a:ObjectID>
+<o:Operation Id="o54">
+<a:ObjectID>8E3D5DD3-267E-4041-BCB7-C8613AEA8441</a:ObjectID>
 <a:Name>Module</a:Name>
 <a:Code>Module</a:Code>
-<a:CreationDate>1497432339</a:CreationDate>
+<a:CreationDate>1499941466</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432340</a:ModificationDate>
+<a:ModificationDate>1499941485</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:Stereotype>Constructor</a:Stereotype>
 <a:Automatic>1</a:Automatic>
@@ -3060,22 +3240,151 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Class Ref="o24"/>
 </c:InfluentObject>
 </o:Operation>
-<o:Operation Id="o43">
-<a:ObjectID>3D39509F-84D7-42B8-89C3-122E73F37850</a:ObjectID>
-<a:Name>finalize</a:Name>
-<a:Code>finalize</a:Code>
-<a:CreationDate>1497432339</a:CreationDate>
+<o:Operation Id="o55">
+<a:ObjectID>72124AF1-380F-487B-9904-889F61E8616D</a:ObjectID>
+<a:Name>getIdentifiant</a:Name>
+<a:Code>getIdentifiant</a:Code>
+<a:CreationDate>1499941457</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432340</a:ModificationDate>
+<a:ModificationDate>1499941458</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
-<a:Stereotype>Destructor</a:Stereotype>
-<a:ReturnType>void</a:ReturnType>
-<a:Operation.Visibility>#</a:Operation.Visibility>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
 <a:Automatic>1</a:Automatic>
 <a:TemplateBody>%DefaultBody%</a:TemplateBody>
 <c:InfluentObject>
-<o:Class Ref="o24"/>
+<o:Attribute Ref="o51"/>
 </c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o56">
+<a:ObjectID>7E97F4A9-575B-491D-9817-4BBF925A80BB</a:ObjectID>
+<a:Name>setIdentifiant</a:Name>
+<a:Code>setIdentifiant</a:Code>
+<a:CreationDate>1499941457</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941458</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o57">
+<a:ObjectID>6BAA0608-F80C-4DCF-BE4D-394D30E7824F</a:ObjectID>
+<a:Name>newIdentifiant</a:Name>
+<a:Code>newIdentifiant</a:Code>
+<a:CreationDate>1499941457</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941458</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o51"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o58">
+<a:ObjectID>69B08389-61E2-44E7-BDCF-D536115BB8B4</a:ObjectID>
+<a:Name>getNomLong</a:Name>
+<a:Code>getNomLong</a:Code>
+<a:CreationDate>1499941457</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941458</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:InfluentObject>
+<o:Attribute Ref="o52"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o59">
+<a:ObjectID>83FACCA1-87F0-444A-BF4D-452FE3F011E4</a:ObjectID>
+<a:Name>setNomLong</a:Name>
+<a:Code>setNomLong</a:Code>
+<a:CreationDate>1499941457</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941458</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o60">
+<a:ObjectID>85360941-0A5E-42B0-8450-5D4F171F0F3A</a:ObjectID>
+<a:Name>newNomLong</a:Name>
+<a:Code>newNomLong</a:Code>
+<a:CreationDate>1499941457</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941458</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o52"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o61">
+<a:ObjectID>DB0F97F1-AD86-4AC4-8865-D35E53B635F6</a:ObjectID>
+<a:Name>getNomCourt</a:Name>
+<a:Code>getNomCourt</a:Code>
+<a:CreationDate>1499941457</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941458</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:InfluentObject>
+<o:Attribute Ref="o53"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o62">
+<a:ObjectID>E646694E-EAA7-4E90-B17B-DE71A37CC59A</a:ObjectID>
+<a:Name>setNomCourt</a:Name>
+<a:Code>setNomCourt</a:Code>
+<a:CreationDate>1499941457</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941458</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o63">
+<a:ObjectID>B8E780DF-DE01-4250-A1D9-1EF4FF871984</a:ObjectID>
+<a:Name>newNomCourt</a:Name>
+<a:Code>newNomCourt</a:Code>
+<a:CreationDate>1499941457</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941458</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o53"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o64">
+<a:ObjectID>C2403612-A7DF-4F7C-864F-93A31E773904</a:ObjectID>
+<a:Name>toString</a:Name>
+<a:Code>toString</a:Code>
+<a:CreationDate>1499941690</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941706</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:ReturnType>String</a:ReturnType>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
 </o:Operation>
 </c:Operations>
 </o:Class>
@@ -3085,86 +3394,66 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Sequence</a:Code>
 <a:CreationDate>1497432169</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497441275</a:ModificationDate>
+<a:ModificationDate>1499941720</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
-<o:Attribute Id="o44">
+<o:Attribute Id="o65">
 <a:ObjectID>18157C0A-1ED3-4BFD-BCD1-D82A80B47C8F</a:ObjectID>
 <a:Name>identifiant</a:Name>
 <a:Code>identifiant</a:Code>
 <a:CreationDate>1497432354</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432387</a:ModificationDate>
+<a:ModificationDate>1499941507</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o45">
-<a:ObjectID>F3BB6BDB-F26D-49F7-9492-B920AA81A879</a:ObjectID>
-<a:Name>nom</a:Name>
-<a:Code>nom</a:Code>
-<a:CreationDate>1497432354</a:CreationDate>
+<o:Attribute Id="o66">
+<a:ObjectID>3D592A85-1E4B-4A14-B999-97F49AE38FB8</a:ObjectID>
+<a:Name>nomLong</a:Name>
+<a:Code>nomLong</a:Code>
+<a:CreationDate>1499941359</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432391</a:ModificationDate>
+<a:ModificationDate>1499941507</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
+</o:Attribute>
+<o:Attribute Id="o67">
+<a:ObjectID>A2C3673B-3033-483F-BB6E-425650C5827A</a:ObjectID>
+<a:Name>nomCourt</a:Name>
+<a:Code>nomCourt</a:Code>
+<a:CreationDate>1499941359</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941507</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:DataType>String</a:DataType>
+<a:Attribute.Visibility>-</a:Attribute.Visibility>
+</o:Attribute>
+<o:Attribute Id="o68">
+<a:ObjectID>6CAEC98C-85A6-413A-A1F3-0AA5D24F012F</a:ObjectID>
+<a:Name>module</a:Name>
+<a:Code>module</a:Code>
+<a:CreationDate>1499941083</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941507</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:DataType>Module</a:DataType>
+<a:Attribute.Visibility>-</a:Attribute.Visibility>
+<c:ObjectDataType>
+<o:Class Ref="o24"/>
+</c:ObjectDataType>
 </o:Attribute>
 </c:Attributes>
 <c:Operations>
-<o:Operation Id="o46">
-<a:ObjectID>9A73934E-1BB1-47E4-B9A4-20F3D3A3C88D</a:ObjectID>
-<a:Name>getNom</a:Name>
-<a:Code>getNom</a:Code>
-<a:CreationDate>1497432389</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432391</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Stereotype>Getter</a:Stereotype>
-<a:ReturnType>String</a:ReturnType>
-<a:Automatic>1</a:Automatic>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-<c:InfluentObject>
-<o:Attribute Ref="o45"/>
-</c:InfluentObject>
-</o:Operation>
-<o:Operation Id="o47">
-<a:ObjectID>F2B22058-E3DF-48B0-9BE5-CA0370E80DEE</a:ObjectID>
-<a:Name>setNom</a:Name>
-<a:Code>setNom</a:Code>
-<a:CreationDate>1497432389</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432391</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Stereotype>Setter</a:Stereotype>
-<a:ReturnType>void</a:ReturnType>
-<a:Automatic>1</a:Automatic>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-<c:Parameters>
-<o:Parameter Id="o48">
-<a:ObjectID>3430EFC3-72AA-4662-A03A-78DDA954D8FE</a:ObjectID>
-<a:Name>newNom</a:Name>
-<a:Code>newNom</a:Code>
-<a:CreationDate>1497432389</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432391</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Parameter.DataType>String</a:Parameter.DataType>
-<a:ParameterType>I</a:ParameterType>
-</o:Parameter>
-</c:Parameters>
-<c:InfluentObject>
-<o:Attribute Ref="o45"/>
-</c:InfluentObject>
-</o:Operation>
-<o:Operation Id="o49">
-<a:ObjectID>7BBD0F03-909C-444C-AE9F-23A1E18E69EF</a:ObjectID>
+<o:Operation Id="o69">
+<a:ObjectID>69ADF739-F9DB-4EFA-B963-B7502101D00D</a:ObjectID>
 <a:Name>Sequence</a:Name>
 <a:Code>Sequence</a:Code>
-<a:CreationDate>1497432391</a:CreationDate>
+<a:CreationDate>1499941502</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497441275</a:ModificationDate>
+<a:ModificationDate>1499941507</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:Stereotype>Constructor</a:Stereotype>
 <a:Automatic>1</a:Automatic>
@@ -3173,22 +3462,202 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Class Ref="o25"/>
 </c:InfluentObject>
 </o:Operation>
-<o:Operation Id="o50">
-<a:ObjectID>3D74EBAA-CAFE-4FB4-8227-369889D9E58A</a:ObjectID>
-<a:Name>finalize</a:Name>
-<a:Code>finalize</a:Code>
-<a:CreationDate>1497432391</a:CreationDate>
+<o:Operation Id="o70">
+<a:ObjectID>8171BDA4-E3E5-4C07-BA8E-66983C873F30</a:ObjectID>
+<a:Name>getIdentifiant</a:Name>
+<a:Code>getIdentifiant</a:Code>
+<a:CreationDate>1499941496</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432391</a:ModificationDate>
+<a:ModificationDate>1499941507</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
-<a:Stereotype>Destructor</a:Stereotype>
-<a:ReturnType>void</a:ReturnType>
-<a:Operation.Visibility>#</a:Operation.Visibility>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
 <a:Automatic>1</a:Automatic>
 <a:TemplateBody>%DefaultBody%</a:TemplateBody>
 <c:InfluentObject>
-<o:Class Ref="o25"/>
+<o:Attribute Ref="o65"/>
 </c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o71">
+<a:ObjectID>3D338B06-FDB9-49A8-97A7-D27AB64DFFC8</a:ObjectID>
+<a:Name>setIdentifiant</a:Name>
+<a:Code>setIdentifiant</a:Code>
+<a:CreationDate>1499941496</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941507</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o72">
+<a:ObjectID>48F0FA60-4700-4C83-A33D-2D79047958D0</a:ObjectID>
+<a:Name>newIdentifiant</a:Name>
+<a:Code>newIdentifiant</a:Code>
+<a:CreationDate>1499941496</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941507</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o65"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o73">
+<a:ObjectID>9CA8ADA5-D142-40B7-A70C-60E84EE113B3</a:ObjectID>
+<a:Name>getNomLong</a:Name>
+<a:Code>getNomLong</a:Code>
+<a:CreationDate>1499941496</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941507</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:InfluentObject>
+<o:Attribute Ref="o66"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o74">
+<a:ObjectID>19CB2069-01D0-4E38-96B6-48C564DFCA23</a:ObjectID>
+<a:Name>setNomLong</a:Name>
+<a:Code>setNomLong</a:Code>
+<a:CreationDate>1499941496</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941507</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o75">
+<a:ObjectID>8574A0C9-E622-4088-8D8F-2789F23BB671</a:ObjectID>
+<a:Name>newNomLong</a:Name>
+<a:Code>newNomLong</a:Code>
+<a:CreationDate>1499941496</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941507</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o66"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o76">
+<a:ObjectID>FDCC18B0-6C70-4DE7-9872-0ABBB7CDC03A</a:ObjectID>
+<a:Name>getNomCourt</a:Name>
+<a:Code>getNomCourt</a:Code>
+<a:CreationDate>1499941496</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941507</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:InfluentObject>
+<o:Attribute Ref="o67"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o77">
+<a:ObjectID>512CBF43-2C5B-47E1-BD4E-C2A3F1513F75</a:ObjectID>
+<a:Name>setNomCourt</a:Name>
+<a:Code>setNomCourt</a:Code>
+<a:CreationDate>1499941496</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941507</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o78">
+<a:ObjectID>4FA8B27A-2053-4C87-9BEE-4B56DBA36862</a:ObjectID>
+<a:Name>newNomCourt</a:Name>
+<a:Code>newNomCourt</a:Code>
+<a:CreationDate>1499941496</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941507</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o67"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o79">
+<a:ObjectID>38AA4A66-69CE-4871-99DB-4366C4CC844A</a:ObjectID>
+<a:Name>getModule</a:Name>
+<a:Code>getModule</a:Code>
+<a:CreationDate>1499941496</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941507</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>Module</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:ObjectReturnType>
+<o:Class Ref="o24"/>
+</c:ObjectReturnType>
+<c:InfluentObject>
+<o:Attribute Ref="o68"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o80">
+<a:ObjectID>8B25C3D7-C8AB-4CBE-826D-872576E9C8A5</a:ObjectID>
+<a:Name>setModule</a:Name>
+<a:Code>setModule</a:Code>
+<a:CreationDate>1499941496</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941507</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o81">
+<a:ObjectID>7B80185D-89DE-41BC-8A05-9BD2E6EC1489</a:ObjectID>
+<a:Name>newModule</a:Name>
+<a:Code>newModule</a:Code>
+<a:CreationDate>1499941496</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941507</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>Module</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+<c:ObjectDataType>
+<o:Class Ref="o24"/>
+</c:ObjectDataType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o68"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o82">
+<a:ObjectID>A8CBD1E1-85DC-4B4C-836A-56707E768956</a:ObjectID>
+<a:Name>toString</a:Name>
+<a:Code>toString</a:Code>
+<a:CreationDate>1499941712</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941720</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:ReturnType>String</a:ReturnType>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
 </o:Operation>
 </c:Operations>
 </o:Class>
@@ -3198,80 +3667,60 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Competence</a:Code>
 <a:CreationDate>1497432170</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497511384</a:ModificationDate>
+<a:ModificationDate>1499941729</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
-<o:Attribute Id="o51">
+<o:Attribute Id="o83">
 <a:ObjectID>2C72D0E8-3302-46D8-9906-ECEE1A61DCBF</a:ObjectID>
 <a:Name>identifiant</a:Name>
 <a:Code>identifiant</a:Code>
 <a:CreationDate>1497511368</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497511384</a:ModificationDate>
+<a:ModificationDate>1499941545</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o52">
-<a:ObjectID>CC4E0160-DE0D-4142-AF13-119C91B32015</a:ObjectID>
-<a:Name>nom</a:Name>
-<a:Code>nom</a:Code>
-<a:CreationDate>1497432398</a:CreationDate>
+<o:Attribute Id="o84">
+<a:ObjectID>185CF1C6-83CD-43BA-978F-D01DCE3A1DC6</a:ObjectID>
+<a:Name>nomLong</a:Name>
+<a:Code>nomLong</a:Code>
+<a:CreationDate>1499941415</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432413</a:ModificationDate>
+<a:ModificationDate>1499941545</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
+</o:Attribute>
+<o:Attribute Id="o85">
+<a:ObjectID>D3073584-219D-4FB2-834B-CA2BE399D30A</a:ObjectID>
+<a:Name>nomCourt</a:Name>
+<a:Code>nomCourt</a:Code>
+<a:CreationDate>1499941415</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941545</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:DataType>String</a:DataType>
+<a:Attribute.Visibility>-</a:Attribute.Visibility>
+</o:Attribute>
+<o:Attribute Id="o86">
+<a:ObjectID>01BB87B9-5B9D-4208-9F82-9EC9AD8EA445</a:ObjectID>
+<a:Name>sequence</a:Name>
+<a:Code>sequence</a:Code>
+<a:CreationDate>1499941098</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941545</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:DataType>Sequence</a:DataType>
+<a:Attribute.Visibility>-</a:Attribute.Visibility>
+<c:ObjectDataType>
+<o:Class Ref="o25"/>
+</c:ObjectDataType>
 </o:Attribute>
 </c:Attributes>
 <c:Operations>
-<o:Operation Id="o53">
-<a:ObjectID>D449BDC4-8FFA-4D9E-AD8B-4A7B44AE3312</a:ObjectID>
-<a:Name>getNom</a:Name>
-<a:Code>getNom</a:Code>
-<a:CreationDate>1497432411</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432413</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Stereotype>Getter</a:Stereotype>
-<a:ReturnType>String</a:ReturnType>
-<a:Automatic>1</a:Automatic>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-<c:InfluentObject>
-<o:Attribute Ref="o52"/>
-</c:InfluentObject>
-</o:Operation>
-<o:Operation Id="o54">
-<a:ObjectID>1C30CC52-E93D-4D93-8269-A7E58DB93783</a:ObjectID>
-<a:Name>setNom</a:Name>
-<a:Code>setNom</a:Code>
-<a:CreationDate>1497432411</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432413</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Stereotype>Setter</a:Stereotype>
-<a:ReturnType>void</a:ReturnType>
-<a:Automatic>1</a:Automatic>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-<c:Parameters>
-<o:Parameter Id="o55">
-<a:ObjectID>66C9560D-F742-4AC1-951B-3A83B467F97F</a:ObjectID>
-<a:Name>newNom</a:Name>
-<a:Code>newNom</a:Code>
-<a:CreationDate>1497432411</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432413</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Parameter.DataType>String</a:Parameter.DataType>
-<a:ParameterType>I</a:ParameterType>
-</o:Parameter>
-</c:Parameters>
-<c:InfluentObject>
-<o:Attribute Ref="o52"/>
-</c:InfluentObject>
-</o:Operation>
-<o:Operation Id="o56">
+<o:Operation Id="o87">
 <a:ObjectID>7EC02C2C-D06C-4BC5-B6CD-CF8FA0C45817</a:ObjectID>
 <a:Name>Competence</a:Name>
 <a:Code>Competence</a:Code>
@@ -3286,22 +3735,202 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Class Ref="o26"/>
 </c:InfluentObject>
 </o:Operation>
-<o:Operation Id="o57">
-<a:ObjectID>BDC84E76-B6A7-4304-9FC5-72B5F8C2A7E4</a:ObjectID>
-<a:Name>finalize</a:Name>
-<a:Code>finalize</a:Code>
-<a:CreationDate>1497432412</a:CreationDate>
+<o:Operation Id="o88">
+<a:ObjectID>4B3C657E-0DC2-4BC7-A331-89557DDC1049</a:ObjectID>
+<a:Name>getIdentifiant</a:Name>
+<a:Code>getIdentifiant</a:Code>
+<a:CreationDate>1499941543</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432413</a:ModificationDate>
+<a:ModificationDate>1499941545</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
-<a:Stereotype>Destructor</a:Stereotype>
-<a:ReturnType>void</a:ReturnType>
-<a:Operation.Visibility>#</a:Operation.Visibility>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
 <a:Automatic>1</a:Automatic>
 <a:TemplateBody>%DefaultBody%</a:TemplateBody>
 <c:InfluentObject>
-<o:Class Ref="o26"/>
+<o:Attribute Ref="o83"/>
 </c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o89">
+<a:ObjectID>462E8298-B2BE-4321-837E-16E02CE9E00A</a:ObjectID>
+<a:Name>setIdentifiant</a:Name>
+<a:Code>setIdentifiant</a:Code>
+<a:CreationDate>1499941543</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941545</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o90">
+<a:ObjectID>E3EEC73E-8CEB-4943-BC5C-87DC7101DB06</a:ObjectID>
+<a:Name>newIdentifiant</a:Name>
+<a:Code>newIdentifiant</a:Code>
+<a:CreationDate>1499941543</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941545</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o83"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o91">
+<a:ObjectID>354F848D-F0DE-4BF8-90E9-C579A58C9B4B</a:ObjectID>
+<a:Name>getNomLong</a:Name>
+<a:Code>getNomLong</a:Code>
+<a:CreationDate>1499941543</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941545</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:InfluentObject>
+<o:Attribute Ref="o84"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o92">
+<a:ObjectID>E275C9E2-8FA7-49E1-AF4F-74E7D31F3E78</a:ObjectID>
+<a:Name>setNomLong</a:Name>
+<a:Code>setNomLong</a:Code>
+<a:CreationDate>1499941543</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941545</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o93">
+<a:ObjectID>7AB76D36-7A3C-4239-B6B7-81EE88351D61</a:ObjectID>
+<a:Name>newNomLong</a:Name>
+<a:Code>newNomLong</a:Code>
+<a:CreationDate>1499941543</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941545</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o84"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o94">
+<a:ObjectID>14C3B71E-D498-4BA5-8D11-D3B04332C76B</a:ObjectID>
+<a:Name>getNomCourt</a:Name>
+<a:Code>getNomCourt</a:Code>
+<a:CreationDate>1499941543</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941545</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:InfluentObject>
+<o:Attribute Ref="o85"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o95">
+<a:ObjectID>745D7E9C-8B56-4E64-BA92-119C50CCD993</a:ObjectID>
+<a:Name>setNomCourt</a:Name>
+<a:Code>setNomCourt</a:Code>
+<a:CreationDate>1499941543</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941545</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o96">
+<a:ObjectID>68893D28-FCBC-49D8-92DA-700CE0DF2309</a:ObjectID>
+<a:Name>newNomCourt</a:Name>
+<a:Code>newNomCourt</a:Code>
+<a:CreationDate>1499941543</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941545</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o85"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o97">
+<a:ObjectID>D564E38B-EA07-4BFB-99A9-CC333AC1B738</a:ObjectID>
+<a:Name>getSequence</a:Name>
+<a:Code>getSequence</a:Code>
+<a:CreationDate>1499941543</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941545</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>Sequence</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:ObjectReturnType>
+<o:Class Ref="o25"/>
+</c:ObjectReturnType>
+<c:InfluentObject>
+<o:Attribute Ref="o86"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o98">
+<a:ObjectID>E0214B26-D025-4C94-967A-3A4E544B6F37</a:ObjectID>
+<a:Name>setSequence</a:Name>
+<a:Code>setSequence</a:Code>
+<a:CreationDate>1499941543</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941545</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o99">
+<a:ObjectID>20CE72BD-3888-427E-84C3-6C37B3DC3A1B</a:ObjectID>
+<a:Name>newSequence</a:Name>
+<a:Code>newSequence</a:Code>
+<a:CreationDate>1499941543</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941545</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>Sequence</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+<c:ObjectDataType>
+<o:Class Ref="o25"/>
+</c:ObjectDataType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o86"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o100">
+<a:ObjectID>6C265719-45F9-4B52-8F1D-6D167A7A5EE2</a:ObjectID>
+<a:Name>toString</a:Name>
+<a:Code>toString</a:Code>
+<a:CreationDate>1499941722</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941729</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:ReturnType>String</a:ReturnType>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
 </o:Operation>
 </c:Operations>
 </o:Class>
@@ -3311,91 +3940,112 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Stagiaire</a:Code>
 <a:CreationDate>1497432187</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497511421</a:ModificationDate>
+<a:ModificationDate>1499941753</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
-<o:Attribute Id="o58">
+<o:Attribute Id="o101">
 <a:ObjectID>D3A1D771-5D19-48CB-9412-DFFEBF5A93B3</a:ObjectID>
-<a:Name>identifiant</a:Name>
-<a:Code>identifiant</a:Code>
+<a:Name>osia</a:Name>
+<a:Code>osia</a:Code>
 <a:CreationDate>1497511398</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497511413</a:ModificationDate>
+<a:ModificationDate>1499941583</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o59">
+<o:Attribute Id="o102">
 <a:ObjectID>F5A18FCC-1244-4E0A-8FD9-9081C4FD33D5</a:ObjectID>
 <a:Name>nom</a:Name>
 <a:Code>nom</a:Code>
 <a:CreationDate>1497432427</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432485</a:ModificationDate>
+<a:ModificationDate>1499941583</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o60">
+<o:Attribute Id="o103">
 <a:ObjectID>0BAE2A28-64F4-46C3-8D54-5ADE9BB23A7D</a:ObjectID>
 <a:Name>prenom</a:Name>
 <a:Code>prenom</a:Code>
 <a:CreationDate>1497432427</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432450</a:ModificationDate>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:DataType>String</a:DataType>
+<a:Attribute.Visibility>-</a:Attribute.Visibility>
+</o:Attribute>
+<o:Attribute Id="o104">
+<a:ObjectID>CF2AB785-B47E-4B81-AA5C-958C13C62372</a:ObjectID>
+<a:Name>numeroTelephoneAdministration</a:Name>
+<a:Code>numeroTelephoneAdministration</a:Code>
+<a:CreationDate>1499941153</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:DataType>String</a:DataType>
+<a:Attribute.Visibility>-</a:Attribute.Visibility>
+</o:Attribute>
+<o:Attribute Id="o105">
+<a:ObjectID>D4819D7B-35C0-46F3-BAF3-B7C60A209B9D</a:ObjectID>
+<a:Name>numeroTelephoneFormation</a:Name>
+<a:Code>numeroTelephoneFormation</a:Code>
+<a:CreationDate>1499941204</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:DataType>String</a:DataType>
+<a:Attribute.Visibility>-</a:Attribute.Visibility>
+</o:Attribute>
+<o:Attribute Id="o106">
+<a:ObjectID>B45EAFB7-0D21-467B-A351-51683E97669A</a:ObjectID>
+<a:Name>adresse</a:Name>
+<a:Code>adresse</a:Code>
+<a:CreationDate>1499941204</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:DataType>String</a:DataType>
+<a:Attribute.Visibility>-</a:Attribute.Visibility>
+</o:Attribute>
+<o:Attribute Id="o107">
+<a:ObjectID>2D1C71D6-5232-4260-84B8-6B22BE9F8398</a:ObjectID>
+<a:Name>mail</a:Name>
+<a:Code>mail</a:Code>
+<a:CreationDate>1499941204</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:DataType>String</a:DataType>
+<a:Attribute.Visibility>-</a:Attribute.Visibility>
+</o:Attribute>
+<o:Attribute Id="o108">
+<a:ObjectID>822783FB-859C-4875-8BCB-9B02F7228395</a:ObjectID>
+<a:Name>mailFormation</a:Name>
+<a:Code>mailFormation</a:Code>
+<a:CreationDate>1499941204</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:DataType>String</a:DataType>
+<a:Attribute.Visibility>-</a:Attribute.Visibility>
+</o:Attribute>
+<o:Attribute Id="o109">
+<a:ObjectID>57808910-1714-408B-A363-5CEA029BEA2F</a:ObjectID>
+<a:Name>humeur</a:Name>
+<a:Code>humeur</a:Code>
+<a:CreationDate>1499941204</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 </c:Attributes>
 <c:Operations>
-<o:Operation Id="o61">
-<a:ObjectID>EAD298AB-3E31-46E7-A3C7-776F7CD836F5</a:ObjectID>
-<a:Name>getNom</a:Name>
-<a:Code>getNom</a:Code>
-<a:CreationDate>1497432483</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432485</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Stereotype>Getter</a:Stereotype>
-<a:ReturnType>String</a:ReturnType>
-<a:Automatic>1</a:Automatic>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-<c:InfluentObject>
-<o:Attribute Ref="o59"/>
-</c:InfluentObject>
-</o:Operation>
-<o:Operation Id="o62">
-<a:ObjectID>552797DB-F5DB-464C-946E-26767B1FFA75</a:ObjectID>
-<a:Name>setNom</a:Name>
-<a:Code>setNom</a:Code>
-<a:CreationDate>1497432483</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432485</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Stereotype>Setter</a:Stereotype>
-<a:ReturnType>void</a:ReturnType>
-<a:Automatic>1</a:Automatic>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-<c:Parameters>
-<o:Parameter Id="o63">
-<a:ObjectID>1B38BA0B-9A47-4DE1-A5D5-FAED8F1B6710</a:ObjectID>
-<a:Name>newNom</a:Name>
-<a:Code>newNom</a:Code>
-<a:CreationDate>1497432483</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432485</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Parameter.DataType>String</a:Parameter.DataType>
-<a:ParameterType>I</a:ParameterType>
-</o:Parameter>
-</c:Parameters>
-<c:InfluentObject>
-<o:Attribute Ref="o59"/>
-</c:InfluentObject>
-</o:Operation>
-<o:Operation Id="o64">
+<o:Operation Id="o110">
 <a:ObjectID>B01399FD-CD32-4FFD-837B-24BE10299906</a:ObjectID>
 <a:Name>Stagiaire</a:Name>
 <a:Code>Stagiaire</a:Code>
@@ -3410,22 +4060,421 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Class Ref="o27"/>
 </c:InfluentObject>
 </o:Operation>
-<o:Operation Id="o65">
-<a:ObjectID>B831F6B7-D3CB-4226-A6CC-EC836BBF0FA4</a:ObjectID>
-<a:Name>finalize</a:Name>
-<a:Code>finalize</a:Code>
-<a:CreationDate>1497432485</a:CreationDate>
+<o:Operation Id="o111">
+<a:ObjectID>E67708CF-DBBF-4497-B581-9F65F258BAF8</a:ObjectID>
+<a:Name>getOsia</a:Name>
+<a:Code>getOsia</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497432485</a:ModificationDate>
+<a:ModificationDate>1499941583</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
-<a:Stereotype>Destructor</a:Stereotype>
-<a:ReturnType>void</a:ReturnType>
-<a:Operation.Visibility>#</a:Operation.Visibility>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
 <a:Automatic>1</a:Automatic>
 <a:TemplateBody>%DefaultBody%</a:TemplateBody>
 <c:InfluentObject>
-<o:Class Ref="o27"/>
+<o:Attribute Ref="o101"/>
 </c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o112">
+<a:ObjectID>DCE80D9A-AE7B-4EEA-8DA0-759548A1389E</a:ObjectID>
+<a:Name>setOsia</a:Name>
+<a:Code>setOsia</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o113">
+<a:ObjectID>4D9EC279-EDE7-4614-BA38-D51662443120</a:ObjectID>
+<a:Name>newOsia</a:Name>
+<a:Code>newOsia</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o101"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o114">
+<a:ObjectID>E71F2A90-CB78-43A4-9A33-04D1EFB04F63</a:ObjectID>
+<a:Name>getNom</a:Name>
+<a:Code>getNom</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:InfluentObject>
+<o:Attribute Ref="o102"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o115">
+<a:ObjectID>5E2E6CCC-007B-4A6F-9B7E-412FD125021F</a:ObjectID>
+<a:Name>setNom</a:Name>
+<a:Code>setNom</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o116">
+<a:ObjectID>7780CB46-FDE4-495E-99F0-D5036E746663</a:ObjectID>
+<a:Name>newNom</a:Name>
+<a:Code>newNom</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o102"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o117">
+<a:ObjectID>0A868EE7-33EB-4FC7-9787-04F6083F2865</a:ObjectID>
+<a:Name>getPrenom</a:Name>
+<a:Code>getPrenom</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:InfluentObject>
+<o:Attribute Ref="o103"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o118">
+<a:ObjectID>B7AC0552-3BD8-46AF-9F6B-ADCDAA3FBFBE</a:ObjectID>
+<a:Name>setPrenom</a:Name>
+<a:Code>setPrenom</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o119">
+<a:ObjectID>AF30E4D6-2E7E-4227-8410-C062C7F11472</a:ObjectID>
+<a:Name>newPrenom</a:Name>
+<a:Code>newPrenom</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o103"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o120">
+<a:ObjectID>E342B50C-053F-45A3-A114-8EB2F87C189E</a:ObjectID>
+<a:Name>getNumeroTelephoneAdministration</a:Name>
+<a:Code>getNumeroTelephoneAdministration</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:InfluentObject>
+<o:Attribute Ref="o104"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o121">
+<a:ObjectID>F63D19D3-DAE2-438B-AD3C-A3D48F078EE2</a:ObjectID>
+<a:Name>setNumeroTelephoneAdministration</a:Name>
+<a:Code>setNumeroTelephoneAdministration</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o122">
+<a:ObjectID>73821ECA-5EF5-4095-9767-5FE8EE9EB9CC</a:ObjectID>
+<a:Name>newNumeroTelephoneAdministration</a:Name>
+<a:Code>newNumeroTelephoneAdministration</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o104"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o123">
+<a:ObjectID>3C286EE2-3B30-4940-8BF3-95E34D4CA285</a:ObjectID>
+<a:Name>getNumeroTelephoneFormation</a:Name>
+<a:Code>getNumeroTelephoneFormation</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:InfluentObject>
+<o:Attribute Ref="o105"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o124">
+<a:ObjectID>04FC85F2-252F-4422-A5C0-A96D48CDB5CC</a:ObjectID>
+<a:Name>setNumeroTelephoneFormation</a:Name>
+<a:Code>setNumeroTelephoneFormation</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o125">
+<a:ObjectID>25F977FC-D1B2-4865-9086-9B604CE768A3</a:ObjectID>
+<a:Name>newNumeroTelephoneFormation</a:Name>
+<a:Code>newNumeroTelephoneFormation</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o105"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o126">
+<a:ObjectID>7D8C02D5-8BCB-4FC8-8BE3-62F0ABF2CFCD</a:ObjectID>
+<a:Name>getAdresse</a:Name>
+<a:Code>getAdresse</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:InfluentObject>
+<o:Attribute Ref="o106"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o127">
+<a:ObjectID>A46F9EC2-CAD5-4129-B64B-F54C2AB63C77</a:ObjectID>
+<a:Name>setAdresse</a:Name>
+<a:Code>setAdresse</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o128">
+<a:ObjectID>5AA7327B-9679-4FBD-9FAC-3F37F5CFC33C</a:ObjectID>
+<a:Name>newAdresse</a:Name>
+<a:Code>newAdresse</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o106"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o129">
+<a:ObjectID>8D7FA805-84A6-455E-9E33-DBF0C4F59CA0</a:ObjectID>
+<a:Name>getMail</a:Name>
+<a:Code>getMail</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:InfluentObject>
+<o:Attribute Ref="o107"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o130">
+<a:ObjectID>F9E11ACE-ACAE-4E36-AF40-6DD1390618AD</a:ObjectID>
+<a:Name>setMail</a:Name>
+<a:Code>setMail</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o131">
+<a:ObjectID>3F1AE6B2-CA02-4AF0-8170-851FE89E10ED</a:ObjectID>
+<a:Name>newMail</a:Name>
+<a:Code>newMail</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o107"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o132">
+<a:ObjectID>CE017DD8-9448-41C8-BB37-10A113788823</a:ObjectID>
+<a:Name>getMailFormation</a:Name>
+<a:Code>getMailFormation</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:InfluentObject>
+<o:Attribute Ref="o108"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o133">
+<a:ObjectID>C6F7EEA9-4FB0-4881-8BDF-49D2942F5991</a:ObjectID>
+<a:Name>setMailFormation</a:Name>
+<a:Code>setMailFormation</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o134">
+<a:ObjectID>CCC868B1-E944-43BF-A240-362D8F93DE5C</a:ObjectID>
+<a:Name>newMailFormation</a:Name>
+<a:Code>newMailFormation</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o108"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o135">
+<a:ObjectID>73649157-0BA2-477E-A9A4-5BBF1B086C93</a:ObjectID>
+<a:Name>getHumeur</a:Name>
+<a:Code>getHumeur</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:InfluentObject>
+<o:Attribute Ref="o109"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o136">
+<a:ObjectID>309A919D-EB92-4A99-98E0-29F70434ACE1</a:ObjectID>
+<a:Name>setHumeur</a:Name>
+<a:Code>setHumeur</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o137">
+<a:ObjectID>AD3AC112-A7E8-4BD2-B853-481C1C5B2D5A</a:ObjectID>
+<a:Name>newHumeur</a:Name>
+<a:Code>newHumeur</a:Code>
+<a:CreationDate>1499941581</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941583</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o109"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o138">
+<a:ObjectID>2D474497-BA27-46A4-9B24-BC307521938B</a:ObjectID>
+<a:Name>toString</a:Name>
+<a:Code>toString</a:Code>
+<a:CreationDate>1499941748</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941753</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:ReturnType>String</a:ReturnType>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
 </o:Operation>
 </c:Operations>
 </o:Class>
@@ -3435,80 +4484,35 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>NiveauAcquisition</a:Code>
 <a:CreationDate>1497440298</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497511438</a:ModificationDate>
+<a:ModificationDate>1499941758</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
-<o:Attribute Id="o66">
+<o:Attribute Id="o139">
 <a:ObjectID>172724F0-D569-444B-B346-C62B07AF4F8B</a:ObjectID>
 <a:Name>identifiant</a:Name>
 <a:Code>identifiant</a:Code>
 <a:CreationDate>1497511423</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497511435</a:ModificationDate>
+<a:ModificationDate>1499941623</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o67">
+<o:Attribute Id="o140">
 <a:ObjectID>B024B089-DDD1-4D07-AD81-0A6E0439483D</a:ObjectID>
 <a:Name>libelle</a:Name>
 <a:Code>libelle</a:Code>
 <a:CreationDate>1497440493</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1498809735</a:ModificationDate>
+<a:ModificationDate>1499941623</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 </c:Attributes>
 <c:Operations>
-<o:Operation Id="o68">
-<a:ObjectID>7B60E406-BF76-4B51-861D-1FE900F667E4</a:ObjectID>
-<a:Name>getLibelle</a:Name>
-<a:Code>getLibelle</a:Code>
-<a:CreationDate>1497440627</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1498809735</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Stereotype>Getter</a:Stereotype>
-<a:ReturnType>String</a:ReturnType>
-<a:Automatic>1</a:Automatic>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-<c:InfluentObject>
-<o:Attribute Ref="o67"/>
-</c:InfluentObject>
-</o:Operation>
-<o:Operation Id="o69">
-<a:ObjectID>8F81C040-CF57-41B3-B0C5-4CF77452518C</a:ObjectID>
-<a:Name>setLibelle</a:Name>
-<a:Code>setLibelle</a:Code>
-<a:CreationDate>1497440627</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1498809735</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Stereotype>Setter</a:Stereotype>
-<a:ReturnType>void</a:ReturnType>
-<a:Automatic>1</a:Automatic>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-<c:Parameters>
-<o:Parameter Id="o70">
-<a:ObjectID>FFEDF6FD-DD9D-4366-B2F5-510D7DCBB962</a:ObjectID>
-<a:Name>newLibelle</a:Name>
-<a:Code>newLibelle</a:Code>
-<a:CreationDate>1497440627</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1498809735</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Parameter.DataType>String</a:Parameter.DataType>
-<a:ParameterType>I</a:ParameterType>
-</o:Parameter>
-</c:Parameters>
-<c:InfluentObject>
-<o:Attribute Ref="o67"/>
-</c:InfluentObject>
-</o:Operation>
-<o:Operation Id="o71">
+<o:Operation Id="o141">
 <a:ObjectID>20254EA3-FBD4-421B-96B0-23383CE79605</a:ObjectID>
 <a:Name>NiveauAcquisition</a:Name>
 <a:Code>NiveauAcquisition</a:Code>
@@ -3523,22 +4527,106 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Class Ref="o28"/>
 </c:InfluentObject>
 </o:Operation>
-<o:Operation Id="o72">
-<a:ObjectID>1FF121B3-8F57-4E94-925A-ECA812A6D16B</a:ObjectID>
-<a:Name>finalize</a:Name>
-<a:Code>finalize</a:Code>
-<a:CreationDate>1497440629</a:CreationDate>
+<o:Operation Id="o142">
+<a:ObjectID>068DB8F7-34A8-4DDE-A063-7BCE81E879CD</a:ObjectID>
+<a:Name>getIdentifiant</a:Name>
+<a:Code>getIdentifiant</a:Code>
+<a:CreationDate>1499941622</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497440630</a:ModificationDate>
+<a:ModificationDate>1499941623</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
-<a:Stereotype>Destructor</a:Stereotype>
-<a:ReturnType>void</a:ReturnType>
-<a:Operation.Visibility>#</a:Operation.Visibility>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
 <a:Automatic>1</a:Automatic>
 <a:TemplateBody>%DefaultBody%</a:TemplateBody>
 <c:InfluentObject>
-<o:Class Ref="o28"/>
+<o:Attribute Ref="o139"/>
 </c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o143">
+<a:ObjectID>F0D8B265-9135-47A6-B137-3AAB311058BA</a:ObjectID>
+<a:Name>setIdentifiant</a:Name>
+<a:Code>setIdentifiant</a:Code>
+<a:CreationDate>1499941622</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941623</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o144">
+<a:ObjectID>98CFA94D-6A57-4CAB-994F-4CB5D2C43FA9</a:ObjectID>
+<a:Name>newIdentifiant</a:Name>
+<a:Code>newIdentifiant</a:Code>
+<a:CreationDate>1499941622</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941623</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o139"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o145">
+<a:ObjectID>C8F5E09F-3B6B-47C7-B00B-C8C7DD3706D2</a:ObjectID>
+<a:Name>getLibelle</a:Name>
+<a:Code>getLibelle</a:Code>
+<a:CreationDate>1499941622</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941623</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Getter</a:Stereotype>
+<a:ReturnType>String</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:InfluentObject>
+<o:Attribute Ref="o140"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o146">
+<a:ObjectID>7C58D3FF-4792-4AB2-B87D-D6A01D9B4180</a:ObjectID>
+<a:Name>setLibelle</a:Name>
+<a:Code>setLibelle</a:Code>
+<a:CreationDate>1499941622</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941623</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Stereotype>Setter</a:Stereotype>
+<a:ReturnType>void</a:ReturnType>
+<a:Automatic>1</a:Automatic>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
+<c:Parameters>
+<o:Parameter Id="o147">
+<a:ObjectID>A8DAA5DB-A1E4-4B56-99D4-08570146D0A2</a:ObjectID>
+<a:Name>newLibelle</a:Name>
+<a:Code>newLibelle</a:Code>
+<a:CreationDate>1499941622</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941623</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Parameter.DataType>String</a:Parameter.DataType>
+<a:ParameterType>I</a:ParameterType>
+</o:Parameter>
+</c:Parameters>
+<c:InfluentObject>
+<o:Attribute Ref="o140"/>
+</c:InfluentObject>
+</o:Operation>
+<o:Operation Id="o148">
+<a:ObjectID>5D9BB84A-9D82-4919-8E9C-DAA0E9C7DF1D</a:ObjectID>
+<a:Name>toString</a:Name>
+<a:Code>toString</a:Code>
+<a:CreationDate>1499941754</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1499941758</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:ReturnType>String</a:ReturnType>
+<a:TemplateBody>%DefaultBody%</a:TemplateBody>
 </o:Operation>
 </c:Operations>
 </o:Class>
@@ -3660,7 +4748,7 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Association>
 </c:Associations>
 <c:TargetModels>
-<o:TargetModel Id="o73">
+<o:TargetModel Id="o149">
 <a:ObjectID>158045A2-57D3-4588-AA1E-D2A6BB59077C</a:ObjectID>
 <a:Name>Java</a:Name>
 <a:Code>Java</a:Code>
@@ -3675,7 +4763,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Shortcut Ref="o3"/>
 </c:SessionShortcuts>
 </o:TargetModel>
-<o:TargetModel Id="o74">
+<o:TargetModel Id="o150">
 <a:ObjectID>7AC9050B-EDD3-475E-BFC6-8DDC2D97DA3A</a:ObjectID>
 <a:Name>WSDL for Java</a:Name>
 <a:Code>WSDLJava</a:Code>
