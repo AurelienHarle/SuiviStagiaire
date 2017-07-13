@@ -10,8 +10,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 
-import competence.entity.Competence;
-import competence.technique.Competences;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;

@@ -11,7 +11,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
-import competence.entity.Competence;
 import exception.DoublonException;
 import exception.NullException;
 import exception.UnfoundException;
