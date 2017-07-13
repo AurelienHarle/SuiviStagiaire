@@ -1,19 +1,21 @@
 package testUnitaire.casNominaux.competence;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import autoEvaluation.entity.Competence;
-import autoEvaluation.entity.Module;
-import autoEvaluation.entity.Sequence;
-import autoEvaluation.technique.Competences;
+import competence.entity.Competence;
+import competence.technique.Competences;
 import exception.DoublonException;
 import exception.NullException;
 import facade.FacadeSuiviStagiaireRemote;
+import module.entity.Module;
+import sequence.entity.Sequence;
 
 public class TestSelectCompetences {
 
