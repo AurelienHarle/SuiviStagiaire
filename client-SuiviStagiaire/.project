@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>client-SuiviStagiaire</name>
-	<comment></comment>
+	<comment>Client du projet</comment>
 	<projects>
 	</projects>
 	<buildSpec>
