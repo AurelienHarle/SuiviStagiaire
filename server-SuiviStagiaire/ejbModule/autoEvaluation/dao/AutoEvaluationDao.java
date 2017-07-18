@@ -1,6 +1,7 @@
 package autoEvaluation.dao;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -18,6 +19,7 @@ import autoEvaluation.entity.AutoEvaluation;
 import autoEvaluation.technique.AutoEvaluations;
 import competence.entity.Competence;
 import exception.DateNullException;
+import exception.InsertNotUpdateException;
 import exception.NullException;
 import exception.UnfoundException;
 import exception.UpdateNotInsertException;
@@ -153,7 +155,7 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 		AutoEvaluation autoEvaluation2 = null;
 		
 		try {
-			
+			if(autoEvaluation.getDateAutoEvaluation() != LocalDate.now()) throw new InsertNotUpdateException("updateAutoEvaluation");
 			autoEvaluation2 = selectAutoEvaluationByStagCompDate(autoEvaluation);
 			autoEvaluation.setIdentifiant(autoEvaluation2.getIdentifiant());
 			
@@ -170,7 +172,16 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 			
 			}	
 		} catch (Exception e) {
-			
+			if(e instanceof InsertNotUpdateException){
+				
+				try {
+					insertAutoEvaluation(autoEvaluation);
+				} catch (NullException | DateNullException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
 			e.printStackTrace();
 			
 		}

@@ -3,7 +3,7 @@
 <html lang="fr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="refresh" content="5; URL=http://localhost:8080/client-SuiviStagiaire/auto-evaluation/modification-auto-evaluation"> 
+<meta http-equiv="refresh" content="5; URL=http://localhost:8080/client-SuiviStagiaire/auto-evaluation/modification-auto-evaluation">
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ include file="/WEB-INF/jsp/import-boostrap.jsp"%>
 <link href="<s:url namespace="" action="index-css" />" rel="stylesheet" type="text/css">
@@ -12,7 +12,7 @@
 <%@ include file="/WEB-INF/jsp/bandeau.jsp"%>
 <body onload="redirectSuccessPage()">
 	<%@ include file="/WEB-INF/jsp/menu.jsp"%>
-	<div class="container-fluid center-block">
+	<div id="contenu" class="container-fluid center-block">
 		<section>
 		<div id="information-success" class="alert alert-success" role="alert">
 			<span>Félicitation : Votre auto-évaluation a bien était modifier par le système</span>

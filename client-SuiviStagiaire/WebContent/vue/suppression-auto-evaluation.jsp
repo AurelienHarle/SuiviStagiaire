@@ -10,9 +10,9 @@
 <%@ include file="/WEB-INF/jsp/bandeau.jsp"%>
 <body>
 	<%@ include file="/WEB-INF/jsp/menu.jsp"%>
-	<div class="container-fluid center-block">
+	<div id="contenu" class="container-fluid center-block">
 		<s:if test="!autoEvaluations.isEmpty()">
-			<section id="suppression-auto-evaluation">
+			<section id="liste-auto-evaluation" class="center-block">
 			<table class="table-striped table-bordered table-condensed">
 				<tr>
 					<th>Identifiant</th>
@@ -69,6 +69,6 @@
 			</section>
 		</s:else>
 	</div>
+	<%@ include file="/WEB-INF/jsp/footer.jsp"%>
 </body>
-<%@ include file="/WEB-INF/jsp/footer.jsp"%>
 </html>

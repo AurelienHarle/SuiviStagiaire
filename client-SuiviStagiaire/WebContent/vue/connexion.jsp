@@ -9,7 +9,7 @@
 </head>
 <%@ include file="/WEB-INF/jsp/bandeau.jsp"%>
 <body>
-	<div class="container">
+	<div id="contenu" class="container-fluid center-block">
 		<section id="connexion" class="center-block">
 		<form class="form-horizontal" action="../accueil" method="get">
 			<div class="form-group">
@@ -46,6 +46,6 @@
 		</div>
 		</section>
 	</div>
+	<%@ include file="/WEB-INF/jsp/footer.jsp"%>
 </body>
-<%@ include file="/WEB-INF/jsp/footer.jsp"%>
 </html>

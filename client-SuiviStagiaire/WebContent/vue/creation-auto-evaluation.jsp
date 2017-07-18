@@ -11,7 +11,7 @@
 <%@ include file="/WEB-INF/jsp/bandeau.jsp"%>
 <body>
 	<%@ include file="/WEB-INF/jsp/menu.jsp"%>
-	<div class="container-fluid center-block">
+	<div id="contenu" class="container-fluid center-block">
 		<section class="center-block" id="explication-creation-auto-evaluation">
 		<div class="panel panel-info">
 			<div class="panel-heading">
@@ -25,7 +25,7 @@
 		<section id="creation-auto-evaluation" class="center-block">
 		<div class="panel panel-info">
 			<div class="panel-heading">
-				<h3 class="panel-title">Formulaire de création : </h3>
+				<h3 class="panel-title">Formulaire de création :</h3>
 			</div>
 			<div class="panel-body">
 				<form class="form-horizontal center-block" action="auto-evaluation-creer" method="post" onsubmit="return validateFormCreation(this)">

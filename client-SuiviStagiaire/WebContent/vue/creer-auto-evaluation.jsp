@@ -11,7 +11,7 @@
 <%@ include file="/WEB-INF/jsp/bandeau.jsp"%>
 <body onload="redirectSuccessPage()">
 	<%@ include file="/WEB-INF/jsp/menu.jsp"%>
-	<div class="container-fluid center-block">
+	<div id="contenu" class="container-fluid center-block">
 		<section>
 		<div id="information-success" class="alert alert-success" role="alert">
 			<span>Félicitation : Votre auto-évaluation a bien était enregistrer par le système</span>

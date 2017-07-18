@@ -11,14 +11,16 @@
 <%@ include file="/WEB-INF/jsp/bandeau.jsp"%>
 <body>
 	<%@ include file="/WEB-INF/jsp/menu.jsp"%>
-	<div class="container-fluid center-block">
+	<div id="contenu" class="container-fluid center-block">
 		<section id="explication-recherche-auto-evaluation" class="center-block">
 		<div class="panel panel-info">
 			<div class="panel-heading">
 				<h3 class="panel-title">Explication</h3>
 			</div>
 			<div class="panel-body">
-				<span>Pour rechercher une auto-évaluation, vous devez spécifier au minimum un des champs suivant.<br /><br /> exemple : si vous souhaitez afficher toute vos auto-évaluation avec le niveau non-acquis spécifiez seulement le niveau d'acquisition "non-acquis". </span>
+				<span>Pour rechercher une auto-évaluation, vous devez spécifier au minimum un des champs suivant.<br />
+				<br /> exemple : si vous souhaitez afficher toute vos auto-évaluation avec le niveau non-acquis spécifiez seulement le niveau d'acquisition "non-acquis".
+				</span>
 			</div>
 		</div>
 		</section>
@@ -105,6 +107,6 @@
 		</div>
 		</section>
 	</div>
+	<%@ include file="/WEB-INF/jsp/footer.jsp"%>
 </body>
-<%@ include file="/WEB-INF/jsp/footer.jsp"%>
 </html>

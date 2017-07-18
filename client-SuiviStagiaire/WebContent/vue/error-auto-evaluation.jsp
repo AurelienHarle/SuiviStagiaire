@@ -11,7 +11,7 @@
 <%@ include file="/WEB-INF/jsp/bandeau.jsp"%>
 <body>
 	<%@ include file="/WEB-INF/jsp/menu.jsp"%>
-	<div class="container-fluid center-block">
+	<div id="contenu" class="container-fluid center-block">
 		<section>
 		<div id="information-error" class="alert alert-danger" role="alert">
 			<span>Attention : une erreur non gérer par le système c'est produite</span>

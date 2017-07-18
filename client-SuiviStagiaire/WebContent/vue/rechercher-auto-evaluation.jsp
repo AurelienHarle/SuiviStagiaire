@@ -11,7 +11,7 @@
 <%@ include file="/WEB-INF/jsp/bandeau.jsp"%>
 <body>
 	<%@ include file="/WEB-INF/jsp/menu.jsp"%>
-	<div class="container-fluid center-block">
+	<div id="contenu" class="container-fluid center-block">
 		<s:if test="!autoEvaluations.isEmpty()">
 			<section id="rechercher-auto-evaluation">
 			<table class="table-striped table-bordered table-condensed">
@@ -70,10 +70,11 @@
 			<div id="information-redirection" class="alert alert-info" role="alert">
 				<span>Redirection dans : </span><span id="seconde">5</span><span> secondes.</span>
 			</div>
-			<script language="javascript" type="text/javascript">redirectSuccessPage();</script>
-			</section>
+			<script language="javascript" type="text/javascript">
+				redirectSuccessPage();
+			</script> </section>
 		</s:else>
 	</div>
+	<%@ include file="/WEB-INF/jsp/footer.jsp"%>
 </body>
-<%@ include file="/WEB-INF/jsp/footer.jsp"%>
 </html>

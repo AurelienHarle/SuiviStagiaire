@@ -26,16 +26,23 @@
 	
 }
 
+@media screen and (max-width: 768px) {
+   #bandeau img{
+   		display: block;
+    }
+}
+
+
 #bandeau h1{
-     word-wrap: break-word;
-     -webkit-hyphens: auto;
-     -moz-hyphens: auto;
-     -ms-hyphens: auto;
-     -o-hyphens: auto;
-     hyphens: auto;
+
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -o-hyphens: auto;
+    hyphens: auto;
      
     position: relative;
-    display: inline;	
+    display: inline-block;	
 	top: 10px;
 	left: 25px;
 	
@@ -43,18 +50,13 @@
 	font-size: 45px;
 	color: black;
 	text-align: center;
+	margin-bottom: 10px;
 }
 
 @media screen and (max-width: 768px) {
    #bandeau h1{
    		top: 10px;
 		left: 25px;
-        /*font-size:14px;*/
+        font-size:26px;
     }
 }
-
-/* #bandeau h1{ */
-	
-
-	
-/* } */

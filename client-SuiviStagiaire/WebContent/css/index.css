@@ -15,6 +15,49 @@ button{
 	width: 100px;
 }
 
+h2{
+	margin-bottom: 70px;
+}
+
+#contenu{
+	min-height: 715px;
+}
+
+#accueil div{
+	
+	display: inline-block;
+	width: 800px;
+	
+}
+
+#accueil div.panel{
+	
+	margin-right: 7.5px;
+	margin-left: 7.5px;
+}
+
+#accueil div.panel-heading{
+	
+	padding-right: 0px;
+	width: 799px;
+}
+
+#accueil h3{
+	
+	display: inline;
+	
+}
+
+#accueil div.panel-body{
+	
+	height: 100px;
+	
+}
+
+.close{
+	width: 45px;
+}
+
 #container {
    min-height: 100%;
    height:100%;
