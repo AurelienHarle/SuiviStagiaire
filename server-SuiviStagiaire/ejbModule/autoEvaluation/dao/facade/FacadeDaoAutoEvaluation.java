@@ -58,9 +58,11 @@ public class FacadeDaoAutoEvaluation implements FacadeDaoAutoEvaluationLocal {
 	 * Service qui permet d'update une {@link AutoEvaluation} dans la table auto_eval grâce à un {@link EntityManager}.
 	 * 
 	 * @param autoEvaluation {@link AutoEvaluation} l'autoEvaluation a update
+     * @throws DateNullException 
+     * @throws NullException 
 	 */
     @Override
-	public void updateAutoEvaluation(AutoEvaluation autoEvaluation)  {
+	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) throws NullException, DateNullException  {
 		autoEvaluationDao.updateAutoEvaluation(autoEvaluation);
 	}
     

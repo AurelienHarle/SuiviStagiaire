@@ -149,9 +149,11 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 	 * Service qui permet d'update une {@link AutoEvaluation} dans la table auto_eval grâce à un {@link EntityManager}.
 	 * 
 	 * @param autoEvaluation {@link AutoEvaluation} l'autoEvaluation a update
+	 * @throws DateNullException 
+	 * @throws NullException 
 	 */
 	@Override
-	public void updateAutoEvaluation(AutoEvaluation autoEvaluation)  {
+	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) throws NullException, DateNullException  {
 		AutoEvaluation autoEvaluation2 = null;
 		
 		try {
@@ -174,12 +176,9 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 		} catch (Exception e) {
 			if(e instanceof InsertNotUpdateException){
 				
-				try {
-					insertAutoEvaluation(autoEvaluation);
-				} catch (NullException | DateNullException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				
+				insertAutoEvaluation(autoEvaluation);
+				
 				
 			}
 			e.printStackTrace();

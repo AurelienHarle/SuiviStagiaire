@@ -41,8 +41,10 @@ public interface AutoEvaluationDaoLocal {
 	 * Service qui permet d'update une {@link AutoEvaluation} dans la table auto_eval grâce à un {@link EntityManager}.
 	 * 
 	 * @param autoEvaluation {@link AutoEvaluation} l'autoEvaluation a update
+	 * @throws DateNullException 
+	 * @throws NullException 
 	 */
-	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) throws UnfoundException;
+	public void updateAutoEvaluation(AutoEvaluation autoEvaluation) throws UnfoundException, NullException, DateNullException;
 	
 	/**
 	 * Service qui permet de delete une {@link AutoEvaluation} dans la table auto_eval grâce à un {@link EntityManager}.
