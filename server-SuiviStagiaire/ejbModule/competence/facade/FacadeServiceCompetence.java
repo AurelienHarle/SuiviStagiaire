@@ -7,9 +7,9 @@ import javax.ejb.Stateless;
 import competence.dao.facade.FacadeDaoCompetence;
 import competence.entity.Competence;
 import competence.technique.Competences;
-import exception.DoublonException;
-import exception.NullException;
-import exception.UnfoundException;
+import exception.dao.DoublonException;
+import exception.dao.NullException;
+import exception.dao.UnfoundException;
 import module.entity.Module;
 import sequence.entity.Sequence;
 

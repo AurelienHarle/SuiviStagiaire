@@ -4,9 +4,9 @@ import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
-import exception.DoublonException;
-import exception.NullException;
-import exception.UnfoundException;
+import exception.dao.DoublonException;
+import exception.dao.NullException;
+import exception.dao.UnfoundException;
 import niveauAcquisition.dao.facade.FacadeDaoNiveauAcquisition;
 import niveauAcquisition.entity.NiveauAcquisition;
 import niveauAcquisition.technique.NiveauAcquisitions;

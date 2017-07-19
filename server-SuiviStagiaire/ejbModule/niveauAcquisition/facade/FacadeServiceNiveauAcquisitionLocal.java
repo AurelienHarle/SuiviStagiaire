@@ -2,9 +2,9 @@ package niveauAcquisition.facade;
 
 import javax.ejb.Local;
 
-import exception.DoublonException;
-import exception.NullException;
-import exception.UnfoundException;
+import exception.dao.DoublonException;
+import exception.dao.NullException;
+import exception.dao.UnfoundException;
 import niveauAcquisition.entity.NiveauAcquisition;
 import niveauAcquisition.technique.NiveauAcquisitions;
 
