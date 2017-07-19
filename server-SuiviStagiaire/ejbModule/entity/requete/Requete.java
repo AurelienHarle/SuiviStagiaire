@@ -2,7 +2,7 @@ package entity.requete;
 
 import java.io.Serializable;
 
-import exception.RequeteWithoutServiceException;
+import exception.requete.RequeteWithoutServiceException;
 
 /**
  * 
@@ -40,19 +40,19 @@ public class Requete implements Serializable {
 		
 	}
 
-	public Service getNomService() {
+	public Service getService() {
 		return service;
 	}
 
-	public void setNomService(Service service) {
+	public void setService(Service service) {
 		this.service = service;
 	}
 
-	public Action getActionService() {
+	public Action getAction() {
 		return action;
 	}
 
-	public void setActionService(Action action) {
+	public void setAction(Action action) {
 		this.action = action;
 	}
 
