@@ -1,4 +1,4 @@
-package exception;
+package exception.dao;
 
 import autoEvaluation.entity.AutoEvaluation;
 import logger.JournaliseurNiveauWarning;

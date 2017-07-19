@@ -1,4 +1,4 @@
-package exception;
+package exception.dao;
 
 import logger.JournaliseurNiveauWarning;
 
