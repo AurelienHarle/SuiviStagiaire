@@ -5,8 +5,16 @@ import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
 import entity.requete.Requete;
-import exception.UndefinedActionException;
-import exception.UndefinedServiceException;
+import exception.dao.UnfoundException;
+import exception.requete.NullActionException;
+import exception.requete.NullObjectException;
+import exception.requete.NullRequeteException;
+import exception.requete.NullSpecificationActionException;
+import exception.requete.UndefinedObjectException;
+import exception.requete.UndefinedActionException;
+import exception.requete.UndefinedServiceException;
+import exception.requete.UndefinedSpecificationActionException;
+import facade.persistance.FacadePersistance;
 import logger.JournaliseurNiveauConfig;
 
 /**
@@ -24,6 +32,7 @@ public class FacadeApplication implements FacadeApplicationRemote {
 
 	@EJB
     private FacadePersistance facadePersistance;
+	@SuppressWarnings("unused")
 	private JournaliseurNiveauConfig journaliseurNiveauConfig = JournaliseurNiveauConfig.getINSTANCE();
    
 	/**
@@ -33,15 +42,25 @@ public class FacadeApplication implements FacadeApplicationRemote {
     }
 
     /**
-	 * Contrôle vers quel service la requête dois être rediriger.
+	 * Contrôle vers quel service la requête dois être rediriger en utilisant pour ça le nom de service présent dans la requête.
 	 * 
 	 * @param requete {@link Requete} dois obligatoirement contenir un service et selon le service demandé elle dois contenir plus d'information.
+     * 
      * @throws UndefinedActionException 
-	 * @throws {@link UndefinedServiceException}
+     * @throws UndefinedObjectException 
+     * @throws NullRequeteException 
+     * @throws NullActionException 
+     * @throws NullObjectException 
+     * @throws UnfoundException 
+     * @throws NullSpecificationActionException 
+     * @throws UndefinedSpecificationActionException 
+	 * @throws UndefinedServiceException
 	 */
     @Override
-	public void traite(Requete requete) throws UndefinedServiceException, UndefinedActionException{
-	
+	public void traite(Requete requete) throws UndefinedServiceException, UndefinedActionException, UndefinedObjectException, NullRequeteException, NullActionException, NullObjectException, UnfoundException, UndefinedSpecificationActionException, NullSpecificationActionException{
+    	
+    	if(requete == null) throw new NullRequeteException();
+    	
 			switch (requete.getService()) {
 			case PERSISTANCE:
 				facadePersistance.traite(requete);

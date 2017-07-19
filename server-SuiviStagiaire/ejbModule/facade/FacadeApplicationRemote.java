@@ -3,8 +3,15 @@ package facade;
 import javax.ejb.Remote;
 
 import entity.requete.Requete;
-import exception.UndefinedActionException;
-import exception.UndefinedServiceException;
+import exception.dao.UnfoundException;
+import exception.requete.NullActionException;
+import exception.requete.NullObjectException;
+import exception.requete.NullRequeteException;
+import exception.requete.NullSpecificationActionException;
+import exception.requete.UndefinedObjectException;
+import exception.requete.UndefinedActionException;
+import exception.requete.UndefinedServiceException;
+import exception.requete.UndefinedSpecificationActionException;
 
 
 /**
@@ -24,8 +31,15 @@ public interface FacadeApplicationRemote {
 	 * 
 	 * @param requete {@link Requete} dois obligatoirement contenir un service et selon le service demandé elle dois contenir plus d'information.
 	 * @throws UndefinedActionException 
+	 * @throws UndefinedObjectException 
+	 * @throws NullRequeteException 
+	 * @throws NullActionException 
+	 * @throws NullObjectException 
+	 * @throws UnfoundException 
+	 * @throws NullSpecificationActionException 
+	 * @throws UndefinedSpecificationActionException 
 	 * @throws {@link UndefinedServiceException}
 	 */
-	public void traite(Requete requete) throws UndefinedServiceException, UndefinedActionException;
+	public void traite(Requete requete) throws UndefinedServiceException, UndefinedActionException, UndefinedObjectException, NullRequeteException, NullActionException, NullObjectException, UnfoundException, UndefinedSpecificationActionException, NullSpecificationActionException;
 	
 }
