@@ -2,9 +2,9 @@ package stagiaire.dao.facade;
 
 import javax.ejb.Local;
 
-import exception.DoublonException;
-import exception.NullException;
-import exception.UnfoundException;
+import exception.dao.DoublonException;
+import exception.dao.NullException;
+import exception.dao.UnfoundException;
 import stagiaire.entity.Stagiaire;
 
 @Local
