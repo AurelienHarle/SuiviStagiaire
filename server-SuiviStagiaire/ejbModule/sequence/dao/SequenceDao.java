@@ -22,7 +22,7 @@ import sequence.entity.Sequence;
 import sequence.technique.Sequences;
 
 /**
- * Session Bean CompetenceDao qui permet l'insertion l'update et le delete dans la base de données
+ * Session Bean CompetenceDao qui permet l'insertion l'facadeServiceUpdate et le facadeServiceDelete dans la base de données
  * 
  * @author Aurélien Harlé
  * @Version 1
@@ -135,7 +135,7 @@ public class SequenceDao implements SequenceDaoLocal {
 
 		Sequence sequence2 = null;
 
-		String hqlString = "select s from Sequence s where s.identifiant = ?1 and s.module.identifiant = ?2";
+		String hqlString = "facadeServiceSelect s from Sequence s where s.identifiant = ?1 and s.module.identifiant = ?2";
 		
 		try{
 
@@ -145,21 +145,21 @@ public class SequenceDao implements SequenceDaoLocal {
 				.getSingleResult();
 
 			if(sequence2 == null){
-				journaliseurNiveauInfo.log("[Select]  Sequence [IN] : " + sequence + " [MESSAGE] : NotFound");
+				journaliseurNiveauInfo.log("[FacadeServiceSelect]  Sequence [IN] : " + sequence + " [MESSAGE] : NotFound");
 				throw new UnfoundException("selectSequence");
 			}
 			
-			journaliseurNiveauInfo.log("[Select]  Sequence [IN] : " + sequence + " Sequence [OUT] : " + sequence2);
+			journaliseurNiveauInfo.log("[FacadeServiceSelect]  Sequence [IN] : " + sequence + " Sequence [OUT] : " + sequence2);
 			
 		}catch (Exception e) {
 			if(e instanceof NullPointerException){
 				
-				journaliseurNiveauInfo.log("[Select]  Sequence [IN] : " + sequence + "[Exception] : NullPointerException "  + " [MESSAGE] : NotFound");
+				journaliseurNiveauInfo.log("[FacadeServiceSelect]  Sequence [IN] : " + sequence + "[Exception] : NullPointerException "  + " [MESSAGE] : NotFound");
 				throw new UnfoundException("selectSequence");
 				
 			}else if(e instanceof IllegalArgumentException){
 			
-				journaliseurNiveauInfo.log("[Select]  Sequence [IN] : " + sequence + "[Exception] : IllegalArgumentException " + " [MESSAGE] : NotFound");
+				journaliseurNiveauInfo.log("[FacadeServiceSelect]  Sequence [IN] : " + sequence + "[Exception] : IllegalArgumentException " + " [MESSAGE] : NotFound");
 				throw new UnfoundException("selectSequence");
 				
 			}else{
@@ -178,7 +178,7 @@ public class SequenceDao implements SequenceDaoLocal {
 	public Sequences selectSequenceByModule(Module module){
 		
 		Sequences sequences = new Sequences();
-		String sqlQuery = "select s from Sequence s where s.module.identifiant = ?1 ORDER BY s.identifiant asc";
+		String sqlQuery = "facadeServiceSelect s from Sequence s where s.module.identifiant = ?1 ORDER BY s.identifiant asc";
 		Query query = em.createQuery(sqlQuery).setParameter(1, module.getIdentifiant());
 		List list = query.getResultList();
 		
@@ -199,7 +199,7 @@ public class SequenceDao implements SequenceDaoLocal {
 		
 		Sequences sequences = new Sequences();
 		
-		String sqlQuery = "select s from Sequence s ORDER BY s.identifiant asc";
+		String sqlQuery = "facadeServiceSelect s from Sequence s ORDER BY s.identifiant asc";
 		
 		List list = em.createQuery(sqlQuery).getResultList();
 		

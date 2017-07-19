@@ -4,7 +4,7 @@ import autoEvaluation.entity.AutoEvaluation;
 import logger.JournaliseurNiveauWarning;
 
 /**
- * {@link Exception} qui est throw si on essaye d'update une {@link AutoEvaluation} qui n'est pas du jour en base de données
+ * {@link Exception} qui est throw si on essaye d'facadeServiceUpdate une {@link AutoEvaluation} qui n'est pas du jour en base de données
  * chaque lever d'exeception provoque une écriture dans les logs Warning
  * 
  * @see JournaliseurNiveauWarning
@@ -20,7 +20,7 @@ public class InsertNotUpdateException extends Exception {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	final static String MESSAGE = "[ERROR] Update not possible become an Insert [Method] : ";
+	final static String MESSAGE = "[ERROR] FacadeServiceUpdate not possible become an FacadeServiceInsert [Method] : ";
 	
 
 	public InsertNotUpdateException(String suiteMessage) {

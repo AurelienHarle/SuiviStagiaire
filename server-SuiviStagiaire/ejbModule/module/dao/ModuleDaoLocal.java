@@ -10,7 +10,7 @@ import module.entity.Module;
 import module.technique.Modules;
 
 /**
- * Local Bean de {@link CompetenceDao} qui permet l'insertion l'update et le delete dans la base de données
+ * Local Bean de {@link CompetenceDao} qui permet l'insertion l'facadeServiceUpdate et le facadeServiceDelete dans la base de données
  * 
  * @author Aurélien Harlé
  * @Version 1
@@ -28,17 +28,17 @@ public interface ModuleDaoLocal {
 	public void insertModule(Module module) throws DoublonException, NullException;
 	
 	/**
-	 * Update d'un Module
+	 * FacadeServiceUpdate d'un Module
 	 */
 	public void updateModule(Module module);
 	
 	/**
-	 * Delete d'un Module
+	 * FacadeServiceDelete d'un Module
 	 */
 	public void deleteModule(Module module);
 	
 	/**
-	 * Select d'un Module
+	 * FacadeServiceSelect d'un Module
 	 * @throws UnfoundException 
 	 */
 	public Module selectModule(Module module) throws UnfoundException;

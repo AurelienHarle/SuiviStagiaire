@@ -10,7 +10,7 @@ import niveauAcquisition.entity.NiveauAcquisition;
 import niveauAcquisition.technique.NiveauAcquisitions;
 
 /**
- * Local Bean de {@link CompetenceDao} qui permet l'insertion l'update et le delete dans la base de données
+ * Local Bean de {@link CompetenceDao} qui permet l'insertion l'facadeServiceUpdate et le facadeServiceDelete dans la base de données
  * 
  * @author Aurélien Harlé
  * @Version 1
@@ -29,23 +29,23 @@ public interface NiveauAcquisitionDaoLocal {
 	public void insertNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws DoublonException, NullException;
 	
 	/**
-	 * Update d'un NiveauAcquisition
+	 * FacadeServiceUpdate d'un NiveauAcquisition
 	 */
 	public void updateNiveauAcquisition(NiveauAcquisition niveauAcquisition);
 	
 	/**
-	 * Delete NiveauAcquisition
+	 * FacadeServiceDelete NiveauAcquisition
 	 */
 	public void deleteNiveauAcquisition(NiveauAcquisition niveauAcquisition);
 	
 	/**
-	 * Select NiveauAcquisition
+	 * FacadeServiceSelect NiveauAcquisition
 	 * @throws UnfoundException 
 	 */
 	public NiveauAcquisition selectNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws UnfoundException;
 
 	/**
-	 * Select NiveauAcquisitions
+	 * FacadeServiceSelect NiveauAcquisitions
 	 * @throws UnfoundException 
 	 */
 	public NiveauAcquisitions selectNiveauAcquisitions();

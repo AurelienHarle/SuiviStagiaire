@@ -22,7 +22,7 @@ import module.entity.Module;
 import sequence.entity.Sequence;
 
 /**
- * Session Bean CompetenceDao qui permet l'insertion l'update et le delete dans la base de données
+ * Session Bean CompetenceDao qui permet l'insertion l'facadeServiceUpdate et le facadeServiceDelete dans la base de données
  * 
  * @author Aurélien Harlé
  * @Version 1
@@ -135,7 +135,7 @@ public class CompetenceDao implements CompetenceDaoLocal {
 
 		Competence competence2 = null;
 
-		String hqlString = "select c from Competence c where c.identifiant = ?1 and c.sequence.identifiant = ?2 and c.sequence.module.identifiant = ?3";
+		String hqlString = "facadeServiceSelect c from Competence c where c.identifiant = ?1 and c.sequence.identifiant = ?2 and c.sequence.module.identifiant = ?3";
 		
 		try{
 
@@ -146,21 +146,21 @@ public class CompetenceDao implements CompetenceDaoLocal {
 				.getSingleResult();
 
 			if(competence2 == null){
-				journaliseurNiveauInfo.log("[Select]  Competence [IN] : " + competence + " [MESSAGE] : NotFound");
+				journaliseurNiveauInfo.log("[FacadeServiceSelect]  Competence [IN] : " + competence + " [MESSAGE] : NotFound");
 				throw new UnfoundException("selectCompetence");
 			}
 			
-			journaliseurNiveauInfo.log("[Select]  Competence [IN] : " + competence + " Competence [OUT] : " + competence2);
+			journaliseurNiveauInfo.log("[FacadeServiceSelect]  Competence [IN] : " + competence + " Competence [OUT] : " + competence2);
 			
 		}catch (Exception e) {
 			if(e instanceof NullPointerException){
 				
-				journaliseurNiveauInfo.log("[Select]  Competence [IN] : " + competence + "[Exception] : NullPointerException "  + " [MESSAGE] : NotFound");
+				journaliseurNiveauInfo.log("[FacadeServiceSelect]  Competence [IN] : " + competence + "[Exception] : NullPointerException "  + " [MESSAGE] : NotFound");
 				throw new UnfoundException("selectCompetence");
 				
 			}else if(e instanceof IllegalArgumentException){
 			
-				journaliseurNiveauInfo.log("[Select]  Competence [IN] : " + competence + "[Exception] : IllegalArgumentException " + " [MESSAGE] : NotFound");
+				journaliseurNiveauInfo.log("[FacadeServiceSelect]  Competence [IN] : " + competence + "[Exception] : IllegalArgumentException " + " [MESSAGE] : NotFound");
 				throw new UnfoundException("selectCompetence");
 				
 			}else{
@@ -180,7 +180,7 @@ public class CompetenceDao implements CompetenceDaoLocal {
 		
 		Competences competences = new Competences();
 		
-		String sqlQuery = "select c from Competence c where c.sequence.module.identifiant = ?1 ORDER BY c.identifiant asc";
+		String sqlQuery = "facadeServiceSelect c from Competence c where c.sequence.module.identifiant = ?1 ORDER BY c.identifiant asc";
 		
 		List list = em.createQuery(sqlQuery).setParameter(1, module.getIdentifiant()).getResultList();
 		
@@ -201,7 +201,7 @@ public class CompetenceDao implements CompetenceDaoLocal {
 		
 		Competences competences = new Competences();
 		
-		String sqlQuery = "select c from Competence c where c.sequence.identifiant = ?1 and c.sequence.module.identifiant = ?2 ORDER BY c.identifiant asc";
+		String sqlQuery = "facadeServiceSelect c from Competence c where c.sequence.identifiant = ?1 and c.sequence.module.identifiant = ?2 ORDER BY c.identifiant asc";
 		
 		List list = em.createQuery(sqlQuery)
 				.setParameter(1, sequence.getIdentifiant())
@@ -225,7 +225,7 @@ public class CompetenceDao implements CompetenceDaoLocal {
 		
 		Competences competences = new Competences();
 		
-		String sqlQuery = "select c from Competence c ORDER BY c.identifiant asc";
+		String sqlQuery = "facadeServiceSelect c from Competence c ORDER BY c.identifiant asc";
 		
 		List list = em.createQuery(sqlQuery).getResultList();
 		

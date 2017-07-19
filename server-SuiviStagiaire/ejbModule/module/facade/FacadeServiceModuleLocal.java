@@ -19,17 +19,17 @@ public interface FacadeServiceModuleLocal {
 	public void insertModule(Module module) throws DoublonException, NullException;
 	
 	/**
-	 * Update d'un Module
+	 * FacadeServiceUpdate d'un Module
 	 */
 	public void updateModule(Module module);
 	
 	/**
-	 * Delete d'un Module
+	 * FacadeServiceDelete d'un Module
 	 */
 	public void deleteModule(Module module);
 	
 	/**
-	 * Select d'un Module
+	 * FacadeServiceSelect d'un Module
 	 * @throws UnfoundException 
 	 */
 	public Module selectModule(Module module) throws UnfoundException;

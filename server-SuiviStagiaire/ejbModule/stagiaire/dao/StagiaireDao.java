@@ -18,7 +18,7 @@ import logger.JournaliseurNiveauInfo;
 import stagiaire.entity.Stagiaire;
 
 /**
- * Session Bean CompetenceDao qui permet l'insertion l'update et le delete dans la base de données
+ * Session Bean CompetenceDao qui permet l'insertion l'facadeServiceUpdate et le facadeServiceDelete dans la base de données
  * 
  * @author Aurélien Harlé
  * @Version 1
@@ -141,20 +141,20 @@ public class StagiaireDao implements StagiaireDaoLocal {
 			stagiaire2 = em.find(Stagiaire.class, stagiaire.getOsia());
 			
 			if(stagiaire2 == null){
-				journaliseurNiveauInfo.log("[Select]  Stagiaire [IN] : " + stagiaire + " [MESSAGE] : NotFound");
+				journaliseurNiveauInfo.log("[FacadeServiceSelect]  Stagiaire [IN] : " + stagiaire + " [MESSAGE] : NotFound");
 				throw new UnfoundException("selectStagiaire");
 			}
 			
-			journaliseurNiveauInfo.log("[Select]  Stagiaire [IN] : " + stagiaire + " Stagiaire [OUT] : " + stagiaire2);
+			journaliseurNiveauInfo.log("[FacadeServiceSelect]  Stagiaire [IN] : " + stagiaire + " Stagiaire [OUT] : " + stagiaire2);
 			
 		}catch (Exception e) {
 			if(e instanceof NullPointerException){
 				
-				journaliseurNiveauInfo.log("[Select]  Stagiaire [IN] : " + stagiaire + " [MESSAGE] : NotFound");
+				journaliseurNiveauInfo.log("[FacadeServiceSelect]  Stagiaire [IN] : " + stagiaire + " [MESSAGE] : NotFound");
 				throw new UnfoundException("selectStagiaire");
 			}else if(e instanceof IllegalArgumentException){
 			
-				journaliseurNiveauInfo.log("[Select]  Stagiaire [IN] : " + stagiaire + " [MESSAGE] : NotFound");
+				journaliseurNiveauInfo.log("[FacadeServiceSelect]  Stagiaire [IN] : " + stagiaire + " [MESSAGE] : NotFound");
 				throw new UnfoundException("selectStagiaire");
 				
 			}else{

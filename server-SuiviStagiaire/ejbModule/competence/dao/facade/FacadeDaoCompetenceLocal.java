@@ -22,23 +22,23 @@ public interface FacadeDaoCompetenceLocal {
 	public void insertCompetence(Competence competence) throws DoublonException, NullException;
 	
 	/**
-	 * Update d'une Competences
+	 * FacadeServiceUpdate d'une Competences
 	 */
 	public void updateCompetence(Competence competence);
 	
 	/**
-	 * Delete d'une Competences
+	 * FacadeServiceDelete d'une Competences
 	 */
 	public void deleteCompetence(Competence competence);
 	
 	/**
-	 * Select d'une Competences
+	 * FacadeServiceSelect d'une Competences
 	 * @throws UnfoundException 
 	 */
 	public Competence selectCompetence(Competence competence) throws UnfoundException;
 	
 	/**
-	 * select les {@link Competences} d'après un module
+	 * facadeServiceSelect les {@link Competences} d'après un module
 	 * @param module {@link Module}
 	 * @return {@link Competences}
 	 * 
@@ -46,7 +46,7 @@ public interface FacadeDaoCompetenceLocal {
 	public Competences selectCompetenceByModule(Module module);
 	
 	/**
-	 * select les {@link Competences} d'après une {@link Sequence}
+	 * facadeServiceSelect les {@link Competences} d'après une {@link Sequence}
 	 * @param module {@link Sequence}
 	 * @return {@link Competences}
 	 * 

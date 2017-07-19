@@ -17,17 +17,17 @@ public interface FacadeDaoStagiaireLocal {
 	public void insertStagiaire(Stagiaire stagiaire) throws DoublonException, NullException;
 	
 	/**
-	 * Update d'un Stagiaire
+	 * FacadeServiceUpdate d'un Stagiaire
 	 */
 	public void updateStagiaire(Stagiaire stagiaire);
 
 	/**
-	 * Delete Stagiaire
+	 * FacadeServiceDelete Stagiaire
 	 */
 	public void deleteStagiaire(Stagiaire stagiaire);
 	
 	/**
-	 * Select Stagiaire
+	 * FacadeServiceSelect Stagiaire
 	 * @throws UnfoundException 
 	 */
 	public Stagiaire selectStagiaire(Stagiaire stagiaire) throws UnfoundException;

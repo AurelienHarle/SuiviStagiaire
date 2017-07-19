@@ -20,23 +20,23 @@ public interface FacadeDaoNiveauAcquisitionLocal {
 	public void insertNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws DoublonException, NullException;
 	
 	/**
-	 * Update d'un NiveauAcquisition
+	 * FacadeServiceUpdate d'un NiveauAcquisition
 	 */
 	public void updateNiveauAcquisition(NiveauAcquisition niveauAcquisition);
 	
 	/**
-	 * Delete NiveauAcquisition
+	 * FacadeServiceDelete NiveauAcquisition
 	 */
 	public void deleteNiveauAcquisition(NiveauAcquisition niveauAcquisition);
 	
 	/**
-	 * Select NiveauAcquisition
+	 * FacadeServiceSelect NiveauAcquisition
 	 * @throws UnfoundException 
 	 */
 	public NiveauAcquisition selectNiveauAcquisition(NiveauAcquisition niveauAcquisition) throws UnfoundException;
 	
 	/**
-	 * Select NiveauAcquisitions
+	 * FacadeServiceSelect NiveauAcquisitions
 	 * @throws UnfoundException 
 	 */
 	public NiveauAcquisitions selectNiveauAcquisitions();

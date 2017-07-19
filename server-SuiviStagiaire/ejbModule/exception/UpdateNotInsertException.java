@@ -20,7 +20,7 @@ public class UpdateNotInsertException extends Exception {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	final static String MESSAGE = "[ERROR] Insert not possible become an Update [Method] : ";
+	final static String MESSAGE = "[ERROR] FacadeServiceInsert not possible become an FacadeServiceUpdate [Method] : ";
 	
 
 	public UpdateNotInsertException(String suiteMessage) {

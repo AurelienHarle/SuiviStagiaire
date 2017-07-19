@@ -19,7 +19,7 @@ public class UnfoundException extends Exception{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	final static String MESSAGE = "[ERROR] Select impossible [Method] : ";
+	final static String MESSAGE = "[ERROR] FacadeServiceSelect impossible [Method] : ";
 	
 
 	public UnfoundException(String suiteMessage) {

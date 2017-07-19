@@ -20,7 +20,7 @@ import module.entity.Module;
 import module.technique.Modules;
 
 /**
- * Session Bean CompetenceDao qui permet l'insertion l'update et le delete dans la base de données
+ * Session Bean CompetenceDao qui permet l'insertion l'facadeServiceUpdate et le facadeServiceDelete dans la base de données
  * 
  * @author Aurélien Harlé
  * @Version 1
@@ -138,17 +138,17 @@ public class ModuleDao implements ModuleDaoLocal {
 		try{
 			
 			module2 = em.find(Module.class, module.getIdentifiant());
-			journaliseurNiveauInfo.log("[Select]  Module [IN] : " + module + " Module [OUT] : " + module2);
+			journaliseurNiveauInfo.log("[FacadeServiceSelect]  Module [IN] : " + module + " Module [OUT] : " + module2);
 			
 		}catch (Exception e) {
 			if(e instanceof NullPointerException){
 				
-				journaliseurNiveauInfo.log("[Select]  Module [IN] : " + module + " [MESSAGE] : NotFound" + " [Exception] " +  e.getClass().getName());
+				journaliseurNiveauInfo.log("[FacadeServiceSelect]  Module [IN] : " + module + " [MESSAGE] : NotFound" + " [Exception] " +  e.getClass().getName());
 				throw new UnfoundException("selectModule");
 				
 			}else if(e instanceof IllegalArgumentException){
 			
-				journaliseurNiveauInfo.log("[Select]  Module [IN] : " + module + " [MESSAGE] : NotFound" + " [Exception] " +  e.getClass().getName());
+				journaliseurNiveauInfo.log("[FacadeServiceSelect]  Module [IN] : " + module + " [MESSAGE] : NotFound" + " [Exception] " +  e.getClass().getName());
 				throw new UnfoundException("selectModule");
 				
 			}else{
@@ -169,7 +169,7 @@ public class ModuleDao implements ModuleDaoLocal {
 		
 		Modules modules = new Modules();
 		
-		String sqlQuery = "select m from Module m ORDER BY m.identifiant asc";
+		String sqlQuery = "facadeServiceSelect m from Module m ORDER BY m.identifiant asc";
 		
 		List list = em.createQuery(sqlQuery).getResultList();
 		

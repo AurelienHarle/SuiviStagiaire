@@ -11,7 +11,7 @@ import module.entity.Module;
 import sequence.entity.Sequence;
 
 /**
- * Local Bean de {@link CompetenceDao} qui permet l'insertion l'update et le delete dans la base de données
+ * Local Bean de {@link CompetenceDao} qui permet l'insertion l'facadeServiceUpdate et le facadeServiceDelete dans la base de données
  * 
  * @author Aurélien Harlé
  * @Version 1
@@ -30,17 +30,17 @@ public interface CompetenceDaoLocal {
 	public void insertCompetence(Competence competence) throws DoublonException, NullException;
 	
 	/**
-	 * Update d'une Competences
+	 * FacadeServiceUpdate d'une Competences
 	 */
 	public void updateCompetence(Competence competence);
 	
 	/**
-	 * Delete d'une Competences
+	 * FacadeServiceDelete d'une Competences
 	 */
 	public void deleteCompetence(Competence competence);
 	
 	/**
-	 * Select d'une Competences
+	 * FacadeServiceSelect d'une Competences
 	 * @throws UnfoundException 
 	 */
 	public Competence selectCompetence(Competence competence) throws UnfoundException;
@@ -52,7 +52,7 @@ public interface CompetenceDaoLocal {
 	public Competences selectCompetences();
 	
 	/**
-	 * select les {@link Competences} d'après un module
+	 * facadeServiceSelect les {@link Competences} d'après un module
 	 * @param module {@link Module}
 	 * @return {@link Competences}
 	 * 
@@ -60,7 +60,7 @@ public interface CompetenceDaoLocal {
 	public Competences selectCompetenceByModule(Module module);
 
 	/**
-	 * select les {@link Competences} d'après une {@link Sequence}
+	 * facadeServiceSelect les {@link Competences} d'après une {@link Sequence}
 	 * @param module {@link Sequence}
 	 * @return {@link Competences}
 	 * 

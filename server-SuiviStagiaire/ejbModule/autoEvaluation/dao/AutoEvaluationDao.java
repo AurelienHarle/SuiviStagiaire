@@ -64,7 +64,7 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
     private JournaliseurNiveauInfo journaliseurNiveauInfo;
 	
     /**
-	 * Service qui permet d'inséré une {@link AutoEvaluation} dans la table auto_eval grâce à un {@link EntityManager}.
+	 * FacadeApplication qui permet d'inséré une {@link AutoEvaluation} dans la table auto_eval grâce à un {@link EntityManager}.
 	 * 
 	 * @param autoEvaluation {@link AutoEvaluation} l'autoEvaluation a inséré
 	 * @throws {@link DoublonException} 
@@ -146,9 +146,9 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 	}
 	
 	/**
-	 * Service qui permet d'update une {@link AutoEvaluation} dans la table auto_eval grâce à un {@link EntityManager}.
+	 * FacadeApplication qui permet d'facadeServiceUpdate une {@link AutoEvaluation} dans la table auto_eval grâce à un {@link EntityManager}.
 	 * 
-	 * @param autoEvaluation {@link AutoEvaluation} l'autoEvaluation a update
+	 * @param autoEvaluation {@link AutoEvaluation} l'autoEvaluation a facadeServiceUpdate
 	 * @throws DateNullException 
 	 * @throws NullException 
 	 */
@@ -187,9 +187,9 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 	}
 	
 	/**
-	 * Service qui permet de delete une {@link AutoEvaluation} dans la table auto_eval grâce à un {@link EntityManager}.
+	 * FacadeApplication qui permet de facadeServiceDelete une {@link AutoEvaluation} dans la table auto_eval grâce à un {@link EntityManager}.
 	 * 
-	 * @param autoEvaluation {@link AutoEvaluation} l'autoEvaluation a delete
+	 * @param autoEvaluation {@link AutoEvaluation} l'autoEvaluation a facadeServiceDelete
 	 */
 	@Override
 	public void deleteAutoEvaluation(AutoEvaluation autoEvaluation) {
@@ -210,10 +210,10 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 	}
 	
 	/**
-	 * Service qui permet de select une {@link AutoEvaluation} grâce à sa clé primaire dans la table auto_eval grâce à un {@link EntityManager}.
+	 * FacadeApplication qui permet de facadeServiceSelect une {@link AutoEvaluation} grâce à sa clé primaire dans la table auto_eval grâce à un {@link EntityManager}.
 	 * 
-	 * @param autoEvaluation {@link AutoEvaluation} l'autoEvaluation a select
-	 * @return {@link AutoEvaluation} l'autoEvaluation select
+	 * @param autoEvaluation {@link AutoEvaluation} l'autoEvaluation a facadeServiceSelect
+	 * @return {@link AutoEvaluation} l'autoEvaluation facadeServiceSelect
 	 */
 	@Override
 	public AutoEvaluation selectAutoEvaluation(AutoEvaluation autoEvaluation){
@@ -224,10 +224,10 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 	}
 
 	/**
-	 * Service qui permet de select une {@link AutoEvaluation} grâce à la clé primaire du {@link Stagiaire}, de la {@link Competence}, et de la {@link Date} dans la table auto_eval grâce à un {@link EntityManager}.
+	 * FacadeApplication qui permet de facadeServiceSelect une {@link AutoEvaluation} grâce à la clé primaire du {@link Stagiaire}, de la {@link Competence}, et de la {@link Date} dans la table auto_eval grâce à un {@link EntityManager}.
 	 * 
-	 * @param autoEvaluation {@link AutoEvaluation} l'autoEvaluation a select
-	 * @return {@link AutoEvaluation} l'autoEvaluation select
+	 * @param autoEvaluation {@link AutoEvaluation} l'autoEvaluation a facadeServiceSelect
+	 * @return {@link AutoEvaluation} l'autoEvaluation facadeServiceSelect
 	 */
 	@Override
 	public AutoEvaluation selectAutoEvaluationByStagCompDate(AutoEvaluation autoEvaluation) throws UnfoundException, NullException {
@@ -236,14 +236,14 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 		
 		try {
 
-			String sqlString = "select ae from AutoEvaluation ae where stag_osia = ?1 and comp_id = ?2 and ae_date = ?3";
+			String sqlString = "facadeServiceSelect ae from AutoEvaluation ae where stag_osia = ?1 and comp_id = ?2 and ae_date = ?3";
 			
 			autoEvaluation2 = (AutoEvaluation) em.createQuery(sqlString)
 				.setParameter(1, autoEvaluation.getStagiaire().getOsia())
 				.setParameter(2, autoEvaluation.getCompetence().getIdentifiant())
 				.setParameter(3, autoEvaluation.getDateAutoEvaluation()).getSingleResult();
 
-			journaliseurNiveauInfo.log("[Select]  AutoEvaluation [IN] : " + autoEvaluation + " AutoEvaluation [OUT] : " + autoEvaluation2);
+			journaliseurNiveauInfo.log("[FacadeServiceSelect]  AutoEvaluation [IN] : " + autoEvaluation + " AutoEvaluation [OUT] : " + autoEvaluation2);
 			
 		}catch (Exception e) {
 			if(e instanceof PersistenceException){
@@ -274,16 +274,16 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 	}
 
 	/**
-	 * Service qui permet de select une {@link AutoEvaluation} grâce à la clé primaire du {@link Stagiaire} dans la table auto_eval grâce à un {@link EntityManager}.
+	 * FacadeApplication qui permet de facadeServiceSelect une {@link AutoEvaluation} grâce à la clé primaire du {@link Stagiaire} dans la table auto_eval grâce à un {@link EntityManager}.
 	 * 
-	 * @param autoEvaluation {@link AutoEvaluation} l'autoEvaluation a select
-	 * @return {@link AutoEvaluation} l'autoEvaluation select
+	 * @param autoEvaluation {@link AutoEvaluation} l'autoEvaluation a facadeServiceSelect
+	 * @return {@link AutoEvaluation} l'autoEvaluation facadeServiceSelect
 	 */
 	@SuppressWarnings("rawtypes")
 	@Override
 	public AutoEvaluations selectAutoEvaluationByStag(AutoEvaluation autoEvaluation) {
 
-		String sqlString = "select ae from AutoEvaluation ae where stag_osia = ?1";
+		String sqlString = "facadeServiceSelect ae from AutoEvaluation ae where stag_osia = ?1";
 		AutoEvaluations autoEvaluations = new AutoEvaluations();
 		
 		List list = em.createQuery(sqlString)
@@ -298,21 +298,21 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 	}
 	
 	/**
-	 * Service qui permet de select une {@link AutoEvaluation} grâce au paramètre spécifié cela peux être
+	 * FacadeApplication qui permet de facadeServiceSelect une {@link AutoEvaluation} grâce au paramètre spécifié cela peux être
 	 * la {@link Date} de l' {@link AutoEvaluation},
 	 * la clé primaire du {@link Module},
 	 * la clé primaire de la {@link Sequence},
 	 * la clé primaire de la {@link Competence},
 	 * ou le {@link NiveauAcquisition} de l' {@link AutoEvaluation}
-	 * si l'un des paramètre est null, il seras pas pris en compte dans le select.
+	 * si l'un des paramètre est null, il seras pas pris en compte dans le facadeServiceSelect.
 	 * dans la table auto_eval grâce à un {@link EntityManager}.
 	 * 
-	 * @param autoEvaluationDater {@link AutoEvaluation} l'autoEvaluation dater qui permet de select par la date.
-	 * @param moduleRechercher {@link Module} le module qui permet le select par l'identifiant module
-	 * @param sequenceRechercher {@link Sequence} la sequence qui permet le select par l'identifiant sequence
-	 * @param competenceRechercher {@link Competence} la competence qui permet le select par l'identifiant competence
-	 * @param autoEvaluationNoter {@link AutoEvaluation} le l'auto-évaluation noter qui permet le select par le {@link NiveauAcquisition}
-	 * @return {@link AutoEvaluations} l'autoEvaluations la liste des autoEvaluations correspondant au select
+	 * @param autoEvaluationDater {@link AutoEvaluation} l'autoEvaluation dater qui permet de facadeServiceSelect par la date.
+	 * @param moduleRechercher {@link Module} le module qui permet le facadeServiceSelect par l'identifiant module
+	 * @param sequenceRechercher {@link Sequence} la sequence qui permet le facadeServiceSelect par l'identifiant sequence
+	 * @param competenceRechercher {@link Competence} la competence qui permet le facadeServiceSelect par l'identifiant competence
+	 * @param autoEvaluationNoter {@link AutoEvaluation} le l'auto-évaluation noter qui permet le facadeServiceSelect par le {@link NiveauAcquisition}
+	 * @return {@link AutoEvaluations} l'autoEvaluations la liste des autoEvaluations correspondant au facadeServiceSelect
 	 */
 	@SuppressWarnings("rawtypes")
 	@Override
@@ -320,7 +320,7 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 		
 		AutoEvaluations autoEvaluations = new AutoEvaluations();
 		boolean precedentAjouter = false;
-		String sqlString = "select ae from AutoEvaluation ae where ";
+		String sqlString = "facadeServiceSelect ae from AutoEvaluation ae where ";
 		
 		if(autoEvaluationDater != null){
 			sqlString = sqlString + "ae.dateAutoEvaluation = to_date('" + autoEvaluationDater.getDateAutoEvaluation() + "','YYYY-MM-DD')";
@@ -372,16 +372,16 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 	}
 
 	/**
-	 * Service qui permet de select une {@link AutoEvaluation} grâce à la clé primaire du {@link Stagiaire} et a la {@link Date} de l' {@link AutoEvaluation} dans la table auto_eval grâce à un {@link EntityManager}.
+	 * FacadeApplication qui permet de facadeServiceSelect une {@link AutoEvaluation} grâce à la clé primaire du {@link Stagiaire} et a la {@link Date} de l' {@link AutoEvaluation} dans la table auto_eval grâce à un {@link EntityManager}.
 	 * 
-	 * @param autoEvaluation {@link AutoEvaluation} l'autoEvaluation a select
-	 * @return {@link AutoEvaluation} l'autoEvaluation select
+	 * @param autoEvaluation {@link AutoEvaluation} l'autoEvaluation a facadeServiceSelect
+	 * @return {@link AutoEvaluation} l'autoEvaluation facadeServiceSelect
 	 */
 	@Override
 	public AutoEvaluations selectAutoEvaluationsByStagDate(AutoEvaluation autoEvaluation) {
 		AutoEvaluations autoEvaluations = new AutoEvaluations();
 
-			String sqlString = "select ae from AutoEvaluation ae where stag_osia = ?1 and ae_date = ?2";
+			String sqlString = "facadeServiceSelect ae from AutoEvaluation ae where stag_osia = ?1 and ae_date = ?2";
 			
 			@SuppressWarnings("rawtypes")
 			List list = em.createQuery(sqlString)

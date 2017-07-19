@@ -5,4 +5,4 @@
  * @author Afpa
  *
  */
-package facade;
+package entity.requete;

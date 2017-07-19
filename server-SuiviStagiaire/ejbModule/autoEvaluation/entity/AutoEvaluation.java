@@ -76,7 +76,7 @@ public class AutoEvaluation implements Serializable {
 	}
 	
 	/**
-	 * Constructeur avec seulement l'id pour permetre les Select depuis la base de données
+	 * Constructeur avec seulement l'id pour permetre les FacadeServiceSelect depuis la base de données
 	 * Attention certaine propriété sont obligatoire pour qu'une {@link AutoEvaluation} soit persisté
 	 */
 	public AutoEvaluation(int identifiant) {

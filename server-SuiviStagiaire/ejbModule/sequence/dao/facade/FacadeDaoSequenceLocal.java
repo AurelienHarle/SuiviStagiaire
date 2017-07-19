@@ -21,18 +21,18 @@ public interface FacadeDaoSequenceLocal {
 	public void insertSequence(Sequence sequence) throws DoublonException, NullException;
 	
 	/**
-	 * Update d'une Sequence
+	 * FacadeServiceUpdate d'une Sequence
 	 * 
 	 */
 	public void updateSequence(Sequence sequence);
 	
 	/**
-	 * Delete d'une Sequence
+	 * FacadeServiceDelete d'une Sequence
 	 */
 	public void deleteSequence(Sequence sequence);
 	
 	/**
-	 * Select d'une Sequence
+	 * FacadeServiceSelect d'une Sequence
 	 * @throws UnfoundException 
 	 */
 	public Sequence selectSequence(Sequence sequence) throws UnfoundException;

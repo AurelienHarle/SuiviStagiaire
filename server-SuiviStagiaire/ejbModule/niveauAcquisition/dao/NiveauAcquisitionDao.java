@@ -20,7 +20,7 @@ import niveauAcquisition.entity.NiveauAcquisition;
 import niveauAcquisition.technique.NiveauAcquisitions;
 
 /**
- * Session Bean CompetenceDao qui permet l'insertion l'update et le delete dans la base de données
+ * Session Bean CompetenceDao qui permet l'insertion l'facadeServiceUpdate et le facadeServiceDelete dans la base de données
  * 
  * @author Aurélien Harlé
  * @Version 1
@@ -137,21 +137,21 @@ public class NiveauAcquisitionDao implements NiveauAcquisitionDaoLocal {
 			niveauAcquisition2 = em.find(NiveauAcquisition.class, niveauAcquisition.getIdentifiant());
 			
 			if(niveauAcquisition2 == null){
-				journaliseurNiveauInfo.log("[Select]  NiveauAcquisition [IN] : " + niveauAcquisition + " [MESSAGE] : NotFound");
+				journaliseurNiveauInfo.log("[FacadeServiceSelect]  NiveauAcquisition [IN] : " + niveauAcquisition + " [MESSAGE] : NotFound");
 				throw new UnfoundException("selectNiveauAcquisition");
 			}
 			
-			journaliseurNiveauInfo.log("[Select]  NiveauAcquisition [IN] : " + niveauAcquisition + " NiveauAcquisition [OUT] : " + niveauAcquisition2);
+			journaliseurNiveauInfo.log("[FacadeServiceSelect]  NiveauAcquisition [IN] : " + niveauAcquisition + " NiveauAcquisition [OUT] : " + niveauAcquisition2);
 			
 		}catch (Exception e) {
 			if(e instanceof NullPointerException){
 				
-				journaliseurNiveauInfo.log("[Select]  NiveauAcquisition [IN] : " + niveauAcquisition + " [MESSAGE] : NotFound");
+				journaliseurNiveauInfo.log("[FacadeServiceSelect]  NiveauAcquisition [IN] : " + niveauAcquisition + " [MESSAGE] : NotFound");
 				throw new UnfoundException("selectNiveauAcquisition");
 				
 			}else if(e instanceof IllegalArgumentException){
 			
-				journaliseurNiveauInfo.log("[Select]  NiveauAcquisition [IN] : " + niveauAcquisition + " [MESSAGE] : NotFound");
+				journaliseurNiveauInfo.log("[FacadeServiceSelect]  NiveauAcquisition [IN] : " + niveauAcquisition + " [MESSAGE] : NotFound");
 				throw new UnfoundException("selectNiveauAcquisition");
 				
 			}else{
@@ -171,7 +171,7 @@ public class NiveauAcquisitionDao implements NiveauAcquisitionDaoLocal {
 		
 		NiveauAcquisitions niveauAcquisitions = new NiveauAcquisitions();
 		
-		String sqlQuery = "select n from NiveauAcquisition n ORDER BY n.identifiant asc";
+		String sqlQuery = "facadeServiceSelect n from NiveauAcquisition n ORDER BY n.identifiant asc";
 		
 		List list = em.createQuery(sqlQuery).getResultList();
 		

@@ -11,7 +11,7 @@ import sequence.entity.Sequence;
 import sequence.technique.Sequences;
 
 /**
- * Local Bean de {@link CompetenceDao} qui permet l'insertion l'update et le delete dans la base de données
+ * Local Bean de {@link CompetenceDao} qui permet l'insertion l'facadeServiceUpdate et le facadeServiceDelete dans la base de données
  * 
  * @author Aurélien Harlé
  * @Version 1
@@ -29,18 +29,18 @@ public interface SequenceDaoLocal {
 	public void insertSequence(Sequence sequence) throws DoublonException, NullException;
 	
 	/**
-	 * Update d'une Sequence
+	 * FacadeServiceUpdate d'une Sequence
 	 * 
 	 */
 	public void updateSequence(Sequence sequence);
 	
 	/**
-	 * Delete d'une Sequence
+	 * FacadeServiceDelete d'une Sequence
 	 */
 	public void deleteSequence(Sequence sequence);
 	
 	/**
-	 * Select d'une Sequence
+	 * FacadeServiceSelect d'une Sequence
 	 * @throws UnfoundException 
 	 */
 	public Sequence selectSequence(Sequence sequence) throws UnfoundException;
