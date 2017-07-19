@@ -12,9 +12,9 @@ import javax.persistence.PersistenceException;
 
 import competence.entity.Competence;
 import competence.technique.Competences;
-import exception.DoublonException;
-import exception.NullException;
-import exception.UnfoundException;
+import exception.dao.DoublonException;
+import exception.dao.NullException;
+import exception.dao.UnfoundException;
 import logger.JournaliseurNiveauConfig;
 import logger.JournaliseurNiveauError;
 import logger.JournaliseurNiveauInfo;

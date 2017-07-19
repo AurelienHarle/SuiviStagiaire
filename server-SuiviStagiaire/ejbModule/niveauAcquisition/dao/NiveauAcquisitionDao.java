@@ -10,9 +10,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 
-import exception.DoublonException;
-import exception.NullException;
-import exception.UnfoundException;
+import exception.dao.DoublonException;
+import exception.dao.NullException;
+import exception.dao.UnfoundException;
 import logger.JournaliseurNiveauConfig;
 import logger.JournaliseurNiveauError;
 import logger.JournaliseurNiveauInfo;

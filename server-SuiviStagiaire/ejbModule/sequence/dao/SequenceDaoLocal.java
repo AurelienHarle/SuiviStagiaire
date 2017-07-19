@@ -3,9 +3,9 @@ package sequence.dao;
 import javax.ejb.Local;
 
 import competence.dao.CompetenceDao;
-import exception.DoublonException;
-import exception.NullException;
-import exception.UnfoundException;
+import exception.dao.DoublonException;
+import exception.dao.NullException;
+import exception.dao.UnfoundException;
 import module.entity.Module;
 import sequence.entity.Sequence;
 import sequence.technique.Sequences;
