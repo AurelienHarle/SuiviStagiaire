@@ -16,7 +16,7 @@ import logger.JournaliseurNiveauWarning;
 public class UndefinedActionException extends Exception {
 	
 	private static final long serialVersionUID = 1L;
-	final static String MESSAGE = "[ERROR] Vous essayez d'atteindre une non definit dans ce service";
+	final static String MESSAGE = "[ERROR] Vous essayez d'atteindre une action non definit dans ce service";
 	
 	/**
 	 * @param suiteMessage 
