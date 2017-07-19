@@ -40,7 +40,6 @@ public class ServiceSelectCompetence implements ServiceSelectCompetenceLocal {
 	 * Default constructor. 
 	 */
 	public ServiceSelectCompetence() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -49,14 +48,14 @@ public class ServiceSelectCompetence implements ServiceSelectCompetenceLocal {
 	@Override
 	public Competence selectCompetence(Requete requete) throws UnfoundException{
 
+		final String HQL_STRING = "select c from Competence c where c.identifiant = ?1 and c.sequence.identifiant = ?2 and c.sequence.module.identifiant = ?3";
+		
 		Competence competence = (Competence) requete.getObject();
 		Competence competence2 = null;
-
-		String hqlString = "facadeServiceSelect c from Competence c where c.identifiant = ?1 and c.sequence.identifiant = ?2 and c.sequence.module.identifiant = ?3";
-
+		
 		try{
 
-			competence2 = (Competence) em.createQuery(hqlString)
+			competence2 = (Competence) em.createQuery(HQL_STRING)
 					.setParameter(1, competence.getIdentifiant())
 					.setParameter(2, competence.getSequence().getIdentifiant())
 					.setParameter(3, competence.getSequence().getModule().getIdentifiant())
@@ -99,14 +98,15 @@ public class ServiceSelectCompetence implements ServiceSelectCompetenceLocal {
 	@SuppressWarnings("rawtypes")
 	public Competences selectCompetenceByModule(Requete requete) throws UnfoundException{
 
+		final String SQL_STRING = "select c from Competence c where c.sequence.module.identifiant = ?1 ORDER BY c.identifiant asc";
+		
 		Module module = (Module) requete.getObject();
 		Competences competences = new Competences();
-		String sqlQuery = "facadeServiceSelect c from Competence c where c.sequence.module.identifiant = ?1 ORDER BY c.identifiant asc";
 		List list = null;
-
+		
 		try{
 
-			list = em.createQuery(sqlQuery).setParameter(1, module.getIdentifiant()).getResultList();
+			list = em.createQuery(SQL_STRING).setParameter(1, module.getIdentifiant()).getResultList();
 
 			if( (list.isEmpty()) || (list == null) ) throw new UnfoundException("selectCompetenceByModule");
 
@@ -139,11 +139,11 @@ public class ServiceSelectCompetence implements ServiceSelectCompetenceLocal {
 		Sequence sequence = (Sequence) requete.getObject();
 		Competences competences = new Competences();
 		List list = null;
-		String sqlQuery = "facadeServiceSelect c from Competence c where c.sequence.identifiant = ?1 and c.sequence.module.identifiant = ?2 ORDER BY c.identifiant asc";
+		final String SQL_STRING = "select c from Competence c where c.sequence.identifiant = ?1 and c.sequence.module.identifiant = ?2 ORDER BY c.identifiant asc";
 
 		try{
 
-			list = em.createQuery(sqlQuery)
+			list = em.createQuery(SQL_STRING)
 					.setParameter(1, sequence.getIdentifiant())
 					.setParameter(2, sequence.getModule().getIdentifiant())
 					.getResultList();
@@ -178,7 +178,7 @@ public class ServiceSelectCompetence implements ServiceSelectCompetenceLocal {
 
 		Competences competences = new Competences();
 		List list = null;
-		String sqlQuery = "facadeServiceSelect c from Competence c ORDER BY c.identifiant asc";
+		String sqlQuery = "select c from Competence c ORDER BY c.identifiant asc";
 		
 		try{
 			
