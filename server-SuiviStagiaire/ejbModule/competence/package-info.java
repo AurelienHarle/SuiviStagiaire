@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author Afpa
- *
- */
-package competence;
