@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+<!-- accueil -->
+	<package name="accueil" namespace="/accueil" extends="struts-default">
+		<action name="accueil">
+			<result>/index.jsp</result>
+		</action>
+	</package>
+	
+<!-- connexion -->
+	<package name="connexion" namespace="/connexion" extends="struts-default">
+		<action name="connexion">
+			<result>/vue/connexion.jsp</result>
+		</action>
+	</package>
+	
+<!-- auto-evaluation -->
+	<package name="auto-evaluation" namespace="/auto-evaluation"  extends="struts-default">
+	
+		<action name="*-auto-evaluation" method="{1}" class="autoEvaluation.Navigation">
+			<result name="recherche">/vue/{1}-auto-evaluation.jsp</result>
+			<result name="creation">/vue/{1}-auto-evaluation.jsp</result>
+			<result name="modification">/vue/{1}-auto-evaluation.jsp</result>
+			<result name="suppression">/vue/{1}-auto-evaluation.jsp</result>
+			<result name="listage">/vue/{1}-auto-evaluation.jsp</result>
+			<result name="error">/vue/error-auto-evaluation.jsp</result>
+			<allowed-methods>recherche,creation,modification,suppression,listage</allowed-methods>
+		</action>
+		
+		<action name="auto-evaluation-*" method="{1}" class="autoEvaluation.Action">
+			<result name="creer">/vue/creer-auto-evaluation.jsp</result>
+			<result name="modifier">/vue/modifier-auto-evaluation.jsp</result>
+			<result name="supprimer">/vue/supprimer-auto-evaluation.jsp</result>
+			<result name="rechercher">/vue/rechercher-auto-evaluation.jsp</result>
+			<result name="error">/vue/error-auto-evaluation.jsp</result>
+			<allowed-methods>rechercher,creer,modifier,supprimer</allowed-methods>
+		</action>
+		
+	</package>
+	
+<!-- ajax -->	
+	<package name="ajax" namespace="/ajax" extends="json-default">
+				
+		<action name="ajax-recherche" method="ajaxRecherche" class="autoEvaluation.Navigation">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="json">
+			  	<param name="enableSMD">true</param>
+			</interceptor-ref>
+			<result name="success" type="json"></result>
+			<result name="error" type="json"></result>
+			<allowed-methods>ajaxRecherche</allowed-methods>
+		</action>
+		
+	</package>
+
+<!-- font -->
+ 	<package name="fonts" namespace="/fonts" extends="struts-default">
+ 	
+ 		<action name="glyphicons-halflings-regular.ttf">
+ 			<result>/WEB-INF/lib/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.ttf</result>
+ 		</action>
+ 	
+ 		<action name="glyphicons-halflings-regular.woff">
+ 			<result>/WEB-INF/lib/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff</result>
+ 		</action>
+ 		
+ 		<action name="glyphicons-halflings-regular.woff2">
+ 			<result>/WEB-INF/lib/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff2</result>
+ 		</action>
+ 		
+ 	</package>
+	
+<!-- import -->
+	<package name="import" namespace="" extends="struts-default">
+	<!-- boostrap -->	
+		<action name="bootstrap-css">
+			<result>/WEB-INF/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css</result>
+		</action>
+		<action name="bootstrap-theme">
+			<result>/WEB-INF/lib/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css</result>
+		</action>
+		<action name="bootstrap-js">
+			<result>/WEB-INF/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js</result>
+		</action>
+		
+	<!-- datetimePicker -->	
+		<action name="bootstrap-datetimepicker-css">
+			<result>/WEB-INF/lib/bootstrap-datetimepicker-4.17.47-dist/css/bootstrap-datetimepicker.min.css</result>
+		</action>
+		
+		<action name="bootstrap-datetimepicker-js">
+			<result>/WEB-INF/lib/bootstrap-datetimepicker-4.17.47-dist/js/bootstrap-datetimepicker.min.js</result>
+		</action>
+		
+	<!-- moment -->
+		<action name="moment-js">
+			<result>/WEB-INF/lib/moment-2.18.1-dist/moment.min.js</result>
+		</action>	
+		
+	<!-- jquery -->
+		<action name="jquery-js">
+			<result>/WEB-INF/lib/jquery-3.2.1-dist/jquery-3.2.1.min.js</result>
+		</action>
+		
+	<!-- css -->
+		<action name="index-css">
+			<result>/css/index.css</result>
+		</action>
+		
+		<action name="connexion-css">
+			<result>/css/connexion.css</result>
+		</action>
+		
+		<action name="menu-css">
+			<result>/WEB-INF/css/menu.css</result>
+		</action>
+	
+		<action name="bandeau-css">
+			<result>/WEB-INF/css/bandeau.css</result>
+		</action>
+		
+		<action name="footer-css">
+			<result>/WEB-INF/css/footer.css</result>
+		</action>
+		
+	<!-- js -->
+		<action name="auto-evaluation-js">
+			<result>/js/auto-evaluation.js</result>
+		</action>
+		
+	<!-- image -->
+		<action name="logo-afpa">
+			<result>/img/logo-afpa-rectangle.jpg</result>
+		</action>
+		
+		<action name="logo-afpa-transparent">
+			<result>/img/logo-afpa-rectangle-transparent.png</result>
+		</action>
+	</package>
+
+</struts>
