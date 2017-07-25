@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{80670689-C4C8-424B-A2E9-E992C41C7CC3}" Label="" LastModificationDate="1497517403" Name="ListeExigences" Objects="42" Symbols="0" Type="{DABA1E0A-0922-4B05-B7F0-B0BD7A73FD33}" signature="RQM_MODEL_XML" version="15.2.0.3042"?>
+<?PowerDesigner AppLocale="UTF16" ID="{80670689-C4C8-424B-A2E9-E992C41C7CC3}" Label="" LastModificationDate="1500545319" Name="ListeExigences" Objects="36" Symbols="0" Type="{DABA1E0A-0922-4B05-B7F0-B0BD7A73FD33}" signature="RQM_MODEL_XML" version="15.2.0.3042"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -12,7 +12,7 @@
 <a:Code>ListeExigences</a:Code>
 <a:CreationDate>1496734478</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497517403</a:ModificationDate>
+<a:ModificationDate>1500543557</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:PackageOptionsText>[FolderOptions]
 
@@ -314,7 +314,150 @@ ConvTablePath=%_HOME%\Fichiers de ressources\Tables de conversion</a:ModelOption
 <a:Code>ListeExigences</a:Code>
 <a:CreationDate>1496734478</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1496735993</a:ModificationDate>
+<a:ModificationDate>1500543654</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:DisplayPreferences>[DisplayPreferences]
+
+[DisplayPreferences\ALL]
+
+[DisplayPreferences\General]
+Adjust to text=Yes
+Snap Grid=No
+Constrain Labels=Yes
+Display Grid=No
+Show Page Delimiter=Yes
+Grid size=0
+Graphic unit=2
+Window color=255, 255, 255
+Background image=
+Background mode=8
+Watermark image=
+Watermark mode=8
+Show watermark on screen=No
+Gradient mode=0
+Gradient end color=255, 255, 255
+Show Swimlane=No
+SwimlaneVert=Yes
+TreeVert=No
+CompDark=0
+
+[DisplayPreferences\Object]
+Show Icon=No
+Mode=2
+Trunc Length=40
+Word Length=40
+Word Text=!&quot;#$%&amp;&#39;)*+,-./:;=&gt;?@\]^_`|}~
+Shortcut IntIcon=Yes
+Shortcut IntLoct=Yes
+Shortcut IntFullPath=No
+Shortcut IntLastPackage=Yes
+Shortcut ExtIcon=Yes
+Shortcut ExtLoct=No
+Shortcut ExtFullPath=No
+Shortcut ExtLastPackage=Yes
+Shortcut ExtIncludeModl=Yes
+EObjShowStrn=Yes
+ExtendedObject.Comment=No
+ExtendedObject.IconPicture=No
+ExtendedObject_SymbolLayout=&lt;Form&gt;[CRLF] &lt;StandardAttribute Name=&quot;Stéréotype&quot; Attribute=&quot;Stereotype&quot; Prefix=&quot;&amp;lt;&amp;lt;&quot; Suffix=&quot;&amp;gt;&amp;gt;&quot; Alignment=&quot;CNTR&quot; Caption=&quot;&quot; Mandatory=&quot;No&quot; /&gt;[CRLF] &lt;StandardAttribute Name=&quot;Nom de l&amp;#39;objet&quot; Attribute=&quot;DisplayName&quot; Prefix=&quot;&quot; Suffix=&quot;&quot; Alignment=&quot;CNTR&quot; Caption=&quot;&quot; Mandatory=&quot;Yes&quot; /&gt;[CRLF] &lt;Separator Name=&quot;Séparateur&quot; /&gt;[CRLF] &lt;StandardAttribute Name=&quot;Commentaire&quot; Attribute=&quot;Comment&quot; Prefix=&quot;&quot; Suffix=&quot;&quot; Alignment=&quot;LEFT&quot; Caption=&quot;&quot; Mandatory=&quot;No&quot; /&gt;[CRLF] &lt;StandardAttribute Name=&quot;Icône&quot; Attribute=&quot;IconPicture&quot; Prefix=&quot;&quot; Suffix=&quot;&quot; Alignment=&quot;CNTR&quot; Caption=&quot;&quot; Mandatory=&quot;Yes&quot; /&gt;[CRLF]&lt;/Form&gt;
+ELnkShowStrn=Yes
+ELnkShowName=Yes
+ExtendedLink_SymbolLayout=&lt;Form&gt;[CRLF] &lt;Form Name=&quot;Centre&quot; &gt;[CRLF]  &lt;StandardAttribute Name=&quot;Stéréotype&quot; Attribute=&quot;Stereotype&quot; Prefix=&quot;&amp;lt;&amp;lt;&quot; Suffix=&quot;&amp;gt;&amp;gt;&quot; Caption=&quot;&quot; Mandatory=&quot;No&quot; /&gt;[CRLF]  &lt;StandardAttribute Name=&quot;Nom&quot; Attribute=&quot;DisplayName&quot; Prefix=&quot;&quot; Suffix=&quot;&quot; Caption=&quot;&quot; Mandatory=&quot;No&quot; /&gt;[CRLF] &lt;/Form&gt;[CRLF] &lt;Form Name=&quot;Source&quot; &gt;[CRLF] &lt;/Form&gt;[CRLF] &lt;Form Name=&quot;Destination&quot; &gt;[CRLF] &lt;/Form&gt;[CRLF]&lt;/Form&gt;
+FileObject.Stereotype=No
+FileObject.DisplayName=Yes
+FileObject.LocationOrName=No
+FileObject.IconPicture=No
+FileObject.IconMode=Yes
+FileObject_SymbolLayout=&lt;Form&gt;[CRLF] &lt;StandardAttribute Name=&quot;Stéréotype&quot; Attribute=&quot;Stereotype&quot; Prefix=&quot;&amp;lt;&amp;lt;&quot; Suffix=&quot;&amp;gt;&amp;gt;&quot; Alignment=&quot;CNTR&quot; Caption=&quot;&quot; Mandatory=&quot;No&quot; /&gt;[CRLF] &lt;ExclusiveChoice Name=&quot;Choix exclusif&quot; Mandatory=&quot;Yes&quot; Display=&quot;HorizontalRadios&quot; &gt;[CRLF]  &lt;StandardAttribute Name=&quot;Nom&quot; Attribute=&quot;DisplayName&quot; Prefix=&quot;&quot; Suffix=&quot;&quot; Alignment=&quot;CNTR&quot; Caption=&quot;&quot; Mandatory=&quot;No&quot; /&gt;[CRLF]  &lt;StandardAttribute Name=&quot;Emplacement&quot; Attribute=&quot;LocationOrName&quot; Prefix=&quot;&quot; Suffix=&quot;&quot; Alignment=&quot;CNTR&quot; Caption=&quot;&quot; Mandatory=&quot;No&quot; /&gt;[CRLF] &lt;/ExclusiveChoice&gt;[CRLF] &lt;StandardAttribute Name=&quot;Icône&quot; Attribute=&quot;IconPicture&quot; Prefix=&quot;&quot; Suffix=&quot;&quot; Alignment=&quot;CNTR&quot; Caption=&quot;&quot; Mandatory=&quot;Yes&quot; /&gt;[CRLF]&lt;/Form&gt;
+Display Model Version=Yes
+
+[DisplayPreferences\Symbol]
+
+[DisplayPreferences\Symbol\FRMEOBJ]
+STRNFont=Arial,8,N
+STRNFont color=0, 0, 0
+DISPNAMEFont=Arial,8,N
+DISPNAMEFont color=0, 0, 0
+LABLFont=Arial,8,N
+LABLFont color=0, 0, 0
+AutoAdjustToText=Yes
+Keep aspect=No
+Keep center=No
+Keep size=No
+Width=6000
+Height=2000
+Brush color=255 255 255
+Fill Color=Yes
+Brush style=6
+Brush bitmap mode=12
+Brush gradient mode=64
+Brush gradient color=192 192 192
+Brush background image=
+Custom shape=
+Custom text mode=0
+Pen=1 0 255 128 128
+Shadow color=192 192 192
+Shadow=0
+
+[DisplayPreferences\Symbol\FRMELNK]
+CENTERFont=Arial,8,N
+CENTERFont color=0, 0, 0
+Line style=1
+AutoAdjustToText=Yes
+Keep aspect=No
+Keep center=No
+Keep size=No
+Brush color=255 255 255
+Fill Color=Yes
+Brush style=1
+Brush bitmap mode=12
+Brush gradient mode=0
+Brush gradient color=118 118 118
+Brush background image=
+Custom shape=
+Custom text mode=0
+Pen=1 0 128 128 255
+Shadow color=192 192 192
+Shadow=0
+
+[DisplayPreferences\Symbol\FILO]
+OBJSTRNFont=Arial,8,N
+OBJSTRNFont color=0, 0, 0
+DISPNAMEFont=Arial,8,N
+DISPNAMEFont color=0, 0, 0
+LCNMFont=Arial,8,N
+LCNMFont color=0, 0, 0
+AutoAdjustToText=Yes
+Keep aspect=No
+Keep center=No
+Keep size=No
+Width=4800
+Height=3600
+Brush color=255 255 255
+Fill Color=Yes
+Brush style=1
+Brush bitmap mode=12
+Brush gradient mode=0
+Brush gradient color=118 118 118
+Brush background image=
+Custom shape=
+Custom text mode=0
+Pen=1 0 0 0 255
+Shadow color=192 192 192
+Shadow=0</a:DisplayPreferences>
+<a:PaperSize>(11693, 8268)</a:PaperSize>
+<a:PageMargins>((354,433), (354,315))</a:PageMargins>
+<a:PageOrientation>2</a:PageOrientation>
+<a:PaperSource>15</a:PaperSource>
+<a:ColumnPreferences>NAME -1 TLID 90 HLNK -1 TTID -1 MDOC -1 AUSRS -1 UCOD -1 DESC -1 NOTE -1 HASNOTE -1 TMDL -1 RPLA -1 FDSC 480 TIDT -1 CODE 80 PRNT -1 DISPNAME -1 OBJTYPE -1 CDAT -1 CUSR -1 MDAT -1 MUSR -1 OMDAT -1 CLSSNAME -1 FLDR -1 SDSC -1 OLOC -1 PCKG -1 NOTETEXT -1 DESCTEXT -1 LABL -1 GENEORGN -1 STRN -1 MODL -1 COMP -1 MSTP -1 LEVL -1 PVDG -1 PRTY 80 WKLD 80 WKD2 -1 WKD3 -1 WKD4 -1 SELD -1 TYPE -1 RISK 80 VRFM -1 STTS 80</a:ColumnPreferences>
+</o:RequirementsDocumentView>
+<o:RequirementsDocumentView Id="o4">
+<a:ObjectID>B3B2C0DF-7F8A-4635-98D1-E3A66AC3F851</a:ObjectID>
+<a:Name>VueDocument_2</a:Name>
+<a:Code>VueDocument_2</a:Code>
+<a:CreationDate>1498476547</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1498476549</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:DisplayPreferences>[DisplayPreferences]
 
@@ -455,61 +598,52 @@ Shadow=0</a:DisplayPreferences>
 <o:RequirementsDocumentView Ref="o3"/>
 </c:DefaultDiagram>
 <c:Requirements>
-<o:Requirement Id="o4">
-<a:ObjectID>B7A850CF-7305-4876-A444-12EE687AEBB4</a:ObjectID>
-<a:Requirement.Title>Seul le Compte Formateur peux Creer des Comptes Stagiaire</a:Requirement.Title>
-<a:Code>EXG_0001</a:Code>
-<a:CreationDate>1496734479</a:CreationDate>
+<o:Requirement Id="o5">
+<a:ObjectID>BCBF0E15-DDB5-41DA-B6DE-B14043D96EF8</a:ObjectID>
+<a:Requirement.Title>Une auto-évaluation faite par le même stagiaire sur la même compétence le même jour  entraine une mise à jour de celle déjà réalisée.</a:Requirement.Title>
+<a:Code>EXG_0016</a:Code>
+<a:CreationDate>1497516572</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1496734607</a:ModificationDate>
+<a:ModificationDate>1500543838</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:Priority>0</a:Priority>
 <a:Status>0</a:Status>
 <a:Risk>0</a:Risk>
 <a:VerificationMethod/>
-<c:UserAllocations>
-<o:UserAllocation Id="o5">
-<a:ObjectID>B438CA39-9DDB-4C80-BD67-9D13184262E3</a:ObjectID>
-<a:CreationDate>1496737133</a:CreationDate>
+</o:Requirement>
+<o:Requirement Id="o6">
+<a:ObjectID>71D3007D-9BA8-4544-B0D1-5DFE163F7172</a:ObjectID>
+<a:Requirement.Title>Une auto-évaluation faite par le même stagiaire sur la même compétence le même jour  entraine une création de celle déjà réalisée.</a:Requirement.Title>
+<a:Code>EXG_0008</a:Code>
+<a:CreationDate>1500543498</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1496737133</a:ModificationDate>
+<a:ModificationDate>1500543849</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
-<c:AllocatedUser>
-<o:RequirementUser Ref="o6"/>
-</c:AllocatedUser>
-</o:UserAllocation>
-</c:UserAllocations>
+<a:Priority>0</a:Priority>
+<a:Status>0</a:Status>
+<a:Risk>0</a:Risk>
+<a:VerificationMethod/>
 </o:Requirement>
 <o:Requirement Id="o7">
-<a:ObjectID>96627465-A097-4959-AEB2-C7EFF72A482A</a:ObjectID>
-<a:Requirement.Title>Pas toute les informations du compte sont modifiable SEUL </a:Requirement.Title>
-<a:Code>EXG_0003</a:Code>
-<a:CreationDate>1496734547</a:CreationDate>
+<a:ObjectID>D7941AC2-0D40-4B93-9574-DFDB384C99CF</a:ObjectID>
+<a:Requirement.Title>Une auto-évaluation doit comprendre une compétence,un stagiaire, une date, un niveau d&#39;acquisition.</a:Requirement.Title>
+<a:Code>EXG_0017</a:Code>
+<a:CreationDate>1498476159</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497422234</a:ModificationDate>
+<a:ModificationDate>1500544930</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:Priority>0</a:Priority>
 <a:Status>0</a:Status>
 <a:Risk>0</a:Risk>
 <a:VerificationMethod/>
-<a:Description>{\rtf1\ansi\ansicpg1252\deff0{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\colortbl ;\red0\green0\blue128;}
-{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\cf1\b\f0\fs32\par
-mot de passe\par
-Num\&#39;e9ro telephone admini/forma\par
-Adresse\par
-Email * 2\par
-Humeur\par
-}
-</a:Description>
 </o:Requirement>
 <o:Requirement Id="o8">
-<a:ObjectID>929DF515-50D0-4C6F-AE43-9A7642DDD5FE</a:ObjectID>
-<a:Requirement.Title>Si un rendez-vous a était validé (pris en compte) il ne pouras plus etre modifié Ni supprimer par le stagiaire</a:Requirement.Title>
-<a:Code>EXG_0004</a:Code>
-<a:CreationDate>1496734732</a:CreationDate>
+<a:ObjectID>350D8788-C9DE-4B71-90B8-5DBA29068C24</a:ObjectID>
+<a:Requirement.Title>Une compétence doit obligatoirement comprendre un Module, une Séquence, un nom long et un nom court.</a:Requirement.Title>
+<a:Code>EXG_0018</a:Code>
+<a:CreationDate>1498476266</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497422457</a:ModificationDate>
+<a:ModificationDate>1500544936</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:Priority>0</a:Priority>
 <a:Status>0</a:Status>
@@ -517,12 +651,12 @@ Humeur\par
 <a:VerificationMethod/>
 </o:Requirement>
 <o:Requirement Id="o9">
-<a:ObjectID>7104FB89-28D0-4AA0-8A9D-7DAFDAF7F352</a:ObjectID>
-<a:Requirement.Title>L&#39;humeur est anonyme</a:Requirement.Title>
-<a:Code>EXG_0005</a:Code>
-<a:CreationDate>1496734798</a:CreationDate>
+<a:ObjectID>EB15E5D5-1AB1-4110-940D-16E6D137ECCD</a:ObjectID>
+<a:Requirement.Title>Une séquence doit obligatoirement comprendre un Module, un nom long et un nom court.</a:Requirement.Title>
+<a:Code>EXG_0019</a:Code>
+<a:CreationDate>1498476316</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1496735149</a:ModificationDate>
+<a:ModificationDate>1500544939</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:Priority>0</a:Priority>
 <a:Status>0</a:Status>
@@ -530,12 +664,12 @@ Humeur\par
 <a:VerificationMethod/>
 </o:Requirement>
 <o:Requirement Id="o10">
-<a:ObjectID>90050E46-463C-49D9-A02D-738CC6899037</a:ObjectID>
-<a:Requirement.Title>Login stagiaire auto generé grace a leur numéro OSIA</a:Requirement.Title>
-<a:Code>EXG_0007</a:Code>
-<a:CreationDate>1496735194</a:CreationDate>
+<a:ObjectID>30905AB8-AAD0-44A0-90F2-75D9D3E10CB0</a:ObjectID>
+<a:Requirement.Title>Un module doit obligatoirement comprendre un nom long, et un nom court.</a:Requirement.Title>
+<a:Code>EXG_0020</a:Code>
+<a:CreationDate>1498476339</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1496735659</a:ModificationDate>
+<a:ModificationDate>1500544942</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:Priority>0</a:Priority>
 <a:Status>0</a:Status>
@@ -543,12 +677,12 @@ Humeur\par
 <a:VerificationMethod/>
 </o:Requirement>
 <o:Requirement Id="o11">
-<a:ObjectID>EE90E63A-6C0D-4AC0-AB74-4F1C02B59471</a:ObjectID>
-<a:Requirement.Title>Login formateur est son numéro d&#39;agent</a:Requirement.Title>
-<a:Code>EXG_0008</a:Code>
-<a:CreationDate>1496752172</a:CreationDate>
+<a:ObjectID>7DB2BB9B-1FA7-410A-BCF0-5FFC2684EDE0</a:ObjectID>
+<a:Requirement.Title>Une compétence peut faire parti seulement que d&#39;une seul séquence</a:Requirement.Title>
+<a:Code>EXG_0021</a:Code>
+<a:CreationDate>1498476452</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1496752190</a:ModificationDate>
+<a:ModificationDate>1500545318</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:Priority>0</a:Priority>
 <a:Status>0</a:Status>
@@ -556,103 +690,12 @@ Humeur\par
 <a:VerificationMethod/>
 </o:Requirement>
 <o:Requirement Id="o12">
-<a:ObjectID>F832DD35-78BA-4A20-B578-73C782C0E9D0</a:ObjectID>
-<a:Requirement.Title>Il dois y avoir une validation des deux parties pour l&#39;edition des feuilles pedagogique individuelle</a:Requirement.Title>
-<a:Code>EXG_0009</a:Code>
-<a:CreationDate>1496752190</a:CreationDate>
+<a:ObjectID>B0A4AE6E-165C-4420-AA40-BEDE664A2AFE</a:ObjectID>
+<a:Requirement.Title>Une séquence peut faire parti seulement que d&#39;un module</a:Requirement.Title>
+<a:Code>EXG_0022</a:Code>
+<a:CreationDate>1498476473</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497421906</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Priority>0</a:Priority>
-<a:Status>0</a:Status>
-<a:Risk>0</a:Risk>
-<a:VerificationMethod/>
-</o:Requirement>
-<o:Requirement Id="o13">
-<a:ObjectID>BFF735D3-F3C6-496F-9FAF-044B5EFB358D</a:ObjectID>
-<a:Requirement.Title>Un compte formateur peux passez outre la validation des deux parties sur une feuille pedagogique individuelle mais il seras informer et cette action seras journalisée</a:Requirement.Title>
-<a:Code>EXG_0010</a:Code>
-<a:CreationDate>1496752248</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497421944</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Priority>0</a:Priority>
-<a:Status>0</a:Status>
-<a:Risk>0</a:Risk>
-<a:VerificationMethod/>
-</o:Requirement>
-<o:Requirement Id="o14">
-<a:ObjectID>407994F3-502E-4A85-8249-A89CB881DE31</a:ObjectID>
-<a:Requirement.Title>Le compte collaborateur possede les meme droit que le compte stagiaire, sauf changement de celui-ci par le formateur</a:Requirement.Title>
-<a:Code>EXG_0011</a:Code>
-<a:CreationDate>1497000368</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497422540</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Priority>0</a:Priority>
-<a:Status>0</a:Status>
-<a:Risk>0</a:Risk>
-<a:VerificationMethod/>
-</o:Requirement>
-<o:Requirement Id="o15">
-<a:ObjectID>2D481137-D4FE-442E-BB6A-E9BA0473D6EF</a:ObjectID>
-<a:Requirement.Title>Toute les suppression seront logique ET JAMAIS supprimer de la base même après X années pour probleme d&#39;archivage</a:Requirement.Title>
-<a:Code>EXG_0012</a:Code>
-<a:CreationDate>1497000381</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497000403</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Priority>0</a:Priority>
-<a:Status>0</a:Status>
-<a:Risk>0</a:Risk>
-<a:VerificationMethod/>
-</o:Requirement>
-<o:Requirement Id="o16">
-<a:ObjectID>B11CBBA4-58C1-45C6-B011-1BB5982176AA</a:ObjectID>
-<a:Requirement.Title>Pour utiliser les fonctionalité du site on dois etre connecté</a:Requirement.Title>
-<a:Code>EXG_0013</a:Code>
-<a:CreationDate>1497364392</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497421957</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Priority>0</a:Priority>
-<a:Status>0</a:Status>
-<a:Risk>0</a:Risk>
-<a:VerificationMethod/>
-</o:Requirement>
-<o:Requirement Id="o17">
-<a:ObjectID>A9FE64DC-019A-4B05-B036-D240542652A7</a:ObjectID>
-<a:Requirement.Title>Une seance fait obligatoirement parti d&#39;un module</a:Requirement.Title>
-<a:Code>EXG_0014</a:Code>
-<a:CreationDate>1497431134</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497431153</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Priority>0</a:Priority>
-<a:Status>0</a:Status>
-<a:Risk>0</a:Risk>
-<a:VerificationMethod/>
-</o:Requirement>
-<o:Requirement Id="o18">
-<a:ObjectID>F402A4F7-8A3E-4FEF-A4B9-23BB512CDA75</a:ObjectID>
-<a:Requirement.Title>une competence fait obligatoirement parti d&#39;une seance</a:Requirement.Title>
-<a:Code>EXG_0015</a:Code>
-<a:CreationDate>1497431153</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497431165</a:ModificationDate>
-<a:Modifier>Afpa</a:Modifier>
-<a:Priority>0</a:Priority>
-<a:Status>0</a:Status>
-<a:Risk>0</a:Risk>
-<a:VerificationMethod/>
-</o:Requirement>
-<o:Requirement Id="o19">
-<a:ObjectID>BCBF0E15-DDB5-41DA-B6DE-B14043D96EF8</a:ObjectID>
-<a:Requirement.Title>On garde la trace de toute les auto-evaluation realiser par le stagiaire</a:Requirement.Title>
-<a:Code>EXG_0016</a:Code>
-<a:CreationDate>1497516572</a:CreationDate>
-<a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1497516645</a:ModificationDate>
+<a:ModificationDate>1500545319</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:Priority>0</a:Priority>
 <a:Status>0</a:Status>
@@ -661,7 +704,7 @@ Humeur\par
 </o:Requirement>
 </c:Requirements>
 <c:Users>
-<o:RequirementUser Id="o6">
+<o:RequirementUser Id="o13">
 <a:ObjectID>AED0E7BE-95F8-4D2B-BC1E-896D311D0572</a:ObjectID>
 <a:Name>Formateur</a:Name>
 <a:Code>Formateur</a:Code>
@@ -670,7 +713,7 @@ Humeur\par
 <a:ModificationDate>1496735802</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 </o:RequirementUser>
-<o:RequirementUser Id="o20">
+<o:RequirementUser Id="o14">
 <a:ObjectID>5FC7DDF2-45C2-4D36-92E1-13D1505BD14C</a:ObjectID>
 <a:Name>Stagiaire</a:Name>
 <a:Code>Stagiaire</a:Code>
@@ -679,7 +722,7 @@ Humeur\par
 <a:ModificationDate>1496735813</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 </o:RequirementUser>
-<o:RequirementUser Id="o21">
+<o:RequirementUser Id="o15">
 <a:ObjectID>3D301501-C013-4C86-9BFA-E70C5040C954</a:ObjectID>
 <a:Name>Collaborateur</a:Name>
 <a:Code>Collaborateur</a:Code>
