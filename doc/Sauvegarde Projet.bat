@@ -6,21 +6,24 @@ REM @Description Programme qui sauvegarde le projet en cour dans un dossier date
 
 REM Couleur officiel des batch d'Aurélien Harlé
 	color 02
+	set /a jour = %date:~0,2%
+	set /a mois = %date:~3,2%
+	set /a annee = %date:~6,4%
 
 REM Vérification de la presence du projet a sauvegardé
 	if not exist "D:\Projet\Suivi Stagiaire" goto EOF
 	
 REM Creation d'une copie pour sauvegarde qui permet l'utilisation de la shadow copie integré a robocopy
-	robocopy "D:\Projet\Suivi Stagiaire" "E:\Save\Projet\%date:~0,2%-%date:~3,2%-%date:~6,4%" /MIR
+	robocopy "D:\Projet\Suivi Stagiaire" "E:\Save\Projet\%jour%-%mois%-%annee%" /MIR
 
 REM Creation ou update dans un fichier zip daté
-	if exist E:\Save\Projet\%date:~0,2%-%date:~3,2%-%date:~6,4%\%date:~0,2%-%date:~3,2%-%date:~6,4%.zip (
+	if exist E:\Save\Projet\%jour%-%mois%-%annee%\%jour%-%mois%-%annee%.zip (
 
-		7z u -tzip "E:\Save\Projet\%date:~0,2%-%date:~3,2%-%date:~6,4%\%date:~0,2%-%date:~3,2%-%date:~6,4%.zip" "E:\Save\Projet\%date:~0,2%-%date:~3,2%-%date:~6,4%"
+		7z u -tzip "E:\Save\Projet\%jour%-%mois%-%annee%\%jour%-%mois%-%annee%.zip" "E:\Save\Projet\%jour%-%mois%-%annee%"
 		
 	) else (
 
-		7z a -tzip "E:\Save\Projet\%date:~0,2%-%date:~3,2%-%date:~6,4%\%date:~0,2%-%date:~3,2%-%date:~6,4%.zip" "E:\Save\Projet\%date:~0,2%-%date:~3,2%-%date:~6,4%"
+		7z a -tzip "E:\Save\Projet\%jour%-%mois%-%annee%\%jour%-%mois%-%annee%.zip" "E:\Save\Projet\%jour%-%mois%-%annee%"
 		
 	)
 	
@@ -31,11 +34,11 @@ REM Creation ou update du fichier zip daté
 	:USB
 	if exist H:\Projet.zip (
 	
-		7z u -tzip "H:\Projet.zip" "E:\Save\Projet\%date:~0,2%-%date:~3,2%-%date:~6,4%"
+		7z u -tzip "H:\Projet.zip" "E:\Save\Projet\%jour%-%mois%-%annee%"
 		
 	) else ( 
 	
-		7z a -tzip "H:\Projet.zip" "E:\Save\Projet\%date:~0,2%-%date:~3,2%-%date:~6,4%"
+		7z a -tzip "H:\Projet.zip" "E:\Save\Projet\%jour%-%mois%-%annee%"
 	
 	)
 	
@@ -45,9 +48,9 @@ REM Fin de script
 	echo 
 	echo 
 	echo.
-	echo =======================
-	echo # Fin de la sauvegarde #
-	echo =======================
+	echo ===========================
+	echo #  Fin de la sauvegarde  #
+	echo ===========================
 	echo.
 	pause
 
