@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{80670689-C4C8-424B-A2E9-E992C41C7CC3}" Label="" LastModificationDate="1498477405" Name="ListeExigences" Objects="49" Symbols="0" Type="{DABA1E0A-0922-4B05-B7F0-B0BD7A73FD33}" signature="RQM_MODEL_XML" version="15.2.0.3042"?>
+<?PowerDesigner AppLocale="UTF16" ID="{80670689-C4C8-424B-A2E9-E992C41C7CC3}" Label="" LastModificationDate="1500545338" Name="ListeExigences" Objects="36" Symbols="0" Type="{DABA1E0A-0922-4B05-B7F0-B0BD7A73FD33}" signature="RQM_MODEL_XML" version="15.2.0.3042"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -12,7 +12,7 @@
 <a:Code>ListeExigences</a:Code>
 <a:CreationDate>1496734478</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1498476672</a:ModificationDate>
+<a:ModificationDate>1500543557</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:PackageOptionsText>[FolderOptions]
 
@@ -314,7 +314,7 @@ ConvTablePath=%_HOME%\Fichiers de ressources\Tables de conversion</a:ModelOption
 <a:Code>ListeExigences</a:Code>
 <a:CreationDate>1496734478</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1496735993</a:ModificationDate>
+<a:ModificationDate>1500543654</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:DisplayPreferences>[DisplayPreferences]
 
@@ -449,6 +449,7 @@ Shadow=0</a:DisplayPreferences>
 <a:PageMargins>((354,433), (354,315))</a:PageMargins>
 <a:PageOrientation>2</a:PageOrientation>
 <a:PaperSource>15</a:PaperSource>
+<a:ColumnPreferences>NAME -1 TLID 90 HLNK -1 TTID -1 MDOC -1 AUSRS -1 UCOD -1 DESC -1 NOTE -1 HASNOTE -1 TMDL -1 RPLA -1 FDSC 480 TIDT -1 CODE 80 PRNT -1 DISPNAME -1 OBJTYPE -1 CDAT -1 CUSR -1 MDAT -1 MUSR -1 OMDAT -1 CLSSNAME -1 FLDR -1 SDSC -1 OLOC -1 PCKG -1 NOTETEXT -1 DESCTEXT -1 LABL -1 GENEORGN -1 STRN -1 MODL -1 COMP -1 MSTP -1 LEVL -1 PVDG -1 PRTY 80 WKLD 80 WKD2 -1 WKD3 -1 WKD4 -1 SELD -1 TYPE -1 RISK 80 VRFM -1 STTS 80</a:ColumnPreferences>
 </o:RequirementsDocumentView>
 <o:RequirementsDocumentView Id="o4">
 <a:ObjectID>B3B2C0DF-7F8A-4635-98D1-E3A66AC3F851</a:ObjectID>
@@ -599,11 +600,11 @@ Shadow=0</a:DisplayPreferences>
 <c:Requirements>
 <o:Requirement Id="o5">
 <a:ObjectID>BCBF0E15-DDB5-41DA-B6DE-B14043D96EF8</a:ObjectID>
-<a:Requirement.Title>Une seul auto-evaluation peux etre creer un par jour par stagiaire/competence, sinon elle sera mis a jour.</a:Requirement.Title>
+<a:Requirement.Title>Une auto-évaluation faite par le même stagiaire sur la même compétence le même jour  entraine une mise à jour de celle déjà réalisée.</a:Requirement.Title>
 <a:Code>EXG_0016</a:Code>
 <a:CreationDate>1497516572</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1498476718</a:ModificationDate>
+<a:ModificationDate>1500543838</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:Priority>0</a:Priority>
 <a:Status>0</a:Status>
@@ -611,12 +612,12 @@ Shadow=0</a:DisplayPreferences>
 <a:VerificationMethod/>
 </o:Requirement>
 <o:Requirement Id="o6">
-<a:ObjectID>D7941AC2-0D40-4B93-9574-DFDB384C99CF</a:ObjectID>
-<a:Requirement.Title>Une auto-evaluation dois comprendre une competence,un stagiaire, une date, un niveau d&#39;acquisition, </a:Requirement.Title>
-<a:Code>EXG_0017</a:Code>
-<a:CreationDate>1498476159</a:CreationDate>
+<a:ObjectID>71D3007D-9BA8-4544-B0D1-5DFE163F7172</a:ObjectID>
+<a:Requirement.Title>Une auto-évaluation faite par le même stagiaire sur la même compétence le même jour  entraine une création de celle déjà réalisée.</a:Requirement.Title>
+<a:Code>EXG_0008</a:Code>
+<a:CreationDate>1500543498</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1498477405</a:ModificationDate>
+<a:ModificationDate>1500543849</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:Priority>0</a:Priority>
 <a:Status>0</a:Status>
@@ -624,12 +625,12 @@ Shadow=0</a:DisplayPreferences>
 <a:VerificationMethod/>
 </o:Requirement>
 <o:Requirement Id="o7">
-<a:ObjectID>350D8788-C9DE-4B71-90B8-5DBA29068C24</a:ObjectID>
-<a:Requirement.Title>Une competence dois obligatoirement comprendre un Module, une Sequence, un nom long et un nom court, si le nom court n&#39;est pas renseigné le nom long sera utiliser.</a:Requirement.Title>
-<a:Code>EXG_0018</a:Code>
-<a:CreationDate>1498476266</a:CreationDate>
+<a:ObjectID>D7941AC2-0D40-4B93-9574-DFDB384C99CF</a:ObjectID>
+<a:Requirement.Title>Une auto-évaluation doit comprendre une compétence,un stagiaire, une date, un niveau d&#39;acquisition.</a:Requirement.Title>
+<a:Code>EXG_0017</a:Code>
+<a:CreationDate>1498476159</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1498476421</a:ModificationDate>
+<a:ModificationDate>1500544930</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:Priority>0</a:Priority>
 <a:Status>0</a:Status>
@@ -637,12 +638,12 @@ Shadow=0</a:DisplayPreferences>
 <a:VerificationMethod/>
 </o:Requirement>
 <o:Requirement Id="o8">
-<a:ObjectID>EB15E5D5-1AB1-4110-940D-16E6D137ECCD</a:ObjectID>
-<a:Requirement.Title>Une sequence dois obligatoirement comprendre un Module, un nom long et un nom court, si le nom court n&#39;est pas renseigné le nom long sera utiliser pour celui ci.</a:Requirement.Title>
-<a:Code>EXG_0019</a:Code>
-<a:CreationDate>1498476316</a:CreationDate>
+<a:ObjectID>350D8788-C9DE-4B71-90B8-5DBA29068C24</a:ObjectID>
+<a:Requirement.Title>Une compétence doit obligatoirement comprendre un Module, une Séquence, un nom long et un nom court.</a:Requirement.Title>
+<a:Code>EXG_0018</a:Code>
+<a:CreationDate>1498476266</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1498476427</a:ModificationDate>
+<a:ModificationDate>1500544936</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:Priority>0</a:Priority>
 <a:Status>0</a:Status>
@@ -650,12 +651,12 @@ Shadow=0</a:DisplayPreferences>
 <a:VerificationMethod/>
 </o:Requirement>
 <o:Requirement Id="o9">
-<a:ObjectID>30905AB8-AAD0-44A0-90F2-75D9D3E10CB0</a:ObjectID>
-<a:Requirement.Title>Un module dois obligatoirement comprendre un nom long, et un nom court, si le nom court n&#39;est pas renseigné le nom long sera utiliser pour celui ci.</a:Requirement.Title>
-<a:Code>EXG_0020</a:Code>
-<a:CreationDate>1498476339</a:CreationDate>
+<a:ObjectID>EB15E5D5-1AB1-4110-940D-16E6D137ECCD</a:ObjectID>
+<a:Requirement.Title>Une séquence doit obligatoirement comprendre un Module, un nom long et un nom court.</a:Requirement.Title>
+<a:Code>EXG_0019</a:Code>
+<a:CreationDate>1498476316</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1498476452</a:ModificationDate>
+<a:ModificationDate>1500544939</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:Priority>0</a:Priority>
 <a:Status>0</a:Status>
@@ -663,12 +664,12 @@ Shadow=0</a:DisplayPreferences>
 <a:VerificationMethod/>
 </o:Requirement>
 <o:Requirement Id="o10">
-<a:ObjectID>7DB2BB9B-1FA7-410A-BCF0-5FFC2684EDE0</a:ObjectID>
-<a:Requirement.Title>Une competence peux faire parti seulement que d&#39;une seul sequence</a:Requirement.Title>
-<a:Code>EXG_0021</a:Code>
-<a:CreationDate>1498476452</a:CreationDate>
+<a:ObjectID>30905AB8-AAD0-44A0-90F2-75D9D3E10CB0</a:ObjectID>
+<a:Requirement.Title>Un module doit obligatoirement comprendre un nom long, et un nom court.</a:Requirement.Title>
+<a:Code>EXG_0020</a:Code>
+<a:CreationDate>1498476339</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1498476473</a:ModificationDate>
+<a:ModificationDate>1500544942</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:Priority>0</a:Priority>
 <a:Status>0</a:Status>
@@ -676,12 +677,25 @@ Shadow=0</a:DisplayPreferences>
 <a:VerificationMethod/>
 </o:Requirement>
 <o:Requirement Id="o11">
+<a:ObjectID>7DB2BB9B-1FA7-410A-BCF0-5FFC2684EDE0</a:ObjectID>
+<a:Requirement.Title>Une compétence peut faire parti seulement que d&#39;une seule séquence</a:Requirement.Title>
+<a:Code>EXG_0021</a:Code>
+<a:CreationDate>1498476452</a:CreationDate>
+<a:Creator>Afpa</a:Creator>
+<a:ModificationDate>1500545332</a:ModificationDate>
+<a:Modifier>Afpa</a:Modifier>
+<a:Priority>0</a:Priority>
+<a:Status>0</a:Status>
+<a:Risk>0</a:Risk>
+<a:VerificationMethod/>
+</o:Requirement>
+<o:Requirement Id="o12">
 <a:ObjectID>B0A4AE6E-165C-4420-AA40-BEDE664A2AFE</a:ObjectID>
-<a:Requirement.Title>Une sequence peux faire parti seulement que d&#39;un module</a:Requirement.Title>
+<a:Requirement.Title>Une séquence peut faire parti seulement que d&#39;un seul module</a:Requirement.Title>
 <a:Code>EXG_0022</a:Code>
 <a:CreationDate>1498476473</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1498476492</a:ModificationDate>
+<a:ModificationDate>1500545338</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:Priority>0</a:Priority>
 <a:Status>0</a:Status>
@@ -690,7 +704,7 @@ Shadow=0</a:DisplayPreferences>
 </o:Requirement>
 </c:Requirements>
 <c:Users>
-<o:RequirementUser Id="o12">
+<o:RequirementUser Id="o13">
 <a:ObjectID>AED0E7BE-95F8-4D2B-BC1E-896D311D0572</a:ObjectID>
 <a:Name>Formateur</a:Name>
 <a:Code>Formateur</a:Code>
@@ -699,7 +713,7 @@ Shadow=0</a:DisplayPreferences>
 <a:ModificationDate>1496735802</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 </o:RequirementUser>
-<o:RequirementUser Id="o13">
+<o:RequirementUser Id="o14">
 <a:ObjectID>5FC7DDF2-45C2-4D36-92E1-13D1505BD14C</a:ObjectID>
 <a:Name>Stagiaire</a:Name>
 <a:Code>Stagiaire</a:Code>
@@ -708,7 +722,7 @@ Shadow=0</a:DisplayPreferences>
 <a:ModificationDate>1496735813</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 </o:RequirementUser>
-<o:RequirementUser Id="o14">
+<o:RequirementUser Id="o15">
 <a:ObjectID>3D301501-C013-4C86-9BFA-E70C5040C954</a:ObjectID>
 <a:Name>Collaborateur</a:Name>
 <a:Code>Collaborateur</a:Code>
