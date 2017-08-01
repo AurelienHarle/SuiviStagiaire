@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{E7A37D6B-01F2-4A91-B2C4-717B606CF01A}" Label="" LastModificationDate="1500967122" Name="Schema Technique" Objects="47" Symbols="30" Type="{A3D646C2-7F72-4197-8A31-32275EB456B4}" signature="FRM_MODEL_XML" version="15.2.0.3042"?>
+<?PowerDesigner AppLocale="UTF16" ID="{E7A37D6B-01F2-4A91-B2C4-717B606CF01A}" Label="" LastModificationDate="1501070463" Name="Schema Technique" Objects="46" Symbols="29" Type="{A3D646C2-7F72-4197-8A31-32275EB456B4}" signature="FRM_MODEL_XML" version="15.2.0.3042"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -178,11 +178,11 @@ ConvTablePath=%_HOME%\Fichiers de ressources\Tables de conversion</a:ModelOption
 <a:Version>1</a:Version>
 <c:PictureFiles>
 <o:PictureFile Id="o3">
-<a:ObjectID>DFFCD3C3-0AA6-4861-B737-0F06F187CDEB</a:ObjectID>
+<a:ObjectID>E738F9A7-94FD-476A-B5BB-5EE500595BD2</a:ObjectID>
 <a:Name>Base de données Oracle</a:Name>
-<a:CreationDate>1500962443</a:CreationDate>
+<a:CreationDate>1501070083</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1500962443</a:ModificationDate>
+<a:ModificationDate>1501070083</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:PictureID>116267EE-4C47-4E63-8087-595BF8EDFBE4</a:PictureID>
 <a:PictureType>3</a:PictureType>
@@ -1566,7 +1566,7 @@ DE4CCA7781DFA5B72D75520330F72FB4CCA1B4A641741D29C6BBD4A5B70CA561
 <a:Code>Schema_Technique</a:Code>
 <a:CreationDate>1500889849</a:CreationDate>
 <a:Creator>Afpa</a:Creator>
-<a:ModificationDate>1500967122</a:ModificationDate>
+<a:ModificationDate>1501070463</a:ModificationDate>
 <a:Modifier>Afpa</a:Modifier>
 <a:DisplayPreferences>[DisplayPreferences]
 
@@ -1769,10 +1769,10 @@ Custom text mode=0
 Pen=1 0 0 0 255
 Shadow color=192 192 192
 Shadow=0</a:DisplayPreferences>
-<a:PaperSize>(8268, 11693)</a:PaperSize>
-<a:PageMargins>((315,354), (433,354))</a:PageMargins>
-<a:Scale>27</a:Scale>
-<a:PageOrientation>1</a:PageOrientation>
+<a:PaperSize>(11693, 8268)</a:PaperSize>
+<a:PageMargins>((354,433), (354,315))</a:PageMargins>
+<a:Scale>41</a:Scale>
+<a:PageOrientation>2</a:PageOrientation>
 <a:PaperSource>15</a:PaperSource>
 <c:Symbols>
 <o:RectangleSymbol Id="o5">
@@ -1815,7 +1815,7 @@ Shadow=0</a:DisplayPreferences>
 <a:CreationDate>1500891030</a:CreationDate>
 <a:ModificationDate>1500967121</a:ModificationDate>
 <a:CenterText>1. Requette</a:CenterText>
-<a:Rect>((-82749,-10246), (-66158,-8774))</a:Rect>
+<a:Rect>((-82749,-10246), (-66158,-8873))</a:Rect>
 <a:ListOfPoints>((-82749,-10021),(-66158,-10021))</a:ListOfPoints>
 <a:TextStyle>0</a:TextStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
@@ -1833,7 +1833,7 @@ Shadow=0</a:DisplayPreferences>
 <a:CreationDate>1500891097</a:CreationDate>
 <a:ModificationDate>1500967121</a:ModificationDate>
 <a:CenterText>9. Retourne le modele remplie</a:CenterText>
-<a:Rect>((-82338,-20825), (-65747,-19353))</a:Rect>
+<a:Rect>((-82338,-20825), (-65747,-19452))</a:Rect>
 <a:ListOfPoints>((-65747,-20600),(-82338,-20600))</a:ListOfPoints>
 <a:TextStyle>0</a:TextStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
@@ -1852,7 +1852,7 @@ Shadow=0</a:DisplayPreferences>
 <a:ModificationDate>1500967121</a:ModificationDate>
 <a:CenterTextOffset>(-544, 1543)</a:CenterTextOffset>
 <a:CenterText>2. Redirigie vers application</a:CenterText>
-<a:Rect>((-66296,-10361), (-45652,-8673))</a:Rect>
+<a:Rect>((-66296,-10361), (-45652,-8572))</a:Rect>
 <a:ListOfPoints>((-66296,-10208),(-45652,-10057))</a:ListOfPoints>
 <a:TextStyle>0</a:TextStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
@@ -1870,7 +1870,7 @@ Shadow=0</a:DisplayPreferences>
 <a:CreationDate>1500897814</a:CreationDate>
 <a:ModificationDate>1500967121</a:ModificationDate>
 <a:CenterText>3. Redirige vers facade service</a:CenterText>
-<a:Rect>((-45651,-10035), (-21806,-8563))</a:Rect>
+<a:Rect>((-45651,-10035), (-21806,-8662))</a:Rect>
 <a:ListOfPoints>((-45651,-9810),(-21806,-9810))</a:ListOfPoints>
 <a:TextStyle>0</a:TextStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
@@ -1888,7 +1888,7 @@ Shadow=0</a:DisplayPreferences>
 <a:CreationDate>1500897814</a:CreationDate>
 <a:ModificationDate>1500967121</a:ModificationDate>
 <a:CenterText>4. Redirige facade dao</a:CenterText>
-<a:Rect>((-21806,-10035), (-374,-8563))</a:Rect>
+<a:Rect>((-21806,-10035), (-374,-8662))</a:Rect>
 <a:ListOfPoints>((-21806,-9810),(-374,-9810))</a:ListOfPoints>
 <a:TextStyle>0</a:TextStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
@@ -1906,7 +1906,7 @@ Shadow=0</a:DisplayPreferences>
 <a:CreationDate>1500897823</a:CreationDate>
 <a:ModificationDate>1500967121</a:ModificationDate>
 <a:CenterText>5. Redirige vers la dao</a:CenterText>
-<a:Rect>((-374,-10035), (20955,-8563))</a:Rect>
+<a:Rect>((-374,-10035), (20955,-8662))</a:Rect>
 <a:ListOfPoints>((-374,-9810),(20955,-9810))</a:ListOfPoints>
 <a:TextStyle>0</a:TextStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
@@ -1924,7 +1924,7 @@ Shadow=0</a:DisplayPreferences>
 <a:CreationDate>1500897841</a:CreationDate>
 <a:ModificationDate>1500967121</a:ModificationDate>
 <a:CenterText>6. Requette l&#39;ORM</a:CenterText>
-<a:Rect>((20955,-10113), (41883,-8641))</a:Rect>
+<a:Rect>((20955,-10113), (41883,-8740))</a:Rect>
 <a:ListOfPoints>((20955,-9888),(41883,-9888))</a:ListOfPoints>
 <a:TextStyle>0</a:TextStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
@@ -1942,7 +1942,7 @@ Shadow=0</a:DisplayPreferences>
 <a:CreationDate>1500897844</a:CreationDate>
 <a:ModificationDate>1500967121</a:ModificationDate>
 <a:CenterText>7. Requette le middleware</a:CenterText>
-<a:Rect>((41883,-10187), (61492,-8715))</a:Rect>
+<a:Rect>((41883,-10187), (61492,-8815))</a:Rect>
 <a:ListOfPoints>((41883,-9962),(61492,-9962))</a:ListOfPoints>
 <a:TextStyle>0</a:TextStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
@@ -1961,7 +1961,7 @@ Shadow=0</a:DisplayPreferences>
 <a:ModificationDate>1500967121</a:ModificationDate>
 <a:CenterTextOffset>(74, 1189)</a:CenterTextOffset>
 <a:CenterText>8. Requette la base de données</a:CenterText>
-<a:Rect>((61492,-10189), (82404,-7574))</a:Rect>
+<a:Rect>((61492,-10189), (82404,-8694))</a:Rect>
 <a:ListOfPoints>((61492,-9962),(82404,-9962))</a:ListOfPoints>
 <a:TextStyle>0</a:TextStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
@@ -1979,7 +1979,7 @@ Shadow=0</a:DisplayPreferences>
 <a:CreationDate>1500897924</a:CreationDate>
 <a:ModificationDate>1500967121</a:ModificationDate>
 <a:CenterText>8. Remplie le modele</a:CenterText>
-<a:Rect>((-63902,-19284), (-42381,-17812))</a:Rect>
+<a:Rect>((-63902,-19284), (-42381,-17911))</a:Rect>
 <a:ListOfPoints>((-63902,-19059),(-42381,-19059))</a:ListOfPoints>
 <a:TextStyle>0</a:TextStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
@@ -1997,7 +1997,7 @@ Shadow=0</a:DisplayPreferences>
 <a:Text>Version: 1</a:Text>
 <a:CreationDate>1500889924</a:CreationDate>
 <a:ModificationDate>1500967121</a:ModificationDate>
-<a:Rect>((-88420,18645), (-73121,25389))</a:Rect>
+<a:Rect>((-88420,18645), (-73121,25388))</a:Rect>
 <a:TextStyle>4130</a:TextStyle>
 <a:LineColor>16711680</a:LineColor>
 <a:FillColor>16777215</a:FillColor>
@@ -2210,17 +2210,6 @@ Java</a:Text>
 <a:CustomPictureID>116267EE-4C47-4E63-8087-595BF8EDFBE4</a:CustomPictureID>
 <a:KeepAspect>1</a:KeepAspect>
 </o:RectangleSymbol>
-<o:RectangleSymbol Id="o32">
-<a:CreationDate>1500967122</a:CreationDate>
-<a:ModificationDate>1500967122</a:ModificationDate>
-<a:Rect>((147883,-50192), (148268,-50192))</a:Rect>
-<a:TextStyle>4130</a:TextStyle>
-<a:AutoAdjustToText>0</a:AutoAdjustToText>
-<a:LineColor>16711680</a:LineColor>
-<a:FillColor>16777215</a:FillColor>
-<a:ShadowColor>12632256</a:ShadowColor>
-<a:FontName>Arial,8,N</a:FontName>
-</o:RectangleSymbol>
 <o:ExtendedObjectSymbol Id="o23">
 <a:CreationDate>1500897831</a:CreationDate>
 <a:ModificationDate>1500967121</a:ModificationDate>
@@ -2236,10 +2225,10 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>64</a:GradientFillMode>
 <a:GradientEndColor>12632256</a:GradientEndColor>
 <c:Object>
-<o:ExtendedObject Ref="o33"/>
+<o:ExtendedObject Ref="o32"/>
 </c:Object>
 </o:ExtendedObjectSymbol>
-<o:RectangleSymbol Id="o34">
+<o:RectangleSymbol Id="o33">
 <a:Text>Serveur base de données - Oracle XE</a:Text>
 <a:CreationDate>1500904515</a:CreationDate>
 <a:ModificationDate>1500967121</a:ModificationDate>
@@ -2259,7 +2248,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:FreeDiagram Ref="o4"/>
 </c:DefaultDiagram>
 <c:ExtendedObjects>
-<o:ExtendedObject Id="o33">
+<o:ExtendedObject Id="o32">
 <a:ObjectID>760C575F-A202-497F-BB1F-4D2AAF4F747C</a:ObjectID>
 <a:Name>middleware JDBC</a:Name>
 <a:Code>middleware_JDBC</a:Code>
