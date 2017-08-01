@@ -13,17 +13,17 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import autoEvaluation.entity.AutoEvaluation;
-import competence.entity.Competence;
-import exception.DateNullException;
-import exception.DoublonException;
-import exception.NullException;
-import exception.UnfoundException;
-import facade.FacadeSuiviStagiaireRemote;
-import module.entity.Module;
-import niveauAcquisition.entity.NiveauAcquisition;
-import sequence.entity.Sequence;
-import stagiaire.entity.Stagiaire;
+import fr.suiviStagiaire.exception.DateNullException;
+import fr.suiviStagiaire.exception.DoublonException;
+import fr.suiviStagiaire.exception.NullException;
+import fr.suiviStagiaire.exception.UnfoundException;
+import fr.suiviStagiaire.facade.FacadeSuiviStagiaireRemote;
+import fr.suiviStagiaire.formation.autoEvaluation.entity.AutoEvaluation;
+import fr.suiviStagiaire.formation.autoEvaluation.niveauAcquisition.entity.NiveauAcquisition;
+import fr.suiviStagiaire.formation.contenu.competence.entity.Competence;
+import fr.suiviStagiaire.formation.contenu.module.entity.Module;
+import fr.suiviStagiaire.formation.contenu.sequence.entity.Sequence;
+import fr.suiviStagiaire.stagiaire.entity.Stagiaire;
 
 /**
  * Test de la {@link Class} {@link GetDao}
@@ -52,11 +52,11 @@ public class TestAutoEvaluationInsertDoublonDao {
 	private AutoEvaluation autoEvaluationBDD;
 
 	@BeforeClass
-	public static void init() throws NamingException, DoublonException, NullException, DateNullException{
+	public static void init() throws NamingException{
 
 		//Initialisation du context
 		context = new InitialContext();
-		facadeSuiviStagiaireRemote = (FacadeSuiviStagiaireRemote) context.lookup("ejb:/server-SuiviStagiaire/FacadeSuiviStagiaire!facade.FacadeSuiviStagiaireRemote");
+		facadeSuiviStagiaireRemote = (FacadeSuiviStagiaireRemote) context.lookup("ejb:/server-SuiviStagiaire/FacadeSuiviStagiaire!fr.suiviStagiaire.facade.FacadeSuiviStagiaireRemote");
 
 		//Creation des données utile pour testInsertAutoEvaluationNull()
 		autoEvaluation = null;
@@ -64,23 +64,63 @@ public class TestAutoEvaluationInsertDoublonDao {
 		//Creation et insertion des données utile pour testInsertAutoEvaluationProprieteNull()		
 
 		module = new Module("M5","Développer une application en couches","Dév une app N-tiers");
-		facadeSuiviStagiaireRemote.insertModule(module);
+		try {
+			facadeSuiviStagiaireRemote.insertModule(module);
+		} catch (DoublonException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NullException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 
 		sequence = new Sequence("S4",module,"Préparer et exécuter les plans de tests d’une application et préparer et exécuter le déploiement d’une application",
 				"Prépa & exec plans de tests d'une app et du deploie d'une app");
-		facadeSuiviStagiaireRemote.insertSequence(sequence);
+		try {
+			facadeSuiviStagiaireRemote.insertSequence(sequence);
+		} catch (DoublonException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NullException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 
 		competence = new Competence("C2",sequence,"Préparer et exécuter les plans de tests","Prépa & exec plan de tests");
-		facadeSuiviStagiaireRemote.insertCompetence(competence);
+		try {
+			facadeSuiviStagiaireRemote.insertCompetence(competence);
+		} catch (DoublonException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NullException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 
 		niveauAcquisition = new NiveauAcquisition("2","AC");
-		facadeSuiviStagiaireRemote.insertNiveauAcquisition(niveauAcquisition);
+		try {
+			facadeSuiviStagiaireRemote.insertNiveauAcquisition(niveauAcquisition);
+		} catch (DoublonException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NullException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		stagiaire = new Stagiaire("13111384","Password","Harlé","Aurélien",null,null,null,null,null,null);
-		facadeSuiviStagiaireRemote.insertStagiaire(stagiaire);
+		try {
+			facadeSuiviStagiaireRemote.insertStagiaire(stagiaire);
+		} catch (DoublonException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NullException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		date = LocalDate.now();
 
@@ -91,13 +131,21 @@ public class TestAutoEvaluationInsertDoublonDao {
 
 		//Creation d'une auto-evaluation inséré et une pour test		
 		autoEvaluation = new AutoEvaluation(competence,niveauAcquisition, stagiaire, date, null);
-		facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation);
+		try {
+			facadeSuiviStagiaireRemote.insertAutoEvaluation(autoEvaluation);
+		} catch (NullException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (DateNullException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		autoEvaluationDoublon = new AutoEvaluation(competence,niveauAcquisition, stagiaire, date, "Updated");
 
 	}
 
-	//@AfterClass
+	@AfterClass
 	public static void finalizeur(){
 
 		facadeSuiviStagiaireRemote.deleteCompetence(competence);

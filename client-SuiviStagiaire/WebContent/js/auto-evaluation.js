@@ -258,41 +258,51 @@ function validationSuppression() {
 }
 
 /**
+ * Fonction qui creer une requette ajax si un module ou une sequence est selectionner afin de mettre a jour les sequence ou competence lié a la selection
  * 
- * @returns
+ * @Param element Formulaire de recherche
  */
 function ajaxRecherche(element) {
 
+	//Récupere tout les elements options du formulaire
 	var options = element.getElementsByTagName('option');
 
+	//Controle celui qui est selectionné
 	for (var i = 0; i < options.length; i++) {
 		if (options[i].selected) {
 			option = options[i];
 			break;
 		}
 	}
-
+	
+	//Controle si c'est le boutton reset qui a apeller la fonction
 	if (element.tagName == "BUTTON") {
-
+		
+		//Si c'est le bouton reset on creer une requete qui demande de retourné tout les module/sequence/competence
 		var request = new Object();
 		request.all = new Object();
 		var jsonData = JSON.stringify(request);
 
 	} else if (element.value != "-1") {
-
+		//Si ce n'est pas le titre de l'option on recupere l'identifiant de l'option selectionné
 		var identifiants = option.value.split(',');
 
 		switch (identifiants.length) {
+		
+		//Si l'identifiant a une longueur de 1 on sais que c'est un module
 		case 1:
-
+		
+			//Creation et stringyfication du module en objet JSon
 			var module = new Object();
 			module.identifiant = identifiants[0];
 			var jsonData = JSON.stringify(module);
 
 			break;
-
+			
+		//Si l'identifiant a une longueur de 2 on sais que c'est une sequence
 		case 2:
 
+			//Creation et stringyfication de la sequence en objet JSon
 			var sequence = new Object();
 			sequence.module = new Object();
 			sequence.identifiant = identifiants[1];
@@ -309,7 +319,8 @@ function ajaxRecherche(element) {
 	if (jsonData != null) {
 
 		url = "../ajax/ajax-recherche";
-
+		
+		//Requete ajax
 		$.ajax({
 
 			url : url,

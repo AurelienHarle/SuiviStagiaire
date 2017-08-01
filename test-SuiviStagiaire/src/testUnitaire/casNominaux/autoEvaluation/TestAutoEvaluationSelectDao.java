@@ -14,17 +14,17 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import autoEvaluation.entity.AutoEvaluation;
-import competence.entity.Competence;
-import exception.DateNullException;
-import exception.DoublonException;
-import exception.NullException;
-import exception.UnfoundException;
-import facade.FacadeSuiviStagiaireRemote;
-import module.entity.Module;
-import niveauAcquisition.entity.NiveauAcquisition;
-import sequence.entity.Sequence;
-import stagiaire.entity.Stagiaire;
+import fr.suiviStagiaire.exception.DateNullException;
+import fr.suiviStagiaire.exception.DoublonException;
+import fr.suiviStagiaire.exception.NullException;
+import fr.suiviStagiaire.exception.UnfoundException;
+import fr.suiviStagiaire.facade.FacadeSuiviStagiaireRemote;
+import fr.suiviStagiaire.formation.autoEvaluation.entity.AutoEvaluation;
+import fr.suiviStagiaire.formation.autoEvaluation.niveauAcquisition.entity.NiveauAcquisition;
+import fr.suiviStagiaire.formation.contenu.competence.entity.Competence;
+import fr.suiviStagiaire.formation.contenu.module.entity.Module;
+import fr.suiviStagiaire.formation.contenu.sequence.entity.Sequence;
+import fr.suiviStagiaire.stagiaire.entity.Stagiaire;
 
 /**
  * Test de la {@link Class} {@link GetDao}
@@ -52,7 +52,7 @@ public class TestAutoEvaluationSelectDao {
 		
 		//Initialisation du context
 		context = new InitialContext();
-		facadeSuiviStagiaireRemote = (FacadeSuiviStagiaireRemote) context.lookup("ejb:/server-SuiviStagiaire/FacadeSuiviStagiaire!facade.FacadeSuiviStagiaireRemote");
+		facadeSuiviStagiaireRemote = (FacadeSuiviStagiaireRemote) context.lookup("ejb:/server-SuiviStagiaire/FacadeSuiviStagiaire!fr.suiviStagiaire.facade.FacadeSuiviStagiaireRemote");
 		
 		//Module pour testSelectModule()
 		moduleInsert = new Module("M1","Test","Test");

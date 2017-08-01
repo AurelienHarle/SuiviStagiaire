@@ -5,17 +5,17 @@ import java.time.format.DateTimeFormatter;
 
 import javax.naming.InitialContext;
 
-import autoEvaluation.entity.AutoEvaluation;
-import autoEvaluation.technique.AutoEvaluations;
-import competence.entity.Competence;
-import exception.DateNullException;
-import exception.NullException;
-import exception.UnfoundException;
-import facade.FacadeSuiviStagiaireRemote;
-import module.entity.Module;
-import niveauAcquisition.entity.NiveauAcquisition;
-import sequence.entity.Sequence;
-import stagiaire.entity.Stagiaire;
+import fr.suiviStagiaire.exception.DateNullException;
+import fr.suiviStagiaire.exception.NullException;
+import fr.suiviStagiaire.exception.UnfoundException;
+import fr.suiviStagiaire.facade.FacadeSuiviStagiaireRemote;
+import fr.suiviStagiaire.formation.autoEvaluation.entity.AutoEvaluation;
+import fr.suiviStagiaire.formation.autoEvaluation.niveauAcquisition.entity.NiveauAcquisition;
+import fr.suiviStagiaire.formation.autoEvaluation.technique.AutoEvaluations;
+import fr.suiviStagiaire.formation.contenu.competence.entity.Competence;
+import fr.suiviStagiaire.formation.contenu.module.entity.Module;
+import fr.suiviStagiaire.formation.contenu.sequence.entity.Sequence;
+import fr.suiviStagiaire.stagiaire.entity.Stagiaire;
 
 /**
  * Classe qui permet de réalisé des action concernant l' {@link AutoEvaluation}.
@@ -30,7 +30,7 @@ public class Action extends ApplicationSupport {
 	private static final long serialVersionUID = 1L;
 	private InitialContext context;
 	private FacadeSuiviStagiaireRemote facadeSuiviStagiaireRemote;
-	private static final String FACADE = "ejb:/server-SuiviStagiaire/FacadeSuiviStagiaire!facade.FacadeSuiviStagiaireRemote";
+	private static final String FACADE = "ejb:/server-SuiviStagiaire/FacadeSuiviStagiaire!fr.suiviStagiaire.facade.FacadeSuiviStagiaireRemote";
 	private static final String CREER = "creer";
 	private static final String MODIFIER = "modifier";
 	private static final String SUPPRIMER = "supprimer";
@@ -129,7 +129,12 @@ public class Action extends ApplicationSupport {
 		//Creation autoEvaluation et insertion
 		AutoEvaluation autoEvaluation = new AutoEvaluation(Integer.parseInt(identifiantAutoEvaluation),competence, niveauAcquisition, stagiaire, dateAutoEvaluation, getRessenti());
 		
-		facadeSuiviStagiaireRemote.updateAutoEvaluation(autoEvaluation);
+		try {
+			facadeSuiviStagiaireRemote.updateAutoEvaluation(autoEvaluation);
+		} catch (NullException | DateNullException e) {
+			retour = Action.ERROR;
+			e.printStackTrace();
+		}
 		
 		return retour;
 		

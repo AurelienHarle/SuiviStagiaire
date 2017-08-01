@@ -7,17 +7,17 @@ import javax.naming.InitialContext;
 
 import com.google.gson.Gson;
 
-import autoEvaluation.entity.AutoEvaluation;
-import autoEvaluation.technique.AutoEvaluations;
-import competence.technique.Competences;
-import exception.UnfoundException;
-import facade.FacadeSuiviStagiaireRemote;
-import module.entity.Module;
-import module.technique.Modules;
-import niveauAcquisition.technique.NiveauAcquisitions;
-import sequence.entity.Sequence;
-import sequence.technique.Sequences;
-import stagiaire.entity.Stagiaire;
+import fr.suiviStagiaire.exception.UnfoundException;
+import fr.suiviStagiaire.facade.FacadeSuiviStagiaireRemote;
+import fr.suiviStagiaire.formation.autoEvaluation.entity.AutoEvaluation;
+import fr.suiviStagiaire.formation.autoEvaluation.niveauAcquisition.technique.NiveauAcquisitions;
+import fr.suiviStagiaire.formation.autoEvaluation.technique.AutoEvaluations;
+import fr.suiviStagiaire.formation.contenu.competence.technique.Competences;
+import fr.suiviStagiaire.formation.contenu.module.entity.Module;
+import fr.suiviStagiaire.formation.contenu.module.technique.Modules;
+import fr.suiviStagiaire.formation.contenu.sequence.entity.Sequence;
+import fr.suiviStagiaire.formation.contenu.sequence.technique.Sequences;
+import fr.suiviStagiaire.stagiaire.entity.Stagiaire;
 
 /**
  * Classe qui permet de naviguer entre les différentes partie concernant les {@link AutoEvaluation}
@@ -34,7 +34,7 @@ public class Navigation extends ApplicationSupport {
 	private InitialContext context;
 	private FacadeSuiviStagiaireRemote facadeSuiviStagiaireRemote;
 
-	private static final String FACADE = "ejb:/server-SuiviStagiaire/FacadeSuiviStagiaire!facade.FacadeSuiviStagiaireRemote";
+	private static final String FACADE = "ejb:/server-SuiviStagiaire/FacadeSuiviStagiaire!fr.suiviStagiaire.facade.FacadeSuiviStagiaireRemote";
 	private static final String CREATION = "creation";
 	private static final String MODIFICATION = "modification";
 	private static final String SUPPRESSION = "suppression";
@@ -63,7 +63,7 @@ public class Navigation extends ApplicationSupport {
 	private void init() {
 
 		try {
-
+			
 			context = new InitialContext();
 			facadeSuiviStagiaireRemote = (FacadeSuiviStagiaireRemote) context.lookup(FACADE);
 			
@@ -89,12 +89,14 @@ public class Navigation extends ApplicationSupport {
 			competences = facadeSuiviStagiaireRemote.selectCompetences();
 		}catch (Exception e) {
 			retour = Action.ERROR;
+			e.printStackTrace();
 		}
 		
 		try{
 			niveauAcquisitions = facadeSuiviStagiaireRemote.selectNiveauAcquisitions();
 		}catch (Exception e) {
 			retour = Action.ERROR;
+			e.printStackTrace();
 		}
 		
 		return retour;
@@ -125,6 +127,7 @@ public class Navigation extends ApplicationSupport {
 			niveauAcquisitions = facadeSuiviStagiaireRemote.selectNiveauAcquisitions();
 		} catch (Exception e) {
 			retour = Action.ERROR;
+			e.printStackTrace();
 		}
 		
 		if(identifiantAutoEvaluation!=null){
@@ -135,6 +138,7 @@ public class Navigation extends ApplicationSupport {
 				autoEvaluation = facadeSuiviStagiaireRemote.selectAutoEvaluation(autoEvaluation);
 			} catch (Exception e) {
 				retour = Action.ERROR;
+				e.printStackTrace();
 			}
 			
 		}
@@ -147,6 +151,7 @@ public class Navigation extends ApplicationSupport {
 				autoEvaluations = facadeSuiviStagiaireRemote.selectAutoEvaluationsByStagDate(autoEvaluation);
 			} catch (Exception e) {
 				retour = Action.ERROR;
+				e.printStackTrace();
 			}
 			
 		}
@@ -181,6 +186,7 @@ public class Navigation extends ApplicationSupport {
 			autoEvaluations = facadeSuiviStagiaireRemote.selectAutoEvaluationByStag(autoEvaluation);
 		} catch (Exception e) {
 			retour = Action.ERROR;
+			e.printStackTrace();
 		}
 		dateJour = LocalDate.now();
 		return retour;
@@ -201,26 +207,34 @@ public class Navigation extends ApplicationSupport {
 		
 		try {
 			competences = facadeSuiviStagiaireRemote.selectCompetences();
+			
 		} catch (Exception e) {
 			retour = Action.ERROR;
+			e.printStackTrace();
 		}
 		
 		try {
 			sequences = facadeSuiviStagiaireRemote.selectSequences();
+			
 		} catch (Exception e) {
 			retour = Action.ERROR;
+			e.printStackTrace();
 		}
 		
 		try {
 			modules = facadeSuiviStagiaireRemote.selectModules();
+			
 		} catch (Exception e) {
 			retour = Action.ERROR;
+			e.printStackTrace();
 		}
 		
 		try {
 			niveauAcquisitions = facadeSuiviStagiaireRemote.selectNiveauAcquisitions();
+			
 		} catch (Exception e) {
 			retour = Action.ERROR;
+			e.printStackTrace();
 		}
 		
 		return retour;
@@ -251,6 +265,7 @@ public class Navigation extends ApplicationSupport {
 			autoEvaluations = facadeSuiviStagiaireRemote.selectAutoEvaluationByStag(autoEvaluation);
 		} catch (Exception e) {
 			retour = Action.ERROR;
+			e.printStackTrace();
 		}
 		
 		dateJour = LocalDate.now();
@@ -288,7 +303,7 @@ public class Navigation extends ApplicationSupport {
 				} catch (UnfoundException e) {
 	
 					retour = Action.ERROR;
-					
+					e.printStackTrace();
 				}
 				
 			}else{
@@ -304,7 +319,7 @@ public class Navigation extends ApplicationSupport {
 				} catch (UnfoundException e) {
 	
 					retour = Action.ERROR;
-	
+					e.printStackTrace();
 				}
 			}
 

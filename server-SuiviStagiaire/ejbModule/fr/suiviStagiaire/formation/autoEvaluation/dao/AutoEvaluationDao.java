@@ -87,7 +87,6 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 				updateAutoEvaluation(autoEvaluation);
 				
 			}else if(e1 instanceof UnfoundException){
-
 				try{
 					
 					em.persist(autoEvaluation);
@@ -100,7 +99,7 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 						
 						if(e.getCause() != null){
 							Throwable t = e.getCause();
-
+							
 							while (t != null) {
 								
 								if(t instanceof TransactionRequiredException){
@@ -140,9 +139,11 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 						
 					}
 				}
-				
 			}
+			
 		}
+		
+		
 	}
 	
 	/**
@@ -157,33 +158,36 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 		AutoEvaluation autoEvaluation2 = null;
 		
 		try {
-			if(autoEvaluation.getDateAutoEvaluation() != LocalDate.now()) throw new InsertNotUpdateException("updateAutoEvaluation");
+
+			if(!autoEvaluation.getDateAutoEvaluation().isEqual(LocalDate.now())) throw new InsertNotUpdateException("updateAutoEvaluation");
+			
 			autoEvaluation2 = selectAutoEvaluationByStagCompDate(autoEvaluation);
 			autoEvaluation.setIdentifiant(autoEvaluation2.getIdentifiant());
-			
-			try {
 				
-				em.merge(autoEvaluation);
-				em.flush();
-				journaliseurNiveauInfo.log("[UPDATE]  AutoEvaluation : " + autoEvaluation );
-				
-			} catch (Exception e) {
-				
-				e.printStackTrace();
-				journaliseurNiveauError.log("[METHOD] updateAutoEvaluation [Exception]  " +  e.getClass().getName()  +" [Entity] " + autoEvaluation + "  [StackTrace]  " + e.getMessage());
-			
-			}	
 		} catch (Exception e) {
 			if(e instanceof InsertNotUpdateException){
-				
-				
+
 				insertAutoEvaluation(autoEvaluation);
-				
 				
 			}
 			e.printStackTrace();
 			
 		}
+		
+		try {
+
+			em.merge(autoEvaluation);
+			em.flush();
+			journaliseurNiveauInfo.log("[UPDATE]  AutoEvaluation : " + autoEvaluation );
+			
+		} catch (Exception e) {
+			
+			journaliseurNiveauConfig.log("catch merge e = " + e.getClass().getName());
+			e.printStackTrace();
+			journaliseurNiveauError.log("[METHOD] updateAutoEvaluation [Exception]  " +  e.getClass().getName()  +" [Entity] " + autoEvaluation + "  [StackTrace]  " + e.getMessage());
+		
+		}
+		
 	}
 	
 	/**
@@ -298,7 +302,7 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 	}
 	
 	/**
-	 * Service qui permet de select une {@link AutoEvaluation} grâce au paramètre spécifié cela peux être
+	 * Méthode qui permet de select une {@link AutoEvaluation} grâce au paramètre spécifié cela peux être
 	 * la {@link Date} de l' {@link AutoEvaluation},
 	 * la clé primaire du {@link Module},
 	 * la clé primaire de la {@link Sequence},
@@ -316,17 +320,21 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 	 */
 	@SuppressWarnings("rawtypes")
 	@Override
-	public AutoEvaluations selectAutoEvaluationsByMultipleCritere(AutoEvaluation autoEvaluationDater,Module moduleRechercher,Sequence sequenceRechercher,Competence competenceRechercher,AutoEvaluation autoEvaluationNoter){
+	public AutoEvaluations selectAutoEvaluationsByMultipleCritere(
+			AutoEvaluation autoEvaluationDater,Module moduleRechercher,Sequence sequenceRechercher,Competence competenceRechercher,AutoEvaluation autoEvaluationNoter
+			){
 		
 		AutoEvaluations autoEvaluations = new AutoEvaluations();
 		boolean precedentAjouter = false;
 		String sqlString = "select ae from AutoEvaluation ae where ";
 		
+		//Controle des objets non null et construit la requête SQL en rapport
 		if(autoEvaluationDater != null){
 			sqlString = sqlString + "ae.dateAutoEvaluation = to_date('" + autoEvaluationDater.getDateAutoEvaluation() + "','YYYY-MM-DD')";
 			precedentAjouter = true;
 		}
 		
+		//Controle des objets non null et construit la requête SQL en rapport
 		if(moduleRechercher != null){
 			if(precedentAjouter){
 				sqlString = sqlString + " and ";
@@ -335,6 +343,7 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 			precedentAjouter = true;
 		}
 		
+		//Controle des objets non null et construit la requête SQL en rapport
 		if(sequenceRechercher != null){
 			if(precedentAjouter){
 				sqlString = sqlString + " and ";
@@ -343,6 +352,7 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 			precedentAjouter = true;
 		}
 		
+		//Controle des objets non null et construit la requête SQL en rapport
 		if(competenceRechercher != null){
 			if(precedentAjouter){
 				sqlString = sqlString + " and ";
@@ -351,6 +361,7 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 			precedentAjouter = true;
 		}
 		
+		//Controle des objets non null et construit la requête SQL en rapport
 		if(autoEvaluationNoter != null){
 			if(precedentAjouter){
 				sqlString = sqlString + " and ";
@@ -359,10 +370,13 @@ public class AutoEvaluationDao implements AutoEvaluationDaoLocal {
 			precedentAjouter = true;
 		}
 		
+		//Fin de la requête SQL
 		sqlString = sqlString + " order by ae.dateAutoEvaluation desc";
 		
+		//Envoie de la requête et récupération des résultats
 		List list = em.createQuery(sqlString).getResultList();
 		
+		//Place les résultats dans une liste d'auto-évaluation
 		for (Object object : list) {
 			autoEvaluations.add((AutoEvaluation) object);
 		}

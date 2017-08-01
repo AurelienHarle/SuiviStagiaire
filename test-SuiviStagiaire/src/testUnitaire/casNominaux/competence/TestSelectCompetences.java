@@ -9,13 +9,13 @@ import javax.naming.NamingException;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import competence.entity.Competence;
-import competence.technique.Competences;
-import exception.DoublonException;
-import exception.NullException;
-import facade.FacadeSuiviStagiaireRemote;
-import module.entity.Module;
-import sequence.entity.Sequence;
+import fr.suiviStagiaire.exception.DoublonException;
+import fr.suiviStagiaire.exception.NullException;
+import fr.suiviStagiaire.facade.FacadeSuiviStagiaireRemote;
+import fr.suiviStagiaire.formation.contenu.competence.entity.Competence;
+import fr.suiviStagiaire.formation.contenu.competence.technique.Competences;
+import fr.suiviStagiaire.formation.contenu.module.entity.Module;
+import fr.suiviStagiaire.formation.contenu.sequence.entity.Sequence;
 
 public class TestSelectCompetences {
 
